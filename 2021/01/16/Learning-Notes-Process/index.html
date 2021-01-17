@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Learning Notes-Process - Chen</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Chen"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Chen"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta description="IntroductionDefinition A process is a running instance of a program.   A program is passive and “sits” on a disk  A process has control structures associated with it, may be active, and may have resou"><meta property="og:type" content="blog"><meta property="og:title" content="Learning Notes-Process"><meta property="og:url" content="https://delusion4013.github.io/2021/01/16/Learning-Notes-Process/"><meta property="og:site_name" content="Chen"><meta property="og:description" content="IntroductionDefinition A process is a running instance of a program.   A program is passive and “sits” on a disk  A process has control structures associated with it, may be active, and may have resou"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://delusion4013.github.io/2021/01/16/Learning-Notes-Process/img/Learning-Notes-Process/image-20201018124233267-1610761090692.png"><meta property="og:image" content="https://delusion4013.github.io/2021/01/16/Learning-Notes-Process/img/Learning-Notes-Process/image-20201018124329624-1610761092433.png"><meta property="og:image" content="https://delusion4013.github.io/2021/01/16/Learning-Notes-Process/img/Learning-Notes-Process/image-20201018144325749-1610761094816.png"><meta property="og:image" content="https://delusion4013.github.io/2021/01/16/Learning-Notes-Process/img/Learning-Notes-Process/image-20201018180414845-1610761097347.png"><meta property="og:image" content="https://delusion4013.github.io/2021/01/16/Learning-Notes-Process/img/Learning-Notes-Process/image-20201018180343848-1610761098595.png"><meta property="og:image" content="https://delusion4013.github.io/2021/01/16/Learning-Notes-Process/img/Learning-Notes-Process/image-20201018181439200-1610761148735.png"><meta property="article:published_time" content="2021-01-16T01:34:29.000Z"><meta property="article:modified_time" content="2021-01-16T01:39:15.682Z"><meta property="article:author" content="Delusion4013"><meta property="article:tag" content="OS"><meta property="twitter:card" content="summary"><meta property="twitter:image" content="img/Learning-Notes-Process/image-20201018124233267-1610761090692.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://delusion4013.github.io/2021/01/16/Learning-Notes-Process/"},"headline":"Chen","image":["https://delusion4013.github.io/2021/01/16/Learning-Notes-Process/img/Learning-Notes-Process/image-20201018124233267-1610761090692.png","https://delusion4013.github.io/2021/01/16/Learning-Notes-Process/img/Learning-Notes-Process/image-20201018124329624-1610761092433.png","https://delusion4013.github.io/2021/01/16/Learning-Notes-Process/img/Learning-Notes-Process/image-20201018144325749-1610761094816.png","https://delusion4013.github.io/2021/01/16/Learning-Notes-Process/img/Learning-Notes-Process/image-20201018180414845-1610761097347.png","https://delusion4013.github.io/2021/01/16/Learning-Notes-Process/img/Learning-Notes-Process/image-20201018180343848-1610761098595.png","https://delusion4013.github.io/2021/01/16/Learning-Notes-Process/img/Learning-Notes-Process/image-20201018181439200-1610761148735.png"],"datePublished":"2021-01-16T01:34:29.000Z","dateModified":"2021-01-16T01:39:15.682Z","author":{"@type":"Person","name":"Delusion4013"},"description":"IntroductionDefinition A process is a running instance of a program.   A program is passive and “sits” on a disk  A process has control structures associated with it, may be active, and may have resou"}</script><link rel="canonical" href="https://delusion4013.github.io/2021/01/16/Learning-Notes-Process/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css"><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script><meta name="generator" content="Hexo 5.2.0"></head><body class="is-3-column"><nav class="navbar navbar-main"><div class="container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Chen" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/about">About</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-6-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2021-01-16T01:34:29.000Z" title="2021-01-16T01:34:29.000Z">2021-01-16</time></span><span class="level-item">Updated&nbsp;<time dateTime="2021-01-16T01:39:15.682Z" title="2021-01-16T01:39:15.682Z">2021-01-16</time></span><span class="level-item">6 minutes read (About 834 words)</span></div></div><h1 class="title is-3 is-size-4-mobile">Learning Notes-Process</h1><div class="content"><h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><h3 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h3><blockquote>
+<p>A process is a running instance of a program.</p>
+</blockquote>
+<ul>
+<li><p>A program is <strong>passive</strong> and “sits” on a disk</p>
+</li>
+<li><p>A process has <strong>control structures</strong> associated with it, may be active, and may have <strong>resources</strong> assigned to it (e.g. I/O devices, memory, processor)</p>
+</li>
+<li><p>Control Structures:</p>
+<ul>
+<li>A process is registered with the OS using its “control structures”: i.e. an entry in the OS’s process table to a process control blocks (PCB)</li>
+<li>The <code>process control block</code> contains all information necessary to <strong>administer the process</strong> and is essential for <strong>context switching</strong> in multi-programmed systems</li>
+</ul>
+</li>
+<li><p>Memory:</p>
+<ul>
+<li><p>A process’ memory image contains:</p>
+<ul>
+<li>The program code (could be shared between multiple processes running the same code)</li>
+<li>A data segment, stack and heap</li>
+</ul>
+</li>
+<li><p>Every process has its own <strong>logical address space</strong>, in which the stack and heap are placed at opposite sides to allow them grow</p>
+<img src="img/Learning-Notes-Process/image-20201018124233267-1610761090692.png" alt="image-20201018124233267" style="zoom:33%;" />
+</li>
+<li><p>Some OS’ use <strong>address space layout randomisation</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="The-Process’-Life-Cycle"><a href="#The-Process’-Life-Cycle" class="headerlink" title="The Process’ Life Cycle"></a>The Process’ Life Cycle</h2><img src="img/Learning-Notes-Process/image-20201018124329624-1610761092433.png" alt="image-20201018124329624" style="zoom:67%;" />
+
+<h3 id="States"><a href="#States" class="headerlink" title="States"></a>States</h3><ul>
+<li>A <code>new</code> process has just been created (has a PCB) and is waiting to be admitted (it may not yet be in memory)</li>
+<li>A <code>ready</code> process is waiting for the CPU to become available (e.g. unblocked or timer interrupt)</li>
+<li>A <code>running</code> process “owns” the CPU resources</li>
+<li>A <code>blocked</code> process cannot continue, e.g. is waiting for I/O</li>
+<li>A <code>terminated</code> process is no longer executable (the data structures - PCB - may be temporarily preserved)</li>
+<li>A <code>suspended</code> process is swapped out (not discussed further)</li>
+</ul>
+<h3 id="Transition"><a href="#Transition" class="headerlink" title="Transition"></a>Transition</h3><ul>
+<li><p>State transitions include:</p>
+<ol>
+<li>New → ready: admit the process and commit to execution</li>
+<li>Running → blocked: e.g. process is waiting for input or carried out a system call</li>
+<li>Ready → running: the process is selected by the <strong>process scheduler</strong></li>
+<li>Blocked → ready: event happens, e.g. I/O operation has finished</li>
+<li>Running → ready: the process is preempted, e.g., by a timer interrupt or by pause</li>
+<li>Running → exit: process has finished, e.g. program ended or exception encountered</li>
+</ol>
+</li>
+<li><p>The <strong>interrupts/traps/system calls</strong> lie on the basis of the transitions</p>
+</li>
+</ul>
+<blockquote>
+<p>Exam 2013-2014: List the 5 process states and explain the transitions between them.</p>
+</blockquote>
+<img src="img/Learning-Notes-Process/image-20201018144325749-1610761094816.png" alt="image-20201018144325749" style="zoom: 33%;" />
+
+<h2 id="OS-Implementation-of-Processes"><a href="#OS-Implementation-of-Processes" class="headerlink" title="OS Implementation of Processes"></a>OS Implementation of Processes</h2><h3 id="Context-Switching"><a href="#Context-Switching" class="headerlink" title="Context Switching"></a>Context Switching</h3><ul>
+<li><p>Modern computers are multi-programming systems</p>
+</li>
+<li><p>Assuming a <code>single processor system</code>, the instructions of individual processes are executed sequentially</p>
+<ul>
+<li>Multi-programming goes back to the <code>MULTICS</code> age - (Multiplexed Information and Computing Service)</li>
+<li>Multi-programming is achieved by <strong>alternating</strong> processes and <strong>context switching</strong></li>
+<li><strong>True parallelism</strong> requires multiple processors</li>
+</ul>
+</li>
+<li><p>When a <strong>context switch</strong> takes place, the system saves the state of the old process and <strong>loads the state</strong> of the new process (creates <code>overhead</code>)</p>
+<ul>
+<li><strong>Saved</strong> $\Rightarrow$ the process control block is <strong>updated</strong></li>
+<li><strong>(Re-)started</strong> $\Rightarrow$ the process control block <strong>read</strong></li>
+</ul>
+</li>
+<li><p>A <strong>trade-off</strong> between the length of the <strong>time-slice</strong> and the <strong>context switch time</strong></p>
+<ul>
+<li><p>Short time slices result in <strong>good response times</strong> but <strong>low effective “utilisation”</strong></p>
+<p><img src="img/Learning-Notes-Process/image-20201018180414845-1610761097347.png" alt="image-20201018180414845"></p>
+</li>
+<li><p>Long time slices result in <strong>poor response time</strong> but <strong>better effective “utilisation”</strong></p>
+<p><img src="img/Learning-Notes-Process/image-20201018180343848-1610761098595.png" alt="image-20201018180343848"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Switching-processes"><a href="#Switching-processes" class="headerlink" title="Switching processes"></a>Switching processes</h4><ol>
+<li>Save process state (program counter, registers)</li>
+<li>Update PCB (running → ready/blocked)</li>
+<li>Move PCB to appropriate queue (ready/blocked)</li>
+<li>Run scheduler, select new process</li>
+<li>Update to running state in the new PCB</li>
+<li>Update memory management unit (MMU)</li>
+<li>Restore process</li>
+</ol>
+<h4 id="Process-control-blocks"><a href="#Process-control-blocks" class="headerlink" title="Process control blocks"></a>Process control blocks</h4><ul>
+<li>A <code>process control block</code> contains three types of <strong>attributes:</strong><ul>
+<li><strong>Process identification</strong> (PID, UID, Parent PID)</li>
+<li><strong>Process control information</strong> (process state, scheduling information, etc.)</li>
+<li><strong>Process state information</strong> (user registers, program counter, stack pointer, program status word, memory management information, files, etc.)</li>
+</ul>
+</li>
+<li><code>process control block</code> are kernel data structures, i.e. they are <strong>protected</strong> and only accessible in <strong>kernel mode</strong><ul>
+<li>Allowing user applications to access them directly could <strong>compromise the integrity</strong></li>
+<li>The <strong>operating system manages</strong> them on the user’s behalf through <strong>system calls</strong> (e.g. to set <strong>process priority</strong>)</li>
+</ul>
+</li>
+</ul>
+<h2 id="Process-Implementation"><a href="#Process-Implementation" class="headerlink" title="Process Implementation"></a>Process Implementation</h2><h3 id="Tables-amp-Control-blocks"><a href="#Tables-amp-Control-blocks" class="headerlink" title="Tables &amp; Control blocks"></a>Tables &amp; Control blocks</h3><img src="img/Learning-Notes-Process/image-20201018181439200-1610761148735.png" alt="image-20201018181439200" style="zoom:50%;" />
+
+<ul>
+<li>An operating system maintains information about the status of “resources” in tables<ul>
+<li><strong>Process tables</strong> (process control blocks)</li>
+<li><strong>Memory tables</strong> (memory allocation, memory protection, virtual memory)</li>
+<li><strong>I/O tables</strong> (availability, status, transfer information)</li>
+<li><strong>File tables</strong> (location, status)</li>
+</ul>
+</li>
+<li>The <strong>process table</strong> holds a <strong>process control block</strong> for each process, allocated upon <strong>process creation</strong></li>
+<li>Tables are maintained by the <strong>kernel</strong> and are usually <strong>cross referenced</strong></li>
+</ul>
+<h3 id="System-calls"><a href="#System-calls" class="headerlink" title="System calls"></a>System calls</h3><ul>
+<li>The true system calls are “<strong>wrapped</strong>” in the <strong>OS libraries</strong> (e.g. libc) following a well defined interface (e.g. POSIX, WIN32 API)</li>
+<li>System calls for <strong>process creation</strong>:<ul>
+<li>Unix: <code>fork()</code> generates and exact copy of parent $\Rightarrow$ <code>exec()</code></li>
+<li>Windows: <code>NTCreateProcess()</code></li>
+<li>Linux: <code>Clone()</code></li>
+</ul>
+</li>
+<li>System calls are necessary to <strong>notify the OS</strong> that the <strong>process has terminated</strong><ul>
+<li>Resources must be de-allocated</li>
+<li>Output must be flushed</li>
+<li>Process admin may have to be carried out</li>
+</ul>
+</li>
+<li>A system calls for process termination:<ul>
+<li>UNIX/Linux: <code>exit()</code> <code>kill()</code></li>
+<li>Windows: <code>TerminateProcess()</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="Fork"><a href="#Fork" class="headerlink" title="Fork"></a>Fork</h3><ul>
+<li><code>fork()</code> creates an <strong>exact copy</strong> of the current process<ul>
+<li>The first instruction carried out by the child is the first one after the <code>fork()</code> call</li>
+</ul>
+</li>
+<li><code>fork()</code> returns the <strong>process identifier</strong> of the child process <strong>to the parent process</strong> (iPID &gt; 0)</li>
+<li><code>fork()</code>  <strong>returns 0</strong> to the <strong>child process</strong> (iPID = 0)</li>
+</ul>
+</div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/OS/">OS</a></div><div class="notification is-danger">You need to set <code>install_url</code> to use ShareThis. Please set it in <code>_config.yml</code>.</div></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2021/01/09/Java-OOP/"><span class="level-item">Java OOP</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">Comments</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://delusion4013.github.io/2021/01/16/Learning-Notes-Process/';
+            this.page.identifier = '2021/01/16/Learning-Notes-Process/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'CK' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-3-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.png" alt="Delusion4013"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Delusion4013</p><p class="is-size-6 is-block">Student</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Nottingham, UK</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">0</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">2</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/Delusion4013" target="_blank" rel="noopener">Follow</a></div><div class="level is-mobile"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Delusion4013"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Facebook" href="https://facebook.com"><i class="fab fa-facebook"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Twitter" href="https://twitter.com"><i class="fab fa-twitter"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Dribbble" href="https://dribbble.com"><i class="fab fa-dribbble"></i></a></div></div></div><div class="card widget" data-type="links"><div class="card-content"><div class="menu"><h3 class="menu-label">Links</h3><ul class="menu-list"><li><a class="level is-mobile" href="https://hexo.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Hexo</span></span><span class="level-right"><span class="level-item tag">hexo.io</span></span></a></li><li><a class="level is-mobile" href="https://bulma.io" target="_blank" rel="noopener"><span class="level-left"><span class="level-item">Bulma</span></span><span class="level-right"><span class="level-item tag">bulma.io</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">Recents</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-16T01:34:29.000Z">2021-01-16</time></p><p class="title"><a href="/2021/01/16/Learning-Notes-Process/">Learning Notes-Process</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-09T14:18:18.000Z">2021-01-09</time></p><p class="title"><a href="/2021/01/09/Java-OOP/">Java OOP</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2021-01-09T11:14:48.000Z">2021-01-09</time></p><p class="title"><a href="/2021/01/09/Java-Basics/">Java Basics</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-07-04T14:53:01.000Z">2020-07-04</time></p><p class="title"><a href="/2020/07/04/my-first-blog/">my first blog</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2020-07-04T07:47:48.947Z">2020-07-04</time></p><p class="title"><a href="/2020/07/04/hello-world/">Hello World</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">Archives</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2021/01/"><span class="level-start"><span class="level-item">January 2021</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/07/"><span class="level-start"><span class="level-item">July 2020</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget" data-type="tags"><div class="card-content"><div class="menu"><h3 class="menu-label">Tags</h3><div class="field is-grouped is-grouped-multiline"><div class="control"><a class="tags has-addons" href="/tags/Java/"><span class="tag">Java</span><span class="tag">2</span></a></div><div class="control"><a class="tags has-addons" href="/tags/OS/"><span class="tag">OS</span><span class="tag">1</span></a></div></div></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">Subscribe for updates</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="Subscribe"></div></div></form></div></div></div><div class="column-right-shadow is-hidden-widescreen is-sticky"></div></div><div class="column column-right is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only order-3 is-sticky"><!--!--></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Chen" height="28"></a><p class="is-size-7"><span>&copy; 2021 Delusion4013</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" async></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>
