@@ -10262,6 +10262,9 @@ body {
 body > .section {
   flex-grow: 1;
 }
+iframe[sandbox*="allow"] {
+  display: none !important;
+}
 @media screen and (min-width: 1088px) {
   ::-webkit-scrollbar {
     width: 8px;
