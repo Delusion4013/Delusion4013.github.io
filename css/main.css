@@ -776,7 +776,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 body a {
-  color: var(--link-hover-color);
+  color: var(--text-color);
   text-decoration: none;
   cursor: pointer;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
