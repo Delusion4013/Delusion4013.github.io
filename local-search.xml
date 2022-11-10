@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Literature Note - Transformer</title>
+    <link href="/2022/11/10/Literature-Note-Transformer/"/>
+    <url>/2022/11/10/Literature-Note-Transformer/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote><center><b>Important Links</b></center>- [Paper link](http://arxiv.org/abs/1706.03762)- [Code link](https://github.com/tensorflow/tensor2tensor)</blockquote><blockquote><p>[!important] Acknowledgements<br>Special thanks to Mu LI, who provides a wonderful review <a href="https://www.bilibili.com/video/BV1pu411o7BE/">video</a> on this article.</p></blockquote><h2 id="0-Abstract"><a href="#0-Abstract" class="headerlink" title="0. Abstract"></a>0. Abstract</h2><ul><li>Paper proposes a new simple network architecture, the Transformer, based solely on attention mechanisms</li><li>State-of-the-art result on <em>machine translation tasks</em></li><li>Advantages of transformer architecture<ul><li>More parallelizable &amp; require significantly less training time</li><li>Generalize well to other tasks - see BERT, GPT</li></ul></li></ul><blockquote><center><b>Writing tips</b></center><p>When stating equal contribution using <code>*</code>, it’s good practice to list briefly about each member’s work done.</p></blockquote><h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><blockquote><p>Basically an extension to abstract</p></blockquote><ul><li><p>[[Recurrent neural network]]s &#x2F;models’</p><ul><li><p><strong>Principle</strong><br>  Generate a sequence of hidden states $h_t$, as a function of the previous hidden state $h_{t−1}$ and the input for position $t$.</p><p>  <img src="https://s2.loli.net/2022/11/10/XVjrOJAGFc32o7N.png" alt="RNN-calculation-example.png"></p></li><li><p><strong>Drawbacks</strong></p><ul><li>Parallelization preclusion by calculation method</li><li>High memory requirements for preserving historical information. &#x2F; Possibility in forgetting early information after step by step passing.</li></ul></li></ul></li><li><p>Attention Mechanism</p><ul><li>An integral part of sequence &amp; transduction models.</li><li>Allow the model to capture dependencies between in&#x2F;out sequence regardless of their distance.</li><li>&#x3D;&#x3D;Most of them used in conjunction with a recurrent network&#x3D;&#x3D;</li></ul></li><li><p>Transformer’s innovation</p><ul><li>“eschewing recurrence and instead relying entirely on an attention mechanism”</li></ul></li></ul><h2 id="2-Background"><a href="#2-Background" class="headerlink" title="2. Background"></a>2. Background</h2><ul><li>Introduces previous attempts to reduce sequential computation - using CNN (convolutional neural networks)<ul><li>“difficult to learn dependencies between distant positions”, between long sequences</li><li>Why Multi-Head Attention (instead of single head)?<ul><li>Attention mechanism eschewed convolution mechanism, losing the opportunity to model different patterns.</li><li>Using Multi-Head Attention mechanism is to &#x3D;&#x3D;simulate the multi-channel output of CNN.&#x3D;&#x3D;</li></ul></li></ul></li><li>Previous success on self-attention</li><li>End-to-end memory networks’ scope and performance</li><li>Innovation point about Transformer.</li></ul><h2 id="3-Model-Architecture"><a href="#3-Model-Architecture" class="headerlink" title="3. Model Architecture"></a>3. Model Architecture</h2><p><img src="https://s2.loli.net/2022/11/10/sOyKQacRzZrIPqn.png" alt="Transformer-Architecture-from-Paper.png"></p><h1 id="x3D-x3D-Working-x3D-x3D"><a href="#x3D-x3D-Working-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;Working&#x3D;&#x3D;"></a>&#x3D;&#x3D;Working&#x3D;&#x3D;</h1>]]></content>
+    
+    
+    <categories>
+      
+      <category>Computer Science</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Blog/AI</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>A brief history of NLP</title>
     <link href="/2022/11/08/A-brief-history-of-NLP/"/>
     <url>/2022/11/08/A-brief-history-of-NLP/</url>

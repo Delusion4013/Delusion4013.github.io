@@ -16,24 +16,27 @@
   <meta name="author" content="Chenkai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="In this piece of note, I will give an overview of NLP’s development history, focusing on how recent neural approaches revolutionise the NLP field.">
+    <meta name="description" content="Important Links - [Paper link](http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;1706.03762) - [Code link](https:&#x2F;&#x2F;github.com&#x2F;tensorflow&#x2F;tensor2tensor)   [!important] AcknowledgementsSpecial thanks to Mu LI, who provides a wonde">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A brief history of NLP">
-<meta property="og:url" content="https://delusion4013.github.io/2022/11/08/A-brief-history-of-NLP/index.html">
+<meta property="og:title" content="Literature Note - Transformer">
+<meta property="og:url" content="https://delusion4013.github.io/2022/11/10/Literature-Note-Transformer/index.html">
 <meta property="og:site_name" content="Chenkai&#39;s Blog">
-<meta property="og:description" content="In this piece of note, I will give an overview of NLP’s development history, focusing on how recent neural approaches revolutionise the NLP field.">
+<meta property="og:description" content="Important Links - [Paper link](http:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;1706.03762) - [Code link](https:&#x2F;&#x2F;github.com&#x2F;tensorflow&#x2F;tensor2tensor)   [!important] AcknowledgementsSpecial thanks to Mu LI, who provides a wonde">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-11-08T03:15:40.000Z">
-<meta property="article:modified_time" content="2022-11-08T03:24:19.174Z">
+<meta property="og:image" content="https://s2.loli.net/2022/11/10/XVjrOJAGFc32o7N.png">
+<meta property="og:image" content="https://s2.loli.net/2022/11/10/sOyKQacRzZrIPqn.png">
+<meta property="article:published_time" content="2022-11-10T03:03:40.000Z">
+<meta property="article:modified_time" content="2022-11-10T03:47:19.706Z">
 <meta property="article:author" content="Chenkai">
-<meta property="article:tag" content="Artificial Inteliigence">
+<meta property="article:tag" content="Blog&#x2F;AI">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2022/11/10/XVjrOJAGFc32o7N.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>A brief history of NLP - Chenkai&#39;s Blog</title>
+  <title>Literature Note - Transformer - Chenkai&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -198,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="A brief history of NLP"></span>
+            <span id="subtitle" data-typed-text="Literature Note - Transformer"></span>
           
         </div>
 
@@ -209,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-08 11:15" pubdate>
-          November 8, 2022 am
+        <time datetime="2022-11-10 11:03" pubdate>
+          November 10, 2022 am
         </time>
       </span>
     
@@ -221,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.8k words
+          1.9k words
         
       </span>
     
@@ -232,7 +235,7 @@
         
         
         
-          5 mins
+          2 mins
         
       </span>
     
@@ -278,38 +281,79 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">A brief history of NLP</h1>
+            <h1 style="display: none">Literature Note - Transformer</h1>
             
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this piece of note, I will give an overview of NLP’s development history, focusing on how recent neural approaches revolutionise the NLP field.</p>
-<span id="more"></span>
-
-<p>Natural language processing could be roughly devided into 3 stages based on the domainance methods used. <sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
-<ul>
-<li>Symbolic NLP</li>
-<li>Statitical NLP</li>
-<li>Neural NLP</li>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<center><b>Important Links</b></center>
+- [Paper link](http://arxiv.org/abs/1706.03762)
+- [Code link](https://github.com/tensorflow/tensor2tensor)
+</blockquote>
+<blockquote>
+<p>[!important] Acknowledgements<br>Special thanks to Mu LI, who provides a wonderful review <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1pu411o7BE/">video</a> on this article.</p>
+</blockquote>
+<h2 id="0-Abstract"><a href="#0-Abstract" class="headerlink" title="0. Abstract"></a>0. Abstract</h2><ul>
+<li>Paper proposes a new simple network architecture, the Transformer, based solely on attention mechanisms</li>
+<li>State-of-the-art result on <em>machine translation tasks</em></li>
+<li>Advantages of transformer architecture<ul>
+<li>More parallelizable &amp; require significantly less training time</li>
+<li>Generalize well to other tasks - see BERT, GPT</li>
 </ul>
-<h3 id="Symbolic-NLP-1950s-early-1990s"><a href="#Symbolic-NLP-1950s-early-1990s" class="headerlink" title="Symbolic NLP (1950s - early 1990s)"></a>Symbolic NLP (1950s - early 1990s)</h3><p>Research related to natural language processing originated roughly in the 1950s. In the following 40 years, limited by the size of the <strong>corpus</strong> and the <strong>computing power</strong>, early natural language processing mainly used <strong>rule-based methods</strong> to deal with generic natural language phenomena through symbolic logic knowledge summarized by experts. Such rule systems are difficult to be applied to solve real-world problems due to the complexity of natural language.</p>
-<h3 id="Statistical-NLP-1990s-2010s"><a href="#Statistical-NLP-1990s-2010s" class="headerlink" title="Statistical NLP (1990s - 2010s)"></a>Statistical NLP (1990s - 2010s)</h3><p>The rapid <strong>advances in computational power and storage capacity</strong>, as well as the increasing maturity of statistical learning approaches, have led to the large-scale application of corpus-based statistical learning methods in the field of natural language processing. </p>
-<p>The advantages of this method includes fast training speed, little requirement for labelled data and has good performance over simple problems. </p>
-<p>Meanwhile, there are obvious limitations to this method. Statistical approach requires transformation of the raw natural language input into a vector form that can be processed by the machine based on empirical rules. This expertise-dependent, manual process of transformation is known as feature engineering (feature extraction), which is time-consuming and not compatible for different tasks.</p>
-<h3 id="Neural-NLP-present"><a href="#Neural-NLP-present" class="headerlink" title="Neural NLP (present)"></a>Neural NLP (present)</h3><p>To cope with the disadvantages of feature engineering, representation learning and deep neural network-style machine leanring methods became widely applied in NLP field, proposing an end-to-end solution. Representation learning allows the machine to automatiacally recognise patterns from input which can be used for tasks like classifcation.</p>
-<p>In 2013, Tomas Mikolov proposed <strong>word2vec</strong> method<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>, using a shallow neural network with large scale corpus, which uses contextual connection of each word to embed the semantics of the tokens into a dense vector. This output of such method is called <strong>Word Embedding</strong>.</p>
-<p>This kinds of encoding methods avoid the usage of elaborate feature engineering, and it also breaks down the barriers between different tasks, as representation learning transformes input into a similar and easily tranferrable vector space. </p>
+</li>
+</ul>
 <blockquote>
-<p>This trend of Representation Learning has spread to knowledge graphs (using Graph Embedding techniques) and recommender systems (using user&#x2F;item Embedding techniques).</p>
+<center><b>Writing tips</b></center>
+
+<p>When stating equal contribution using <code>*</code>, it’s good practice to list briefly about each member’s work done.</p>
 </blockquote>
-<p>Shortly after, the drawback of word2vec was discovered - the same word has different meanings in different contexts, but the word vector given by this encoding is unique and static. Accordingly, the model <strong>ELMo</strong> that introduces contextual Word Embedding was born.</p>
-<p>In 2017, the Transformer model was released<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>. Compared to ELMo-like models, the biggest breakthrough of Transformer is that it does not use LSTM, but instead uses an <strong>attention mechanism</strong>. This mechanism is a function that maps a query and a set of key-value pairs to an output. The values output by the attention mechanism are weighted sums, where the weight of each value is calculated by the function of the query and the corresponding key of the value.</p>
-<blockquote>
-<p>Some NLP researchers believe that the attention mechanism used by transformer is a better alternative to LSTM. They believe that the attention mechanism handles long-range dependencies better than LSTM and has a very promising application. transformer uses an encoder-decoder structure in its architecture. The encoder and decoder are highly similar in structure, but not in function. The encoder consists of N identical encoder layers. A decoder consists of N identical decoder layers. Both encoder and decoder layers use the attention mechanism as a core component.</p>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><blockquote>
+<p>Basically an extension to abstract</p>
 </blockquote>
-<p>The great success of Transformer in the field of machine translation has attracted the interest of many NLP scientists. As deep learning algorithms evolves, their disadvantages begin to emerge - algorithm requires massive labelled data. As the subjective natrue of congnitive task of NLP, and the large number of tasks and domains it deals with, it is time-consuming and labor-intensive for acquiring high quality annotated corpora. The large scale pre-trained langauge model precisely compensate for this shortage, helping NLP to achieve a series of breakthroughs. On this regard, two famous models were born: Bidirectional Encoder Representations from Transformers (BERT)<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup> and Generative Pre-Traing of language model (GPT)<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>.</p>
-<p>GPT consists entirely of the decoder layer of the transformer, while BERT consists entirely of the encoder layer of the transformer. The goal of GPT is to generate human-like text, the goal of BERT, on the other hand, is to provide better language representations that help achieve better results for a wide range of downstream tasks. The BERT model reaches an advanced level on a variety of NLP tasks and have greatly improved STOA on many tasks. Now BERT has derived a large family of models, among which the famous ones are XL-Net, RoBERTa, ALBERT<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>, ELECTRA, ERNIE, BERT-wwm, DistillBERT, etc.</p>
-<div id="footnotes"><hr><div id="footnotelist"><ol><li id="fn:1"><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Natural_language_processing#History">Natural language processing#History - Wikipedia</a><a href="#fnref:1" rev="footnote"> ↩</a></li><li id="fn:2"><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Word2vec">Word2vec - Wikipedia</a><a href="#fnref:2" rev="footnote"> ↩</a></li><li id="fn:3"><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">「1706.03762」 Attention Is All You Need (arxiv.org)</a><a href="#fnref:3" rev="footnote"> ↩</a></li><li id="fn:4"><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1810.04805">「1810.04805」 BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding (arxiv.org)</a><a href="#fnref:4" rev="footnote"> ↩</a></li><li id="fn:5"><a target="_blank" rel="noopener" href="https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf">Improving Language Understanding by Generative Pre-Training</a><a href="#fnref:5" rev="footnote"> ↩</a></li><li id="fn:6"><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1909.11942">「1909.11942」 ALBERT: A Lite BERT for Self-supervised Learning of Language Representations (arxiv.org)</a><a href="#fnref:6" rev="footnote"> ↩</a></li></ol></div></div>
+<ul>
+<li><p>[[Recurrent neural network]]s &#x2F;models’</p>
+<ul>
+<li><p><strong>Principle</strong><br>  Generate a sequence of hidden states $h_t$, as a function of the previous hidden state $h_{t−1}$ and the input for position $t$.</p>
+<p>  <img src="https://s2.loli.net/2022/11/10/XVjrOJAGFc32o7N.png" srcset="/img/loading.gif" lazyload alt="RNN-calculation-example.png"></p>
+</li>
+<li><p><strong>Drawbacks</strong></p>
+<ul>
+<li>Parallelization preclusion by calculation method</li>
+<li>High memory requirements for preserving historical information. &#x2F; Possibility in forgetting early information after step by step passing.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Attention Mechanism</p>
+<ul>
+<li>An integral part of sequence &amp; transduction models.</li>
+<li>Allow the model to capture dependencies between in&#x2F;out sequence regardless of their distance.</li>
+<li>&#x3D;&#x3D;Most of them used in conjunction with a recurrent network&#x3D;&#x3D;</li>
+</ul>
+</li>
+<li><p>Transformer’s innovation</p>
+<ul>
+<li>“eschewing recurrence and instead relying entirely on an attention mechanism”</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-Background"><a href="#2-Background" class="headerlink" title="2. Background"></a>2. Background</h2><ul>
+<li>Introduces previous attempts to reduce sequential computation - using CNN (convolutional neural networks)<ul>
+<li>“difficult to learn dependencies between distant positions”, between long sequences</li>
+<li>Why Multi-Head Attention (instead of single head)?<ul>
+<li>Attention mechanism eschewed convolution mechanism, losing the opportunity to model different patterns.</li>
+<li>Using Multi-Head Attention mechanism is to &#x3D;&#x3D;simulate the multi-channel output of CNN.&#x3D;&#x3D;</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Previous success on self-attention</li>
+<li>End-to-end memory networks’ scope and performance</li>
+<li>Innovation point about Transformer.</li>
+</ul>
+<h2 id="3-Model-Architecture"><a href="#3-Model-Architecture" class="headerlink" title="3. Model Architecture"></a>3. Model Architecture</h2><p><img src="https://s2.loli.net/2022/11/10/sOyKQacRzZrIPqn.png" srcset="/img/loading.gif" lazyload alt="Transformer-Architecture-from-Paper.png"></p>
+<h1 id="x3D-x3D-Working-x3D-x3D"><a href="#x3D-x3D-Working-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;Working&#x3D;&#x3D;"></a>&#x3D;&#x3D;Working&#x3D;&#x3D;</h1>
                 
               </div>
             
@@ -342,7 +386,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Artificial-Inteliigence/">#Artificial Inteliigence</a>
+        <a href="/tags/Blog-AI/">#Blog/AI</a>
       
     </div>
   
@@ -354,8 +398,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>A brief history of NLP</div>
-      <div>https://delusion4013.github.io/2022/11/08/A-brief-history-of-NLP/</div>
+      <div>Literature Note - Transformer</div>
+      <div>https://delusion4013.github.io/2022/11/10/Literature-Note-Transformer/</div>
     </div>
     <div class="license-meta">
       
@@ -367,7 +411,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>November 8, 2022</div>
+          <div>November 10, 2022</div>
         </div>
       
       
@@ -399,18 +443,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/10/Literature-Note-Transformer/" title="Literature Note - Transformer">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Literature Note - Transformer</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/09/15/Literature%20Note%20-%20BERT/" title="Literature Note - BERT">
-                        <span class="hidden-mobile">Literature Note - BERT</span>
+                      <a href="/2022/11/08/A-brief-history-of-NLP/" title="A brief history of NLP">
+                        <span class="hidden-mobile">A brief history of NLP</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -428,8 +466,8 @@
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'https://delusion4013.github.io/2022/11/08/A-brief-history-of-NLP/';
-          this.page.identifier = '/2022/11/08/A-brief-history-of-NLP/';
+          this.page.url = 'https://delusion4013.github.io/2022/11/10/Literature-Note-Transformer/';
+          this.page.identifier = '/2022/11/10/Literature-Note-Transformer/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
