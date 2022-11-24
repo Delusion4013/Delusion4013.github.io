@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.6k words
+          3.7k words
         
       </span>
     
@@ -290,69 +290,100 @@
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this piece of note, I will give an overview of Crypotography, introduce basic principles and algorithms for symmetric cryptography, assymetric cryptography and Protocols.</p>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this piece of note, I will give an overview of Crypotography,
+introduce basic principles and algorithms for symmetric cryptography,
+assymetric cryptography and Protocols.</p>
 <span id="more"></span>
-
-<h1 id="Structure-of-Cryptography"><a href="#Structure-of-Cryptography" class="headerlink" title="Structure of Cryptography"></a>Structure of Cryptography</h1><p><img src="https://s2.loli.net/2022/02/18/SMT17RiAEoOHYmv.png" srcset="/img/loading.gif" lazyload alt="Structure of Cryptography"></p>
-<h2 id="Symmetric-Cryptography"><a href="#Symmetric-Cryptography" class="headerlink" title="Symmetric Cryptography"></a>Symmetric Cryptography</h2><blockquote>
+<h1 id="structure-of-cryptography">Structure of Cryptography</h1>
+<figure>
+<img src="https://s2.loli.net/2022/02/18/SMT17RiAEoOHYmv.png" srcset="/img/loading.gif" lazyload
+alt="Structure of Cryptography" />
+<figcaption aria-hidden="true">Structure of Cryptography</figcaption>
+</figure>
+<h2 id="symmetric-cryptography">Symmetric Cryptography</h2>
+<blockquote>
 <p><strong>Same key</strong> for encryption and decryption</p>
 </blockquote>
 <ul>
 <li>Ensures <strong>confidentiality</strong></li>
-<li>Implemented via <strong>block ciphers</strong> or <strong>stream ciphers</strong><ul>
+<li>Implemented via <strong>block ciphers</strong> or <strong>stream
+ciphers</strong>
+<ul>
 <li>Lightweight and fast</li>
 <li>Used for general communication</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="Stream-Ciphers"><a href="#Stream-Ciphers" class="headerlink" title="Stream Ciphers"></a>Stream Ciphers</h3><h4 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h4><ul>
-<li><p>Initial <strong>seed</strong> key to generate an <strong>infinite keystream</strong> of random bits</p>
-</li>
-<li><p>Using same keystream to encrypt two messages -&gt; easy to break</p>
+<h3 id="stream-ciphers">Stream Ciphers</h3>
+<h4 id="implementation">Implementation</h4>
 <ul>
-<li>A random <em>“number used once”</em> ( <strong>nonce</strong> ) added as additional seed -&gt; ensure keystream is new</li>
-</ul>
-</li>
-<li><p>Message &amp; keystream combined using <strong>XOR</strong> to get the cipher text</p>
+<li><p>Initial <strong>seed</strong> key to generate an <strong>infinite
+keystream</strong> of random bits</p></li>
+<li><p>Using same keystream to encrypt two messages -&gt; easy to
+break</p>
 <ul>
-<li><mark>XOR is <strong>reversible</strong> is applied twice</mark>, which brings much convenience when decrypt cipher text.</li>
+<li>A random <em>“number used once”</em> ( <strong>nonce</strong> )
+added as additional seed -&gt; ensure keystream is new</li>
+</ul></li>
+<li><p>Message &amp; keystream combined using <strong>XOR</strong> to
+get the cipher text</p>
+<ul>
+<li><mark>XOR is <strong>reversible</strong> is applied twice</mark>,
+which brings much convenience when decrypt cipher text.</li>
+</ul></li>
 </ul>
-</li>
+<h4 id="advantages">Advantages</h4>
+<ul>
+<li>Encrypting <strong>long continuous streams</strong>, possibly of
+unknown length</li>
+<li>Extremely <strong>fast</strong> with a <strong>low memory</strong>
+footprint, ideal for low-power devices</li>
+<li>If designed well, can <strong>seek</strong> to any location in the
+stream</li>
 </ul>
-<h4 id="Advantages"><a href="#Advantages" class="headerlink" title="Advantages"></a>Advantages</h4><ul>
-<li>Encrypting <strong>long continuous streams</strong>, possibly of unknown length</li>
-<li>Extremely <strong>fast</strong> with a <strong>low memory</strong> footprint, ideal for low-power devices</li>
-<li>If designed well, can <strong>seek</strong> to any location in the stream</li>
-</ul>
-<h4 id="Disadvantages"><a href="#Disadvantages" class="headerlink" title="Disadvantages"></a>Disadvantages</h4><ul>
+<h4 id="disadvantages">Disadvantages</h4>
+<ul>
 <li>The keystream must <strong>appear statistically random</strong></li>
 <li>You must *<strong>never* reuse a key + nonce</strong></li>
-<li>Stream ciphers <strong>do not protect the ciphertext</strong><ul>
-<li>Therefore, message could be manipulated during transition without breaking confidentiality</li>
-<li>E.g., suppose you are transmitting a message to bank saying A owes you $50. Attacker could either manipulate the amount or the creditor using the same stream ciper or resent the same message to server.</li>
+<li>Stream ciphers <strong>do not protect the ciphertext</strong>
+<ul>
+<li>Therefore, message could be manipulated during transition without
+breaking confidentiality</li>
+<li>E.g., suppose you are transmitting a message to bank saying A owes
+you $50. Attacker could either manipulate the amount or the creditor
+using the same stream ciper or resent the same message to server.</li>
+</ul></li>
 </ul>
-</li>
+<h3 id="block-cipers">Block Cipers</h3>
+<h4 id="implementation-1">Implementation</h4>
+<ul>
+<li>Use a key to encrypt a <strong>fixed-size block</strong> of
+plaintext into a <strong>fixed-size block</strong> of ciphertext
+<ul>
+<li>Changing and permuting the bits of the block depending on the
+key</li>
+</ul></li>
+<li>Different lengths of messages can be handled by splitting the
+message up and padding</li>
 </ul>
-<h3 id="Block-Cipers"><a href="#Block-Cipers" class="headerlink" title="Block Cipers"></a>Block Cipers</h3><h4 id="Implementation-1"><a href="#Implementation-1" class="headerlink" title="Implementation"></a>Implementation</h4><ul>
-<li>Use a key to encrypt a <strong>fixed-size block</strong> of plaintext into a <strong>fixed-size block</strong> of ciphertext<ul>
-<li>Changing and permuting the bits of the block depending on the key</li>
-</ul>
-</li>
-<li>Different lengths of messages can be handled by splitting the message up and padding</li>
-</ul>
-<h4 id="Example-SP-Networks"><a href="#Example-SP-Networks" class="headerlink" title="Example - SP-Networks"></a>Example - SP-Networks</h4><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Substitution%E2%80%93permutation_network">Wiki</a></p>
+<h4 id="example---sp-networks">Example - SP-Networks</h4>
+<p><a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Substitution–permutation_network">Wiki</a></p>
 <ul>
 <li><p>Repeated substitution and permutation</p>
-<p>  <img src="https://s2.loli.net/2022/02/18/DdKNjiPcCJvgkhW.png" srcset="/img/loading.gif" lazyload alt="SP-Network Example"></p>
-</li>
-<li><p>Key mixing for enhancing security -&gt; Different key for different round</p>
-</li>
-<li><p>Decipher &#x3D; Reverse operation</p>
-</li>
+<figure>
+<img src="https://s2.loli.net/2022/02/18/DdKNjiPcCJvgkhW.png" srcset="/img/loading.gif" lazyload
+alt="SP-Network Example" />
+<figcaption aria-hidden="true">SP-Network Example</figcaption>
+</figure></li>
+<li><p>Key mixing for enhancing security -&gt; Different key for
+different round</p></li>
+<li><p>Decipher = Reverse operation</p></li>
 </ul>
-<h3 id="Symmetric-Algorithms"><a href="#Symmetric-Algorithms" class="headerlink" title="Symmetric Algorithms"></a>Symmetric Algorithms</h3><table>
+<h3 id="symmetric-algorithms">Symmetric Algorithms</h3>
+<table>
+
 <thead>
-<tr>
+<tr class="header">
 <th>Algorithm</th>
 <th>Cipher Type</th>
 <th>Design</th>
@@ -363,7 +394,8 @@
 <th>Key Sizes (bits)</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>DES</td>
 <td>Block</td>
 <td>Feistel</td>
@@ -373,7 +405,7 @@
 <td>Easy</td>
 <td>56</td>
 </tr>
-<tr>
+<tr class="even">
 <td>3DES</td>
 <td>Block</td>
 <td>Feistel</td>
@@ -383,7 +415,7 @@
 <td>Easy</td>
 <td>112</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>AES</td>
 <td>Block</td>
 <td>SP-Network</td>
@@ -391,49 +423,69 @@
 <td>Very fast</td>
 <td>Low-Medium</td>
 <td>Hard</td>
-<td>128&#x2F;192&#x2F;256</td>
+<td>128/192/256</td>
 </tr>
-<tr>
+<tr class="even">
 <td>ChaCha20</td>
 <td>Stream</td>
 <td>add-xor-rot</td>
-<td>N&#x2F;A</td>
+<td>N/A</td>
 <td>Very fast</td>
 <td>Very low</td>
 <td>Easy</td>
 <td>256</td>
 </tr>
-</tbody></table>
-<h2 id="Asymmetric-Cryptography"><a href="#Asymmetric-Cryptography" class="headerlink" title="Asymmetric Cryptography"></a>Asymmetric Cryptography</h2><blockquote>
-<p> Use a <strong>pair</strong> of keys, one public and one private</p>
+</tbody>
+</table>
+<h2 id="asymmetric-cryptography">Asymmetric Cryptography</h2>
+<blockquote>
+<p>Use a <strong>pair</strong> of keys, one public and one private</p>
 </blockquote>
-<h3 id="Public-key-cryptography"><a href="#Public-key-cryptography" class="headerlink" title="Public-key cryptography"></a>Public-key cryptography</h3><h4 id="General-Idea"><a href="#General-Idea" class="headerlink" title="General Idea"></a>General Idea</h4><ul>
-<li>Hinges upon the premise that: <em>It is computationally infeasible to calculate a private from a public key</em></li>
-<li>In practice, it is achieved through <strong>intractable mathematical problem</strong></li>
+<h3 id="public-key-cryptography">Public-key cryptography</h3>
+<h4 id="general-idea">General Idea</h4>
+<ul>
+<li>Hinges upon the premise that: <em>It is computationally infeasible
+to calculate a private from a public key</em></li>
+<li>In practice, it is achieved through <strong>intractable mathematical
+problem</strong></li>
 </ul>
-<h4 id="Key-exchange"><a href="#Key-exchange" class="headerlink" title="Key exchange"></a>Key exchange</h4><ul>
-<li><p>Diffie-Hellman Key exchange allows two parties to mathematically agree a shared secret over an insecure channel</p>
-</li>
-<li><p>Alice and Bob each uses a public non-reversible Generator with their private keys to generate public key and send it to each other. Using other’s public key and self’s private key, shared secret could be established.</p>
-<p>  <img src="https://s2.loli.net/2022/02/18/S5Ud1z7g3yN2aPl.jpg" srcset="/img/loading.gif" lazyload alt="Asymmetric-Cryptography-key-exchange"></p>
-</li>
+<h4 id="key-exchange">Key exchange</h4>
+<ul>
+<li><p>Diffie-Hellman Key exchange allows two parties to mathematically
+agree a shared secret over an insecure channel</p></li>
+<li><p>Alice and Bob each uses a public non-reversible Generator with
+their private keys to generate public key and send it to each other.
+Using other’s public key and self’s private key, shared secret could be
+established.</p>
+<figure>
+<img src="https://s2.loli.net/2022/02/18/S5Ud1z7g3yN2aPl.jpg" srcset="/img/loading.gif" lazyload
+alt="Asymmetric-Cryptography-key-exchange" />
+<figcaption
+aria-hidden="true">Asymmetric-Cryptography-key-exchange</figcaption>
+</figure></li>
 </ul>
-<h4 id="Public-Key-Encryption"><a href="#Public-Key-Encryption" class="headerlink" title="Public Key Encryption"></a>Public Key Encryption</h4><ul>
-<li>Encryption performed by the <strong>public key</strong> can only be reversed using the <strong>private key</strong></li>
+<h4 id="public-key-encryption">Public Key Encryption</h4>
+<ul>
+<li>Encryption performed by the <strong>public key</strong> can only be
+reversed using the <strong>private key</strong></li>
 </ul>
-<h4 id="Digital-Signatures"><a href="#Digital-Signatures" class="headerlink" title="Digital Signatures"></a>Digital Signatures</h4><ul>
-<li>The authenticity of signatures generated by the private key can by verified by the public key</li>
-<li>Steps<ol>
+<h4 id="digital-signatures">Digital Signatures</h4>
+<ul>
+<li>The authenticity of signatures generated by the private key can by
+verified by the public key</li>
+<li>Steps
+<ol type="1">
 <li>Server send the original message</li>
 <li>Server use private key to encrypt</li>
 <li>Server send the encrypted message</li>
 <li>User verify using public key</li>
-</ol>
-</li>
+</ol></li>
 </ul>
-<h3 id="Public-Key-Algorithms"><a href="#Public-Key-Algorithms" class="headerlink" title="Public Key Algorithms"></a>Public Key Algorithms</h3><table>
+<h3 id="public-key-algorithms">Public Key Algorithms</h3>
+<table>
+
 <thead>
-<tr>
+<tr class="header">
 <th>Algorithm</th>
 <th>Key Exchange</th>
 <th>Encryption</th>
@@ -444,7 +496,8 @@
 <th></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>Diffie-Hellman</td>
 <td>✓</td>
 <td></td>
@@ -454,17 +507,17 @@
 <td>256</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>RSA</td>
 <td></td>
 <td>✓</td>
 <td>✓</td>
 <td>Integer Factorisation</td>
 <td></td>
-<td>2048&#x2F;4096</td>
+<td>2048/4096</td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>Elgamal</td>
 <td></td>
 <td>✓</td>
@@ -474,7 +527,7 @@
 <td>2048</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>DSA</td>
 <td></td>
 <td></td>
@@ -484,41 +537,55 @@
 <td>256</td>
 <td></td>
 </tr>
-</tbody></table>
-<h2 id="Protocols"><a href="#Protocols" class="headerlink" title="Protocols"></a>Protocols</h2><blockquote>
+</tbody>
+</table>
+<h2 id="protocols">Protocols</h2>
+<blockquote>
 <p>Application of cryptographic algorithms in secure systems</p>
 </blockquote>
-<h3 id="Hash-Functions"><a href="#Hash-Functions" class="headerlink" title="Hash Functions"></a>Hash Functions</h3><ul>
-<li><p>Cryptographic primitive</p>
-</li>
-<li><p>Takes a message of any length, and returns a pseudorandom hash of fixed length</p>
-</li>
+<h3 id="hash-functions">Hash Functions</h3>
+<ul>
+<li><p>Cryptographic primitive</p></li>
+<li><p>Takes a message of any length, and returns a pseudorandom hash of
+fixed length</p></li>
 <li><p>Strong hash functions</p>
 <ul>
-<li><p>must appear <strong>random</strong></p>
-</li>
-<li><p>be hard to find collisions – two messages that hash to the same thing</p>
-<p>  <img src="https://s2.loli.net/2022/02/18/tmOYN6ISBkEfVL5.jpg" srcset="/img/loading.gif" lazyload alt="strong hash funciton example"></p>
-</li>
+<li><p>must appear <strong>random</strong></p></li>
+<li><p>be hard to find collisions – two messages that hash to the same
+thing</p>
+<figure>
+<img src="https://s2.loli.net/2022/02/18/tmOYN6ISBkEfVL5.jpg" srcset="/img/loading.gif" lazyload
+alt="strong hash funciton example" />
+<figcaption aria-hidden="true">strong hash funciton example</figcaption>
+</figure></li>
 </ul>
-<h3 id="Hash-Function-usage"><a href="#Hash-Function-usage" class="headerlink" title="Hash Function usage"></a>Hash Function usage</h3></li>
+<p>### Hash Function usage</p></li>
 </ul>
-<h4 id="Message-Authentication-Codes"><a href="#Message-Authentication-Codes" class="headerlink" title="Message Authentication Codes"></a>Message Authentication Codes</h4><ul>
-<li><p>Provide <strong>integrity</strong> and <strong>authenticity</strong>, not confidentiality</p>
+<h4 id="message-authentication-codes">Message Authentication Codes</h4>
+<ul>
+<li><p>Provide <strong>integrity</strong> and
+<strong>authenticity</strong>, not confidentiality</p>
 <ul>
 <li>Protecting system files</li>
 <li>Ensuring messages haven’t been altered</li>
+</ul></li>
+<li><p>Calculate a keyed hash of the message, then append to the end of
+the message</p>
+<figure>
+<img src="https://s2.loli.net/2022/02/18/osuM17TI5D4x2pX.png" srcset="/img/loading.gif" lazyload
+alt="hash funciton in message authentication" />
+<figcaption aria-hidden="true">hash funciton in message
+authentication</figcaption>
+</figure></li>
 </ul>
-</li>
-<li><p>Calculate a keyed hash of the message, then append to the end of the message</p>
-<p>  <img src="https://s2.loli.net/2022/02/18/osuM17TI5D4x2pX.png" srcset="/img/loading.gif" lazyload alt="hash funciton in message authentication"></p>
-</li>
-</ul>
-<h4 id="Digital-Signatures-1"><a href="#Digital-Signatures-1" class="headerlink" title="Digital Signatures"></a>Digital Signatures</h4><ul>
-<li>The use of a hash during the signing process shortens the signature</li>
+<h4 id="digital-signatures-1">Digital Signatures</h4>
+<ul>
+<li>The use of a hash during the signing process shortens the
+signature</li>
 <li>More efficient for long messages</li>
 </ul>
-<h4 id="Password-storage"><a href="#Password-storage" class="headerlink" title="Password storage"></a>Password storage</h4><ul>
+<h4 id="password-storage">Password storage</h4>
+<ul>
 <li>Passwords stored hashed to prevent disclosure</li>
 </ul>
 

@@ -225,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.7k words
+          4.8k words
         
       </span>
     
@@ -287,49 +287,136 @@
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this article, I will talk about my understanding and implementation of time management measures. Moreover, I would introduce some popular concepts of this topic, like GTD, Pomodoros,The Eisenhower Method.</p>
-<span id="more"></span>
-
-
-
-<h2 id="Understanding-of-Time-management"><a href="#Understanding-of-Time-management" class="headerlink" title="Understanding of Time management"></a>Understanding of Time management</h2><blockquote>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this article, I will talk about my understanding and
+implementation of time management measures. Moreover, I would introduce
+some popular concepts of this topic, like GTD, Pomodoros,The Eisenhower
+Method. <span id="more"></span></p>
+<h2 id="understanding-of-time-management">Understanding of Time
+management</h2>
+<blockquote>
 <p>What it is? What’s its importance?</p>
 </blockquote>
-<p>Time management is the process of carefully planning time individuals spent on various activities. The aim of the time management is to increase efficiency and productivity. For a simple example, suppose you need to prepare dinner for your family, you need to complete a set of tasks like shopping for groceries, preparing ingridients, cooking, etc. Time management skills tend to help you reduce the overall time spent on all this tasks by arranging them consciously.</p>
-<p>In computer science, the design of operating system provides an abstraction on this topic via CPU scheduling.</p>
+<p>Time management is the process of carefully planning time individuals
+spent on various activities. The aim of the time management is to
+increase efficiency and productivity. For a simple example, suppose you
+need to prepare dinner for your family, you need to complete a set of
+tasks like shopping for groceries, preparing ingridients, cooking, etc.
+Time management skills tend to help you reduce the overall time spent on
+all this tasks by arranging them consciously.</p>
+<p>In computer science, the design of operating system provides an
+abstraction on this topic via CPU scheduling.</p>
 <ul>
-<li>The priorities of tasks resembles the real life situation where some tasks is more urgent than others.</li>
-<li>The overhead of context switch (switching between tasks) is a vivid abstraction of human changing focus.</li>
-<li>For a difficult task (takes more time), it was split into more time slices to complete.</li>
+<li>The priorities of tasks resembles the real life situation where some
+tasks is more urgent than others.</li>
+<li>The overhead of context switch (switching between tasks) is a vivid
+abstraction of human changing focus.</li>
+<li>For a difficult task (takes more time), it was split into more time
+slices to complete.</li>
 </ul>
-<h2 id="Popular-Concepts"><a href="#Popular-Concepts" class="headerlink" title="Popular Concepts"></a>Popular Concepts</h2><h3 id="The-Eisenhower-Method"><a href="#The-Eisenhower-Method" class="headerlink" title="The Eisenhower Method"></a>The Eisenhower Method</h3><p>It is a method that utilizes the criteria of importance and urgency to organize priorities and workload. Based on the two criteria, tasks could be categorized into four categories (as in following graph)</p>
-<p><img src="https://s2.loli.net/2022/02/17/SJzlLvZ1HBuCd3y.png" srcset="/img/loading.gif" lazyload alt="The Eisenhower Matrix"></p>
-<ol>
-<li>Important &amp; Urgent tasks - should be done immediately and in person.</li>
-<li>Important &amp; Not Urgent tasks - should be done at certain dates and in person.</li>
+<h2 id="popular-concepts">Popular Concepts</h2>
+<h3 id="the-eisenhower-method">The Eisenhower Method</h3>
+<p>It is a method that utilizes the criteria of importance and urgency
+to organize priorities and workload. Based on the two criteria, tasks
+could be categorized into four categories (as in following graph)</p>
+<figure>
+<img src="https://s2.loli.net/2022/02/17/SJzlLvZ1HBuCd3y.png" srcset="/img/loading.gif" lazyload
+alt="The Eisenhower Matrix" />
+<figcaption aria-hidden="true">The Eisenhower Matrix</figcaption>
+</figure>
+<ol type="1">
+<li>Important &amp; Urgent tasks - should be done immediately and in
+person.</li>
+<li>Important &amp; Not Urgent tasks - should be done at certain dates
+and in person.</li>
 <li>Unimportant &amp; Urgent tasks - could be delegated.</li>
 <li>Unimportant &amp; Not Urgent tasks - should be dropped.</li>
 </ol>
-<p>In practice, it is not frequently listed but used as a mental model to decide the task’s properties.</p>
-<h3 id="Pomodoros"><a href="#Pomodoros" class="headerlink" title="Pomodoros"></a>Pomodoros</h3><p>This method was originally from Francesco Cirillo’s <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pomodoro_Technique">Pomodoro Technique</a>. It took the name from a Pomodoro - tomato shaped kitchen timer. The “Pomodoro” is defined as the fundamental unit of time to measure tasks’ expected completion time, which is traditionally defined as being 30 minutes long, consisting of 25 minutes of work and 5 minutes of break time.</p>
-<p>Though it may seems stiff to use strict pomodoros, it could actually develop your sense of time and help you record your performance. With continuous using of this technique, you could be more confident in predicting tasks’ completion time. Recoding how many Pomodoros you finished could also be a straight forward metric of evaluating your performance.</p>
-<h3 id="GTD"><a href="#GTD" class="headerlink" title="GTD"></a>GTD</h3><p>This strategy was created by <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/David_Allen_(author)">David Allen</a> in his book <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Getting_Things_Done">Getting Things Done</a>. The basic idea of this strategy is to <strong>capture</strong> all unfinished things (projects or tasks), <strong>clarify</strong> them into small actionable tasks with clear goals, organize <strong>them</strong> in appropriate forms (and come up to you at proper time), <strong>review</strong> tasks frequently to update the status and <strong>engage</strong> in these tasks.</p>
-<p>In general, it provides a complete workflow for you to manage all your tasks and projects in a personalized system. Though this system may be hard to build and maintain, from my own experience, it is worthwhile to keep you confident in action decisions.</p>
-<h2 id="My-implementation-of-time-management"><a href="#My-implementation-of-time-management" class="headerlink" title="My implementation of time management"></a>My implementation of time management</h2><p>To start with your time mangement, you frist need to be aware of where you spent your time. I used <code>aTimeLogger</code> to track my everyday activities. This is the start of my time management practice and could provide a clear view of whether you are hard working or playing too much. You could also pick your own time tracking app, just pay attention to the philosophy of the software to make sure they are NOT interruptive of your current activities and time-consuming when recording.</p>
-<img src="https://s2.loli.net/2022/02/22/TtAapD1cR4I7v6g.jpg" srcset="/img/loading.gif" lazyload alt="aTimeLogger Time Tracker· by BGCI" style="zoom:67%;" />
-
-<p>To plan your time carefully and wisely, I used GTD techniques to track all the tasks I need to finish and all the events I need to participate. Following GTD’s principles, I would tag the tasks with its expected context (when would be proper, what tools needed, etc.) and group them with the assoicated project. I have tried plenty of task management apps like Omnifocus (which I am now using), Things 3, TickTick (Used for a long time), Wunderlist, etc. It is hard to give a general suggestion for the choice as different people may have different requirements, just make sure the app you choose helps record your tasks easily, intergrate nicely with your workflow and remind you in appropriate format. </p>
-<p>One more thing to care about, is <strong>DO NOT overmanaging</strong>. I had once fallen into the pitfall of overmanaging myself. I enjoyed listing and categorizing different tasks and projects, trying different apps, perfecting the tag system but just NOT complete many of those tasks. Remember what the name suggest, getting things done, so focus on completing the tasks rather than putting most of your efforts changing their organization.</p>
-<p>In the new information era, another thing has become more valuable than our time, that is, our attention (or effective time). The power of attention has long been discovered by physicist through <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Double-slit_experiment">Double-slit experiment</a>, in which whether observer exists could impact the results of the inference pattern. </p>
-<p><img src="https://s2.loli.net/2022/02/18/xQ3H4IUFnDdfRoB.png" srcset="/img/loading.gif" lazyload alt="Double-slit experiment"></p>
-<p>Modern business are even using our attention to gain money (through online advertisement). <strong>We need to pay attention to what we paid our attention to.</strong> What you should do, is paying attention to the four things below:</p>
-<ol>
+<p>In practice, it is not frequently listed but used as a mental model
+to decide the task’s properties.</p>
+<h3 id="pomodoros">Pomodoros</h3>
+<p>This method was originally from Francesco Cirillo's <a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pomodoro_Technique">Pomodoro
+Technique</a>. It took the name from a Pomodoro - tomato shaped kitchen
+timer. The “Pomodoro” is defined as the fundamental unit of time to
+measure tasks’ expected completion time, which is traditionally defined
+as being 30 minutes long, consisting of 25 minutes of work and 5 minutes
+of break time.</p>
+<p>Though it may seems stiff to use strict pomodoros, it could actually
+develop your sense of time and help you record your performance. With
+continuous using of this technique, you could be more confident in
+predicting tasks’ completion time. Recoding how many Pomodoros you
+finished could also be a straight forward metric of evaluating your
+performance.</p>
+<h3 id="gtd">GTD</h3>
+<p>This strategy was created by <a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/David_Allen_(author)">David
+Allen</a> in his book <a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Getting_Things_Done">Getting Things
+Done</a>. The basic idea of this strategy is to <strong>capture</strong>
+all unfinished things (projects or tasks), <strong>clarify</strong> them
+into small actionable tasks with clear goals, organize
+<strong>them</strong> in appropriate forms (and come up to you at proper
+time), <strong>review</strong> tasks frequently to update the status and
+<strong>engage</strong> in these tasks.</p>
+<p>In general, it provides a complete workflow for you to manage all
+your tasks and projects in a personalized system. Though this system may
+be hard to build and maintain, from my own experience, it is worthwhile
+to keep you confident in action decisions.</p>
+<h2 id="my-implementation-of-time-management">My implementation of time
+management</h2>
+<p>To start with your time mangement, you frist need to be aware of
+where you spent your time. I used <code>aTimeLogger</code> to track my
+everyday activities. This is the start of my time management practice
+and could provide a clear view of whether you are hard working or
+playing too much. You could also pick your own time tracking app, just
+pay attention to the philosophy of the software to make sure they are
+NOT interruptive of your current activities and time-consuming when
+recording.</p>
+<p><img src="https://s2.loli.net/2022/02/22/TtAapD1cR4I7v6g.jpg" srcset="/img/loading.gif" lazyload alt="aTimeLogger Time Tracker· by BGCI" style="zoom:67%;" /></p>
+<p>To plan your time carefully and wisely, I used GTD techniques to
+track all the tasks I need to finish and all the events I need to
+participate. Following GTD’s principles, I would tag the tasks with its
+expected context (when would be proper, what tools needed, etc.) and
+group them with the assoicated project. I have tried plenty of task
+management apps like Omnifocus (which I am now using), Things 3,
+TickTick (Used for a long time), Wunderlist, etc. It is hard to give a
+general suggestion for the choice as different people may have different
+requirements, just make sure the app you choose helps record your tasks
+easily, intergrate nicely with your workflow and remind you in
+appropriate format.</p>
+<p>One more thing to care about, is <strong>DO NOT
+overmanaging</strong>. I had once fallen into the pitfall of
+overmanaging myself. I enjoyed listing and categorizing different tasks
+and projects, trying different apps, perfecting the tag system but just
+NOT complete many of those tasks. Remember what the name suggest,
+getting things done, so focus on completing the tasks rather than
+putting most of your efforts changing their organization.</p>
+<p>In the new information era, another thing has become more valuable
+than our time, that is, our attention (or effective time). The power of
+attention has long been discovered by physicist through <a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Double-slit_experiment">Double-slit
+experiment</a>, in which whether observer exists could impact the
+results of the inference pattern.</p>
+<figure>
+<img src="https://s2.loli.net/2022/02/18/xQ3H4IUFnDdfRoB.png" srcset="/img/loading.gif" lazyload
+alt="Double-slit experiment" />
+<figcaption aria-hidden="true">Double-slit experiment</figcaption>
+</figure>
+<p>Modern business are even using our attention to gain money (through
+online advertisement). <strong>We need to pay attention to what we paid
+our attention to.</strong> What you should do, is paying attention to
+the four things below:</p>
+<ol type="1">
 <li>focusing on valuable things</li>
 <li>relationships, especially intimacy</li>
 <li>finding new trends</li>
 <li>Self development</li>
 </ol>
-<p><strong>Pomodoros</strong> is therefore been introduced to my system to record my attention (though it has way more potentials as introduced above). You could easily track your progress and performance via pomodoro recoding. I am now using <code>Session</code> as the app to record for its elegant visualizations and ease of use.</p>
+<p><strong>Pomodoros</strong> is therefore been introduced to my system
+to record my attention (though it has way more potentials as introduced
+above). You could easily track your progress and performance via
+pomodoro recoding. I am now using <code>Session</code> as the app to
+record for its elegant visualizations and ease of use.</p>
 
                 
               </div>

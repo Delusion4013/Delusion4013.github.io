@@ -229,7 +229,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.3k words
+          5.2k words
         
       </span>
     
@@ -291,166 +291,226 @@
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this note, you could find the basic definition of Operating Systems and the general architecture of computer.</p>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this note, you could find the basic definition of Operating
+Systems and the general architecture of computer.</p>
 <span id="more"></span>
-<h2 id="Defining-Operating-Systems"><a href="#Defining-Operating-Systems" class="headerlink" title="Defining Operating Systems"></a>Defining Operating Systems</h2><h3 id="What-can-an-OS-do-for-me"><a href="#What-can-an-OS-do-for-me" class="headerlink" title="What can an OS do for me?"></a>What can an OS do for me?</h3><ul>
-<li><p><strong>File systems</strong>: where is the file physically written on the disk and how is it retrieved?</p>
-</li>
-<li><p><strong>Abstraction</strong>: why looks the instruction the same independent of the device?</p>
-</li>
-<li><p><strong>Concurrency</strong>: what if multiple programs access the same file simultaneously? What if an other process starts running?</p>
-</li>
-<li><p><strong>Security</strong>: why is the access denied? Where in memory will the array be stored and how is it protected from unauthorised access?</p>
-</li>
-<li><p>What if the array requires more memory than physically available?</p>
-</li>
-<li><p>What if only part of the array is currently in use ?</p>
-</li>
+<h2 id="defining-operating-systems">Defining Operating Systems</h2>
+<h3 id="what-can-an-os-do-for-me">What can an OS do for me?</h3>
+<ul>
+<li><p><strong>File systems</strong>: where is the file physically
+written on the disk and how is it retrieved?</p></li>
+<li><p><strong>Abstraction</strong>: why looks the instruction the same
+independent of the device?</p></li>
+<li><p><strong>Concurrency</strong>: what if multiple programs access
+the same file simultaneously? What if an other process starts
+running?</p></li>
+<li><p><strong>Security</strong>: why is the access denied? Where in
+memory will the array be stored and how is it protected from
+unauthorised access?</p></li>
+<li><p>What if the array requires more memory than physically
+available?</p></li>
+<li><p>What if only part of the array is currently in use ?</p></li>
 </ul>
-<h4 id="What-is-part-of-the-operating-system"><a href="#What-is-part-of-the-operating-system" class="headerlink" title="What is part of the operating system?"></a>What is part of the operating system?</h4><p>Memory management, CPU scheduling, file system, communication, memory management, interrupt handling, GUI, . . . </p>
-<h4 id="A-resource-manager"><a href="#A-resource-manager" class="headerlink" title="A resource manager"></a>A resource manager</h4><ul>
-<li>Many modern operating systems use <strong>multi-programming</strong> to <strong>improve user experience</strong> and <strong>maximize resource utilization</strong><ul>
-<li>Disks are slow: without multi-programming, CPU time is wasted while waiting for I&#x2F;O requests<ul>
-<li>Imagine a CPU running at 3.2 GHz (approx. 3:2 $\times$ 109 instructions per second)</li>
-<li>Imagine a disk rotating at 7200 RPM, taking 4.2 ms to rotate half a track</li>
-<li>I&#x2F;O is slow, we are missing out on 3.2 $\times$  4.2 $\times$ $10^6$ instructions (13.44m)!</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>The implementation of multi-programming has important consequences for operating system design</li>
-<li>The operating system must <strong>allocate&#x2F;share resources</strong> (including CPU, memory, I&#x2F;O devices) fairly and safely between competing processes:<ul>
+<h4 id="what-is-part-of-the-operating-system">What is part of the
+operating system?</h4>
+<p>Memory management, CPU scheduling, file system, communication, memory
+management, interrupt handling, GUI, . . .</p>
+<h4 id="a-resource-manager">A resource manager</h4>
+<ul>
+<li>Many modern operating systems use <strong>multi-programming</strong>
+to <strong>improve user experience</strong> and <strong>maximize
+resource utilization</strong>
+<ul>
+<li>Disks are slow: without multi-programming, CPU time is wasted while
+waiting for I/O requests
+<ul>
+<li>Imagine a CPU running at 3.2 GHz (approx. 3:2 <span
+class="math inline">\(\times\)</span> 109 instructions per second)</li>
+<li>Imagine a disk rotating at 7200 RPM, taking 4.2 ms to rotate half a
+track</li>
+<li>I/O is slow, we are missing out on 3.2 <span
+class="math inline">\(\times\)</span> 4.2 <span
+class="math inline">\(\times\)</span> <span
+class="math inline">\(10^6\)</span> instructions (13.44m)!</li>
+</ul></li>
+</ul></li>
+<li>The implementation of multi-programming has important consequences
+for operating system design</li>
+<li>The operating system must <strong>allocate/share resources</strong>
+(including CPU, memory, I/O devices) fairly and safely between competing
+processes:
+<ul>
 <li>In time, e.g. CPUs and printers</li>
 <li>In space, e.g., memory and disks</li>
+</ul></li>
+<li>The execution of multiple programs (processes) needs to be
+interleaved with one another:
+<ul>
+<li>This requires context switches and process scheduling ) <span
+class="math inline">\(\Rightarrow\)</span> mutual exclusion, deadlock
+avoidance, protection, . .</li>
+</ul></li>
 </ul>
-</li>
-<li>The execution of multiple programs (processes) needs to be interleaved with one another:<ul>
-<li>This requires context switches and process scheduling ) $\Rightarrow$ mutual exclusion, deadlock avoidance, protection, . .</li>
-</ul>
-</li>
-</ul>
-<h3 id="Origin"><a href="#Origin" class="headerlink" title="Origin"></a>Origin</h3><p>In the early days, programmers had to deal directly with the hardware</p>
+<h3 id="origin">Origin</h3>
+<p>In the early days, programmers had to deal directly with the
+hardware</p>
 <ul>
 <li>Real computer hardware is ugly</li>
-<li>Hardware is extremely difficult to manipulate&#x2F;program</li>
+<li>Hardware is extremely difficult to manipulate/program</li>
 </ul>
-<p><mark>An operating system is a layer of indirection on top of the hardware</mark>:</p>
+<p><mark>An operating system is a layer of indirection on top of the
+hardware</mark>:</p>
 <ul>
-<li>It provide <strong>abstractions</strong> for application programs (e.g., file systems)</li>
-<li>It provides a <strong>cleaner and easier interface to the hardware</strong> and hides the complexity of “bare metal”</li>
-<li>It allows the programmer to be lazy by using common routines :-)</li>
+<li>It provide <strong>abstractions</strong> for application programs
+(e.g., file systems)</li>
+<li>It provides a <strong>cleaner and easier interface to the
+hardware</strong> and hides the complexity of “bare metal”</li>
+<li>It allows the programmer to be lazy by using common routines
+:-)</li>
 </ul>
-<img src="https://s2.loli.net/2022/01/09/Fi8pODhsMjUYQWe.png" srcset="/img/loading.gif" lazyload alt="image-20201004095954244" style="zoom:67%;" />
-
-
-
-<h3 id="Why-study-operating-system"><a href="#Why-study-operating-system" class="headerlink" title="Why study operating system?"></a>Why study operating system?</h3><ul>
-<li>The programs that we write <strong>use operating system functionality</strong></li>
-<li>How are the operating system’s services&#x2F;abstractions implemented</li>
+<p><img src="https://s2.loli.net/2022/01/09/Fi8pODhsMjUYQWe.png" srcset="/img/loading.gif" lazyload alt="image-20201004095954244" style="zoom:67%;" /></p>
+<h3 id="why-study-operating-system">Why study operating system?</h3>
+<ul>
+<li>The programs that we write <strong>use operating system
+functionality</strong></li>
+<li>How are the operating system’s services/abstractions
+implemented</li>
 </ul>
-<h2 id="Computer-Architecture"><a href="#Computer-Architecture" class="headerlink" title="Computer Architecture"></a>Computer Architecture</h2><img src="https://s2.loli.net/2022/01/09/6zOLWYRhwxfPS48.png" srcset="/img/loading.gif" lazyload alt="image-20201004100314213" style="zoom:50%;" />
-
-<center>Simplified computer model (Tanenbaum, 2014)</center>
-
-<h3 id="CPU-design"><a href="#CPU-design" class="headerlink" title="CPU design"></a>CPU design</h3><ul>
-<li>CPU’s basic cycle consist of <strong>fetch, decode, and execute</strong> (pipelines, or superscalar)</li>
+<h2 id="computer-architecture">Computer Architecture</h2>
+<p><img src="https://s2.loli.net/2022/01/09/6zOLWYRhwxfPS48.png" srcset="/img/loading.gif" lazyload alt="image-20201004100314213" style="zoom:50%;" /></p>
+<center>
+Simplified computer model (Tanenbaum, 2014)
+</center>
+<h3 id="cpu-design">CPU design</h3>
+<ul>
+<li>CPU’s basic cycle consist of <strong>fetch, decode, and
+execute</strong> (pipelines, or superscalar)</li>
 <li>Every CPU has his own instruction set</li>
-<li>A CPU has a set of registers (extremely fast memory close to the CPU “core”)<ul>
-<li>Registers are used to <strong>store data and for special functions</strong> (e.g. program counter, program status word – mode bit)</li>
-<li>The <strong>compiler&#x2F;programmer</strong> decides what to keep in the registers</li>
-<li><strong>Context switching</strong> must save and restore the CPU’s internal state, including its registers</li>
+<li>A CPU has a set of registers (extremely fast memory close to the CPU
+“core”)
+<ul>
+<li>Registers are used to <strong>store data and for special
+functions</strong> (e.g. program counter, program status word – mode
+bit)</li>
+<li>The <strong>compiler/programmer</strong> decides what to keep in the
+registers</li>
+<li><strong>Context switching</strong> must save and restore the CPU’s
+internal state, including its registers</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p><img src="https://s2.loli.net/2022/01/09/BXFD78eJvCzyScn.png" srcset="/img/loading.gif" lazyload alt="image-20201004100845955"></p>
-<h4 id="Memory-management-Unit"><a href="#Memory-management-Unit" class="headerlink" title="Memory management Unit"></a>Memory management Unit</h4><ul>
+<figure>
+<img src="https://s2.loli.net/2022/01/09/BXFD78eJvCzyScn.png" srcset="/img/loading.gif" lazyload
+alt="image-20201004100845955" />
+<figcaption aria-hidden="true">image-20201004100845955</figcaption>
+</figure>
+<h4 id="memory-management-unit">Memory management Unit</h4>
+<ul>
 <li><p>There are two different address spaces:</p>
 <ul>
-<li>the <strong>logical address space</strong> seen by the process and used by the compiler</li>
-<li>the <strong>physical address space</strong> seen by the hardware&#x2F;OS</li>
-</ul>
-</li>
-<li><p>When compiling code, memory addresses must be assigned to variables and instructions, the compiler does not know what memory addresses will be available in physical memory</p>
-</li>
-<li><p>It will just assume that the code will start running at address 0 when generating the machine code</p>
-  <img src="https://s2.loli.net/2022/01/09/Ug1EDLKpfQdIZqV.png" srcset="/img/loading.gif" lazyload alt="image-20201004102110699" style="zoom:67%;" />
-</li>
-<li><p>On some rare occasions, the process may run at physical address 0</p>
+<li>the <strong>logical address space</strong> seen by the process and
+used by the compiler</li>
+<li>the <strong>physical address space</strong> seen by the
+hardware/OS</li>
+</ul></li>
+<li><p>When compiling code, memory addresses must be assigned to
+variables and instructions, the compiler does not know what memory
+addresses will be available in physical memory</p></li>
+<li><p>It will just assume that the code will start running at address 0
+when generating the machine code</p>
+<p><img src="https://s2.loli.net/2022/01/09/Ug1EDLKpfQdIZqV.png" srcset="/img/loading.gif" lazyload alt="image-20201004102110699" style="zoom:67%;" /></p></li>
+<li><p>On some rare occasions, the process may run at physical address
+0</p>
 <ul>
-<li>physical address &#x3D; logical address + 0</li>
-</ul>
-</li>
-<li><p>On other occasions, it will be running at a completely different location in physical memory and an offset is added</p>
+<li>physical address = logical address + 0</li>
+</ul></li>
+<li><p>On other occasions, it will be running at a completely different
+location in physical memory and an offset is added</p>
 <ul>
-<li>physical address &#x3D; logical address + offset</li>
-</ul>
-</li>
-<li><p>The <code>memory management unit</code>(MMU) is <strong>responsible for address translation</strong> (“adding the offset”)</p>
+<li>physical address = logical address + offset</li>
+</ul></li>
+<li><p>The <code>memory management unit</code>(MMU) is
+<strong>responsible for address translation</strong> (“adding the
+offset”)</p>
 <ul>
-<li>Different processes require different address translation (offsets)</li>
-<li>Context switching requires the MMU to be updated (and registers, cache, …)</li>
+<li>Different processes require different address translation
+(offsets)</li>
+<li>Context switching requires the MMU to be updated (and registers,
+cache, ...)</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h5 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-keyword">int</span> iVar = <span class="hljs-number">0</span>;<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span>(i &lt; <span class="hljs-number">10</span>) &#123;<br>        iVar++;<br>        sleep(<span class="hljs-number">2</span>);<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Address:%u; Value:%d\n&quot;</span>,&amp;iVar, iVar);<br>         i++;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
+<h5 id="example">Example</h5>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> iVar = <span class="hljs-number">0</span>;<br><span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-type">int</span> i = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">while</span>(i &lt; <span class="hljs-number">10</span>) &#123;<br>        iVar++;<br>        sleep(<span class="hljs-number">2</span>);<br>        <span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;Address:%u; Value:%d\n&quot;</span>,&amp;iVar, iVar);<br>         i++;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 <ul>
-<li>The same addresses will be displayed for <code>iVar</code>. The address printed on the screen is the logical address</li>
-<li>The value for <code>iVar</code> in the first run doesn’t influence the second run’s value</li>
+<li>The same addresses will be displayed for <code>iVar</code>. The
+address printed on the screen is the logical address</li>
+<li>The value for <code>iVar</code> in the first run doesn’t influence
+the second run’s value</li>
 </ul>
-<h3 id="Moore’s-Law"><a href="#Moore’s-Law" class="headerlink" title="Moore’s Law"></a>Moore’s Law</h3><blockquote>
-<p>“The number of transistors on an integrated circuit (chip) doubles roughly every two years”</p>
+<h3 id="moores-law">Moore’s Law</h3>
+<blockquote>
+<p>“The number of transistors on an integrated circuit (chip) doubles
+roughly every two years”</p>
 </blockquote>
 <ul>
 <li>Closely linked, but not necessarily related to performance</li>
-<li>Moore’s still continuing, but the “power wall” slows performance improvements of <strong>single core&#x2F;single processor systems</strong><ul>
-<li>A few cores for multiple “programs” is easy to justify</li>
-<li>How to use <strong>massively parallel</strong> computers&#x2F;CPUs&#x2F;many core machines</li>
-<li>Can we extract parallelism automatically, can we implement parallelism at the lowest level (similar to multiprogramming)</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>Lead to multi-core &#x2F; parallel development</p>
-</blockquote>
-<h3 id="Multi-core-hyperthreaded-processors"><a href="#Multi-core-hyperthreaded-processors" class="headerlink" title="Multi-core, hyperthreaded processors"></a>Multi-core, hyperthreaded processors</h3><ul>
-<li><p>Modern CPUs contain multiple cores and are often hyper-threaded</p>
-</li>
-<li><p><strong>Evolution in hardware</strong> has implications on <strong>operating system design</strong></p>
+<li>Moore’s still continuing, but the “power wall” slows performance
+improvements of <strong>single core/single processor systems</strong>
 <ul>
-<li><p>XP did not support <strong>multi processor architectures</strong></p>
-</li>
-<li><p><strong>Process scheduling</strong> needs to account for load balancing and CPU affinity</p>
-</li>
-<li><p>Cache <strong>coherency</strong> becomes important (manage run-time data)</p>
-  <img src="https://s2.loli.net/2022/01/09/nlVhBsdvXeZO7uJ.png" srcset="/img/loading.gif" lazyload alt="image-20201004111125457" style="zoom:50%;" /></li>
-</ul>
-</li>
+<li>A few cores for multiple “programs” is easy to justify</li>
+<li>How to use <strong>massively parallel</strong> computers/CPUs/many
+core machines</li>
+<li>Can we extract parallelism automatically, can we implement
+parallelism at the lowest level (similar to multiprogramming)</li>
+</ul></li>
 </ul>
 <blockquote>
-<p>Previous exam: Describe how, in your opinion, recent developments in computer<br>architecture and computer design have influenced operating system design</p>
+<p>Lead to multi-core / parallel development</p>
 </blockquote>
-<h3 id="Timer-Interrupts"><a href="#Timer-Interrupts" class="headerlink" title="Timer Interrupts"></a>Timer Interrupts</h3><ul>
+<h3 id="multi-core-hyperthreaded-processors">Multi-core, hyperthreaded
+processors</h3>
+<ul>
+<li><p>Modern CPUs contain multiple cores and are often
+hyper-threaded</p></li>
+<li><p><strong>Evolution in hardware</strong> has implications on
+<strong>operating system design</strong></p>
+<ul>
+<li><p>XP did not support <strong>multi processor
+architectures</strong></p></li>
+<li><p><strong>Process scheduling</strong> needs to account for load
+balancing and CPU affinity</p></li>
+<li><p>Cache <strong>coherency</strong> becomes important (manage
+run-time data)</p>
+<p><img src="https://s2.loli.net/2022/01/09/nlVhBsdvXeZO7uJ.png" srcset="/img/loading.gif" lazyload alt="image-20201004111125457" style="zoom:50%;" /></p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Previous exam: Describe how, in your opinion, recent developments in
+computer architecture and computer design have influenced operating
+system design</p>
+</blockquote>
+<h3 id="timer-interrupts">Timer Interrupts</h3>
+<ul>
 <li>Interrupts temporarily pause a process’s normal operation</li>
-<li>Different types of interrupts exist, including:<ul>
+<li>Different types of interrupts exist, including:
+<ul>
 <li>Timer interrupts by <strong>CPU clock</strong></li>
-<li><strong>I&#x2F;O interrupts</strong> for <strong>I&#x2F;O completion</strong> or error codes</li>
+<li><strong>I/O interrupts</strong> for <strong>I/O completion</strong>
+or error codes</li>
 <li><strong>Software generated</strong>, e.g. errors and exceptions</li>
+</ul></li>
+<li><strong>Context switches</strong> (i.e. switching between processes)
+can be initiated by timer interrupts after a “set time”</li>
 </ul>
-</li>
-<li><strong>Context switches</strong> (i.e. switching between processes) can be initiated by timer interrupts after a “set time”</li>
-</ul>
-<img src="https://s2.loli.net/2022/01/09/lHoSLPmFs6bNGny.png" srcset="/img/loading.gif" lazyload alt="image-20201004111301287" style="zoom:50%;" />
-
-<ol>
+<p><img src="https://s2.loli.net/2022/01/09/lHoSLPmFs6bNGny.png" srcset="/img/loading.gif" lazyload alt="image-20201004111301287" style="zoom:50%;" /></p>
+<ol type="1">
 <li>Timer generates an interrupt</li>
 <li>CPU finishes current instruction and tests for interrupt</li>
-<li>Transfer to interrupt service routine<ul>
+<li>Transfer to interrupt service routine
+<ul>
 <li>Hardware saves current process state (PSW, program counter)</li>
 <li>Set program counter to interrupt service routine</li>
 <li>Save registers and other state information</li>
-</ul>
-</li>
+</ul></li>
 <li>Carry out interrupt service routine (scheduler)</li>
 <li>Restore next process to run</li>
 </ol>

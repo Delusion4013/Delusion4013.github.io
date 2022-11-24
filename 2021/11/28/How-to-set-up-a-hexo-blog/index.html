@@ -27,8 +27,8 @@
 <meta property="article:published_time" content="2021-11-28T11:45:00.000Z">
 <meta property="article:modified_time" content="2022-11-10T05:47:40.924Z">
 <meta property="article:author" content="Chenkai">
-<meta property="article:tag" content="blog">
 <meta property="article:tag" content="translation">
+<meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://i.loli.net/2021/11/28/mQEldKOZv9wsjqc.jpg">
   
@@ -286,95 +286,125 @@
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this article, you will find how to set up a hexo blog and deploy it.</p>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this article, you will find how to set up a hexo blog and deploy
+it.</p>
 <span id="more"></span>
-
 <blockquote>
-<p>Special thanks to <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty">Codesheep’s video</a></p>
+<p>Special thanks to <a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty">Codesheep's
+video</a></p>
 </blockquote>
-<h1 id="0-Pre-requisite"><a href="#0-Pre-requisite" class="headerlink" title="0. Pre-requisite"></a>0. Pre-requisite</h1><p>The most important of all, don’t be afraid of making mistakes!</p>
+<h1 id="pre-requisite">0. Pre-requisite</h1>
+<p>The most important of all, don't be afraid of making mistakes!</p>
 <p>To initiate your blog, you will need the libraries below.</p>
-<h2 id="0-1-Node-js"><a href="#0-1-Node-js" class="headerlink" title="0.1 Node.js"></a>0.1 Node.js</h2><p> <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/"><code>Download here</code> </a> - suggest LTS version</p>
-<p>To check whether <code>Node.js</code>  was downloaded successfully, type <code>node -v</code> in the terminal window.  If something like <code>v12.18.2</code> is presented with no error message, you are free to go for the next step.</p>
+<h2 id="node.js">0.1 Node.js</h2>
+<p><a
+target="_blank" rel="noopener" href="https://nodejs.org/en/download/"><code>Download here</code></a> -
+suggest LTS version</p>
+<p>To check whether <code>Node.js</code> was downloaded successfully,
+type <code>node -v</code> in the terminal window. If something like
+<code>v12.18.2</code> is presented with no error message, you are free
+to go for the next step.</p>
 <blockquote>
-<p>For Windows users, terminal could be invoked by pressing <code>win</code> + <code>R</code>, and then type <code>cmd</code> in the prompt window.</p>
+<p>For Windows users, terminal could be invoked by pressing
+<code>win</code> + <code>R</code>, and then type <code>cmd</code> in the
+prompt window.</p>
 </blockquote>
-<h2 id="0-2-npm"><a href="#0-2-npm" class="headerlink" title="0.2 npm"></a>0.2 npm</h2><p><code>npm</code> is the default package management tool for <code>Node.js</code>. </p>
+<h2 id="npm">0.2 npm</h2>
+<p><code>npm</code> is the default package management tool for
+<code>Node.js</code>.</p>
 <blockquote>
-<p>For Chinese users, you could switch to the mirror in <code>cnpm</code> for faster downloads. Run the command to install <code>cnpm</code>:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ npm install -g cnpm --registry=https://registry.npm.taobao.org<br></code></pre></td></tr></table></figure>
+<p>For Chinese users, you could switch to the mirror in
+<code>cnpm</code> for faster downloads. Run the command to install
+<code>cnpm</code>: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ npm install -g cnpm --registry=https://registry.npm.taobao.org<br></code></pre></td></tr></table></figure></p>
 </blockquote>
-<p>Similar to <code>Node.js</code>, type <code>npm -v</code> to check if it’s installed successfully.</p>
-<h2 id="0-3-Git"><a href="#0-3-Git" class="headerlink" title="0.3 Git"></a>0.3 Git</h2><p><code>git</code> is a version control tool used widely among programming projects. Generally speaking, it could help you keep different versions of your project. </p>
+<p>Similar to <code>Node.js</code>, type <code>npm -v</code> to check if
+it's installed successfully.</p>
+<h2 id="git">0.3 Git</h2>
+<p><code>git</code> is a version control tool used widely among
+programming projects. Generally speaking, it could help you keep
+different versions of your project.</p>
 <p><a target="_blank" rel="noopener" href="https://git-scm.com/downloads">Download here</a></p>
-<p>To configure the git globally, you could run the command after installation. In the command, <code>--global</code> would set the following parameters for all git repositories on your computer.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ git config --global user.name &quot;Your Namee&quot;<br>$ git config --global user.email &quot;email@example.com&quot;<br></code></pre></td></tr></table></figure>
-
-
-<h2 id="0-4-hexo"><a href="#0-4-hexo" class="headerlink" title="0.4 hexo"></a>0.4 hexo</h2><p>With the package management tool installed, fetch the <code>hexo</code> package using command:</p>
+<p>To configure the git globally, you could run the command after
+installation. In the command, <code>--global</code> would set the
+following parameters for all git repositories on your computer.
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ git config --global user.name &quot;Your Namee&quot;<br>$ git config --global user.email &quot;email@example.com&quot;<br></code></pre></td></tr></table></figure></p>
+<h2 id="hexo">0.4 hexo</h2>
+<p>With the package management tool installed, fetch the
+<code>hexo</code> package using command:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ npm install -g hexo<br></code></pre></td></tr></table></figure>
-
-<p>or:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ cnpm install -g hexo<br></code></pre></td></tr></table></figure>
-
-<p>Similar to <code>Node.js</code>, type <code>hexo -v</code> to check if it’s installed successfully.</p>
-<h1 id="1-Initiate-blog"><a href="#1-Initiate-blog" class="headerlink" title="1. Initiate blog"></a>1. Initiate blog</h1><ol>
+<p>or: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ cnpm install -g hexo<br></code></pre></td></tr></table></figure></p>
+<p>Similar to <code>Node.js</code>, type <code>hexo -v</code> to check
+if it's installed successfully.</p>
+<h1 id="initiate-blog">1. Initiate blog</h1>
+<ol type="1">
 <li><p>Create a folder</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ mkdir blog<br></code></pre></td></tr></table></figure>
-<p> By default, this <code>blog/</code> folder will be created in <code>/Users/YourUserName/</code> for both Mac and Windows users.</p>
-</li>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ mkdir blog<br></code></pre></td></tr></table></figure></p>
+<p>By default, this <code>blog/</code> folder will be created in
+<code>/Users/YourUserName/</code> for both Mac and Windows
+users.</p></li>
 <li><p>Navigate into the folder</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ cd blog<br></code></pre></td></tr></table></figure>
-<p> To check if you are in the right folder, type <code>pwd</code> to check.</p>
-</li>
-<li><p>Initiate your blog</p>
-</li>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ cd blog<br></code></pre></td></tr></table></figure></p>
+<p>To check if you are in the right folder, type <code>pwd</code> to
+check.</p></li>
+<li><p>Initiate your blog</p></li>
 </ol>
-<p>  <mark>Make sure you are in the right folder before running command below!</mark></p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ sudo hexo init<br></code></pre></td></tr></table></figure>
-
-<p>  The <code>sudo</code> parameter refers to admin access.</p>
-<ol start="4">
+<p><mark>Make sure you are in the right folder before running command
+below!</mark></p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ sudo hexo init<br></code></pre></td></tr></table></figure></p>
+<p>The <code>sudo</code> parameter refers to admin access.</p>
+<ol start="4" type="1">
 <li>Run your blog!</li>
 </ol>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ hexo s<br></code></pre></td></tr></table></figure>
-
-<p>  By default, you will see the blog running at <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a></p>
-<h1 id="2-Create-a-new-article"><a href="#2-Create-a-new-article" class="headerlink" title="2. Create a new article"></a>2. Create a new article</h1><p>As indicated in the default blog file <code>helloworld.md</code>, you could use the command below to create a new blog.</p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ hexo s<br></code></pre></td></tr></table></figure></p>
+<p>By default, you will see the blog running at
+http://localhost:4000</p>
+<h1 id="create-a-new-article">2. Create a new article</h1>
+<p>As indicated in the default blog file <code>helloworld.md</code>, you
+could use the command below to create a new blog.</p>
 <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>hexo n <span class="hljs-string">&quot;Your artical title&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>By default, it will be created in <code>source/_posts</code> folder. For markdown reference, please check <a target="_blank" rel="noopener" href="https://commonmark.org/help/">here</a>.</p>
-<p>After writing, use the following command to clean the database and generate static files for local blog.</p>
+<p>By default, it will be created in <code>source/_posts</code> folder.
+For markdown reference, please check <a
+target="_blank" rel="noopener" href="https://commonmark.org/help/">here</a>.</p>
+<p>After writing, use the following command to clean the database and
+generate static files for local blog.</p>
 <figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs verilog">$ hexo clean<br>$ hexo <span class="hljs-keyword">generate</span><br>$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>Vist the default link again, you could see the article you just wrote.</p>
-<h1 id="3-Deploy-your-blog"><a href="#3-Deploy-your-blog" class="headerlink" title="3. Deploy your blog"></a>3. Deploy your blog</h1><blockquote>
+<p>Vist the default link again, you could see the article you just
+wrote.</p>
+<h1 id="deploy-your-blog">3. Deploy your blog</h1>
+<blockquote>
 <p>You will need a Github account or Gitee accound for deployment.</p>
 </blockquote>
-<h2 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h2><ol>
-<li><p>Create a new repository with the name <code>YourFullUserName.github.io</code> and it has to be set to public.</p>
-</li>
+<h2 id="github">Github</h2>
+<ol type="1">
+<li><p>Create a new repository with the name
+<code>YourFullUserName.github.io</code> and it has to be set to
+public.</p></li>
 <li><p>Install a plugin for deployment.</p>
- <figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">$ npm install <span class="hljs-comment">--save hexo-deployer-git</span><br></code></pre></td></tr></table></figure>
-</li>
-<li><p>Find the <code>_config.yml</code> file in your blog folder, at the end of this file, modify the following content:</p>
- <figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-comment"># Deployment</span><br><span class="hljs-comment">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="hljs-attr">deploy</span>:<span class="hljs-string"></span><br>  <span class="hljs-attr">type</span>: <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo</span>: <span class="hljs-string">Your Github repo&#x27;s link</span><br>  <span class="hljs-attr">branch</span>: <span class="hljs-string">master</span><br></code></pre></td></tr></table></figure>
-
-<p> Your repo link should end with <code>.github.io.git</code> which you could obtain here.</p>
-<p> <img src="https://i.loli.net/2021/11/28/mQEldKOZv9wsjqc.jpg" srcset="/img/loading.gif" lazyload alt="Where to find your link"></p>
-</li>
-<li><p>After saving your config file, run command below to deploy your blog.</p>
- <figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>hexo d<br></code></pre></td></tr></table></figure>
-
-<p> You may need to type your user name and password.</p>
-</li>
+<p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">$ npm install <span class="hljs-comment">--save hexo-deployer-git</span><br></code></pre></td></tr></table></figure></p></li>
+<li><p>Find the <code>_config.yml</code> file in your blog folder, at
+the end of this file, modify the following content:</p>
+<p><figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-comment"># Deployment</span><br><span class="hljs-comment">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="hljs-attribute">deploy</span><span class="hljs-punctuation">:</span><br>  <span class="hljs-attribute">type</span><span class="hljs-punctuation">:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attribute">repo</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Your Github repo&#x27;s link</span><br>  <span class="hljs-attribute">branch</span><span class="hljs-punctuation">:</span> <span class="hljs-string">master</span><br></code></pre></td></tr></table></figure></p>
+<p>Your repo link should end with <code>.github.io.git</code> which you
+could obtain here.</p>
+<figure>
+<img src="https://i.loli.net/2021/11/28/mQEldKOZv9wsjqc.jpg" srcset="/img/loading.gif" lazyload
+alt="Where to find your link" />
+<figcaption aria-hidden="true">Where to find your link</figcaption>
+</figure></li>
+<li><p>After saving your config file, run command below to deploy your
+blog.</p>
+<p><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crystal"><span class="hljs-variable">$ </span>hexo d<br></code></pre></td></tr></table></figure></p>
+<p>You may need to type your user name and password.</p></li>
 <li><p>See you blog online!</p>
-<p> Visit <code>yourUserName.github.io</code></p>
-</li>
+<p>Visit <code>yourUserName.github.io</code></p></li>
 </ol>
-<h2 id="Gitee"><a href="#Gitee" class="headerlink" title="Gitee"></a>Gitee</h2><p>#TODO</p>
-<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ul>
-<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty">Codesheep’s video in Chinese</a></li>
+<h2 id="gitee">Gitee</h2>
+<p>#TODO</p>
+<h1 id="references">References</h1>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty">Codesheep's
+video in Chinese</a></li>
 </ul>
 
                 
@@ -388,9 +418,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/blog/">#blog</a>
-      
         <a href="/tags/translation/">#translation</a>
+      
+        <a href="/tags/blog/">#blog</a>
       
     </div>
   

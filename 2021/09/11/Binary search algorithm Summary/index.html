@@ -283,35 +283,68 @@
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this post, I will give a brief summary of binary search algorithm, together with some programming problems on this topic.</p>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this post, I will give a brief summary of binary search algorithm,
+together with some programming problems on this topic.</p>
 <span id="more"></span>
-
-
-<h2 id="Algorithm-Introduction"><a href="#Algorithm-Introduction" class="headerlink" title="Algorithm Introduction"></a>Algorithm Introduction</h2><ul>
-<li>It is a simple <strong>recursive</strong> searching algorithm. </li>
+<h2 id="algorithm-introduction">Algorithm Introduction</h2>
+<ul>
+<li>It is a simple <strong>recursive</strong> searching algorithm.</li>
 <li>Scope of application: in <strong>ordered</strong> arrays</li>
 </ul>
-<p>The pseudo code<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> is as follows:</p>
+<p>The pseudo
+code<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup> is as
+follows:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python">Procedure binary_search<br>   A ← <span class="hljs-built_in">sorted</span> array<br>   n ← size of array<br>   x ← value to be searched<br>   <span class="hljs-type">Set</span> lowerBound = <span class="hljs-number">1</span> <br>   <span class="hljs-type">Set</span> upperBound = n <br>   <span class="hljs-keyword">while</span> x <span class="hljs-keyword">not</span> found <br>    <span class="hljs-keyword">if</span> upperBound &lt; lowerBound <br>		EXIT: x does <span class="hljs-keyword">not</span> exists. <br>	<span class="hljs-built_in">set</span> midPoint = lowerBound + ( upperBound - lowerBound ) / <span class="hljs-number">2</span> <br>	 <br>	 <span class="hljs-keyword">if</span> A[midPoint] &lt; x <br>		 <span class="hljs-built_in">set</span> lowerBound = midPoint + <span class="hljs-number">1</span> <br>	 <span class="hljs-keyword">if</span> A[midPoint] &gt; x <br>		 <span class="hljs-built_in">set</span> upperBound = midPoint - <span class="hljs-number">1</span> <br>	 <span class="hljs-keyword">if</span> A[midPoint] = x <br>         EXIT: x found at location midPoint <br>   end <span class="hljs-keyword">while</span><br></code></pre></td></tr></table></figure>
-
-
-<p>In plain words, it recursively check whether the mid point value is the target, if the target is bigger, check the left half; if the target is smaller, check the right half.</p>
-<h3 id="Complexity"><a href="#Complexity" class="headerlink" title="Complexity"></a>Complexity</h3><ul>
-<li>Space complexity<br>  Only constant number of variables are used, therefore the space complexity is $O(1)$.</li>
-<li>Time complexity<br>  Because each time after search, half of the array would be ‘discarded’, therefore the overall complexity is $O(\log n)$, where $n$ is the length of the array.</li>
+<p>In plain words, it recursively check whether the mid point value is
+the target, if the target is bigger, check the left half; if the target
+is smaller, check the right half.</p>
+<h3 id="complexity">Complexity</h3>
+<ul>
+<li>Space complexity Only constant number of variables are used,
+therefore the space complexity is <span
+class="math inline">\(O(1)\)</span>.</li>
+<li>Time complexity Because each time after search, half of the array
+would be 'discarded', therefore the overall complexity is <span
+class="math inline">\(O(\log n)\)</span>, where <span
+class="math inline">\(n\)</span> is the length of the array.</li>
 </ul>
-<h2 id="Java-Implementation-example"><a href="#Java-Implementation-example" class="headerlink" title="Java Implementation example"></a>Java Implementation example</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// Java - Non-recursive version</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span></span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">binarySearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> target)</span> </span>&#123;<br>		<span class="hljs-keyword">int</span> n = nums.length;<br>		<span class="hljs-keyword">int</span> left = <span class="hljs-number">0</span>, right = n - <span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>			<span class="hljs-keyword">int</span> mid = left + (right - left) / <span class="hljs-number">2</span>; <span class="hljs-comment">// Prevent add overflow</span><br>			<span class="hljs-keyword">if</span> (nums[mid] == target) <span class="hljs-keyword">return</span> mid;<br>			<span class="hljs-keyword">if</span> (nums[mid] &lt; target) &#123;<br>				left = mid + <span class="hljs-number">1</span>;<br>			&#125; <span class="hljs-keyword">else</span> &#123;<br>				right = mid - <span class="hljs-number">1</span>;<br>			&#125;<br>		&#125;<br>		<span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>	&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// Java - Revursive version</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span></span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">binarySearch</span><span class="hljs-params">(<span class="hljs-keyword">int</span>[] nums, <span class="hljs-keyword">int</span> start, <span class="hljs-keyword">int</span> end, <span class="hljs-keyword">int</span> target)</span> </span>&#123;<br>		<span class="hljs-keyword">if</span> (start &gt; end)<br>			<span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>	    <span class="hljs-keyword">int</span> mid = start + (end - start)/<span class="hljs-number">2</span>; <span class="hljs-comment">// Prevent add overflow</span><br>	    <span class="hljs-keyword">if</span> (arr[mid] &gt; target)<br>	        <span class="hljs-keyword">return</span> binarySearch(arr, start, mid - <span class="hljs-number">1</span>, target);<br>	    <span class="hljs-keyword">if</span> (arr[mid] &lt; target)<br>	        <span class="hljs-keyword">return</span> binarySearch(arr, mid + <span class="hljs-number">1</span>, end, target);<br>	    <span class="hljs-keyword">return</span> mid;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h2 id="Questions"><a href="#Questions" class="headerlink" title="Questions"></a>Questions</h2><ol>
-<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/binary-search/">Leetcode 704 - Binary search</a> - Basic implementation for this algorithm.</li>
-<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/first-bad-version/">Leetcode 278 - First bad Version</a> - Variation on look-up standards.</li>
-<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/">Leetcode 34 - Find First and Last Position of element in Sorted array </a> - Variation on look-up standards and re-use of code.</li>
-<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/search-in-rotated-sorted-array/">Leetcode 33 - Search in rotated sorted array</a>- Variation on the structure of array.</li>
-<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/search-a-2d-matrix/">Leetcode 74 - Search a 2D matrix</a> - Variation on the structure of input array, need to reduce the dimension of input.</li>
-<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-peak-element/">Leetcode 162 - Find peak element</a> - Another realization of binary search algorithm.</li>
+<h2 id="java-implementation-example">Java Implementation example</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// Java - Non-recursive version</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>&#123;<br>	<span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">binarySearch</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> target)</span> &#123;<br>		<span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>		<span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>, right = n - <span class="hljs-number">1</span>;<br>		<span class="hljs-keyword">while</span> (left &lt;= right) &#123;<br>			<span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> left + (right - left) / <span class="hljs-number">2</span>; <span class="hljs-comment">// Prevent add overflow</span><br>			<span class="hljs-keyword">if</span> (nums[mid] == target) <span class="hljs-keyword">return</span> mid;<br>			<span class="hljs-keyword">if</span> (nums[mid] &lt; target) &#123;<br>				left = mid + <span class="hljs-number">1</span>;<br>			&#125; <span class="hljs-keyword">else</span> &#123;<br>				right = mid - <span class="hljs-number">1</span>;<br>			&#125;<br>		&#125;<br>		<span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>	&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// Java - Revursive version</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>&#123;<br>	<span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">binarySearch</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> start, <span class="hljs-type">int</span> end, <span class="hljs-type">int</span> target)</span> &#123;<br>		<span class="hljs-keyword">if</span> (start &gt; end)<br>			<span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;<br>	    <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> start + (end - start)/<span class="hljs-number">2</span>; <span class="hljs-comment">// Prevent add overflow</span><br>	    <span class="hljs-keyword">if</span> (arr[mid] &gt; target)<br>	        <span class="hljs-keyword">return</span> binarySearch(arr, start, mid - <span class="hljs-number">1</span>, target);<br>	    <span class="hljs-keyword">if</span> (arr[mid] &lt; target)<br>	        <span class="hljs-keyword">return</span> binarySearch(arr, mid + <span class="hljs-number">1</span>, end, target);<br>	    <span class="hljs-keyword">return</span> mid;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="questions">Questions</h2>
+<ol type="1">
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/binary-search/">Leetcode 704
+- Binary search</a> - Basic implementation for this algorithm.</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/first-bad-version/">Leetcode
+278 - First bad Version</a> - Variation on look-up standards.</li>
+<li><a
+target="_blank" rel="noopener" href="https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/">Leetcode
+34 - Find First and Last Position of element in Sorted array</a> -
+Variation on look-up standards and re-use of code.</li>
+<li><a
+target="_blank" rel="noopener" href="https://leetcode.com/problems/search-in-rotated-sorted-array/">Leetcode
+33 - Search in rotated sorted array</a>- Variation on the structure of
+array.</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/search-a-2d-matrix/">Leetcode
+74 - Search a 2D matrix</a> - Variation on the structure of input array,
+need to reduce the dimension of input.</li>
+<li><a target="_blank" rel="noopener" href="https://leetcode.com/problems/find-peak-element/">Leetcode
+162 - Find peak element</a> - Another realization of binary search
+algorithm.</li>
 </ol>
-<div id="footnotes"><hr><div id="footnotelist"><ol><li id="fn:1">The pseudo code is derived from <a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/data_structures_algorithms/binary_search_algorithm.htm">tutorials point</a><a href="#fnref:1" rev="footnote"> ↩</a></li></ol></div></div>
+<div id="footnotes">
+<hr>
+<div id="footnotelist">
+<ol>
+<li id="fn:1">
+The pseudo code is derived from
+<a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/data_structures_algorithms/binary_search_algorithm.htm">tutorials
+point</a><a href="#fnref:1" rev="footnote"> ↩︎</a>
+</li>
+</ol>
+</div>
+</div>
+
                 
               </div>
             

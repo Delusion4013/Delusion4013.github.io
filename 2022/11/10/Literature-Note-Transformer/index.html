@@ -23,14 +23,16 @@
 <meta property="og:site_name" content="Chenkai&#39;s Blog">
 <meta property="og:description" content="In this post, I would summarize key points from classic paper  following its initial structure.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s2.loli.net/2022/11/10/XVjrOJAGFc32o7N.png">
-<meta property="og:image" content="https://s2.loli.net/2022/11/10/sOyKQacRzZrIPqn.png">
+<meta property="og:image" content="https://s2.loli.net/2022/11/24/SxYCGEHjplryNwa.png">
+<meta property="og:image" content="https://s2.loli.net/2022/11/24/vdOCy9T3uxVQWlw.png">
+<meta property="og:image" content="https://s2.loli.net/2022/11/24/4EAL3FWzb69QIpH.png">
+<meta property="og:image" content="https://s2.loli.net/2022/11/24/aJTNOvFq7nfwRYP.png">
 <meta property="article:published_time" content="2022-11-10T03:03:40.000Z">
-<meta property="article:modified_time" content="2022-11-11T14:17:06.941Z">
+<meta property="article:modified_time" content="2022-11-24T02:52:33.248Z">
 <meta property="article:author" content="Chenkai">
 <meta property="article:tag" content="Artificial Intelligence">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.loli.net/2022/11/10/XVjrOJAGFc32o7N.png">
+<meta name="twitter:image" content="https://s2.loli.net/2022/11/24/SxYCGEHjplryNwa.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -224,7 +226,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k words
+          9.4k words
         
       </span>
     
@@ -235,7 +237,7 @@
         
         
         
-          2 mins
+          10 mins
         
       </span>
     
@@ -286,78 +288,443 @@
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this post, I would summarize key points from classic paper <a target="_blank" rel="noopener" href="http://arxiv.org/abs/1706.03762"><Attention is all you need></a> following its initial structure.</p>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this post, I would summarize key points from classic paper <a
+target="_blank" rel="noopener" href="http://arxiv.org/abs/1706.03762"><Attention is all you need></a>
+following its initial structure.</p>
 <span id="more"></span>
-
 <blockquote>
-<p><strong>Important links</strong></p>
+<p><strong>Important Links</strong></p>
 <ul>
 <li><a target="_blank" rel="noopener" href="http://arxiv.org/abs/1706.03762">Paper link</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/tensorflow/tensor2tensor">Code link</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/tensorflow/tensor2tensor">Code
+link</a></li>
 </ul>
 </blockquote>
 <blockquote>
-<p>Acknowledgements<br>Special thanks to Mu LI, who provides a wonderful review <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1pu411o7BE/">video</a> on this article.</p>
+<p><strong>Acknowledgements</strong></p>
+<p>Special thanks to Mu LI, who provides a wonderful review <a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1pu411o7BE/">video</a> on this
+article.</p>
+<p>Also thanks to Lilian, for this wonderful <a
+target="_blank" rel="noopener" href="https://lilianweng.github.io/posts/2020-04-07-the-transformer-family/">blog</a>
+connecting transformer's principle &amp; applications.</p>
 </blockquote>
-<h2 id="0-Abstract"><a href="#0-Abstract" class="headerlink" title="0. Abstract"></a>0. Abstract</h2><ul>
-<li>Paper proposes a new simple network architecture, the Transformer, based solely on attention mechanisms</li>
+<h2 id="abstract">0. Abstract</h2>
+<ul>
+<li>Paper proposes a new simple network architecture, the Transformer,
+based solely on attention mechanisms</li>
 <li>State-of-the-art result on <em>machine translation tasks</em></li>
-<li>Advantages of transformer architecture<ul>
-<li>More parallelizable &amp; require significantly less training time</li>
+<li>Advantages of transformer architecture
+<ul>
+<li>More parallelizable &amp; require significantly less training
+time</li>
 <li>Generalize well to other tasks - see BERT, GPT</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <blockquote>
-<p><strong>Writing Tips</strong></p>
-<p>When stating equal contribution using <code>*</code>, it’s good practice to list briefly about each member’s work done.</p>
+<p><strong>Writing tips</strong></p>
+<p>When stating equal contribution using <code>*</code>, it's good
+practice to list briefly about each member's work done.</p>
 </blockquote>
-<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><blockquote>
+<h2 id="introduction">1. Introduction</h2>
+<blockquote>
 <p>Basically an extension to abstract</p>
 </blockquote>
 <ul>
-<li><p>Recurrent neural networks &#x2F;models’</p>
+<li><p>Recurrent neural networks /models'</p>
 <ul>
-<li><p><strong>Principle</strong><br>  Generate a sequence of hidden states $h_t$, as a function of the previous hidden state $h_{t−1}$ and the input for position $t$.</p>
-<p>  <img src="https://s2.loli.net/2022/11/10/XVjrOJAGFc32o7N.png" srcset="/img/loading.gif" lazyload alt="RNN-calculation-example.png"></p>
-</li>
+<li><p><strong>Principle</strong> Generate a sequence of hidden states
+<span class="math inline">\(h_t\)</span>, as a function of the previous
+hidden state <span class="math inline">\(h_{t−1}\)</span> and the input
+for position <span class="math inline">\(t\)</span>.</p>
+<figure>
+<img src="https://s2.loli.net/2022/11/24/SxYCGEHjplryNwa.png" srcset="/img/loading.gif" lazyload
+alt="RNN-calculation-example.png" />
+<figcaption aria-hidden="true">RNN-calculation-example.png</figcaption>
+</figure></li>
 <li><p><strong>Drawbacks</strong></p>
 <ul>
 <li>Parallelization preclusion by calculation method</li>
-<li>High memory requirements for preserving historical information. &#x2F; Possibility in forgetting early information after step by step passing.</li>
-</ul>
-</li>
-</ul>
-</li>
+<li>High memory requirements for preserving historical information. /
+Possibility in forgetting early information after step by step
+passing.</li>
+</ul></li>
+</ul></li>
 <li><p>Attention Mechanism</p>
 <ul>
 <li>An integral part of sequence &amp; transduction models.</li>
-<li>Allow the model to capture dependencies between in&#x2F;out sequence regardless of their distance.</li>
-<li><mark>Most of them used in conjunction with a recurrent network</mark></li>
-</ul>
-</li>
-<li><p>Transformer’s innovation</p>
+<li>Allow the model to capture dependencies between in/out sequence
+regardless of their distance.</li>
+<li><mark>Most of them used in conjunction with a recurrent
+network</mark></li>
+</ul></li>
+<li><p>Transformer's innovation</p>
 <ul>
-<li>“eschewing recurrence and instead relying entirely on an attention mechanism”</li>
+<li>“eschewing recurrence and instead relying entirely on an attention
+mechanism”</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h2 id="2-Background"><a href="#2-Background" class="headerlink" title="2. Background"></a>2. Background</h2><ul>
-<li>Introduces previous attempts to reduce sequential computation - using CNN (convolutional neural networks)<ul>
-<li>“difficult to learn dependencies between distant positions”, between long sequences</li>
-<li>Why Multi-Head Attention (instead of single head)?<ul>
-<li>Attention mechanism eschewed convolution mechanism, losing the opportunity to model different patterns.</li>
-<li>Using Multi-Head Attention mechanism is to <mark>simulate the multi-channel output of CNN.</mark></li>
-</ul>
-</li>
-</ul>
-</li>
+<h2 id="background">2. Background</h2>
+<ul>
+<li>Introduces previous attempts to reduce sequential computation -
+using CNN (convolutional neural networks)
+<ul>
+<li>“difficult to learn dependencies between distant positions”, between
+long sequences</li>
+<li>Why Multi-Head Attention (instead of single head)?
+<ul>
+<li>Attention mechanism eschewed convolution mechanism, losing the
+opportunity to model different patterns.</li>
+<li>Using Multi-Head Attention mechanism is to <mark>simulate the
+multi-channel output of CNN.</mark></li>
+</ul></li>
+</ul></li>
 <li>Previous success on self-attention</li>
 <li>End-to-end memory networks’ scope and performance</li>
 <li>Innovation point about Transformer.</li>
 </ul>
-<h2 id="3-Model-Architecture"><a href="#3-Model-Architecture" class="headerlink" title="3. Model Architecture"></a>3. Model Architecture</h2><p><img src="https://s2.loli.net/2022/11/10/sOyKQacRzZrIPqn.png" srcset="/img/loading.gif" lazyload alt="Transformer-Architecture-from-Paper.png"></p>
-<h1 id="x3D-x3D-Working-x3D-x3D"><a href="#x3D-x3D-Working-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;Working&#x3D;&#x3D;"></a>&#x3D;&#x3D;Working&#x3D;&#x3D;</h1>
+<h2 id="model-architecture">3. Model Architecture</h2>
+<p>Follows most competitive sequence transduction models, Transformer
+uses an <em>encoder-decoder structure</em>, where</p>
+<ul>
+<li>Encoder maps input sequence to a vector-like representation for
+model usage.</li>
+<li>Decoder generates output sequence one element at a time.</li>
+</ul>
+<p>The model is <strong>auto-regressive</strong>, using output from
+previous moment as additional input.</p>
+<h3 id="encoder-decoder-stacks">3.1 Encoder &amp; Decoder Stacks</h3>
+<figure>
+<img src="https://s2.loli.net/2022/11/24/vdOCy9T3uxVQWlw.png" srcset="/img/loading.gif" lazyload
+alt="Transformer-Architecture-from-Paper.png" />
+<figcaption
+aria-hidden="true">Transformer-Architecture-from-Paper.png</figcaption>
+</figure>
+<ul>
+<li>Encoder - Decoder, shown in the left and right halves
+respectively.</li>
+<li>Each layer of <strong>encoder</strong> consists of two sub-layers -
+a multi-head attention mechanism &amp; a MLP. The residual connection
+(inspired by ResNet) is used within sub-layers. The
+<strong>LayerNorm</strong> technique is also implemented.
+<ul>
+<li><strong>LayerNorm</strong> is a different normalization method from
+Batch Normalization and is more suitable with models taking
+variable-length inputs (temporal sequences), reducing the impact of
+different batch cuts (sequence length variations) on normalization.</li>
+<li>Generally speaking, the difference lies in the data slicing
+mechanism. BN slices the data according to the batch and regularizes the
+feature dimensions, while LN slices the data according to the input
+samples and regularizes different features of the same sample.</li>
+</ul></li>
+<li>In addition to encoder, decoder adds another layer, calculate the
+multi-head attention over the output of the encoder. A masking mechanism
+is used to prevent decoder uses output after position <span
+class="math inline">\(i\)</span> to predict the position <span
+class="math inline">\(i\)</span>.</li>
+</ul>
+<h3 id="attention">3.2 Attention</h3>
+<p>Attention is a mechanism that model learns to <mark>make predictions
+by selectively attending</mark> to a given set of
+data.<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
+<p>Self-attention is a type of attention mechanism where the model makes
+prediction for one part of a data sample using other parts of the
+observation about the same sample,... it is
+<mark>permutation-invariant</mark>; in other words, it is an operation
+on sets.<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
+<ul>
+<li>In transformer's Encoder, Query, Key, Value are identical vectors
+generated by the embedding layer, therefore no trainable variables
+involved.</li>
+</ul>
+<p>“An attention function can be described as mapping a query and a set
+of key-value pairs to an output. The output is computed as a
+<mark>weighted sum of the values</mark>, where the weight assigned to
+each value is computed by a compatibility function of the query with the
+corresponding key.”</p>
+<p>The amount of attention is quantified by learned weights and thus the
+output is usually in the form of weighted average over input (Query,
+Key, Value) pair.</p>
+<h4 id="scaled-dot-product-attention">3.2.1 Scaled Dot-Product
+Attention</h4>
+<ul>
+<li>What's Dot-Product?
+<ul>
+<li>Perform matrix multiplication on queries (Q) and keys (K)
+embeddings.</li>
+</ul></li>
+<li>Why Dot-Product?
+<ul>
+<li>Faster &amp; space-efficient in practice</li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Another alternative for attention functions are additive
+attention.</p>
+</blockquote>
+<ul>
+<li>What's Scale?
+<ul>
+<li>After dot-product, divide the result by <span
+class="math inline">\(\sqrt{d_k}\)</span>.</li>
+</ul></li>
+<li>Why scale?
+<ul>
+<li>For long input sequence, apply <code>softmax</code> on the unscaled
+dot-product could result in <strong>Vanishing gradient</strong>.</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[
+Attention(Q,K,V) = \text{softmax}(\frac{QK^T}{\sqrt{d_k}})V
+\]</span></p>
+<figure>
+<img src="https://s2.loli.net/2022/11/24/4EAL3FWzb69QIpH.png" srcset="/img/loading.gif" lazyload
+alt="Scaled Dot-Product Attention" />
+<figcaption aria-hidden="true">Scaled Dot-Product Attention</figcaption>
+</figure>
+<h4 id="multi-head-attention">3.2.2 Multi-Head Attention</h4>
+<ul>
+<li><p>What is Multi-head attention?</p>
+<ul>
+<li><img src="https://s2.loli.net/2022/11/24/aJTNOvFq7nfwRYP.png" srcset="/img/loading.gif" lazyload
+alt="Multi-head attention illustration" /> <span class="math display">\[
+  \begin{aligned}
+  \text{MultiHead}(Q,K,V) = \text{Concat}(head_1,...,head_h)W^O \\
+  where\ head_i=\text{Attention}(QW_i^Q,KW_i^K,VW_i^V)
+  \end{aligned}
+  \]</span></li>
+</ul></li>
+<li><p>Why multi-head?</p>
+<ul>
+<li><blockquote>
+<p>Multi-head attention allows the model to jointly attend to
+information from different representation subspaces at different
+positions</p>
+</blockquote></li>
+<li>Just like CNN's different convolution kernel, multi-head attention
+enables the model to capture different input patterns, learning more
+representations.</li>
+</ul></li>
+</ul>
+<h4 id="applications-of-attention-in-our-model">3.2.3 Applications of
+Attention in our Model</h4>
+<ol type="1">
+<li>In "encoder-decoder attention" layers, the queries come from the
+previous decoder layer, and the memory keys and values come from the
+output of the encoder.</li>
+<li>The encoder contains self-attention layers</li>
+<li>The decoder contains self-attention layers.</li>
+</ol>
+<h3 id="position-wise-feed-forward-networks">3.3 Position-wise
+Feed-Forward Networks</h3>
+<p>Put it in other way - it's a fully-connected feed-forward network
+with one hidden layer (MLP).</p>
+<p>This layer applies a linear transformation (<span
+class="math inline">\(xW_1+b_1\)</span>) on input <code>x</code>, using
+a ReLU activation function and then another linear transformation.</p>
+<p>One thing to notice - the first transformation expand the input
+dimension to <span class="math inline">\(2048\)</span>, and then project
+it back in the second transformation. <span class="math display">\[
+    FFN(x) = \max(0, xW_1+b_1)W_2+b_2
+\]</span></p>
+<ul>
+<li>What is position-wise?
+<ul>
+<li>the above linear transformation is applied to <mark>every
+position</mark> of the output separately and identically.</li>
+<li>To put it in simple ways, it is applied to each word of the input
+sequence, and is therefore called <strong>point-wise</strong></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Comparison between transformer &amp; RNN</p>
+<p>Transformer extracts sequence information when applying attention
+function, while the RNN directly passes the <span
+class="math inline">\(t-1\)</span> information to the next computing
+block.</p>
+</blockquote>
+<h3 id="embeddings-and-softmax">3.4 Embeddings and Softmax</h3>
+<ul>
+<li>What's embedding?
+<ul>
+<li>Embedding are a vector form of input token, used to represent
+semantic information.</li>
+</ul></li>
+</ul>
+<p>In Transformer, embeddings are used for inputs of both encoder and
+decoder. Same weight matrix are applied for these embeddings and
+pre-softmax linear transformation.</p>
+<ul>
+<li>Why multiply <span class="math inline">\(\sqrt{d_{model}}\)</span>
+in embedding layer?
+<ul>
+<li>When learning embeddings, the L2 Norm value is applied. With the
+increase of input dimension, the weight learnt would decrease.</li>
+<li>However, this embedding needs to combine with the positional
+encoding (with increasing integer number). To have roughly same scale of
+value, <span class="math inline">\(\sqrt{d_{model}}\)</span> is
+multiplied.</li>
+</ul></li>
+</ul>
+<h3 id="positional-encoding">3.5 Positional Encoding</h3>
+<p>As discussed in previous section, attention mechanism itself are
+operations on sets. In other words, changing the order of encoder input
+would not affect its output.</p>
+<p>To add sequence information, we applied "positional encoding". In
+transformer, sine and cosine functions of different frequencies are
+used.</p>
+<p><span class="math display">\[
+\begin{aligned}
+PE_{(pos,2i)}=&amp;sin(pos/10000^{2i/d_{model}})\\
+PE_{(pos,2i+1)}=&amp;cos(pos/10000^{2i/d_{model}})\\
+&amp;\text{where pos is position and i is dimension}
+\end{aligned}
+\]</span></p>
+<h2 id="why-self-attention">4. Why self-attention?</h2>
+<ul>
+<li><p>Comparison between self-attention layers to the recurrent and
+convolutional layers on seq2seq tasks.</p></li>
+<li><p>Self attention is evaluated on three criteria (as following
+column):</p>
+<ol type="1">
+<li><p>Computation speed</p></li>
+<li><p>Amount of parallelizable computation (smaller <span
+class="math inline">\(O(x)\)</span> the better)</p></li>
+<li><p>Path length of signals have to traverse in the network between
+long range dependencies.</p>
+<blockquote>
+<p>“The shorter these paths between any combination of positions in the
+input and output sequences, the easier it is to learn long-range
+dependencies."</p>
+</blockquote></li>
+</ol></li>
+</ul>
+<table>
+
+<thead>
+<tr class="header">
+<th>Layer Type</th>
+<th>Complexity per Layer</th>
+<th>Sequential Operation</th>
+<th>Maximum Path Length</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Self-Attention</td>
+<td><span class="math inline">\(O(n^2\cdot d)\)</span></td>
+<td><span class="math inline">\(O(1)\)</span></td>
+<td><span class="math inline">\(O(1)\)</span></td>
+</tr>
+<tr class="even">
+<td>Recurrent</td>
+<td><span class="math inline">\(O(n\cdot d^2)\)</span></td>
+<td><span class="math inline">\(O(n)\)</span></td>
+<td><span class="math inline">\(O(n)\)</span></td>
+</tr>
+<tr class="odd">
+<td>Convolutional</td>
+<td><span class="math inline">\(O(k\cdot n\cdot d^2)\)</span></td>
+<td><span class="math inline">\(O(1)\)</span></td>
+<td><span class="math inline">\(O(log_k(n))\)</span></td>
+</tr>
+<tr class="even">
+<td>Self-Attention(restricted)</td>
+<td><span class="math inline">\(O(r\cdot n\cdot d)\)</span></td>
+<td><span class="math inline">\(O(1)\)</span></td>
+<td><span class="math inline">\(O(n/r)\)</span></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><span class="math inline">\(n\)</span> - input sequence length, <span
+class="math inline">\(d\)</span> - the representation dimensionality,
+<span class="math inline">\(k\)</span> - kernel width, <span
+class="math inline">\(r\)</span> - restricted neighborhood size</p>
+</blockquote>
+<ul>
+<li><span class="math inline">\(n\)</span> is normally smaller than
+<span class="math inline">\(d\)</span>, giving self-attention advantages
+in computing.</li>
+<li><span class="math inline">\(k\)</span> is usually a small number,
+therefore CNN &amp; RNN has roughly same level of complexity.</li>
+<li>Adding restriction to self-attention is a trade-off between
+capturing long range dependencies and computation speed.</li>
+</ul>
+<h2 id="training">5. Training</h2>
+<p>In this section, training regime is described.</p>
+<ul>
+<li><p>Encode setting - byte-pair encoding</p></li>
+<li><p>Dataset - larger WMT 2014 English-French dataset consisting of
+36M sentences</p></li>
+<li><p>Batch - a set of sentence pairs with approximately 25000 source
+tokens and 25000 target tokens</p></li>
+<li><p>Hardware - 8 NVIDIA P100 GPUs (still affordable, compared to GPT
+:P)</p>
+<ul>
+<li>TPU is implemented afterwards to facilitate transformer like
+computation (with large matrix multiplication)</li>
+</ul></li>
+<li><p>Time</p>
+<ul>
+<li>Base model - 0.4s step time,100,000 steps / 12 hours</li>
+<li>big model - 1.0s step time, 300,000 steps / 3.5 days</li>
+</ul></li>
+<li><p>Optimizer</p>
+<ul>
+<li>Adam, <span
+class="math inline">\(\beta_1=0.9,\beta_2=0.98,\epsilon=10^{-9}\)</span></li>
+</ul></li>
+<li><p>Scheduling</p>
+<ul>
+<li><span class="math inline">\(lrate = d^{-0.5}_{model} \cdot
+min(step\_num^{-0.5}, step\_ num \cdot
+warmup\_steps^{-1.5})\)</span></li>
+<li>"This corresponds to increasing the learning rate linearly for the
+first <code>warmup_steps</code> training steps, and decreasing it
+thereafter proportionally to the inverse square root of the step number.
+We used warmup_steps = 4000."</li>
+</ul></li>
+<li><p>Regularization</p>
+<ul>
+<li>Residual dropout
+<ul>
+<li>output of each sub-layer, sums of the embeddings and the positional
+encodings in both the encoder and decoder stacks.</li>
+<li><span class="math inline">\(P_{drop}=0.1\)</span></li>
+</ul></li>
+<li>Label smoothing
+<ul>
+<li>value <span class="math inline">\(\epsilon_{ls}=0.1\)</span></li>
+<li>hurts perplexity, but improves accuracy &amp; BLUE score.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="results">6. Results</h2>
+<p>In this section, results on machine translation (English-to-German),
+different model architecture, English Constituency Parsing tasks are
+summarized.</p>
+<h2 id="conclusion">7. Conclusion</h2>
+<ul>
+<li>Transformer - "The first sequence transduction model based entirely
+on attention"</li>
+<li>Achieved a new state of the art on machine translation task</li>
+<li>Proposing a new model architecture for handling multi modalities
+&amp; adapting to different downstream tasks (see more in BERT)</li>
+</ul>
+<div id="footnotes">
+<hr>
+<div id="footnotelist">
+<ol>
+<li id="fn:1">
+<a target="_blank" rel="noopener" href="https://lilianweng.github.io/posts/2020-04-07-the-transformer-family/">The
+Transformer Family | Lil'Log
+(lilianweng.github.io)</a><a href="#fnref:1" rev="footnote"> ↩︎</a>
+</li>
+</ol>
+</div>
+</div>
+
                 
               </div>
             
