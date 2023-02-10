@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://s2.loli.net/2023/02/10/E7Wgry2QIAKLamq.png">
 <meta property="og:image" content="https://s2.loli.net/2023/02/10/RtKNxSHg65wOWp4.png">
 <meta property="article:published_time" content="2023-02-10T07:31:49.000Z">
-<meta property="article:modified_time" content="2023-02-10T07:42:59.800Z">
+<meta property="article:modified_time" content="2023-02-10T07:49:15.271Z">
 <meta property="article:author" content="Chenkai">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary_large_image">
@@ -318,7 +318,7 @@ gained after each failed comparison</li>
 array for storing useful information.</li>
 </ul></li>
 </ul>
-<h2 id="brute-force-method">Brute Force method</h2>
+<h1 id="brute-force-method">Brute Force method</h1>
 <ul>
 <li>Before dig into KMP algorithm, let's look at the method which
 defines the lower limit of the performance. <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Brute force algorithm for string matching</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">bruteForce</span>(<span class="hljs-params">S, P</span>):<br>  <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(S) - <span class="hljs-built_in">len</span>(P) + <span class="hljs-number">1</span>):<br>    <span class="hljs-keyword">if</span> S[i : i + <span class="hljs-built_in">len</span>(P)] == P:<br>      <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;Find a matching point at position <span class="hljs-subst">&#123;i&#125;</span>&#x27;</span>) <span class="hljs-comment"># f-string</span><br></code></pre></td></tr></table></figure>
@@ -335,7 +335,7 @@ step.</li>
 </ol></li>
 </ul></li>
 </ul>
-<h3 id="analysis">Analysis</h3>
+<h2 id="analysis">Analysis</h2>
 <ul>
 <li>The step <code>1</code> takes <code>|P|</code> (length of pattern
 string, usually marked as <code>n</code>) time, and the step
@@ -369,8 +369,8 @@ alt="image.png" />
 </ul></li>
 </ul></li>
 </ul>
-<h2 id="deducing-the-kmp-algorithm">Deducing the KMP algorithm</h2>
-<h3 id="partial-matching-table">Partial Matching Table</h3>
+<h1 id="deducing-the-kmp-algorithm">Deducing the KMP algorithm</h1>
+<h2 id="partial-matching-table">Partial Matching Table</h2>
 <ul>
 <li>Following the intuition of <strong>skipping impossible
 matching</strong>, we need to find a mechanism to decide which ones
@@ -425,8 +425,8 @@ complexity is <span class="math inline">\(O(n)\)</span>.</li>
 </ul></li>
 </ul></li>
 </ul>
-<h3 id="calculating-partial-matching-table">Calculating Partial Matching
-Table</h3>
+<h2 id="calculating-partial-matching-table">Calculating Partial Matching
+Table</h2>
 <ul>
 <li><p>Now we have drawn the overall picture of KMP algorithm. The only
 problem remained is how to calculate the <code>next[]</code>
