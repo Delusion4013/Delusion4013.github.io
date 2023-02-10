@@ -16,12 +16,12 @@
   <meta name="author" content="Chenkai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Introduction String Matching Problem  Given strings S(length m) and T (length n), find T in S. The string T called pattern. Wide Applications, essential role in various real-world problems.  Text proc">
+    <meta name="description" content="In this post, I will introduce the string matching problem, and a clever solution - KMP algorithm. I start from the brute force method and showed how to deduce KMP.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="An introduction to KMP algorithm">
 <meta property="og:url" content="https://delusion4013.github.io/2023/02/10/An-introduction-to-KMP-algorithm/index.html">
 <meta property="og:site_name" content="Chenkai&#39;s Blog">
-<meta property="og:description" content="Introduction String Matching Problem  Given strings S(length m) and T (length n), find T in S. The string T called pattern. Wide Applications, essential role in various real-world problems.  Text proc">
+<meta property="og:description" content="In this post, I will introduce the string matching problem, and a clever solution - KMP algorithm. I start from the brute force method and showed how to deduce KMP.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s2.loli.net/2023/02/10/VOC5L6uESbXt7UD.png">
 <meta property="og:image" content="https://s2.loli.net/2023/02/10/sQcdCexKumNHASr.png">
@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://s2.loli.net/2023/02/10/E7Wgry2QIAKLamq.png">
 <meta property="og:image" content="https://s2.loli.net/2023/02/10/RtKNxSHg65wOWp4.png">
 <meta property="article:published_time" content="2023-02-10T07:31:49.000Z">
-<meta property="article:modified_time" content="2023-02-10T07:49:15.271Z">
+<meta property="article:modified_time" content="2023-02-10T08:04:31.793Z">
 <meta property="article:author" content="Chenkai">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary_large_image">
@@ -227,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.7k words
+          5.9k words
         
       </span>
     
@@ -289,7 +289,10 @@
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="introduction">Introduction</h1>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this post, I will introduce the string matching problem, and a
+clever solution - KMP algorithm. I start from the brute force method and
+showed how to deduce KMP. <span id="more"></span></p>
+<h1 id="introduction">Introduction</h1>
 <h2 id="string-matching-problem">String Matching Problem</h2>
 <ul>
 <li>Given strings <code>S</code>(length <code>m</code>) and
