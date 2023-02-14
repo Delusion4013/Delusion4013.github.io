@@ -1,0 +1,1068 @@
+
+
+<!DOCTYPE html>
+<html lang="en,zh-CN,default" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/my-favicon-32x32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chenkai">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Introduction of recent popular models. In the past year, Generative AI (or AIGC) captured massive attention from all over the world. From Stable-Diffusion to various versions of Text-to-image models i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Thinking about Generative AI">
+<meta property="og:url" content="https://delusion4013.github.io/2023/02/14/Thinking-about-Generative-AI/index.html">
+<meta property="og:site_name" content="Chenkai&#39;s Blog">
+<meta property="og:description" content="Introduction of recent popular models. In the past year, Generative AI (or AIGC) captured massive attention from all over the world. From Stable-Diffusion to various versions of Text-to-image models i">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2023/02/14/B4xU753OVfkSZ9a.jpg">
+<meta property="og:image" content="https://s2.loli.net/2023/02/14/15VkeiltKU3PM7Y.jpg">
+<meta property="og:image" content="https://s2.loli.net/2023/02/14/kX57Hc3C9ZdiTIY.jpg">
+<meta property="article:published_time" content="2023-02-14T03:50:54.000Z">
+<meta property="article:modified_time" content="2023-02-14T05:12:00.475Z">
+<meta property="article:author" content="Chenkai">
+<meta property="article:tag" content="Generative AI">
+<meta property="article:tag" content="Diffusion">
+<meta property="article:tag" content="ChatGPT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2023/02/14/B4xU753OVfkSZ9a.jpg">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>Thinking about Generative AI - Chenkai&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"delusion4013.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Connecting Dots</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg/post-default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Thinking about Generative AI"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-02-14 11:50" pubdate>
+          February 14, 2023 am
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.6k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          9 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> views
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Thinking about Generative AI</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h1 id="introduction-of-recent-popular-models.">Introduction of recent
+popular models.</h1>
+<p>In the past year, Generative AI (or AIGC) captured massive attention
+from all over the world. From Stable-Diffusion to various versions of
+Text-to-image models in the first half, and ChatGPT to Bing-GPT in the
+second half, there seems a new level of intelligence has been
+achieved.</p>
+<p>Out of the spotlight, AlphaCode and CodeX has been used to boost
+programmer's productivity. AlphaTensor successfully discovered a new
+matrix multiply algorithm. After several years of development in deep
+learning field, Artificial Intelligence has made a remarkable step
+forward in multiple areas.</p>
+<p>For more generative AI, please refer to <a
+target="_blank" rel="noopener" href="http://arxiv.org/abs/2301.04655">Gozalo-Brizuela and
+Garrido-Merchan's Work</a>, in which they give an comprehensive overview
+of different generative AIs and a brief introduction of various models.
+The categorization based on input and output of models split the recent
+research into 9 categories as follows:<br />
+- text-to-image<br />
+- text-to-3D model<br />
+- image-to-text (image summary)<br />
+- text-to-video<br />
+- text-to-audio (also called TTS)<br />
+- text-to-text (summary, comprehension, translation, etc..)<br />
+- text-to-code<br />
+- text-science<br />
+- Others</p>
+<p>I am not going to give a detailed introduction to the technology
+behind each model, but discusses the pros and cons of some of the
+representative models and what to do with this irreversible trend.</p>
+<h1 id="diffusion-models---artists">Diffusion models - Artists</h1>
+<ul>
+<li>Some example images diffusion model generated - obtained from <a
+target="_blank" rel="noopener" href="https://lexica.art/">Lexica.art</a>, a wonderful image search
+engine for generated images</li>
+</ul>
+<div class="row">
+<style>
+.column {
+float: left;
+width: 33.33%;
+padding: 5px;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+<div class="column">
+<p><img src="https://s2.loli.net/2023/02/14/B4xU753OVfkSZ9a.jpg" srcset="/img/loading.gif" lazyload alt="Example-diffusion-figure" display="inline" /></p>
+</div>
+<div class="column">
+<p><img src="https://s2.loli.net/2023/02/14/15VkeiltKU3PM7Y.jpg" srcset="/img/loading.gif" lazyload alt="example-3d-art" display="inline" /></p>
+</div>
+<div class="column">
+<p><img src="https://s2.loli.net/2023/02/14/kX57Hc3C9ZdiTIY.jpg" srcset="/img/loading.gif" lazyload alt="example-realistic" display="inline" /></p>
+</div>
+</div>
+<ul>
+<li>In case you haven't try these awesome models, below are some
+resources of ready-to-use models
+<ul>
+<li>MidJourney <a target="_blank" rel="noopener" href="https://discord.com/invite/midjourney">Discord
+Channel</a><br />
+</li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/camenduru/webui">HuggingFace
+model</a></li>
+</ul></li>
+</ul>
+<h2 id="pros">Pros</h2>
+<ul>
+<li>Quick to draw.
+<ul>
+<li>Compared to human artists, AI could generate an image in less than
+10s.<br />
+</li>
+</ul></li>
+<li>Adjustability.
+<ul>
+<li>It may be hard to change the pose, the cloth or other details about
+the figure, but for AI, changing a few tags could have this effect. One
+could use <code>impaint</code> to erase some part of the picture and
+re-generate. Modifying a few tags could also change the style of the
+painting significantly.<br />
+</li>
+</ul></li>
+<li>Image-Image imitate capability.
+<ul>
+<li>Take an image as input, generate a new image based on the given one
+and the prompt. This feature allows people to create personalized
+portrait for themselves.</li>
+</ul></li>
+</ul>
+<h2 id="cons">Cons</h2>
+<ul>
+<li>Prompt engineering needed.
+<ul>
+<li>As the model name (text-to-image) suggests, one need to provide a
+description for the desired image. Though many products has encapsulated
+some prompt engineering work, it is still user's responsibility to
+understand the basic prompt structure and (know and )choose the tags
+they need for certain styles. Here are some guides for you to write
+efficient prompts:
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://wandb.ai/morgan/stable-diffusion/reports/Stable-Diffusion-Settings-and-Storing-Your-Images--VmlldzoyNTExMDgy">Stable-diffusion
+demonstration blog</a><br />
+</li>
+<li><a
+target="_blank" rel="noopener" href="https://strikingloo.github.io/stable-diffusion-vs-dalle-2#appendix-a-stable-diffusion-prompt-guide">How
+to write smart prompt?</a><br />
+</li>
+<li><a
+target="_blank" rel="noopener" href="https://docs.google.com/document/d/17VPu3U2qXthOpt2zWczFvf-AH6z37hxUbvEe1rJTsEc/edit#">How
+to write diffusion prompt - Google docs</a><br />
+</li>
+<li><a
+target="_blank" rel="noopener" href="https://huggingface.co/spaces/Gustavosta/MagicPrompt-Stable-Diffusion">Prompt
+Generator</a><br />
+</li>
+</ul></li>
+</ul></li>
+<li>Serious copyright issues
+<ul>
+<li>This topic is much debated, and most AI companies are vague about
+rights of the generated images (correct me if I got this wrong). Laws or
+industry rules are still unclear about to which extent of resemblance
+should we consider an image is plagiarized. Some may debate that it is
+plagiarism for using copyright protected images as the training
+input!<br />
+</li>
+</ul></li>
+<li>Unsure quality
+<ul>
+<li>If you are using raw models, it is common to get poorly drawn hands,
+fused fingers or more than 2 feet figures. The impact of different
+sampling method, CFG scale (how strictly model adhere to prompt) and
+sampling steps is significant. These things all add up to unsure quality
+for unskilled user of diffusion models.<br />
+</li>
+<li>A possible negative prompts I collected on the internet:<br />
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text"># Negative prompts<br>  				  <br>(poorly drawn hands), (poorly drawn face), weird, (((fat))), ((cropped)), ((fused fingers)), ((too many fingers)), (malformed limbs), (((bad anatomy))), ((ugly)), out of frame, blurry, gross propotions, distorted face, distorted body, ((distorted fingers)), missing leg, more than 2 leg, more than 2 feet, more than 2 arms, text, ui, signature, icon, watermark, misplaced limbs, leg too big, leg too small, fused hands, fused arms, distorted backgroud, fused buildings, ((finger too short)), more than 1 right hand, more than 1 left hand, wrong direction of limbs, wrong direction of legs, wrong direction of feet, misplaced facial features, unbalanced facial features, ((body too long)), ((arm too short)), (poorly drawn joint), misplaced joint, wrong joint angle, disappearing legs, disappearing arms, disappearing limbs, ((fused limbs)), thumb too long, fingers too long, missing hands, missing arms, ((misplaced animal tail)),less than 2 ears, ((more than 2 ears)),(watermark)<br></code></pre></td></tr></table></figure></li>
+</ul></li>
+</ul>
+<h2 id="what-to-do-against-visual-generations">What to do against Visual
+Generations?</h2>
+<ul>
+<li>With the rapid development of text to image models, what's the
+unique advantages of humans that could hardly be replaced in the short
+time (as for now)? How to cope with such situation?<br />
+</li>
+<li><ol type="1">
+<li>Embrace the change, use as an assistant / inspiration exploration
+tool<br />
+</li>
+</ol>
+<ul>
+<li>For expert artists, it is expected that AI generated art could
+hardly replace them in the foreseeable future with their
+consistent-quality creations and zero copyright risks. It is the rookies
+in this field that AI could easily replace, outstanding through both
+speed and quality.<br />
+</li>
+<li>Moreover, the latest model is still based on probability theory,
+which means AI still have a long way to go to actually have a human-like
+sense of aesthetics. Like many novels and movies suggests, human's
+<strong>creativity</strong> by combining different things together is
+still outperforming artificial intelligence. Therefore, we could embrace
+the development of AI models, use them to flourish relevant industries
+(like game or movie making), to assist artists themselves to explore new
+ideas, or sharing quick prototypes with clients to achieve accordance
+about the requirements.<br />
+</li>
+</ul></li>
+<li><ol start="2" type="1">
+<li>Solve the Copyright issue!!!!<br />
+</li>
+</ol>
+<ul>
+<li>It is <strong>never</strong> excessive to discuss this issue and
+build consensus between artists and AI developers. What rights could AI
+generated content have, how should those contents be judged as
+plagiarism and whether models are allowed to train on these images
+should be discussed throughly.</li>
+</ul></li>
+</ul>
+<h1 id="chatgpt---search-engine"><a
+target="_blank" rel="noopener" href="https://chat.openai.com/">ChatGPT</a> - Search Engine</h1>
+<ul>
+<li>For the second half of the year, ChatGPT sweeps the attention of the
+public with its spectacular performance. Some even claims that ChatGPT
+could replace the search engine as a general AI assistant. (Now Bing has
+integrate with GPT-4 perhaps even better)</li>
+</ul>
+<h2 id="pros-1">Pros</h2>
+<ul>
+<li>Fantastic comprehension of instructions and obeying them.
+<ul>
+<li>As many may have tried, ChatGPT could understand instructions
+ranging from writing a poem to write a simple program. With prompt
+engineering (yeah, again), you could even change the ChatGPT into a <a
+target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=f4jlE8qmEMo&amp;ab_channel=AminBoulouma%F0%9F%A4%96">command
+line interface</a> or a <a
+target="_blank" rel="noopener" href="https://discord.com/channels/974519864045756446/1074379722521317407/1074379722521317407">cute
+chatbot</a> that only reply to you using emoticons.<br />
+</li>
+</ul></li>
+<li>Long context support
+<ul>
+<li>As a conversational AI, the ability to have long-range context
+support is essential. ChatGPT is the most successful product that
+implements context support among all large language models I know.<br />
+</li>
+</ul></li>
+<li>Ability to fuse content for increasing productivity(compared to
+search engines to some extent)
+<ul>
+<li>This ability kinds of automate the search engine's job. When we have
+a question, we type it in search engine, read through the first few
+articles and deduce the result ourselves. ChatGPT has the capability of
+simplifying the latter process, by performing passage summarization and
+comprehension task to generate an answer.<br />
+</li>
+<li>It also empowers copywriters who could combine their companies
+product with various marketing templates with a few lines of
+instructions.<br />
+</li>
+<li>With code writing integration, ChatGPT also empowers programmers to
+write code more efficiently with code templates, package suggestion and
+debug hints.</li>
+</ul></li>
+</ul>
+<h2 id="cons-1">Cons</h2>
+<ul>
+<li>Bad support for factual questions on specific domains
+<ul>
+<li>As a natural defect of probabilistic model, questions based on
+actual fact on specific domains may be wrong. For example, if you query
+about a specific domain in scientific research, ChatGPT may concat
+incorrect author with papers, or even made up one.<br />
+</li>
+</ul></li>
+<li>Lack of in-depth User comprehension
+<ul>
+<li>Though it is not OpenAI's responsibility to build this module, one
+could hardly deny that a well-designed chatbot could perform better than
+ChatGPT in understanding the customer and react accordingly, which
+suggest the need of further tuning for customer-oriented industry like
+companion chatbot.<br />
+</li>
+</ul></li>
+<li>Cost of Training / Finetuning
+<ul>
+<li>This may not be a problem for most down-stream companies using APIs
+to access the language model, however, this may result in monopoly in
+the large language model area. The cost of training would then be
+transferred to down-stream users of models.</li>
+</ul></li>
+</ul>
+<h2 id="what-to-do">What to do?</h2>
+<ul>
+<li>Against LLMs' weaknesses
+<ul>
+<li>explainability study of LLM
+<ul>
+<li>Poor explainability has been a problem since large language model
+became the new paradigm. If we could understand how attention mechanism
+understand certain input, it could a huge improvement to mastering the
+black box model.<br />
+</li>
+</ul></li>
+<li>Factual response research
+<ul>
+<li>As ChatGPT has some defect in factual response generation, it may be
+valuable to study how to combine knowledge with the generation model. A
+promising direction is to use knowledge graphs (<a
+href="https://delusion4013.github.io/2023/02/02/Knowledge-Graph-An-Introduction/">my
+introduction to KGs</a>), which explicitly defines knowledge with clear
+structure. Knowledge Graph based Question Answering (KGQA) seems
+prospective in generating controllable and correct answers.</li>
+</ul></li>
+</ul></li>
+<li>What could comapnies do to build competitive products?
+<ul>
+<li>Ability to understand the user
+<ol type="1">
+<li>This includes the recognition of the user's current mood</li>
+<li>Understanding of the person from past interaction data
+collection</li>
+<li>Reasoning about the user profile after big data analysis</li>
+</ol></li>
+<li>Content expertise and richness in verticals (psychological
+counseling, healing as an example)
+<ol type="1">
+<li>Multiple rounds of dialogues for different life scenarios</li>
+<li>Development of common counseling scenarios</li>
+<li>R&amp;D of generative models based on consulting corpus (to be
+launched)</li>
+</ol></li>
+<li>Customization support for specific business
+<ol type="1">
+<li>ChatGPT as a large model, the deployment cost and continued training
+cost are not small. From this perspective, we can sell customized small
+model services, segmentation, and compete with ChatGPT in the niche area
+of expertise.</li>
+<li>Based on the optimized knowledge base, use different knowledge bases
+to support different roles of chatbots and adapt to different
+scenarios.</li>
+</ol></li>
+</ul></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Artificial-Intelligence/" class="category-chain-item">Artificial Intelligence</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Generative-AI/">#Generative AI</a>
+      
+        <a href="/tags/Diffusion/">#Diffusion</a>
+      
+        <a href="/tags/ChatGPT/">#ChatGPT</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Thinking about Generative AI</div>
+      <div>https://delusion4013.github.io/2023/02/14/Thinking-about-Generative-AI/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Chenkai</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>February 14, 2023</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/02/10/An-introduction-to-KMP-algorithm/" title="An introduction to KMP algorithm">
+                        <span class="hidden-mobile">An introduction to KMP algorithm</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://delusion4013.github.io/2023/02/14/Thinking-about-Generative-AI/';
+          this.page.identifier = '/2023/02/14/Thinking-about-Generative-AI/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'my-hexo-blog-7' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        Views: 
+        <span id="busuanzi_value_site_pv"></span>
+        
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        Visitors: 
+        <span id="busuanzi_value_site_uv"></span>
+        
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
