@@ -16,25 +16,25 @@
   <meta name="author" content="Chenkai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="In this article, I will provide a walkthrough of common features on web ui and how to use them to produce better quality pictures as you wish. I will be covering two main aspects: txt2img and img2img,">
+    <meta name="description" content="In this post, I would discuss some of my thoughts on Multi-modality and future LLMs directions.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to use diffusion web ui?">
-<meta property="og:url" content="https://delusion4013.github.io/2023/03/07/How-to-use-diffusion-web-ui/index.html">
+<meta property="og:title" content="Discussion about LLMs and Multi-modality">
+<meta property="og:url" content="https://delusion4013.github.io/2023/03/21/Discussion-about-LLMs-and-Multi-modality/index.html">
 <meta property="og:site_name" content="Chenkai&#39;s Blog">
-<meta property="og:description" content="In this article, I will provide a walkthrough of common features on web ui and how to use them to produce better quality pictures as you wish. I will be covering two main aspects: txt2img and img2img,">
+<meta property="og:description" content="In this post, I would discuss some of my thoughts on Multi-modality and future LLMs directions.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-03-07T14:19:31.000Z">
-<meta property="article:modified_time" content="2023-03-12T15:09:28.473Z">
+<meta property="article:published_time" content="2023-03-21T07:03:04.000Z">
+<meta property="article:modified_time" content="2023-03-21T07:07:03.779Z">
 <meta property="article:author" content="Chenkai">
 <meta property="article:tag" content="Artificial Intelligence">
-<meta property="article:tag" content="Diffusion">
+<meta property="article:tag" content="Generative AI">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>How to use diffusion web ui? - Chenkai&#39;s Blog</title>
+  <title>Discussion about LLMs and Multi-modality - Chenkai&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="How to use diffusion web ui?"></span>
+            <span id="subtitle" data-typed-text="Discussion about LLMs and Multi-modality"></span>
           
         </div>
 
@@ -210,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-03-07 22:19" pubdate>
-          March 7, 2023 pm
+        <time datetime="2023-03-21 15:03" pubdate>
+          March 21, 2023 pm
         </time>
       </span>
     
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.4k words
+          3.1k words
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          6 mins
+          4 mins
         
       </span>
     
@@ -279,220 +279,129 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">How to use diffusion web ui?</h1>
+            <h1 style="display: none">Discussion about LLMs and Multi-modality</h1>
             
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this article, I will provide a walkthrough of common features on
-web ui and how to use them to produce better quality pictures as you
-wish. I will be covering two main aspects: txt2img and img2img,
-introduce the basic parameter setting and possible usages.</p>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this post, I would discuss some of my thoughts on Multi-modality
+and future LLMs directions.</p>
 <span id="more"></span>
-<h1 id="text-to-images---txt2img">Text to images - txt2img</h1>
-<h2 id="prompt">Prompt</h2>
+<h1 id="multi-modality">Multi-modality</h1>
 <ul>
-<li>The cue passed to model for image generation.</li>
-<li>Separated into 2 parts in webui:
+<li>Since OpenAI (GPT-4) and Baidu (Wen Xin Yi Yan) released LLMs with
+different design for multi-modality. GPT-4 unifies the embedding
+representation between text and images, while WXYY seems to unify the
+ability to generate different medium content (text, image, voice and
+video).</li>
+<li>In my point of view, multi-modality should support machine's
+comprehension by encoding different medium into a unified latent space,
+bridging the information between different modality. It is a progressive
+simulation of human's learning approach, from reading only to read and
+see.</li>
+<li>In Xiaotong Fei's perspective (Chinese anthropologist and
+sociologist) from nearly 80 years ago, written language has intrinsic
+deficiency which could convey only incomplete and ambiguous meanings
+compare to real life situation. For example, we could tell from voice
+who is visiting us, or from body language to understand other's emotion.
+It is therefore natural to gradually integrate the ability to take in
+and understand different medium as AI develops.</li>
+<li>By quoting Xiaotong Fei's ideas years ago, I want to emphasize that
+we could to draw inspirations from studies which tries to explain how
+human learns and perceives. <strong>Artificial</strong> Intelligence,
+should always be rooted in the study of human intelligence.</li>
+</ul>
+<h1 id="where-is-llm-heading">Where is LLM heading?</h1>
 <ul>
-<li>positive prompt (what you want) and negative prompt (what should be
-avoid)</li>
+<li>Current Situation
+<ul>
+<li>Not hitting human-level intelligence yet. Though it perform well in
+exams and chatting, it is still not good tasks like few-shot learning,
+long text comprehension and factual generation.</li>
 </ul></li>
 </ul>
-<h3 id="how-to-write-good-prompts">How to write good prompts?</h3>
+<h3 id="future-directions">Future directions</h3>
+<p>Guesses based on current LLM's deficiency.</p>
 <ul>
-<li><p>Templates &gt; “A <em>[type of picture]</em> of a <em>[main
-subject]</em>, *[style cues]**” <a
-target="_blank" rel="noopener" href="https://strikingloo.github.io/stable-diffusion-vs-dalle-2#appendix-a-stable-diffusion-prompt-guide">Ref1</a><br />
-- E.g. <code>A portrait of a 25 y.o. young man, uhd</code></p></li>
-<li><p>Commonly used tags</p>
+<li>Multimodal comprehension
 <ul>
-<li>Positive tags: <code>masterpiece</code>, <code>1girl</code>,
-<code>highres</code>, <code>ultra detail</code>, etc.
-<ul>
-<li>Discover the tags that fits your need on <a
-target="_blank" rel="noopener" href="https://civitai.com/">Diffusion Model site</a>'s example
-prompts.</li>
-<li>Or found interesting prompts use the <a
-target="_blank" rel="noopener" href="https://lexica.art/">search engine</a></li>
+<li>to enable different interaction methods.</li>
 </ul></li>
-<li>Style tags/templates
+<li>Explainability
 <ul>
-<li><p><a
-target="_blank" rel="noopener" href="https://civitai.com/models/4201/realistic-vision-v13-fantasyai">Realistic
-Image</a> - <code>RAW photo</code>, <code>8k uhd</code></p>
+<li>Understanding different part of LLMs, why and how they draw certain
+conclusions, could help eliminating hallucination.</li>
+</ul></li>
+<li>Safety
 <ul>
-<li><p>Postive Prompts</p>
-<p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">RAW photo, *subject*, (high detailed skin:1.2), 8k uhd, dslr, soft lighting, high quality, film grain, Fujifilm XT3<br></code></pre></td></tr></table></figure></p></li>
-<li><p>Negative Prompts</p>
-<p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">(deformed iris, deformed pupils, semi-realistic, cgi, 3d, render, sketch, cartoon, drawing, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck<br></code></pre></td></tr></table></figure></p></li>
+<li>Fact-based, combined with thought chain for inference
+<ul>
+<li>Generate more accurate content could prepare AI for more responsible
+positions.</li>
+</ul></li>
+<li>Detecting AI generated content.
+<ul>
+<li>Being able to judge AI generated content is essential when the
+generated content contains hallucination.</li>
+<li>Related Research - <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2301.07597">Guo et
+al., 2023</a></li>
+</ul></li>
+<li>Ensure data privacy during training / fine-tuning
+<ul>
+<li>Debates about what data could be used during training. Consensus
+needs to be drawn.</li>
 </ul></li>
 </ul></li>
-<li>Commonly used negative tags: <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">lowres, ((bad anatomy)), ((bad hands)), text, missing finger, extra digits, fewer digits, blurry, ((mutated hands and fingers)), (poorly drawn face), ((mutation)), ((deformed face)), (ugly), ((bad proportions)), ((extra limbs)), extra face, (double head), (extra head), ((extra feet)), monster, logo, cropped, worst quality, low quality, normal quality, jpeg, humpbacked, long body, long neck, ((jpeg artifacts))<br></code></pre></td></tr></table></figure></li>
+<li>Decrease model size
+<ul>
+<li>Model distill technology, lower the cost of use.</li>
 </ul></li>
-</ul>
-<h3 id="take-aways---ref">Take aways - <a
-target="_blank" rel="noopener" href="https://docs.google.com/document/d/17VPu3U2qXthOpt2zWczFvf-AH6z37hxUbvEe1rJTsEc/edit#">Ref</a></h3>
+<li>Bionic Structure?
 <ul>
-<li><p>Anything unspecified may be randomly generated</p>
-<ul>
-<li>Sometimes even said ones could be interpreted wrongly. Try to
-increase the tag's weight using the format
-<code>(style_or_attribute_name: 1.x)</code>, this would assign a weight
-<code>1.x</code> to the specified tag.</li>
+<li>For now, LLMs seems to be stacking transformers (or say GPUs) to
+achieve better performance. I suppose we could improve the performance
+by using different networks to mimic human brain's architecture. This
+reverse-engineering process may be hard, but is worthwhile as it could
+also bring better understanding of ourselves.</li>
 </ul></li>
-<li><p>Try visually well-defined objects</p>
+<li>Advanced Reinforcement?
 <ul>
-<li>E.g. Wizard, priest, angle, rockstar, temple, farm, etc.</li>
-</ul></li>
-<li><p>Try describing a style</p>
-<ul>
-<li><strong>Try:</strong> cyberpunk, psychedelic, surreal, vaporwave,
-alien, solarpunk, modern, ancient, futuristic, retro, realistic,
-dreamlike, funk art, abstract, pop art, impressionism, minimalism</li>
-</ul></li>
-<li><p>Try invoking unique artists for style (deprecated in
-stable-diffusion-2.0)</p>
-<ul>
-<li><strong>Try:</strong> Hiroshi Yoshida, Max Ernst, Paul Signac,
-Salvador Dali, James Gurney, M.C. Escher, Thomas Kinkade, Ivan
-Aivazovsky, Italo Calvino, Norman Rockwell, Albert Bierstadt, Giorgio de
-Chirico, Rene Magritte, Ross Tran, Marc Simonetti, John Harris, Hilma af
-Klint, George Inness, Pablo Picasso, William Blake, Wassily Kandinsky,
-Peter Mohrbacher, Greg Rutkowski, Paul Signac, Steven Belledin, Studio
-Ghibli</li>
-</ul></li>
-<li><p>Try different medium (the type of picture)</p>
-<ul>
-<li><strong>Try:</strong> painting, drawing, sketch, pencil drawing,
-woodblock print, matte painting, child's drawing, charcoal drawing, an
-ink drawing, oil on canvas, graffiti, watercolor painting, fresco, stone
-tablet, cave painting, sculpture, work on paper, needlepoint</li>
-</ul></li>
-<li><p>Avoid indirect (e.g. <code>a hat that is not red</code>), use
-positive term (e.g. <code>a blue hat</code>)</p></li>
-<li><p>Use <a
-target="_blank" rel="noopener" href="https://promptomania.com/stable-diffusion-prompt-builder/">this
-site</a> to get visual cue for generating prompts on different
-styles.</p></li>
-</ul>
-<h2 id="settings-paramters">Settings &amp; Paramters</h2>
-<h3 id="models">Models</h3>
-<ul>
-<li>models and its accessories provide customizations for different
-styles.</li>
-<li>Pick your model up on <a target="_blank" rel="noopener" href="https://civitai.com/">civitai</a> and
-put it under <code>stable-diffusion-webui/models/stable-diffusion</code>
-folder to load.</li>
-</ul>
-<h3 id="sampling-methods">Sampling Methods</h3>
-<ul>
-<li>Sampling methods are the algorithms used to produce images.</li>
-<li>Even though I used stable diffusion for some time, I could hardly
-tell a definitive difference between different samplers.</li>
-<li>It is suggested to use the same sampler as the model's example
-prompt does, or use popular ones like <code>Euler a</code>,
-<code>DDIM</code>, <code>DPM</code> family.</li>
-<li><img
-src="../../../../Documents/KnowledgeBase/assets/imgs/1661440027115223-8631669.jpg" srcset="/img/loading.gif" lazyload /></li>
-<li><a
-target="_blank" rel="noopener" href="https://wandb.ai/agatamlyn/basic-intro/reports/Stable-Diffusion-and-the-Samplers-Mystery--VmlldzoyNTc4MDky">Ref
-for samples’ job</a></li>
-</ul>
-<h3 id="sampling-steps">Sampling steps</h3>
-<ul>
-<li>Number of steps used to generate images. Larger number takes longer
-to generate. Normally set between <code>20~80</code></li>
-<li>Note: Not bigger value the better. Some sampling methods'
-performance does not increase as the value increases.</li>
-</ul>
-<h3 id="cfg-scale">CFG scale</h3>
-<ul>
-<li>Classifier Free Guidance scale - Restricts how strongly the
-generated image should conform the prompt.</li>
-<li>Lower values -&gt; less restricted / more creative result</li>
-</ul>
-<h3 id="batch-size">Batch size</h3>
-<ul>
-<li>Specify how many image to create in a single batch.</li>
-<li>High VRAM needed. For consumer level graphics card, it's better to
-increase the batch count for multiple generations. (Trade VRAM space
-with time)</li>
-</ul>
-<h3 id="batch-count">Batch count</h3>
-<ul>
-<li>Specify how many batches to generate.</li>
-</ul>
-<h3 id="seed">Seed</h3>
-<ul>
-<li>A random variable that controls the output.</li>
-<li>With same settings (including seed), you could reproduce the
-result.</li>
-</ul>
-<h1 id="images-to-images---img2img">Images to images - img2img</h1>
-<ul>
-<li>In img2img tab, images could be used as input as the guide for
-generation.
-<ul>
-<li>You could use realistic photo to generate your animation
-figure.</li>
-<li>Or use hand-drawn draft to create good looking pictures.</li>
+<li>With the improved multi-modality comprehension, we could expect more
+intuitive learning mechanism for the <a
+target="_blank" rel="noopener" href="https://openai.com/research/learning-from-human-preferences">RLHF</a>
+proposed.</li>
 </ul></li>
 </ul>
-<h2 id="unique-parameter">Unique parameter</h2>
-<h3 id="resize-mode">Resize mode</h3>
+<h1 id="what-could-down-stream-companies-do">What could down-stream
+companies do?</h1>
 <ul>
-<li>This defines the behavior when the input image size is not same as
-the one you indicated.</li>
-</ul>
-<h3 id="denoising-strength">Denoising strength</h3>
+<li>Model As A Service
 <ul>
-<li>This defines the similarity between the generated image and the
-original one. The larger / the closer to <code>1</code>, the image would
-likely to take less features fro the original input.</li>
-</ul>
-<h2 id="possible-usage">Possible Usage</h2>
+<li>Integrate LLM API as additional service - help the company focus on
+solving domain specific tasks.
 <ul>
-<li>Upscaling images (Could use the high res fix instead)</li>
-<li>Turn your photo into different styles
-<ul>
-<li>Use your image as input, adding prompt, choose the right style
-model, and AI will do the magic.</li>
+<li>Advantage: keeping fact part - controllable</li>
+<li>Disadvantage: sense of fragmentation between own service &amp; API
+service if the performance gap is huge.</li>
 </ul></li>
-<li>Expand existing image (Outpaint)</li>
-<li>Fix / Modify selected parts of the image (Inpaint)
+<li>Or just use the basic models as the entire product
 <ul>
-<li>Mask the part you want to re-generate, modify the prompt a bit, you
-could fix those faulty parts or let the AI inspires you.</li>
+<li>Disadvantage: restricted controllability &amp; steerability</li>
 </ul></li>
-<li>Modify the image by instructions (Not mature)
-<ul>
-<li>This involves the <a
-target="_blank" rel="noopener" href="https://github.com/timothybrooks/instruct-pix2pix">wonderful
-work</a> presented by UC Berkeley <a
-target="_blank" rel="noopener" href="https://github.com/timothybrooks">Tim Brooks</a> and his
-fellows.</li>
-<li>Maybe it's the reason that I didn't get the correct format for
-instructions, I could hardly use it on my own images, it performs
-perfectly well on examples though.</li>
 </ul></li>
-</ul>
-<h1 id="wonderful-video-tutorials">Wonderful Video Tutorials</h1>
+<li>Fine-tuning domain-specific model
 <ul>
-<li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=1_dViOW3Vy">Stable
-Diffusion-Master AI Art: Installation, Prompts, txt2img-img2img,
-out/inpaint &amp;Resize Tutorial - By ChamferZone</a>
+<li>Use domain specific data (as it's protected)</li>
+<li>For example
 <ul>
-<li>A Comprehensive tutorial for using stable diffusion through
-web-ui.</li>
+<li>with psychological counseling conversation data to mimic the
+style.</li>
+<li>with git messages &amp; comments &amp; stackoverflow data as a
+coding copilot</li>
+<li>with structured financial statements &amp; annotated analytical
+report as a finance advisor</li>
 </ul></li>
-<li>Tutorials by <a
-target="_blank" rel="noopener" href="https://www.youtube.com/@sebastiankamph">Sebastian Kamph</a>,
-really brief but useful snippets.
-<ul>
-<li>I enjoyed the <a
-target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=vFZgPyCJflE">ControlNet
-tutorial</a> a lot, really mind blowing!</li>
+<li>Haven't seen much examples in practice</li>
 </ul></li>
 </ul>
 
@@ -530,7 +439,7 @@ tutorial</a> a lot, really mind blowing!</li>
       
         <a href="/tags/Artificial-Intelligence/">#Artificial Intelligence</a>
       
-        <a href="/tags/Diffusion/">#Diffusion</a>
+        <a href="/tags/Generative-AI/">#Generative AI</a>
       
     </div>
   
@@ -542,8 +451,8 @@ tutorial</a> a lot, really mind blowing!</li>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>How to use diffusion web ui?</div>
-      <div>https://delusion4013.github.io/2023/03/07/How-to-use-diffusion-web-ui/</div>
+      <div>Discussion about LLMs and Multi-modality</div>
+      <div>https://delusion4013.github.io/2023/03/21/Discussion-about-LLMs-and-Multi-modality/</div>
     </div>
     <div class="license-meta">
       
@@ -555,7 +464,7 @@ tutorial</a> a lot, really mind blowing!</li>
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>March 7, 2023</div>
+          <div>March 21, 2023</div>
         </div>
       
       
@@ -587,18 +496,12 @@ tutorial</a> a lot, really mind blowing!</li>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/21/Discussion-about-LLMs-and-Multi-modality/" title="Discussion about LLMs and Multi-modality">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Discussion about LLMs and Multi-modality</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/02/28/How-to-set-up-your-diffusion-models/" title="How to set up your diffusion models?">
-                        <span class="hidden-mobile">How to set up your diffusion models?</span>
+                      <a href="/2023/03/07/How-to-use-diffusion-web-ui/" title="How to use diffusion web ui?">
+                        <span class="hidden-mobile">How to use diffusion web ui?</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -616,8 +519,8 @@ tutorial</a> a lot, really mind blowing!</li>
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'https://delusion4013.github.io/2023/03/07/How-to-use-diffusion-web-ui/';
-          this.page.identifier = '/2023/03/07/How-to-use-diffusion-web-ui/';
+          this.page.url = 'https://delusion4013.github.io/2023/03/21/Discussion-about-LLMs-and-Multi-modality/';
+          this.page.identifier = '/2023/03/21/Discussion-about-LLMs-and-Multi-modality/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');

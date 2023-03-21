@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Discussion about LLMs and Multi-modality</title>
+    <link href="/2023/03/21/Discussion-about-LLMs-and-Multi-modality/"/>
+    <url>/2023/03/21/Discussion-about-LLMs-and-Multi-modality/</url>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this post, I would discuss some of my thoughts on Multi-modalityand future LLMs directions.</p><span id="more"></span><h1 id="multi-modality">Multi-modality</h1><ul><li>Since OpenAI (GPT-4) and Baidu (Wen Xin Yi Yan) released LLMs withdifferent design for multi-modality. GPT-4 unifies the embeddingrepresentation between text and images, while WXYY seems to unify theability to generate different medium content (text, image, voice andvideo).</li><li>In my point of view, multi-modality should support machine'scomprehension by encoding different medium into a unified latent space,bridging the information between different modality. It is a progressivesimulation of human's learning approach, from reading only to read andsee.</li><li>In Xiaotong Fei's perspective (Chinese anthropologist andsociologist) from nearly 80 years ago, written language has intrinsicdeficiency which could convey only incomplete and ambiguous meaningscompare to real life situation. For example, we could tell from voicewho is visiting us, or from body language to understand other's emotion.It is therefore natural to gradually integrate the ability to take inand understand different medium as AI develops.</li><li>By quoting Xiaotong Fei's ideas years ago, I want to emphasize thatwe could to draw inspirations from studies which tries to explain howhuman learns and perceives. <strong>Artificial</strong> Intelligence,should always be rooted in the study of human intelligence.</li></ul><h1 id="where-is-llm-heading">Where is LLM heading?</h1><ul><li>Current Situation<ul><li>Not hitting human-level intelligence yet. Though it perform well inexams and chatting, it is still not good tasks like few-shot learning,long text comprehension and factual generation.</li></ul></li></ul><h3 id="future-directions">Future directions</h3><p>Guesses based on current LLM's deficiency.</p><ul><li>Multimodal comprehension<ul><li>to enable different interaction methods.</li></ul></li><li>Explainability<ul><li>Understanding different part of LLMs, why and how they draw certainconclusions, could help eliminating hallucination.</li></ul></li><li>Safety<ul><li>Fact-based, combined with thought chain for inference<ul><li>Generate more accurate content could prepare AI for more responsiblepositions.</li></ul></li><li>Detecting AI generated content.<ul><li>Being able to judge AI generated content is essential when thegenerated content contains hallucination.</li><li>Related Research - <a href="https://arxiv.org/abs/2301.07597">Guo etal., 2023</a></li></ul></li><li>Ensure data privacy during training / fine-tuning<ul><li>Debates about what data could be used during training. Consensusneeds to be drawn.</li></ul></li></ul></li><li>Decrease model size<ul><li>Model distill technology, lower the cost of use.</li></ul></li><li>Bionic Structure?<ul><li>For now, LLMs seems to be stacking transformers (or say GPUs) toachieve better performance. I suppose we could improve the performanceby using different networks to mimic human brain's architecture. Thisreverse-engineering process may be hard, but is worthwhile as it couldalso bring better understanding of ourselves.</li></ul></li><li>Advanced Reinforcement?<ul><li>With the improved multi-modality comprehension, we could expect moreintuitive learning mechanism for the <ahref="https://openai.com/research/learning-from-human-preferences">RLHF</a>proposed.</li></ul></li></ul><h1 id="what-could-down-stream-companies-do">What could down-streamcompanies do?</h1><ul><li>Model As A Service<ul><li>Integrate LLM API as additional service - help the company focus onsolving domain specific tasks.<ul><li>Advantage: keeping fact part - controllable</li><li>Disadvantage: sense of fragmentation between own service &amp; APIservice if the performance gap is huge.</li></ul></li><li>Or just use the basic models as the entire product<ul><li>Disadvantage: restricted controllability &amp; steerability</li></ul></li></ul></li><li>Fine-tuning domain-specific model<ul><li>Use domain specific data (as it's protected)</li><li>For example<ul><li>with psychological counseling conversation data to mimic thestyle.</li><li>with git messages &amp; comments &amp; stackoverflow data as acoding copilot</li><li>with structured financial statements &amp; annotated analyticalreport as a finance advisor</li></ul></li><li>Haven't seen much examples in practice</li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Computer Science</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Artificial Intelligence</tag>
+      
+      <tag>Generative AI</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>How to use diffusion web ui?</title>
     <link href="/2023/03/07/How-to-use-diffusion-web-ui/"/>
     <url>/2023/03/07/How-to-use-diffusion-web-ui/</url>
@@ -74,13 +101,13 @@
     
     <tags>
       
+      <tag>Artificial Intelligence</tag>
+      
       <tag>Generative AI</tag>
       
       <tag>Diffusion</tag>
       
       <tag>ChatGPT</tag>
-      
-      <tag>Artifial Intelligence</tag>
       
     </tags>
     
