@@ -4,16 +4,16 @@
   
   
   <entry>
-    <title>Discussion about LLMs and Multi-modality</title>
-    <link href="/2023/03/21/Discussion-about-LLMs-and-Multi-modality/"/>
-    <url>/2023/03/21/Discussion-about-LLMs-and-Multi-modality/</url>
+    <title>Thinking about LLMs and Multi-modality</title>
+    <link href="/2023/03/21/Thinking-about-LLMs-and-Multi-modality/"/>
+    <url>/2023/03/21/Thinking-about-LLMs-and-Multi-modality/</url>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this post, I would discuss some of my thoughts on Multi-modalityand future LLMs directions. Welcome to post your thoughts in thecomments and discuss with me.</p><span id="more"></span><h1 id="multi-modality">Multi-modality</h1><ul><li>Since OpenAI (GPT-4) and Baidu (Wen Xin Yi Yan) released LLMs withdifferent design for multi-modality. GPT-4 unifies the embeddingrepresentation between text and images, while WXYY seems to unify theability to generate different medium content (text, image, voice andvideo).</li><li>In my point of view, multi-modality should support machine'scomprehension by encoding different medium into a unified latent space,bridging the information between different modality. It is a progressivesimulation of human's learning approach, from reading only to read andsee.</li><li>In Xiaotong Fei's perspective (Chinese anthropologist andsociologist) from nearly 80 years ago, written language has intrinsicdeficiency which could convey only incomplete and ambiguous meaningscompare to real life situation. For example, we could tell from voicewho is visiting us, or from body language to understand other's emotion.It is therefore natural to gradually integrate the ability to take inand understand different medium as AI develops.</li><li>By quoting Xiaotong Fei's ideas years ago, I want to emphasize thatwe could to draw inspirations from studies which tries to explain howhuman learns and perceives. <strong>Artificial</strong> Intelligence,should always be rooted in the study of human intelligence.</li></ul><h1 id="where-is-llm-heading">Where is LLM heading?</h1><ul><li>Current Situation<ul><li>Not hitting human-level intelligence yet. Though it perform well inexams and chatting, it is still not good tasks like few-shot learning,long text comprehension and factual generation.</li></ul></li></ul><h3 id="future-directions">Future directions</h3><p>Guesses based on current LLM's deficiency.</p><ul><li>Multimodal comprehension<ul><li>to enable different interaction methods.</li></ul></li><li>Explainability<ul><li>Understanding different part of LLMs, why and how they draw certainconclusions, could help eliminating hallucination.</li></ul></li><li>Safety<ul><li>Fact-based, combined with thought chain for inference<ul><li>Generate more accurate content could prepare AI for more responsiblepositions.</li></ul></li><li>Detecting AI generated content.<ul><li>Being able to judge AI generated content is essential when thegenerated content contains hallucination.</li><li>Related Research - <a href="https://arxiv.org/abs/2301.07597">Guo etal., 2023</a></li></ul></li><li>Ensure data privacy during training / fine-tuning<ul><li>Debates about what data could be used during training. Consensusneeds to be drawn.</li></ul></li></ul></li><li>Decrease model size<ul><li>Model distill technology, lower the cost of use.</li></ul></li><li>Bionic Structure?<ul><li>For now, LLMs seems to be stacking transformers (or say GPUs) toachieve better performance. I suppose we could improve the performanceby using different networks to mimic human brain's architecture. Thisreverse-engineering process may be hard, but is worthwhile as it couldalso bring better understanding of ourselves.</li></ul></li><li>Advanced Reinforcement?<ul><li>With the improved multi-modality comprehension, we could expect moreintuitive learning mechanism for the <ahref="https://openai.com/research/learning-from-human-preferences">RLHF</a>proposed.</li></ul></li></ul><h1 id="what-could-down-stream-companies-do">What could down-streamcompanies do?</h1><ul><li>Model As A Service<ul><li>Integrate LLM API as additional service - help the company focus onsolving domain specific tasks.<ul><li>Advantage: keeping fact part - controllable</li><li>Disadvantage: sense of fragmentation between own service &amp; APIservice if the performance gap is huge.</li></ul></li><li>Or just use the basic models as the entire product<ul><li>Disadvantage: restricted controllability &amp; steerability</li></ul></li></ul></li><li>Fine-tuning domain-specific model<ul><li>Use domain specific data (as it's protected)</li><li>For example<ul><li>with psychological counseling conversation data to mimic thestyle.</li><li>with git messages &amp; comments &amp; stackoverflow data as acoding copilot</li><li>with structured financial statements &amp; annotated analyticalreport as a finance advisor</li></ul></li><li>Haven't seen much examples in practice</li></ul></li></ul>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this post, I would discuss some of my thoughts on Multi-modalityand future LLMs directions. Welcome to post your thoughts in thecomments and discuss with me.</p><span id="more"></span><h2 id="thoughts-on-multi-modality">Thoughts on Multi-modality</h2><ul><li>Since OpenAI (GPT-4) and Baidu (Wen Xin Yi Yan) released LLMs withdifferent design for multi-modality. GPT-4 unifies the embeddingrepresentation between text and images, while WXYY seems to unify theability to generate different medium content (text, image, voice andvideo).</li><li>In my point of view, multi-modality should support machine'scomprehension by encoding different medium into a unified latent space,bridging the information between different modality. It is a progressivesimulation of human's learning approach, from reading only to read andsee.</li><li>In Xiaotong Fei's perspective (Chinese anthropologist andsociologist) from nearly 80 years ago, written language has intrinsicdeficiency which could convey only incomplete and ambiguous meaningscompare to real life situation. For example, we could tell from voicewho is visiting us, or from body language to understand other's emotion.It is therefore natural to gradually integrate the ability to take inand understand different medium as AI develops.</li><li>By quoting Xiaotong Fei's ideas years ago, I want to emphasize thatwe could to draw inspirations from studies which tries to explain howhuman learns and perceives. <strong>Artificial</strong> Intelligence,should always be rooted in the study of human intelligence.</li></ul><h2 id="current-llms-situation">Current LLMs Situation</h2><p><strong>Not hitting human-level intelligence yet</strong>. Though itperform well in exams and chatting, it is still not good tasks likefew-shot learning, long text comprehension and factual generation.</p><p>GPT-4 performed well in many exams. Though it's not human-levelintelligence yet, it is time when we start to think about the essence ofhuman intelligence, or more specific, what makes us human uniquecompared with LLMs.</p><h3 id="humans-unique-competence-in-ais-perspective">Human’s uniquecompetence in AI’s perspective</h3><p>Here is the answer GPT-4 gave me (which I used my holisticunderstanding to summarize them into the below key points). OpenAI alsopublished a <a href="https://arxiv.org/abs/2303.10130">relevantstudy</a> about LLMs' impact at the labor market. #### Empathy andEmotion intelligence</p><ul><li>Ability to understand, respond emotions.</li></ul><h4 id="collaboration">Collaboration</h4><ul><li>Collaborate and work as a team with others, combining individualstrengths.</li></ul><h4 id="creativity-and-imagination">Creativity and imagination</h4><ul><li>Think divergently, create original ideas and innovative plans,imagine novel concepts.<ul><li>In AI generated art for instance, we could see the potentials ofhuman imagination empowered by a drawing tool that understands humanprompts.</li></ul></li></ul><h4 id="adaptability-and-learning">Adaptability and learning</h4><ul><li>Adaptability is kind of few-shot learning capability. Humans couldadjust fast to new situations and environments.</li></ul><h4 id="intuition-and-decision-making">Intuition anddecision-making</h4><ul><li>Making decisions with incomplete information. Similar to the concepttacit knowledge.</li></ul><h4 id="morality-and-ethics">Morality and ethics</h4><ul><li>AI lack a true understanding of moral and ethical values.</li></ul><h4 id="holistic-understanding">Holistic understanding</h4><ul><li>Ability to integrate information from various sources and modalityto form a holistic understanding.</li></ul><h4 id="critical-thinking">Critical thinking</h4><ul><li>Ability to evaluate information based on logic and intuition.</li></ul><h4 id="context-and-common-sense">Context and common sense</h4><ul><li>Understanding of the problem situation and make reasonablejudgements.</li></ul><h2 id="future-llms-directions">Future LLMs directions</h2><p>Guesses based on current LLM's deficiency.</p><h3 id="multimodal-comprehension">Multimodal comprehension</h3><ul><li>to enable different interaction methods.</li><li>Multi-modal comprehension could enable more training data formodels. Imagine AI learns how to do carpenter work by watching a 3Dvideo of a master carpenter.</li></ul><h3 id="explainability">Explainability</h3><ul><li>Understanding different part of LLMs, why and how they draw certainconclusions, could help eliminating hallucination.</li></ul><h3 id="safety">Safety</h3><ul><li>Fact-based, combined with thought chain for inference<ul><li>Generate more accurate content could prepare AI for more responsiblepositions.</li></ul></li><li>Detecting AI generated content.<ul><li>Being able to judge AI generated content is essential when thegenerated content contains hallucination.</li><li>Related Research - <a href="https://arxiv.org/abs/2301.07597">Guo etal., 2023</a></li></ul></li><li>Ensure data privacy during training / fine-tuning<ul><li>Debates about what data could be used during training. Consensusneeds to be drawn.</li></ul></li><li>Online GPT models may be attacked<ul><li><ahref="https://twitter.com/random_walker/status/1636923058370891778">Indirectprompt injection</a> by human invisible content on web.</li></ul></li></ul><h3 id="decrease-model-size">Decrease model size</h3><ul><li>Model distill technology, lower the cost of use.</li></ul><h3 id="bionic-structure">Bionic Structure?</h3><ul><li>For now, LLMs seems to be stacking transformers (or say GPUs) toachieve better performance. I suppose we could improve the performanceby <strong>using different networks combinations (change ofarchitecture) to mimic human brain's architecture</strong>. Thisreverse-engineering process may be hard, but is worthwhile as it couldalso bring better understanding of the nature of humanintelligence.</li><li>Here is an inspiring research - <ahref="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010628">spikingneural network helps prevent catastrophic forgetting</a></li><li>We had long followed the mode to draw inspirations from bionics intech development, I suppose it's necessary to collaborate withintelligence-related domains (such as neuroscience) for futurestudy.</li></ul><h3 id="advanced-reinforcement-learning">Advanced Reinforcementlearning?</h3><ul><li>With the improved multi-modality comprehension, we could expect moreintuitive learning mechanism for the <ahref="https://openai.com/research/learning-from-human-preferences">RLHF</a>proposed.</li></ul><h2 id="what-could-down-stream-companies-do">What could down-streamcompanies do?</h2><h3 id="model-as-a-service-maas">Model As A Service (MaaS)</h3><ul><li>Integrate LLM API as additional service - help the company focus onsolving domain specific tasks.<ul><li>Advantage<ul><li>Controllable response in specific domains</li><li>Ability to integrate with customized services and products.</li></ul></li><li>Disadvantage<ul><li>Extra efforts needed to develop models that distinguishes LLMs' joband own product’s.</li><li>sense of fragmentation between own service &amp; API service if theperformance gap is huge.</li></ul></li></ul></li><li>Or just use the basic models as the entire product<ul><li>Advantage<ul><li>Quick to deploy</li></ul></li><li>Disadvantage<ul><li>restricted controllability &amp; steerability (no exposure for ownproduct)</li><li>Potential risks with unsafe AI generated answers.</li></ul></li></ul></li></ul><h3 id="fine-tuning-domain-specific-model">Fine-tuning domain-specificmodel</h3><ul><li>Use domain specific data (as it's protected)</li><li>For example<ul><li>with psychological counseling conversation data to mimic thestyle.</li><li>with git messages &amp; comments &amp; stackoverflow data as acoding copilot</li><li>with structured financial statements &amp; annotated analyticalreport as a finance advisor</li></ul></li><li>Haven't seen much examples in practice</li></ul>]]></content>
     
     
     <categories>
       
-      <category>Computer Science</category>
+      <category>Informal Essays</category>
       
     </categories>
     
@@ -40,7 +40,7 @@
     
     <categories>
       
-      <category>Computer Science</category>
+      <category>Tutorial</category>
       
     </categories>
     
@@ -67,7 +67,7 @@
     
     <categories>
       
-      <category>Computer Science</category>
+      <category>Tutorial</category>
       
     </categories>
     
@@ -94,7 +94,7 @@
     
     <categories>
       
-      <category>Computer Science</category>
+      <category>Informal Essays</category>
       
     </categories>
     
@@ -125,7 +125,7 @@
     
     <categories>
       
-      <category>Computer Science</category>
+      <category>Notes</category>
       
     </categories>
     
@@ -133,6 +133,8 @@
     <tags>
       
       <tag>Algorithm</tag>
+      
+      <tag>Computer Science</tag>
       
     </tags>
     
@@ -150,7 +152,7 @@
     
     <categories>
       
-      <category>Computer Science</category>
+      <category>Notes</category>
       
     </categories>
     
@@ -158,6 +160,8 @@
     <tags>
       
       <tag>Artificial Intelligence</tag>
+      
+      <tag>Knowledge Graph</tag>
       
     </tags>
     
@@ -184,7 +188,7 @@
       
       <tag>Methodology</tag>
       
-      <tag>PersonalKnowledgeManagement</tag>
+      <tag>Knowledge Management</tag>
       
     </tags>
     
@@ -202,7 +206,7 @@
     
     <categories>
       
-      <category>Computer Science</category>
+      <category>Notes</category>
       
     </categories>
     
@@ -210,6 +214,10 @@
     <tags>
       
       <tag>Artificial Intelligence</tag>
+      
+      <tag>NLP</tag>
+      
+      <tag>Classic Papers</tag>
       
     </tags>
     
@@ -227,7 +235,7 @@
     
     <categories>
       
-      <category>Computer Science</category>
+      <category>Notes</category>
       
     </categories>
     
@@ -235,6 +243,8 @@
     <tags>
       
       <tag>Artificial Intelligence</tag>
+      
+      <tag>NLP</tag>
       
     </tags>
     
@@ -252,7 +262,7 @@
     
     <categories>
       
-      <category>Computer Science</category>
+      <category>Notes</category>
       
     </categories>
     
@@ -260,6 +270,10 @@
     <tags>
       
       <tag>Artificial Intelligence</tag>
+      
+      <tag>NLP</tag>
+      
+      <tag>Classic Papers</tag>
       
     </tags>
     
@@ -304,7 +318,7 @@
     
     <categories>
       
-      <category>Computer Science</category>
+      <category>Notes</category>
       
     </categories>
     
@@ -312,8 +326,6 @@
     <tags>
       
       <tag>Cryptography</tag>
-      
-      <tag>Note</tag>
       
     </tags>
     
@@ -339,6 +351,8 @@
     <tags>
       
       <tag>Methodology</tag>
+      
+      <tag>Time Management</tag>
       
     </tags>
     
@@ -374,12 +388,18 @@
   
   
   <entry>
-    <title>How to set up a hexo blog</title>
+    <title>How to set up a hexo blog?</title>
     <link href="/2021/11/28/How-to-set-up-a-hexo-blog/"/>
     <url>/2021/11/28/How-to-set-up-a-hexo-blog/</url>
     
     <content type="html"><![CDATA[<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this article, you will find how to set up a hexo blog and deployit.</p><span id="more"></span><blockquote><p>Special thanks to <ahref="https://www.bilibili.com/video/BV1Yb411a7ty">Codesheep'svideo</a></p></blockquote><h1 id="pre-requisite">0. Pre-requisite</h1><p>The most important of all, don't be afraid of making mistakes!</p><p>To initiate your blog, you will need the libraries below.</p><h2 id="node.js">0.1 Node.js</h2><p><ahref="https://nodejs.org/en/download/"><code>Download here</code></a> -suggest LTS version</p><p>To check whether <code>Node.js</code> was downloaded successfully,type <code>node -v</code> in the terminal window. If something like<code>v12.18.2</code> is presented with no error message, you are freeto go for the next step.</p><blockquote><p>For Windows users, terminal could be invoked by pressing<code>win</code> + <code>R</code>, and then type <code>cmd</code> in theprompt window.</p></blockquote><h2 id="npm">0.2 npm</h2><p><code>npm</code> is the default package management tool for<code>Node.js</code>.</p><blockquote><p>For Chinese users, you could switch to the mirror in<code>cnpm</code> for faster downloads. Run the command to install<code>cnpm</code>: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ npm install -g cnpm --registry=https://registry.npm.taobao.org<br></code></pre></td></tr></table></figure></p></blockquote><p>Similar to <code>Node.js</code>, type <code>npm -v</code> to check ifit's installed successfully.</p><h2 id="git">0.3 Git</h2><p><code>git</code> is a version control tool used widely amongprogramming projects. Generally speaking, it could help you keepdifferent versions of your project.</p><p><a href="https://git-scm.com/downloads">Download here</a></p><p>To configure the git globally, you could run the command afterinstallation. In the command, <code>--global</code> would set thefollowing parameters for all git repositories on your computer.<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ git config --global user.name &quot;Your Namee&quot;<br>$ git config --global user.email &quot;email@example.com&quot;<br></code></pre></td></tr></table></figure></p><h2 id="hexo">0.4 hexo</h2><p>With the package management tool installed, fetch the<code>hexo</code> package using command:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ npm install -g hexo<br></code></pre></td></tr></table></figure><p>or: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ cnpm install -g hexo<br></code></pre></td></tr></table></figure></p><p>Similar to <code>Node.js</code>, type <code>hexo -v</code> to checkif it's installed successfully.</p><h1 id="initiate-blog">1. Initiate blog</h1><ol type="1"><li><p>Create a folder</p><p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ mkdir blog<br></code></pre></td></tr></table></figure></p><p>By default, this <code>blog/</code> folder will be created in<code>/Users/YourUserName/</code> for both Mac and Windowsusers.</p></li><li><p>Navigate into the folder</p><p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ cd blog<br></code></pre></td></tr></table></figure></p><p>To check if you are in the right folder, type <code>pwd</code> tocheck.</p></li><li><p>Initiate your blog</p></li></ol><p><mark>Make sure you are in the right folder before running commandbelow!</mark></p><p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ sudo hexo init<br></code></pre></td></tr></table></figure></p><p>The <code>sudo</code> parameter refers to admin access.</p><ol start="4" type="1"><li>Run your blog!</li></ol><p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ hexo s<br></code></pre></td></tr></table></figure></p><p>By default, you will see the blog running athttp://localhost:4000</p><h1 id="create-a-new-article">2. Create a new article</h1><p>As indicated in the default blog file <code>helloworld.md</code>, youcould use the command below to create a new blog.</p><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$ </span>hexo n <span class="hljs-string">&quot;Your artical title&quot;</span><br></code></pre></td></tr></table></figure><p>By default, it will be created in <code>source/_posts</code> folder.For markdown reference, please check <ahref="https://commonmark.org/help/">here</a>.</p><p>After writing, use the following command to clean the database andgenerate static files for local blog.</p><figure class="highlight verilog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs verilog">$ hexo clean<br>$ hexo <span class="hljs-keyword">generate</span><br>$ hexo server<br></code></pre></td></tr></table></figure><p>Vist the default link again, you could see the article you justwrote.</p><h1 id="deploy-your-blog">3. Deploy your blog</h1><blockquote><p>You will need a Github account or Gitee accound for deployment.</p></blockquote><h2 id="github">Github</h2><ol type="1"><li><p>Create a new repository with the name<code>YourFullUserName.github.io</code> and it has to be set topublic.</p></li><li><p>Install a plugin for deployment.</p><p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">$ npm install <span class="hljs-comment">--save hexo-deployer-git</span><br></code></pre></td></tr></table></figure></p></li><li><p>Find the <code>_config.yml</code> file in your blog folder, atthe end of this file, modify the following content:</p><p><figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-comment"># Deployment</span><br><span class="hljs-comment">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="hljs-attribute">deploy</span><span class="hljs-punctuation">:</span><br>  <span class="hljs-attribute">type</span><span class="hljs-punctuation">:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attribute">repo</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Your Github repo&#x27;s link</span><br>  <span class="hljs-attribute">branch</span><span class="hljs-punctuation">:</span> <span class="hljs-string">master</span><br></code></pre></td></tr></table></figure></p><p>Your repo link should end with <code>.github.io.git</code> which youcould obtain here.</p><figure><img src="https://i.loli.net/2021/11/28/mQEldKOZv9wsjqc.jpg"alt="Where to find your link" /><figcaption aria-hidden="true">Where to find your link</figcaption></figure></li><li><p>After saving your config file, run command below to deploy yourblog.</p><p><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crystal"><span class="hljs-variable">$ </span>hexo d<br></code></pre></td></tr></table></figure></p><p>You may need to type your user name and password.</p></li><li><p>See you blog online!</p><p>Visit <code>yourUserName.github.io</code></p></li></ol><h2 id="gitee">Gitee</h2><p>#TODO</p><h1 id="references">References</h1><ul><li><a href="https://www.bilibili.com/video/BV1Yb411a7ty">Codesheep'svideo in Chinese</a></li></ul>]]></content>
     
+    
+    <categories>
+      
+      <category>Tutorial</category>
+      
+    </categories>
     
     
     <tags>
@@ -404,7 +424,7 @@
     
     <categories>
       
-      <category>Data Science</category>
+      <category>Notes</category>
       
     </categories>
     
@@ -412,6 +432,10 @@
     <tags>
       
       <tag>translation</tag>
+      
+      <tag>Data Science</tag>
+      
+      <tag>Finance</tag>
       
     </tags>
     
@@ -429,7 +453,7 @@
     
     <categories>
       
-      <category>Computer Science</category>
+      <category>Notes</category>
       
     </categories>
     
@@ -437,6 +461,8 @@
     <tags>
       
       <tag>Algorithm</tag>
+      
+      <tag>Computer Science</tag>
       
     </tags>
     
@@ -486,16 +512,16 @@
     
     <categories>
       
-      <category>Computer Science</category>
+      <category>Notes</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Note</tag>
-      
       <tag>Operating System</tag>
+      
+      <tag>Computer Science</tag>
       
     </tags>
     
