@@ -16,25 +16,31 @@
   <meta name="author" content="Chenkai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="In this article, I will provide a walkthrough of common features on web ui and how to use them to produce better quality pictures as you wish. I will be covering two main aspects: txt2img and img2img,">
+    <meta name="description" content="In this article, I will provide a walkthrough of common features on stable diffusion webui&#39;s txt2img tab and how to use them to produce better quality pictures as you wish.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="How to use diffusion web ui?">
-<meta property="og:url" content="https://delusion4013.github.io/2023/03/07/How-to-use-diffusion-web-ui/index.html">
+<meta property="og:title" content="SD - 1. How to use diffusion web ui? - txt2img">
+<meta property="og:url" content="https://delusion4013.github.io/2023/03/07/How-to-use-diffusion-web-ui-txt2img/index.html">
 <meta property="og:site_name" content="Chenkai&#39;s Blog">
-<meta property="og:description" content="In this article, I will provide a walkthrough of common features on web ui and how to use them to produce better quality pictures as you wish. I will be covering two main aspects: txt2img and img2img,">
+<meta property="og:description" content="In this article, I will provide a walkthrough of common features on stable diffusion webui&#39;s txt2img tab and how to use them to produce better quality pictures as you wish.">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2023/04/13/gSD7vKYmy9AuC5P.png">
+<meta property="og:image" content="https://s2.loli.net/2023/04/13/UI8fZVw9sA7m4hB.png">
+<meta property="og:image" content="https://s2.loli.net/2023/04/13/j3TdsPim69Ze7Lu.png">
+<meta property="og:image" content="https://s2.loli.net/2023/04/13/J8qxPisvVACGfIS.jpg">
+<meta property="og:image" content="https://s2.loli.net/2023/04/13/unFLg1jr4qJRKDx.png">
 <meta property="article:published_time" content="2023-03-07T14:19:31.000Z">
-<meta property="article:modified_time" content="2023-03-22T06:46:19.725Z">
+<meta property="article:modified_time" content="2023-04-13T01:34:43.465Z">
 <meta property="article:author" content="Chenkai">
 <meta property="article:tag" content="Artificial Intelligence">
 <meta property="article:tag" content="Diffusion">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2023/04/13/gSD7vKYmy9AuC5P.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>How to use diffusion web ui? - Chenkai&#39;s Blog</title>
+  <title>SD - 1. How to use diffusion web ui? - txt2img - Chenkai&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +205,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="How to use diffusion web ui?"></span>
+            <span id="subtitle" data-typed-text="SD - 1. How to use diffusion web ui? - txt2img"></span>
           
         </div>
 
@@ -222,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.4k words
+          9.3k words
         
       </span>
     
@@ -233,7 +239,7 @@
         
         
         
-          6 mins
+          10 mins
         
       </span>
     
@@ -279,57 +285,167 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">How to use diffusion web ui?</h1>
+            <h1 style="display: none">SD - 1. How to use diffusion web ui? - txt2img</h1>
             
             
               <div class="markdown-body">
                 
                 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this article, I will provide a walkthrough of common features on
-web ui and how to use them to produce better quality pictures as you
-wish. I will be covering two main aspects: txt2img and img2img,
-introduce the basic parameter setting and possible usages.</p>
+stable diffusion webui's txt2img tab and how to use them to produce
+better quality pictures as you wish.</p>
 <span id="more"></span>
-<h1 id="text-to-images---txt2img">Text to images - txt2img</h1>
-<h2 id="prompt">Prompt</h2>
+<h1 id="common-parameters">Common Parameters</h1>
+<p>Below is a screenshot of stable diffusion web ui. I will walk through
+this interface left-to-right, top-to-bottom.</p>
+<figure>
+<img src="https://s2.loli.net/2023/04/13/gSD7vKYmy9AuC5P.png" srcset="/img/loading.gif" lazyload
+alt="stable-diffusion-webui-txt2img-tab-screenshot" />
+<figcaption
+aria-hidden="true">stable-diffusion-webui-txt2img-tab-screenshot</figcaption>
+</figure>
+<blockquote>
+<p>P.S. If you want to set your web ui to dark theme, you could either
+change your website url to <code>your_url_goes_here/?__theme=dark</code>
+or pass a parameter when launching webui by
+<code>python launch.py --theme dark</code></p>
+</blockquote>
+<h2 id="checkpoints">Checkpoints</h2>
+<p>Checkpoints (or more commonly referred as <strong>models</strong>)
+provide customizations for different styles.</p>
 <ul>
-<li>The cue passed to model for image generation.</li>
+<li><p>Why there are different checkpoints?</p>
+<p>Checkpoints are further trained on the <a
+target="_blank" rel="noopener" href="https://huggingface.co/spaces/stabilityai/stable-diffusion">base
+diffusion model</a> provided by stability AI to obtain better results
+with high quality images or enhance the performance on certain
+styles.</p>
+<p>For example, I used a model called <a
+target="_blank" rel="noopener" href="https://civitai.com/models/4201?modelVersionId=6987">Realistic
+Vision</a>, which is optimized for real photo generation and provides
+better results compared to the base model.</p></li>
+</ul>
+<p>Pick your model up on <a target="_blank" rel="noopener" href="https://civitai.com/">civitai</a> and
+put it under <code>stable-diffusion-webui/models/stable-diffusion</code>
+folder to load.</p>
+<ul>
+<li>A list of recommended models
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://civitai.com/models/4201?modelVersionId=6987">Realistic
+Vision</a> - for photography like, realistic images</li>
+<li><a target="_blank" rel="noopener" href="https://civitai.com/models/4823/deliberate">deliberate</a>
+- A great model for general purpose, with sufficient tags, you could get
+great results ranging from 2.5D images to 2D animation style images or
+even flat illustration images.</li>
+</ul></li>
+</ul>
+<h2 id="vae">VAE</h2>
+<blockquote>
+<p>P.S. I modified the settings to bring up these two selections, if you
+are interested, check Settings &gt;</p>
+</blockquote>
+<p>VAE stands for <strong>variational autoencoder</strong>, which
+transform the images from latent place (the computer/model
+representation of images) to human-readable format.</p>
+<p>A wonderful tutorial could be found <a
+target="_blank" rel="noopener" href="https://stable-diffusion-art.com/how-to-use-vae/">here</a>. I
+would share a comparison of using or not using VAE in a later advanced
+usage post.</p>
+<h2 id="lora">LoRA</h2>
+<p>LoRA stands for Low-Rank Adaptation, which is actually a technique
+used to fine-tune large language models (<a
+target="_blank" rel="noopener" href="https://arxiv.org/abs/2106.09685">LoRA paper</a>). In this
+context, you could treat LoRA as a smaller version of checkpoints which
+provide style guide or particular character guide. You could also find
+LoRA on <a target="_blank" rel="noopener" href="https://civitai.com/">civitai</a>.</p>
+<h2 id="prompt">Prompt</h2>
+<p>The cue passed to model for image generation, this is the most
+important part during generations.</p>
+<ul>
 <li>Separated into 2 parts in webui:
 <ul>
-<li>positive prompt (what you want) and negative prompt (what should be
-avoid)</li>
+<li>positive prompt (what you want)</li>
+<li>negative prompt (what should be avoid)</li>
 </ul></li>
 </ul>
 <h3 id="how-to-write-good-prompts">How to write good prompts?</h3>
+<p>Prompt could be roughly divided into two parts based on word count:
+textual descriptions and tags.</p>
 <ul>
-<li><p>Templates &gt; “A <em>[type of picture]</em> of a <em>[main
-subject]</em>, *[style cues]**” <a
-target="_blank" rel="noopener" href="https://strikingloo.github.io/stable-diffusion-vs-dalle-2#appendix-a-stable-diffusion-prompt-guide">Ref1</a><br />
-- E.g. <code>A portrait of a 25 y.o. young man, uhd</code></p></li>
-<li><p>Commonly used tags</p>
+<li>Different models have different support for the two categories’
+prompt input. Different models may even have different weights on a same
+tag. It’s better to check the models’ description and example prompts
+from community to better your generations.</li>
+</ul>
+<h4 id="format">Format</h4>
 <ul>
-<li>Positive tags: <code>masterpiece</code>, <code>1girl</code>,
-<code>highres</code>, <code>ultra detail</code>, etc.
+<li><code>()</code> - multiply the weights of enclosed tag(s) by 1.1,
+could be nested <code>((tag))</code>.</li>
+<li><code>[]</code> - divide the weights of enclosed tags by 1.1.</li>
+<li><code>:</code> - used directly after the tag to define the
+weights，e.g. <code>pink:1.4</code></li>
+</ul>
+<p>For more formatting guides, check the <a
+target="_blank" rel="noopener" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#prompt-editing">webui
+wiki page.</a></p>
+<h4 id="templates-for-textual-descriptions">Templates for textual
+descriptions</h4>
+<p>Descriptions are normally a sentence, describing the subject, the
+on-going event, the type of pictures, etc.</p>
+<blockquote>
+<p>“A <em>[type of picture]</em> of a <em>[main subject]</em>, *[style
+cues]**” <a
+target="_blank" rel="noopener" href="https://strikingloo.github.io/stable-diffusion-vs-dalle-2#appendix-a-stable-diffusion-prompt-guide">Ref</a><br />
+- E.g. <code>A portrait of a 25 y.o. young man, uhd</code></p>
+</blockquote>
+<h4 id="tags">Tags</h4>
+<p>Tags are short, symbolic words that represents a specific type of
+image or element. It could be roughly divided into 3 categories:</p>
+<ol type="1">
+<li><p>Quality tags: like <code>masterpiece</code>, <code>highres</code>
+(high resolution), <code>best quality</code>. Usually</p></li>
+<li><p>Content tags: restrict the content of the image,
+<code>1girl</code>, <code>RAW photo</code> in positive prompts or
+<code>mutated hands</code>, <code>missing fingers</code> in negative
+prompts</p></li>
+<li><p>Subject tags: clearly defines what the subject should be like.
+For example, when generating a anime character, tags like
+<code>black hair</code>, <code>yellow eyes</code>,
+<code>lab coat</code>,
+<code>standing</code>,<code>looking at viewer</code> could be used for
+precise generation in terms of appearance, clothing and pose.</p>
+<blockquote>
+<p>P.S. Despite using tags, ControlNet could be another way to control
+the pose for character generation. Please wait for my advanced tutorial
+post, or check this wonderful <a
+target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=vFZgPyCJflE">video tutorial</a>
+first.</p>
+</blockquote></li>
+</ol>
+<h5 id="commonly-used-tags">Commonly used tags</h5>
 <ul>
-<li>Discover the tags that fits your need on <a
+<li><p>Positive tags: <code>masterpiece</code>, <code>1girl</code>,
+<code>highres</code>, <code>ultra detail</code>, etc.</p>
+<ul>
+<li><p>Discover the tags that fits your need on <a
 target="_blank" rel="noopener" href="https://civitai.com/">Diffusion Model site</a>'s example
-prompts.</li>
-<li>Or found interesting prompts use the <a
-target="_blank" rel="noopener" href="https://lexica.art/">search engine</a></li>
+prompts.</p></li>
+<li><p>Or found interesting prompts use the <a
+target="_blank" rel="noopener" href="https://lexica.art/">search engine</a></p></li>
 </ul></li>
-<li>Style tags/templates
-<ul>
-<li><p><a
+</ul>
+<p>Style tags/templates - <a
 target="_blank" rel="noopener" href="https://civitai.com/models/4201/realistic-vision-v13-fantasyai">Realistic
 Image</a> - <code>RAW photo</code>, <code>8k uhd</code></p>
+<pre><code class="hljs">- Postive Prompts
+
+    <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">RAW photo, *subject*, (high detailed skin:1.2), 8k uhd, dslr, soft lighting, high quality, film grain, Fujifilm XT3<br></code></pre></td></tr></table></figure>
+
+- Negative Prompts
+
+    <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">(deformed iris, deformed pupils, semi-realistic, cgi, 3d, render, sketch, cartoon, drawing, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck<br></code></pre></td></tr></table></figure></code></pre>
 <ul>
-<li><p>Postive Prompts</p>
-<p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">RAW photo, *subject*, (high detailed skin:1.2), 8k uhd, dslr, soft lighting, high quality, film grain, Fujifilm XT3<br></code></pre></td></tr></table></figure></p></li>
-<li><p>Negative Prompts</p>
-<p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">(deformed iris, deformed pupils, semi-realistic, cgi, 3d, render, sketch, cartoon, drawing, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck<br></code></pre></td></tr></table></figure></p></li>
-</ul></li>
-</ul></li>
 <li>Commonly used negative tags: <figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">lowres, ((bad anatomy)), ((bad hands)), text, missing finger, extra digits, fewer digits, blurry, ((mutated hands and fingers)), (poorly drawn face), ((mutation)), ((deformed face)), (ugly), ((bad proportions)), ((extra limbs)), extra face, (double head), (extra head), ((extra feet)), monster, logo, cropped, worst quality, low quality, normal quality, jpeg, humpbacked, long body, long neck, ((jpeg artifacts))<br></code></pre></td></tr></table></figure></li>
-</ul></li>
 </ul>
 <h3 id="take-aways---ref">Take aways - <a
 target="_blank" rel="noopener" href="https://docs.google.com/document/d/17VPu3U2qXthOpt2zWczFvf-AH6z37hxUbvEe1rJTsEc/edit#">Ref</a></h3>
@@ -376,107 +492,132 @@ target="_blank" rel="noopener" href="https://promptomania.com/stable-diffusion-p
 site</a> to get visual cue for generating prompts on different
 styles.</p></li>
 </ul>
-<h2 id="settings-paramters">Settings &amp; Paramters</h2>
-<h3 id="models">Models</h3>
+<h2 id="buttons">Buttons</h2>
+<figure>
+<img src="https://s2.loli.net/2023/04/13/UI8fZVw9sA7m4hB.png" srcset="/img/loading.gif" lazyload
+alt="stable-diffusion-webui-txt2img-buttons" />
+<figcaption
+aria-hidden="true">stable-diffusion-webui-txt2img-buttons</figcaption>
+</figure>
 <ul>
-<li>models and its accessories provide customizations for different
-styles.</li>
-<li>Pick your model up on <a target="_blank" rel="noopener" href="https://civitai.com/">civitai</a> and
-put it under <code>stable-diffusion-webui/models/stable-diffusion</code>
-folder to load.</li>
+<li><p><code>Generate</code> is obvious. You need to click on something
+to execute!</p></li>
+<li><p>The arrow ↙ stands for reading parameter from your prompt.
+Amazingly useful when copied generation data from <a
+target="_blank" rel="noopener" href="https://civitai.com/">civitai</a>.</p>
+<ul>
+<li>When the prompt input are empty, it will read the settings for last
+generation.</li>
+</ul></li>
+<li><p>🗑️ clears your current prompt</p></li>
+<li><p>The middle button would open up a sub element to allow you set
+<code>textual embeddings</code>, <code>lora</code>, etc.</p></li>
+<li><p>The fourth button would copy your styles’s prompt into the box on
+the left hand side.</p></li>
+<li><p>The fifth button are used to save styles (or templates) for your
+generation. Only supports prompts.</p>
+<ul>
+<li><p>But you can save generation data into prompt, which can be found
+after generation in the bottom right corner.</p>
+<figure>
+<img src="https://s2.loli.net/2023/04/13/j3TdsPim69Ze7Lu.png" srcset="/img/loading.gif" lazyload
+alt="stable-diffusion-webui-generation-data-output-example" />
+<figcaption
+aria-hidden="true">stable-diffusion-webui-generation-data-output-example</figcaption>
+</figure></li>
+</ul></li>
+<li><p>Styles (templates) are pre-defined prompts + parameter settings
+to help you quickly recover from your previous work / save combinations
+of model settings.</p></li>
 </ul>
-<h3 id="sampling-methods">Sampling Methods</h3>
+<h2 id="sampling-methods">Sampling Methods</h2>
+<p>Sampling methods are the algorithms used to produce images.</p>
 <ul>
-<li>Sampling methods are the algorithms used to produce images.</li>
 <li>Even though I used stable diffusion for some time, I could hardly
 tell a definitive difference between different samplers.</li>
 <li>It is suggested to use the same sampler as the model's example
 prompt does, or use popular ones like <code>Euler a</code>,
-<code>DDIM</code>, <code>DPM</code> family.</li>
-<li><img
-src="../../../../Documents/KnowledgeBase/assets/imgs/1661440027115223-8631669.jpg" srcset="/img/loading.gif" lazyload /></li>
-<li><a
+<code>DDIM</code>, <code>DPM</code> family. With time permitting, give
+every sampler a try.</li>
+<li>Below is a comparison image for different sampling methods. <a
 target="_blank" rel="noopener" href="https://wandb.ai/agatamlyn/basic-intro/reports/Stable-Diffusion-and-the-Samplers-Mystery--VmlldzoyNTc4MDky">Ref
-for samples’ job</a></li>
-</ul>
-<h3 id="sampling-steps">Sampling steps</h3>
+for samples’ job</a>
 <ul>
-<li>Number of steps used to generate images. Larger number takes longer
-to generate. Normally set between <code>20~80</code></li>
+<li><img src="https://s2.loli.net/2023/04/13/J8qxPisvVACGfIS.jpg" srcset="/img/loading.gif" lazyload
+title="fig:" alt="stable-diffusion-sampling method-comparison" /></li>
+</ul></li>
+</ul>
+<h2 id="sampling-steps">Sampling steps</h2>
+<p>Number of steps used to generate images. Larger number takes longer
+to generate. Normally set between <code>20~80</code></p>
+<ul>
 <li>Note: Not bigger value the better. Some sampling methods'
 performance does not increase as the value increases.</li>
 </ul>
-<h3 id="cfg-scale">CFG scale</h3>
+<h2 id="restore-face">Restore Face</h2>
+<p>Help fix deformed faces when generating characters. Need to download
+the model when used first time.</p>
+<h2 id="tiling">Tiling</h2>
+<p>Not yet used.</p>
+<h2 id="hires-fix">Hires Fix</h2>
+<p>Stands for high resolution fix, which upscales the generated image to
+a larger resolution. When clicked, it would give you additional
+parameter options like below.</p>
+<figure>
+<img src="https://s2.loli.net/2023/04/13/unFLg1jr4qJRKDx.png" srcset="/img/loading.gif" lazyload
+alt="stable-diffusion-webui-highres-fix-content" />
+<figcaption
+aria-hidden="true">stable-diffusion-webui-highres-fix-content</figcaption>
+</figure>
 <ul>
-<li>Classifier Free Guidance scale - Restricts how strongly the
-generated image should conform the prompt.</li>
+<li><p><code>Upscaler</code> is like sampling methods, which defines how
+to generate the image. Different types of images may need different
+types of upscaler, check this thread from reddit - <a
+target="_blank" rel="noopener" href="https://www.reddit.com/r/StableDiffusion/comments/y2mrc2/the_definitive_comparison_to_upscalers/">The
+DEFINITIVE Comparison to Upscalers : StableDiffusion</a></p></li>
+<li><p><code>Hires steps</code> are like sampling steps. However, for
+some model it could be set to <code>0</code>.</p></li>
+<li><p><code>Denoising strength</code> is an important parameters used
+in image to image. It defines to what extent should the upscaler respect
+the original image.</p></li>
+<li><p><code>Upscale by</code> is a factor that would allow you
+customized your final image’s resolution after up-scaling.</p></li>
+</ul>
+<h2 id="resolution">Resolution</h2>
+<p><code>Weight</code> and <code>Height</code> controls the output
+image’s resolution.</p>
+<ul>
+<li>Higher resolution would take up more VRAM on your graphic card.</li>
+<li>Normal ratio of images (like 512x512, 512x768, 768x512) performs
+better than weird resolution since the model was trained on images with
+normal ratio.</li>
+</ul>
+<h2 id="cfg-scale">CFG scale</h2>
+<p>Classifier Free Guidance scale - Restricts how strongly the generated
+image should conform the prompt. It is most commonly set to values
+between <code>6-9</code>. It is better to modify a specific tag’s
+weights if you found the some part of the generation went wrong.</p>
+<ul>
 <li>Lower values -&gt; less restricted / more creative result</li>
 </ul>
-<h3 id="batch-size">Batch size</h3>
+<h2 id="batch-count">Batch count</h2>
+<p>Specify how many batches to generate. Using this parameter to create
+multiple images with same prompt setting.</p>
+<h2 id="batch-size">Batch size</h2>
 <ul>
 <li>Specify how many image to create in a single batch.</li>
 <li>High VRAM needed. For consumer level graphics card, it's better to
 increase the batch count for multiple generations. (Trade VRAM space
 with time)</li>
 </ul>
-<h3 id="batch-count">Batch count</h3>
+<h2 id="seed">Seed</h2>
+<p>A random variable that controls the output.</p>
 <ul>
-<li>Specify how many batches to generate.</li>
-</ul>
-<h3 id="seed">Seed</h3>
-<ul>
-<li>A random variable that controls the output.</li>
 <li>With same settings (including seed), you could reproduce the
 result.</li>
 </ul>
-<h1 id="images-to-images---img2img">Images to images - img2img</h1>
-<ul>
-<li>In img2img tab, images could be used as input as the guide for
-generation.
-<ul>
-<li>You could use realistic photo to generate your animation
-figure.</li>
-<li>Or use hand-drawn draft to create good looking pictures.</li>
-</ul></li>
-</ul>
-<h2 id="unique-parameter">Unique parameter</h2>
-<h3 id="resize-mode">Resize mode</h3>
-<ul>
-<li>This defines the behavior when the input image size is not same as
-the one you indicated.</li>
-</ul>
-<h3 id="denoising-strength">Denoising strength</h3>
-<ul>
-<li>This defines the similarity between the generated image and the
-original one. The larger / the closer to <code>1</code>, the image would
-likely to take less features fro the original input.</li>
-</ul>
-<h2 id="possible-usage">Possible Usage</h2>
-<ul>
-<li>Upscaling images (Could use the high res fix instead)</li>
-<li>Turn your photo into different styles
-<ul>
-<li>Use your image as input, adding prompt, choose the right style
-model, and AI will do the magic.</li>
-</ul></li>
-<li>Expand existing image (Outpaint)</li>
-<li>Fix / Modify selected parts of the image (Inpaint)
-<ul>
-<li>Mask the part you want to re-generate, modify the prompt a bit, you
-could fix those faulty parts or let the AI inspires you.</li>
-</ul></li>
-<li>Modify the image by instructions (Not mature)
-<ul>
-<li>This involves the <a
-target="_blank" rel="noopener" href="https://github.com/timothybrooks/instruct-pix2pix">wonderful
-work</a> presented by UC Berkeley <a
-target="_blank" rel="noopener" href="https://github.com/timothybrooks">Tim Brooks</a> and his
-fellows.</li>
-<li>Maybe it's the reason that I didn't get the correct format for
-instructions, I could hardly use it on my own images, it performs
-perfectly well on examples though.</li>
-</ul></li>
-</ul>
+<h2 id="others">Others</h2>
+<p>I would leave Controlnet and scripts for a later post~</p>
 <h1 id="wonderful-video-tutorials">Wonderful Video Tutorials</h1>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=1_dViOW3Vy">Stable
@@ -488,12 +629,9 @@ web-ui.</li>
 </ul></li>
 <li>Tutorials by <a
 target="_blank" rel="noopener" href="https://www.youtube.com/@sebastiankamph">Sebastian Kamph</a>,
-really brief but useful snippets.
-<ul>
-<li>I enjoyed the <a
+really brief but useful snippets. I enjoyed the <a
 target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=vFZgPyCJflE">ControlNet
 tutorial</a> a lot, really mind blowing!</li>
-</ul></li>
 </ul>
 
                 
@@ -542,8 +680,8 @@ tutorial</a> a lot, really mind blowing!</li>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>How to use diffusion web ui?</div>
-      <div>https://delusion4013.github.io/2023/03/07/How-to-use-diffusion-web-ui/</div>
+      <div>SD - 1. How to use diffusion web ui? - txt2img</div>
+      <div>https://delusion4013.github.io/2023/03/07/How-to-use-diffusion-web-ui-txt2img/</div>
     </div>
     <div class="license-meta">
       
@@ -597,8 +735,8 @@ tutorial</a> a lot, really mind blowing!</li>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/02/28/How-to-set-up-your-diffusion-models/" title="How to set up your diffusion models?">
-                        <span class="hidden-mobile">How to set up your diffusion models?</span>
+                      <a href="/2023/02/28/How-to-set-up-your-diffusion-webui/" title="SD - 0. How to set up your diffusion webui?">
+                        <span class="hidden-mobile">SD - 0. How to set up your diffusion webui?</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -616,8 +754,8 @@ tutorial</a> a lot, really mind blowing!</li>
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'https://delusion4013.github.io/2023/03/07/How-to-use-diffusion-web-ui/';
-          this.page.identifier = '/2023/03/07/How-to-use-diffusion-web-ui/';
+          this.page.url = 'https://delusion4013.github.io/2023/03/07/How-to-use-diffusion-web-ui-txt2img/';
+          this.page.identifier = '/2023/03/07/How-to-use-diffusion-web-ui-txt2img/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
