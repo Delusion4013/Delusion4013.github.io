@@ -16,25 +16,39 @@
   <meta name="author" content="Chenkai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="In this post, I would discuss some of my thoughts on Multi-modality and future LLMs directions. Welcome to post your thoughts in the comments and discuss with me.">
+    <meta name="description" content="In this article, I will provide a walkthrough of common features on img2img tab. I will first go through some unique parameters for this tab, then provide my workflow on use cases like outpaint and i">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Thinking about LLMs and Multi-modality">
-<meta property="og:url" content="https://delusion4013.github.io/2023/03/21/Thinking-about-LLMs-and-Multi-modality/index.html">
+<meta property="og:title" content="SD - 2.How to use diffusion web ui? - img2img">
+<meta property="og:url" content="https://delusion4013.github.io/2023/04/25/How-to-use-diffusion-web-ui/index.html">
 <meta property="og:site_name" content="Chenkai&#39;s Blog">
-<meta property="og:description" content="In this post, I would discuss some of my thoughts on Multi-modality and future LLMs directions. Welcome to post your thoughts in the comments and discuss with me.">
+<meta property="og:description" content="In this article, I will provide a walkthrough of common features on img2img tab. I will first go through some unique parameters for this tab, then provide my workflow on use cases like outpaint and i">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-03-21T07:03:04.000Z">
-<meta property="article:modified_time" content="2023-03-24T08:23:57.781Z">
+<meta property="og:image" content="https://s2.loli.net/2023/04/25/sd47R62U1nAjgew.png">
+<meta property="og:image" content="https://s2.loli.net/2023/04/25/A2xOUvqwCfaEsor.webp">
+<meta property="og:image" content="https://s2.loli.net/2023/04/25/meHVDMjLh7rEQN6.png">
+<meta property="og:image" content="https://s2.loli.net/2023/04/25/ahdBkwPXu2zrvNC.png">
+<meta property="og:image" content="https://s2.loli.net/2023/04/25/nxr5fRW64kzsSEF.png">
+<meta property="og:image" content="https://s2.loli.net/2023/04/25/XvozE3hdyKBqjIM.png">
+<meta property="og:image" content="https://s2.loli.net/2023/04/25/MGn85skwBWtS4yC.png">
+<meta property="og:image" content="https://s2.loli.net/2023/04/25/mTecDf8xd1gLOHC.png">
+<meta property="og:image" content="https://s2.loli.net/2023/04/25/MLw71zBnHZiCsOU.png">
+<meta property="og:image" content="https://s2.loli.net/2023/04/25/bcOT6slQ3xXkCft.png">
+<meta property="og:image" content="https://s2.loli.net/2023/04/25/dNJi38lcewabmLk.png">
+<meta property="og:image" content="https://s2.loli.net/2023/04/25/J4B8WV2gcIUaQLp.png">
+<meta property="og:image" content="https://s2.loli.net/2023/04/25/4DxoMIWp9dNgGVU.png">
+<meta property="article:published_time" content="2023-04-25T07:10:36.000Z">
+<meta property="article:modified_time" content="2023-04-25T07:28:07.405Z">
 <meta property="article:author" content="Chenkai">
 <meta property="article:tag" content="Artificial Intelligence">
-<meta property="article:tag" content="Generative AI">
+<meta property="article:tag" content="Diffusion">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2023/04/25/sd47R62U1nAjgew.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Thinking about LLMs and Multi-modality - Chenkai&#39;s Blog</title>
+  <title>SD - 2.How to use diffusion web ui? - img2img - Chenkai&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Thinking about LLMs and Multi-modality"></span>
+            <span id="subtitle" data-typed-text="SD - 2.How to use diffusion web ui? - img2img"></span>
           
         </div>
 
@@ -210,8 +224,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-03-21 15:03" pubdate>
-          March 21, 2023 pm
+        <time datetime="2023-04-25 15:10" pubdate>
+          April 25, 2023 pm
         </time>
       </span>
     
@@ -222,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.7k words
+          6.6k words
         
       </span>
     
@@ -233,7 +247,7 @@
         
         
         
-          6 mins
+          7 mins
         
       </span>
     
@@ -279,236 +293,334 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Thinking about LLMs and Multi-modality</h1>
+            <h1 style="display: none">SD - 2.How to use diffusion web ui? - img2img</h1>
             
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this post, I would discuss some of my thoughts on Multi-modality
-and future LLMs directions. Welcome to post your thoughts in the
-comments and discuss with me.</p>
-<span id="more"></span>
-<h2 id="thoughts-on-multi-modality">Thoughts on Multi-modality</h2>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><ul>
+<li>In this article, I will provide a walkthrough of common features on
+img2img tab. I will first go through some unique parameters for this
+tab, then provide my workflow on use cases like outpaint and inpaint.
 <ul>
-<li>Since OpenAI (GPT-4) and Baidu (Wen Xin Yi Yan) released LLMs with
-different design for multi-modality. GPT-4 unifies the embedding
-representation between text and images, while WXYY seems to unify the
-ability to generate different medium content (text, image, voice and
-video).</li>
-<li>In my point of view, multi-modality should support machine's
-comprehension by encoding different medium into a unified latent space,
-bridging the information between different modality. It is a progressive
-simulation of human's learning approach, from reading only to read and
-see.</li>
-<li>In Xiaotong Fei's perspective (Chinese anthropologist and
-sociologist) from nearly 80 years ago, written language has intrinsic
-deficiency which could convey only incomplete and ambiguous meanings
-compare to real life situation. For example, we could tell from voice
-who is visiting us, or from body language to understand other's emotion.
-It is therefore natural to gradually integrate the ability to take in
-and understand different medium as AI develops.</li>
-<li>By quoting <a
-target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Fei_Xiaotong">Xiaotong Fei</a>'s
-ideas years ago, I want to emphasize that we could to draw inspirations
-from studies which tries to explain how human learns and perceives.
-<strong>Artificial</strong> Intelligence, should always be rooted in the
-study of human intelligence.</li>
+<li><img src="https://s2.loli.net/2023/04/25/sd47R62U1nAjgew.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="stable-diffusion-webui-img2img-tab" /></li>
+</ul></li>
+<li>In img2img tab, images could be used as additional input as the
+guide for generation. This enables a bunch of useful cases. For exmaple,
+you could use realistic photo to generate your animation figure, or use
+hand-drawn sketch to create good looking pictures.</li>
 </ul>
-<h2 id="current-llms-situation">Current LLMs Situation</h2>
-<p><strong>Not hitting human-level intelligence yet</strong>. Though it
-perform well in exams and chatting, it is still not good tasks like
-few-shot learning, long text comprehension and factual generation.</p>
-<p>GPT-4 performed well in many exams. Though it's not human-level
-intelligence yet, it is time when we start to think about the essence of
-human intelligence, or more specific, what makes us human unique
-compared with LLMs.</p>
-<h3 id="humans-unique-competence-in-ais-perspective">Human’s unique
-competence in AI’s perspective</h3>
-<p>Here is the answer GPT-4 gave me (which I used my holistic
-understanding to summarize them into the below key points). OpenAI also
-published a <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.10130">relevant
-study</a> about LLMs' impact at the labor market. #### Empathy and
-Emotion intelligence</p>
+<h1 id="unique-parameter">Unique parameter</h1>
+<p>For most of the part, <code>img2img</code> tab shares an identical
+parameter list as <code>txt2img</code> tab, please check my <a
+href="https://delusion4013.github.io/2023/03/07/How-to-use-diffusion-web-ui-txt2img/">previous
+post</a> for more detail. Additional parameters are used to customize
+the process of input images.</p>
+<h2 id="resize-mode">Resize mode</h2>
+<p>This defines the behavior when the input image size is not same as
+the one you indicated.</p>
 <ul>
-<li>Ability to understand, respond emotions.</li>
-</ul>
-<h4 id="collaboration">Collaboration</h4>
+<li>Just resize
 <ul>
-<li>Collaborate and work as a team with others, combining individual
-strengths.</li>
-</ul>
-<h4 id="creativity-and-imagination">Creativity and imagination</h4>
+<li>resize the image to target resolution. This may lead to incorrect
+aspect ratio</li>
+</ul></li>
+<li>Crop and resize
 <ul>
-<li>Think divergently, create original ideas and innovative plans,
-imagine novel concepts.
+<li>Resize the image so that entirety of target resolution is filled
+with the image. Crop parts that stick out.</li>
+</ul></li>
+<li>Resize and fill
 <ul>
-<li>In AI generated art for instance, we could see the potentials of
-human imagination empowered by a drawing tool that understands human
-prompts.</li>
+<li>Resize the image so that entirety of image is inside target
+resolution. Fill empty space with image's colors</li>
+</ul></li>
+<li>Just resize (latent upscale)
+<ul>
+<li>same as the first one, but uses latent upscaling method (without a
+scaler, just latent decoder) - <a
+href="%5B(1)%20Automatic1111%20:%20Resize%20modes%20in%20img2img%20/%20Inpaint%20:%20StableDiffusion%20(reddit.com)%5D(https://www.reddit.com/r/StableDiffusion/comments/109vdiu/automatic1111_resize_modes_in_img2img_inpaint/)">Ref</a></li>
 </ul></li>
 </ul>
-<h4 id="adaptability-and-learning">Adaptability and learning</h4>
+<h2 id="denoising-strength">Denoising strength</h2>
 <ul>
-<li>Adaptability is kind of few-shot learning capability. Humans could
-adjust fast to new situations and environments.</li>
+<li>Range in <code>[0,1]</code>. This defines the similarity between the
+generated image and the original one. The larger / the closer to
+<code>1</code>, the image would likely to take less features fro the
+original input.</li>
 </ul>
-<h4 id="intuition-and-decision-making">Intuition and
-decision-making</h4>
+<h1 id="usages">Usages</h1>
+<h2 id="style-transfer">Style Transfer</h2>
 <ul>
-<li>Making decisions with incomplete information. Similar to the concept
-tacit knowledge.</li>
-</ul>
-<h4 id="morality-and-ethics">Morality and ethics</h4>
-<ul>
-<li>AI lack a true understanding of moral and ethical values.</li>
-</ul>
-<h4 id="holistic-understanding">Holistic understanding</h4>
-<ul>
-<li>Ability to integrate information from various sources and modality
-to form a holistic understanding.</li>
-</ul>
-<h4 id="critical-thinking">Critical thinking</h4>
-<ul>
-<li>Ability to evaluate information based on logic and intuition.</li>
-</ul>
-<h4 id="context-and-common-sense">Context and common sense</h4>
-<ul>
-<li>Understanding of the problem situation and make reasonable
-judgements.</li>
-</ul>
-<h2 id="future-llms-directions">Future LLMs directions</h2>
-<p>Guesses based on current LLM's deficiency.</p>
-<h3 id="multimodal-comprehension">Multimodal comprehension</h3>
-<ul>
-<li>to enable different interaction methods.</li>
-<li>Multi-modal comprehension could enable more training data for
-models. Imagine AI learns how to do carpenter work by watching a 3D
-video of a master carpenter.</li>
-</ul>
-<h3 id="explainability">Explainability</h3>
-<ul>
-<li>Understanding different part of LLMs, why and how they draw certain
-conclusions, could help eliminating hallucination.</li>
-</ul>
-<h3 id="safety">Safety</h3>
-<ul>
-<li>Fact-based, combined with thought chain for inference
-<ul>
-<li>Generate more accurate content could prepare AI for more responsible
-positions.</li>
-</ul></li>
-<li>Detecting AI generated content.
-<ul>
-<li>Being able to judge AI generated content is essential when the
-generated content contains hallucination.</li>
-<li>Related Research - <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2301.07597">Guo et
-al., 2023</a></li>
-</ul></li>
-<li>Ensure data privacy during training / fine-tuning
-<ul>
-<li>Debates about what data could be used during training. Consensus
-needs to be drawn.</li>
-</ul></li>
-<li>Online GPT models may be attacked
+<li><p>Use your image as input, adding prompt, choose the right style
+model, and AI will do the magic.</p></li>
+<li><p>Below is a showcase of using a same prompt and image input with
+different models gives different style output.</p></li>
+<li><figure>
+<img src="https://s2.loli.net/2023/04/25/A2xOUvqwCfaEsor.webp" srcset="/img/loading.gif" lazyload
+alt="img2img-example-sketch" />
+<figcaption aria-hidden="true">img2img-example-sketch</figcaption>
+</figure>
 <ul>
 <li><a
-target="_blank" rel="noopener" href="https://twitter.com/random_walker/status/1636923058370891778">Indirect
-prompt injection</a> by human invisible content on web.</li>
+target="_blank" rel="noopener" href="https://img.freepik.com/free-vector/hand-draw-christmas-winter-scenery-cold-weather-frost-christmas-tree-sketch-background_1035-26090.jpg">Image
+Source</a></li>
+</ul></li>
+<li><figure>
+<img src="https://s2.loli.net/2023/04/25/meHVDMjLh7rEQN6.png" srcset="/img/loading.gif" lazyload
+alt="image.png" />
+<figcaption aria-hidden="true">image.png</figcaption>
+</figure>
+<ul>
+<li></li>
+</ul></li>
+<li><figure>
+<img src="https://s2.loli.net/2023/04/25/ahdBkwPXu2zrvNC.png" srcset="/img/loading.gif" lazyload
+alt="img2img-sketch-example-people" />
+<figcaption
+aria-hidden="true">img2img-sketch-example-people</figcaption>
+</figure>
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://play-lh.googleusercontent.com/FPKydSHB5bkeJ8pJYyPQrt8xQqFwJzIL0-WVefjyAkzKQhzkBRfKTQEfakagcxQZWiA">Sketch
+image source</a></li>
+</ul></li>
+<li><figure>
+<img src="https://s2.loli.net/2023/04/25/nxr5fRW64kzsSEF.png" srcset="/img/loading.gif" lazyload
+alt="image-20230418221414301" />
+<figcaption aria-hidden="true">image-20230418221414301</figcaption>
+</figure></li>
+</ul>
+<p>I have to admit that I used ==ControlNet== for the basic image
+structure control. With only image and text guidance, you will get
+pretty randomized output, like the one below.</p>
+<ul>
+<li><img src="https://s2.loli.net/2023/04/25/XvozE3hdyKBqjIM.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="image-20230418221837294" /></li>
+</ul>
+<h2 id="inpaint---fix-modify-selected-parts-of-the-image">Inpaint - Fix
+/ Modify selected parts of the image</h2>
+<p>Mask the part you want to re-generate, modify the prompt a bit, you
+could fix those faulty parts or let the AI inspires you.</p>
+<h3 id="inpaint-processing-logic">Inpaint processing logic</h3>
+<ol type="1">
+<li>Select Mask Area</li>
+<li>Pre-process masked area</li>
+<li>Add mask blur</li>
+<li>Image generation</li>
+</ol>
+<h3 id="parameter-settings">Parameter settings</h3>
+<h4 id="prompt">Prompt</h4>
+<ul>
+<li>Prompt for the masked area (or the not masked part)</li>
+<li>Could reuse the prompt when generating original images</li>
+</ul>
+<h4 id="mask-blur">Mask Blur</h4>
+<ul>
+<li>To what extent should the masked area should be blurred, influence
+the third steps above</li>
+<li>The higher the value, the lower the degree of ambiguity</li>
+</ul>
+<figure>
+<img src="https://s2.loli.net/2023/04/25/MGn85skwBWtS4yC.png" srcset="/img/loading.gif" lazyload
+alt="stable-diffusion-inpaint-different-mask-blur-sample" />
+<figcaption
+aria-hidden="true">stable-diffusion-inpaint-different-mask-blur-sample</figcaption>
+</figure>
+<h4 id="mask-mode">Mask mode</h4>
+<ul>
+<li>Tell the model which area to inpaint</li>
+</ul>
+<h4 id="masked-content">Masked content</h4>
+<p>Defines how to preprocess masked area (refer to logic step 2)</p>
+<ul>
+<li>fill
+<ul>
+<li>Based on the image color, use blurred color block to replace the
+original image.</li>
+</ul></li>
+<li>original
+<ul>
+<li>No pre-process, directly use original images</li>
+</ul></li>
+<li>latent noise
+<ul>
+<li>Use latent noise (the AI's interpretation of input prompt) to
+fill</li>
+</ul></li>
+<li>latent nothing
+<ul>
+<li>Use a zero-valued latent variable to fill selected area</li>
 </ul></li>
 </ul>
-<h3 id="accessibility">Accessibility</h3>
+<p>Normally, <code>fill</code> &amp; <code>original</code> are used for
+minor improvements. <code>latent noise</code> and
+<code>latent nothing</code> are used to generate something new with
+significant difference.</p>
+<h4 id="inpaint-area">Inpaint area</h4>
 <ul>
-<li>Model distill technology could be used to lower the cost of
-use.</li>
-<li>We could also see a lot of contributions from the academia and tech
-companies aiming for democratic training and inferencing for LLMs.
+<li>Whole picture
 <ul>
-<li>Meta proposed a series of LLMs trained based on publicly accessible
-data only - <a target="_blank" rel="noopener" href="https://github.com/facebookresearch/llama">LLaMA
-Official Repo</a>, which uses a lot fewer parameters to achieve similar
-results compared with large ones. More detail in <a
-target="_blank" rel="noopener" href="http://arxiv.org/abs/2302.13971">the paper</a></li>
-<li>Stanford research group follows the previous research and fine-tuned
-a better performing model <a
-target="_blank" rel="noopener" href="https://github.com/tatsu-lab/stanford_alpaca">Alpaca</a>.</li>
-<li>A new optimisation of LLaMA was proposed in <a
-target="_blank" rel="noopener" href="https://github.com/ggerganov/llama.cpp">this repo</a> which allows
-Mac to run the large model.</li>
+<li>After inpainting, refer to the width and height, resize mode to
+adjust the image.</li>
+</ul></li>
+<li>Only masked
+<ul>
+<li>Only repaint the masked area</li>
+<li>Better for high resolution images, no need to set width and
+height</li>
+</ul></li>
+<li>Only masked padding, pixels
+<ul>
+<li>When <code>inpaint area = only masked</code>, defines the masked
+area's pixels count.</li>
+<li>The smaller the value, the higher the density of filled pixels.</li>
+<li>The higher the density, the more content it will be generated - may
+lead to the generation of a new image based on your prompt in the
+inpaint area.</li>
 </ul></li>
 </ul>
-<h3 id="bionic-structure">Bionic Structure?</h3>
+<h3 id="other-inpaint-mode">Other inpaint mode</h3>
 <ul>
-<li>For now, LLMs seems to be stacking transformers (or say GPUs) to
-achieve better performance. I suppose we could improve the performance
-by <strong>using different networks combinations (change of
-architecture) to mimic human brain's architecture</strong>. This
-reverse-engineering process may be hard, but is worthwhile as it could
-also bring better understanding of the nature of human
-intelligence.</li>
-<li>Here is an inspiring research - <a
-target="_blank" rel="noopener" href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1010628">spiking
-neural network helps prevent catastrophic forgetting</a></li>
-<li>We had long followed the mode to draw inspirations from bionics in
-tech development, I suppose it's necessary to collaborate with
-intelligence-related domains (such as neuroscience) for future
-study.</li>
-</ul>
-<h3 id="advanced-reinforcement-learning">Advanced Reinforcement
-learning?</h3>
+<li>inpaint sketch
 <ul>
-<li>With the improved multi-modality comprehension, we could expect more
-intuitive learning mechanism for the <a
-target="_blank" rel="noopener" href="https://openai.com/research/learning-from-human-preferences">RLHF</a>
-proposed.</li>
-</ul>
-<h2 id="what-could-down-stream-companies-do">What could down-stream
-companies do?</h2>
-<h3 id="model-as-a-service-maas">Model As A Service (MaaS)</h3>
-<ul>
-<li>Integrate LLM API as additional service - help the company focus on
-solving domain specific tasks.
-<ul>
-<li>Advantage
-<ul>
-<li>Controllable response in specific domains</li>
-<li>Ability to integrate with customized services and products.</li>
+<li>add color guide to the mask, could adjust the guidance strength by
+mask transparency</li>
 </ul></li>
-<li>Disadvantage
+<li>inpaint upload
 <ul>
-<li>Extra efforts needed to develop models that distinguishes LLMs' job
-and own product’s.</li>
-<li>sense of fragmentation between own service &amp; API service if the
-performance gap is huge.</li>
+<li>problems of normal inpaint
+<ul>
+<li>Mouse does not easily apply problem areas with precision</li>
+<li>One-time masking does not stay</li>
 </ul></li>
-</ul></li>
-<li>Or just use the basic models as the entire product
+<li>Inpaint upload tab allows you to upload an image and a prepared mask
+image</li>
+<li>Note
 <ul>
-<li>Advantage
-<ul>
-<li>Quick to deploy</li>
-</ul></li>
-<li>Disadvantage
-<ul>
-<li>restricted controllability &amp; steerability (no exposure for own
-product)</li>
-<li>Potential risks with unsafe AI generated answers.</li>
+<li>The mask is black and white, ==white== represents the mask selection
+area</li>
+<li>Leave some inner space for inpaint area</li>
 </ul></li>
 </ul></li>
 </ul>
-<h3 id="fine-tuning-domain-specific-model">Fine-tuning domain-specific
-model</h3>
+<h2 id="outpaint---expand-existing-image">Outpaint - Expand existing
+image</h2>
 <ul>
-<li>Use domain specific data (as it's protected)</li>
-<li>For example
+<li>Under certain circumstances, you may want to expand an existing
+image. This is when outpaint script come into play.</li>
+<li>In the bottom left corner, you could find a drop down list for
+Outpaint script, which by default has two versions, normally we use
+<code>Outpainting mk2</code> version for more stable result.</li>
+</ul>
+<h3 id="parameter-settings-1">Parameter settings</h3>
+<figure>
+<img src="https://s2.loli.net/2023/04/25/mTecDf8xd1gLOHC.png" srcset="/img/loading.gif" lazyload
+alt="stable-diffusion-webui-outpainting-script-ui" />
+<figcaption
+aria-hidden="true">stable-diffusion-webui-outpainting-script-ui</figcaption>
+</figure>
 <ul>
-<li>with psychological counseling conversation data to mimic the
-style.</li>
-<li>with git messages &amp; comments &amp; stackoverflow data as a
-coding copilot</li>
-<li>with structured financial statements &amp; annotated analytical
-report as a finance advisor</li>
+<li>For both scripts, there are two common settings -
+<code>Pixels to expand</code>, and <code>Outpainting direction</code>.
+This is pretty straightforward to understand.</li>
+<li>For <code>Outpainting mk2</code>, <code>mask blur</code> is applied
+to the outpainted part during preprocess to create a soft boundary
+between original image and the expanded part.</li>
+<li><code>Fall-off exponent</code> controls the “smoothness” of the
+masked picture (one to be expanded). A higher value would result in a
+smoother noise pattern, which would then lead to less detail when
+generation.</li>
+<li>Like <code>Fall-off exponent</code>,<code>Color Variation</code> had
+an impact on the expanded areas in aspect of colors.</li>
+<li>If you are interested in the details of how these parameters take
+effect, check the source code in
+<code>stable-diffusion-webui/scripts/outpainting_mk_2.py</code></li>
+</ul>
+<h3 id="example">Example</h3>
+<p>Let's now see a concrete example. Say I got picture of New York city
+as follows: (I put the generation detail at the end of this article)</p>
+<ul>
+<li><figure>
+<img src="https://s2.loli.net/2023/04/25/MLw71zBnHZiCsOU.png" srcset="/img/loading.gif" lazyload
+alt="stable-diffusion-outpaint-example-ori" />
+<figcaption
+aria-hidden="true">stable-diffusion-outpaint-example-ori</figcaption>
+</figure></li>
+<li><p>Now I want to expand the left and right side to add more details
+to become suitable for a wallpaper. I clicked the
+<code>Send to img2img</code> button under the generation panle, and all
+the generation detail and the results are passed to the
+<code>img2img</code> tab.</p></li>
+<li><p>In the script channel, I selected <code>outpainting mk2</code>.
+Following the script's instruction, I modified the
+<code>Sampling method</code> to <code>Euler a</code>, and
+<code>Sampling steps</code> to <code>60</code>, and
+<code>Denoising strength</code> to <code>0.8</code> and I got the
+following result.</p>
+<ul>
+<li><img src="https://s2.loli.net/2023/04/25/bcOT6slQ3xXkCft.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="expand-4maskblur-1falloff-0.05colorvar" /></li>
 </ul></li>
-<li>Haven't seen much examples in practice</li>
+<li><p>Though it seems good at first glance, this picture has several
+problems - the most significant one is the clear boundary between
+original image and the expanded ones, check the light's reflection cut
+off in water bottom-left or the clear split of skylines on top
+right.</p></li>
+<li><p>I therefore modified the <code>mask_blur</code> intended to
+create a soft boundary. By setting <code>mask_blur=10</code>, here is
+what I got</p>
+<ul>
+<li><img src="https://s2.loli.net/2023/04/25/dNJi38lcewabmLk.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="expand-10maskblur-1falloff-0.05colorvar" /></li>
+</ul></li>
+<li><p>I also play around with other parameters settings and you could
+check the impact of different parameters.</p>
+<ul>
+<li><code>maskblur=10, falloff=1, colorvar=0.5</code> (Increasing Color
+variation to the previous one)
+<ul>
+<li><img src="https://s2.loli.net/2023/04/25/J4B8WV2gcIUaQLp.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="expand-10maskblur-1falloff-0.5colorvar" /></li>
+</ul></li>
+<li><code>maskblur=20, falloff=1, colorvar=0.5</code> (Increasing mask
+blur)
+<ul>
+<li><img src="https://s2.loli.net/2023/04/25/4DxoMIWp9dNgGVU.png" srcset="/img/loading.gif" lazyload
+title="fig:" alt="expand-20maskblur-1falloff-0.5colorvar" /></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="modify-the-image-by-instructions-not-mature">Modify the image by
+instructions (Not mature)</h2>
+<ul>
+<li>In light of InstructGPT, some may find it useful to modify the image
+by direct textual instructions.</li>
+<li>This involves the <a
+target="_blank" rel="noopener" href="https://github.com/timothybrooks/instruct-pix2pix">wonderful work
+(below image source)</a> presented by UC Berkeley <a
+target="_blank" rel="noopener" href="https://github.com/timothybrooks">Tim Brooks</a> and his fellows.
+<ul>
+<li><img
+src="https://github.com/timothybrooks/instruct-pix2pix/raw/main/imgs/edit_app.jpg" srcset="/img/loading.gif" lazyload
+title="fig:" alt="instruct-image-example" /></li>
+</ul></li>
+<li>Maybe it's the reason that I didn't get the correct format for
+instructions, I could hardly use it on my own images, it performs
+perfectly well on examples though.</li>
+</ul>
+<h2 id="generation-details">Generation details</h2>
+<ul>
+<li>For cyberpunk New York City - <a
+target="_blank" rel="noopener" href="https://civitai.com/models/4823?modelVersionId=5616">Model Link -
+deliberate_v11</a>
+<ul>
+<li><pre><code class="hljs">  a picture of New York City with a lot of tall buildings, ((cyberpunk)), rainy, night, CG, Unreal Engine, best quality
+
+  Negative prompt: (deformed iris, deformed pupils, semi-realistic, cgi, 3d, render, sketch, cartoon, drawing, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck
+  Steps: 25, Sampler: DPM++ 2M Karras, CFG scale: 7, Seed: 2970153128, Size: 512x512, Model hash: d8691b4d16, Model: deliberate_v11, Clip skip: 2, ENSD: 31337</code></pre></li>
+</ul></li>
 </ul>
 
                 
@@ -528,7 +640,7 @@ report as a finance advisor</li>
     
       <span class="category-chain">
         
-  <a href="/categories/Informal-Essays/" class="category-chain-item">Informal Essays</a>
+  <a href="/categories/Tutorial/" class="category-chain-item">Tutorial</a>
   
   
 
@@ -545,7 +657,7 @@ report as a finance advisor</li>
       
         <a href="/tags/Artificial-Intelligence/">#Artificial Intelligence</a>
       
-        <a href="/tags/Generative-AI/">#Generative AI</a>
+        <a href="/tags/Diffusion/">#Diffusion</a>
       
     </div>
   
@@ -557,8 +669,8 @@ report as a finance advisor</li>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Thinking about LLMs and Multi-modality</div>
-      <div>https://delusion4013.github.io/2023/03/21/Thinking-about-LLMs-and-Multi-modality/</div>
+      <div>SD - 2.How to use diffusion web ui? - img2img</div>
+      <div>https://delusion4013.github.io/2023/04/25/How-to-use-diffusion-web-ui/</div>
     </div>
     <div class="license-meta">
       
@@ -570,7 +682,7 @@ report as a finance advisor</li>
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>March 21, 2023</div>
+          <div>April 25, 2023</div>
         </div>
       
       
@@ -602,18 +714,12 @@ report as a finance advisor</li>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/04/25/How-to-use-diffusion-web-ui/" title="SD - 2.How to use diffusion web ui? - img2img">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SD - 2.How to use diffusion web ui? - img2img</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/03/07/How-to-use-diffusion-web-ui-txt2img/" title="SD - 1. How to use diffusion web ui? - txt2img">
-                        <span class="hidden-mobile">SD - 1. How to use diffusion web ui? - txt2img</span>
+                      <a href="/2023/03/21/Thinking-about-LLMs-and-Multi-modality/" title="Thinking about LLMs and Multi-modality">
+                        <span class="hidden-mobile">Thinking about LLMs and Multi-modality</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -631,8 +737,8 @@ report as a finance advisor</li>
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'https://delusion4013.github.io/2023/03/21/Thinking-about-LLMs-and-Multi-modality/';
-          this.page.identifier = '/2023/03/21/Thinking-about-LLMs-and-Multi-modality/';
+          this.page.url = 'https://delusion4013.github.io/2023/04/25/How-to-use-diffusion-web-ui/';
+          this.page.identifier = '/2023/04/25/How-to-use-diffusion-web-ui/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
