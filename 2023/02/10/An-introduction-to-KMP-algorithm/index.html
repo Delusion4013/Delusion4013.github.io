@@ -359,12 +359,12 @@ matching in step <code>2</code>. Look at the example below:
 alt="image.png" />
 <figcaption aria-hidden="true">image.png</figcaption>
 </figure></li>
-<li><p>After the above failed comparison, the brute force would start a
-new round of comparison at <code>S[1]</code>,<code>S[2]</code>. These
+<li>After the above failed comparison, the brute force would start a new
+round of comparison at <code>S[1]</code>,<code>S[2]</code>. These
 attempts is obvious to fail. The KMP algorithm therefore proposes a
-mechanism to <strong>skip these impossible matching</strong>.</p></li>
-<li><p>The resulting process should be like this: (white colored means
-comparison skipped):</p></li>
+mechanism to <strong>skip these impossible matching</strong>.</li>
+<li>The resulting process should be like this: (white colored means
+comparison skipped):</li>
 <li><figure>
 <img src="https://s2.loli.net/2023/02/10/sQcdCexKumNHASr.png" srcset="/img/loading.gif" lazyload
 alt="image.png" />
@@ -407,21 +407,21 @@ array. As shown in below example
 alt="image.png" />
 <figcaption aria-hidden="true">image.png</figcaption>
 </figure></li>
-<li><p>When we failed the first match at <code>P[3]</code>, we replace
-the <code>P[1]</code> on the mismatched index and restart the matching.
-When failed the second match at <code>P[6]</code>, we replace
-<code>P[3]</code> on the mismatched index.</p></li>
-<li><p>From above we could conclude, we utilize the identical prefix and
+<li>When we failed the first match at <code>P[3]</code>, we replace the
+<code>P[1]</code> on the mismatched index and restart the matching. When
+failed the second match at <code>P[6]</code>, we replace
+<code>P[3]</code> on the mismatched index.</li>
+<li>From above we could conclude, we utilize the identical prefix and
 suffix for skipping some comparisons. Say the mismatch occurs at
 <code>P[i]</code>, then between <code>P[0]~P[i-1]</code>, the former
 <code>next[i-1]</code> character(s) should be the same as the latter
 <code>next[i-1]</code> character(s), so we could replace the suffix with
 the prefix. In conclusion, we could realign <code>P[next[i-1]]</code>
-with <code>P[i]</code>.</p></li>
-<li><p>In other word, the <code>next[]</code> array provides reference
-for how to skip comparison and how many comparison to skip.
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Suppose we have calculated the next[] array</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">search</span>():<br>  s_pointer = <span class="hljs-number">0</span><br>  p_pointer = <span class="hljs-number">0</span><br>  <br>  <span class="hljs-keyword">while</span> s_pointer &lt; <span class="hljs-built_in">len</span>(s):<br>    <span class="hljs-keyword">if</span> s[s_pointer] == p[p_pointer]: <span class="hljs-comment"># If matched, increment both pointers</span><br>      s_pointer += <span class="hljs-number">1</span><br>      p_pointer += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">elif</span> p_pointer: 				<span class="hljs-comment"># mismatched at p[p_pointer], move p_pointer</span><br>      p_pointer = <span class="hljs-built_in">next</span>[p_pointer-<span class="hljs-number">1</span>]<br>    <span class="hljs-keyword">else</span>:							<span class="hljs-comment"># mismatcher at p[0]</span><br>      s_pointer += <span class="hljs-number">1</span><br>      <br>    <span class="hljs-keyword">if</span> p_pointer == <span class="hljs-built_in">len</span>(p):<br>      <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;The matching start point is <span class="hljs-subst">&#123;s_pointer - p_pointer&#125;</span>&#x27;</span>)<br>      p_pointer = <span class="hljs-built_in">next</span>[p_pointer - <span class="hljs-number">1</span>]<br>      <br></code></pre></td></tr></table></figure></p></li>
-<li><p>How to analysis the complexity of this step?</p>
+with <code>P[i]</code>.</li>
+<li>In other word, the <code>next[]</code> array provides reference for
+how to skip comparison and how many comparison to skip.
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Suppose we have calculated the next[] array</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">search</span>():<br>  s_pointer = <span class="hljs-number">0</span><br>  p_pointer = <span class="hljs-number">0</span><br>  <br>  <span class="hljs-keyword">while</span> s_pointer &lt; <span class="hljs-built_in">len</span>(s):<br>    <span class="hljs-keyword">if</span> s[s_pointer] == p[p_pointer]: <span class="hljs-comment"># If matched, increment both pointers</span><br>      s_pointer += <span class="hljs-number">1</span><br>      p_pointer += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">elif</span> p_pointer: 				<span class="hljs-comment"># mismatched at p[p_pointer], move p_pointer</span><br>      p_pointer = <span class="hljs-built_in">next</span>[p_pointer-<span class="hljs-number">1</span>]<br>    <span class="hljs-keyword">else</span>:							<span class="hljs-comment"># mismatcher at p[0]</span><br>      s_pointer += <span class="hljs-number">1</span><br>      <br>    <span class="hljs-keyword">if</span> p_pointer == <span class="hljs-built_in">len</span>(p):<br>      <span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;The matching start point is <span class="hljs-subst">&#123;s_pointer - p_pointer&#125;</span>&#x27;</span>)<br>      p_pointer = <span class="hljs-built_in">next</span>[p_pointer - <span class="hljs-number">1</span>]<br>      <br></code></pre></td></tr></table></figure></li>
+<li>How to analysis the complexity of this step?
 <ul>
 <li>We could use amortized analysis, the <code>s_pointer</code> could
 increment at most <code>len(s)</code> times, therefore the time
@@ -450,38 +450,37 @@ class="math inline">\(O(m^2)\)</span>, as for each entry <code>x</code>
 <code>next[x] = next[x-1] + 1</code></li>
 <li>if <code>P[x] != P[next[x-1]]</code>
 <ul>
-<li><p>To simply, we denote <code>next[x-1]</code> as
-<code>pre</code></p></li>
+<li>To simply, we denote <code>next[x-1]</code> as <code>pre</code></li>
 <li><figure>
 <img src="https://s2.loli.net/2023/02/10/E7Wgry2QIAKLamq.png" srcset="/img/loading.gif" lazyload
 alt="image.png" />
 <figcaption aria-hidden="true">image.png</figcaption>
 </figure></li>
-<li><p>When this two character does not match, we should shorten the
+<li>When this two character does not match, we should shorten the
 <code>pre</code> and try the match again. We could utilize the property
 of <code>next[]</code> array - <code>P[0]~P[pre - 1]</code>
 (<code>A</code>) is <strong>identical to</strong>
-<code>P[x - pre] ~ P[x-1]</code> (<code>B</code>).</p></li>
-<li><p>To shorten <code>pre</code>, we need to find the a
-<code>k</code>, which maximizes the length, where
-<code>prefix(A,k) == suffix(B,k)</code>.</p></li>
-<li><p>Remember <code>A</code> and <code>B</code> is identical, then we
+<code>P[x - pre] ~ P[x-1]</code> (<code>B</code>).</li>
+<li>To shorten <code>pre</code>, we need to find the a <code>k</code>,
+which maximizes the length, where
+<code>prefix(A,k) == suffix(B,k)</code>.</li>
+<li>Remember <code>A</code> and <code>B</code> is identical, then we
 transform the problem to find the longest common prefix and suffix of
-<code>A</code>! which is exactly <code>next[pre-1]</code>.</p></li>
+<code>A</code>! which is exactly <code>next[pre-1]</code>.</li>
 <li><figure>
 <img src="https://s2.loli.net/2023/02/10/RtKNxSHg65wOWp4.png" srcset="/img/loading.gif" lazyload
 alt="image.png" />
 <figcaption aria-hidden="true">image.png</figcaption>
 </figure></li>
-<li><p>Therefore we conclude: Iterate <code>pre = next[pre-1]</code>,
-until <code>P[next[x-1]] == P[x]</code> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">next</span> = []<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">calNext</span>():<br>  <span class="hljs-built_in">next</span>.append(<span class="hljs-number">0</span>)	<span class="hljs-comment"># Base case</span><br>  x = <span class="hljs-number">1</span><br>  pre = <span class="hljs-number">0</span><br>  <br>  <span class="hljs-keyword">while</span> x &lt; <span class="hljs-built_in">len</span>(p):<br>    <span class="hljs-keyword">if</span> p[pre] == p[x]: <br>      pre += <span class="hljs-number">1</span><br>      x += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">elif</span> pre:<br>      pre = <span class="hljs-built_in">next</span>[pre-<span class="hljs-number">1</span>]<br>    <span class="hljs-keyword">else</span>:<br>      <span class="hljs-built_in">next</span>.append(<span class="hljs-number">0</span>)<br>      x += <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure></p></li>
-<li><p>We could find the code looks similar to the one developed
-earlier. It is because they actually share the same essence.
+<li>Therefore we conclude: Iterate <code>pre = next[pre-1]</code>, until
+<code>P[next[x-1]] == P[x]</code> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">next</span> = []<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">calNext</span>():<br>  <span class="hljs-built_in">next</span>.append(<span class="hljs-number">0</span>)	<span class="hljs-comment"># Base case</span><br>  x = <span class="hljs-number">1</span><br>  pre = <span class="hljs-number">0</span><br>  <br>  <span class="hljs-keyword">while</span> x &lt; <span class="hljs-built_in">len</span>(p):<br>    <span class="hljs-keyword">if</span> p[pre] == p[x]: <br>      pre += <span class="hljs-number">1</span><br>      x += <span class="hljs-number">1</span><br>    <span class="hljs-keyword">elif</span> pre:<br>      pre = <span class="hljs-built_in">next</span>[pre-<span class="hljs-number">1</span>]<br>    <span class="hljs-keyword">else</span>:<br>      <span class="hljs-built_in">next</span>.append(<span class="hljs-number">0</span>)<br>      x += <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure></li>
+<li>We could find the code looks similar to the one developed earlier.
+It is because they actually share the same essence.
 <code>search()</code> method perform string matching between
 <code>S</code> and <code>P</code>, where <code>calNext()</code> perform
-string matching between <code>P</code> and <code>P</code>!</p></li>
-<li><p>Similar to previous algorithm, the time complexity is <span
-class="math inline">\(O(m)\)</span>.</p></li>
+string matching between <code>P</code> and <code>P</code>!</li>
+<li>Similar to previous algorithm, the time complexity is <span
+class="math inline">\(O(m)\)</span>.</li>
 </ul></li>
 </ul></li>
 </ul></li>

@@ -16,31 +16,39 @@
   <meta name="author" content="Chenkai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="In this post, I would give a brief introduction of recent popular generative AIs, and then dicsuss some of its pros and cons.">
+    <meta name="description" content="In this post, I will briefly walk through some of the auxiliary functions provided in stable diffusion web ui for earlier idea testing and experience enhancement.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Thinking about Generative AI">
-<meta property="og:url" content="https://delusion4013.github.io/2023/02/14/Thinking-about-Generative-AI/index.html">
+<meta property="og:title" content="SD - 3. How to use diffusion web ui? - Scripts, Extras, Extensions">
+<meta property="og:url" content="https://delusion4013.github.io/2023/05/21/How-to-use-diffusion-web-ui-Scripts-Extras-Extensions/index.html">
 <meta property="og:site_name" content="Chenkai&#39;s Blog">
-<meta property="og:description" content="In this post, I would give a brief introduction of recent popular generative AIs, and then dicsuss some of its pros and cons.">
+<meta property="og:description" content="In this post, I will briefly walk through some of the auxiliary functions provided in stable diffusion web ui for earlier idea testing and experience enhancement.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s2.loli.net/2023/02/14/B4xU753OVfkSZ9a.jpg">
-<meta property="og:image" content="https://s2.loli.net/2023/02/14/15VkeiltKU3PM7Y.jpg">
-<meta property="og:image" content="https://s2.loli.net/2023/02/14/kX57Hc3C9ZdiTIY.jpg">
-<meta property="article:published_time" content="2023-02-14T03:50:54.000Z">
-<meta property="article:modified_time" content="2023-03-22T06:49:35.493Z">
+<meta property="og:image" content="https://s2.loli.net/2023/05/21/O8dxkgEcYGznPsm.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/21/qusKaYMcPH8jeD1.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/21/aEJv9wmpLFh1DIP.jpg">
+<meta property="og:image" content="https://s2.loli.net/2023/05/21/HOgwZQCiSXlcyaV.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/21/aOQvRE3DNUWizVd.jpg">
+<meta property="og:image" content="https://s2.loli.net/2023/05/21/w7ZOUyGrznFD5ku.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/21/GOFYRSxBbUipZqr.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/21/IUl1DaNP6CYwZcd.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/21/XtLqSZU8Q4sxgIF.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/21/TIX82OoBSMVD4jQ.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/21/wcrCY6ozgVeMDaE.jpg">
+<meta property="og:image" content="https://s2.loli.net/2023/05/21/JzIdkB58y92CSFT.png">
+<meta property="og:image" content="https://s2.loli.net/2023/05/21/J8gaOxjTdS9PhNH.png">
+<meta property="article:published_time" content="2023-05-21T07:36:11.000Z">
+<meta property="article:modified_time" content="2023-05-21T07:51:54.429Z">
 <meta property="article:author" content="Chenkai">
 <meta property="article:tag" content="Artificial Intelligence">
 <meta property="article:tag" content="Diffusion">
-<meta property="article:tag" content="Generative AI">
-<meta property="article:tag" content="ChatGPT">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.loli.net/2023/02/14/B4xU753OVfkSZ9a.jpg">
+<meta name="twitter:image" content="https://s2.loli.net/2023/05/21/O8dxkgEcYGznPsm.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Thinking about Generative AI - Chenkai&#39;s Blog</title>
+  <title>SD - 3. How to use diffusion web ui? - Scripts, Extras, Extensions - Chenkai&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -205,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Thinking about Generative AI"></span>
+            <span id="subtitle" data-typed-text="SD - 3. How to use diffusion web ui? - Scripts, Extras, Extensions"></span>
           
         </div>
 
@@ -216,8 +224,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-02-14 11:50" pubdate>
-          February 14, 2023 am
+        <time datetime="2023-05-21 15:36" pubdate>
+          May 21, 2023 pm
         </time>
       </span>
     
@@ -228,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          8.7k words
+          5.1k words
         
       </span>
     
@@ -239,7 +247,7 @@
         
         
         
-          9 mins
+          6 mins
         
       </span>
     
@@ -285,324 +293,312 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Thinking about Generative AI</h1>
+            <h1 style="display: none">SD - 3. How to use diffusion web ui? - Scripts, Extras, Extensions</h1>
             
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this post, I would give a brief introduction of recent popular
-generative AIs, and then dicsuss some of its pros and cons.
-<span id="more"></span></p>
-<h1 id="introduction-of-recent-popular-models">Introduction of recent
-popular models</h1>
-<p>In the past year, Generative AI (or AIGC) captured massive attention
-from all over the world. From Stable-Diffusion to various versions of
-Text-to-image models in the first half, and ChatGPT to Bing-GPT in the
-second half, there seems a new level of intelligence has been
-achieved.</p>
-<p>Out of the spotlight, AlphaCode and CodeX has been used to boost
-programmer's productivity. AlphaTensor successfully discovered a new
-matrix multiply algorithm. After several years of development in deep
-learning field, Artificial Intelligence has made a remarkable step
-forward in multiple areas.</p>
-<p>For more generative AI, please refer to <a
-target="_blank" rel="noopener" href="http://arxiv.org/abs/2301.04655">Gozalo-Brizuela and
-Garrido-Merchan's Work</a>, in which they give an comprehensive overview
-of different generative AIs and a brief introduction of various models.
-The categorization based on input and output of models split the recent
-research into 9 categories as follows:<br />
-- text-to-image<br />
-- text-to-3D model<br />
-- image-to-text (image summary)<br />
-- text-to-video<br />
-- text-to-audio (also called TTS)<br />
-- text-to-text (summary, comprehension, translation, etc..)<br />
-- text-to-code<br />
-- text-science<br />
-- Others</p>
-<p>I am not going to give a detailed introduction to the technology
-behind each model, but discusses the pros and cons of some of the
-representative models and what to do with this irreversible trend.</p>
-<h1 id="diffusion-models---artists">Diffusion models - Artists</h1>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this post, I will briefly walk through some of the auxiliary
+functions provided in stable diffusion web ui for earlier idea testing
+and experience enhancement.</p>
+<span id="more"></span>
+<h1 id="script">Script</h1>
 <ul>
-<li>Some example images diffusion model generated - obtained from <a
-target="_blank" rel="noopener" href="https://lexica.art/">Lexica.art</a>, a wonderful image search
-engine for generated images</li>
+<li><p>At the beginning of generation, it is often the case that you
+need to test different prompts and parameter settings. Besides manually
+trying all combinations, webui has built-in scripts that automates this
+process.</p></li>
+<li><p>This feature could be enabled by selecting the corresponding
+scripts. The script could be selected at the bottom-left corner of the
+webui.</p></li>
+<li><figure>
+<img src="https://s2.loli.net/2023/05/21/O8dxkgEcYGznPsm.png" srcset="/img/loading.gif" lazyload
+alt="diffusion webui script location" />
+<figcaption aria-hidden="true">diffusion webui script
+location</figcaption>
+</figure></li>
 </ul>
-<div class="row">
-<style>
-.column {
-float: left;
-width: 33.33%;
-padding: 5px;
-}
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-</style>
-<div class="column">
-<p><img src="https://s2.loli.net/2023/02/14/B4xU753OVfkSZ9a.jpg" srcset="/img/loading.gif" lazyload alt="Example-diffusion-figure" display="inline" /></p>
-</div>
-<div class="column">
-<p><img src="https://s2.loli.net/2023/02/14/15VkeiltKU3PM7Y.jpg" srcset="/img/loading.gif" lazyload alt="example-3d-art" display="inline" /></p>
-</div>
-<div class="column">
-<p><img src="https://s2.loli.net/2023/02/14/kX57Hc3C9ZdiTIY.jpg" srcset="/img/loading.gif" lazyload alt="example-realistic" display="inline" /></p>
-</div>
-</div>
+<h2 id="prompt-form-file-or-textbox">Prompt form file or textbox</h2>
 <ul>
-<li>In case you haven't try these awesome models, below are some
-resources of ready-to-use models
+<li>Used for testing <strong>different prompts</strong> using files or
+handwritten prompts.</li>
+<li>It's pretty easy and straightforward to use so I would leave it for
+you to play with.</li>
+</ul>
+<h2 id="prompt-matrix">prompt matrix</h2>
+<h3 id="overview">Overview</h3>
 <ul>
-<li>MidJourney <a target="_blank" rel="noopener" href="https://discord.com/invite/midjourney">Discord
-Channel</a><br />
-</li>
-<li><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/camenduru/webui">HuggingFace
-model</a></li>
+<li><p>Used for testing <strong>different tags' (in prompt)</strong>
+influence on the generation result.</p></li>
+<li><blockquote>
+<p>This feature could be further enhanced by the extension <a
+target="_blank" rel="noopener" href="https://github.com/adieyal/sd-dynamic-prompts">dynamic-prompts</a></p>
+</blockquote></li>
+<li><p>Below is a screen shot of the available settings.</p>
+<ul>
+<li><figure>
+<img src="https://s2.loli.net/2023/05/21/qusKaYMcPH8jeD1.png" srcset="/img/loading.gif" lazyload
+alt="diffusion-webui-prompt-matrix-script" />
+<figcaption
+aria-hidden="true">diffusion-webui-prompt-matrix-script</figcaption>
+</figure></li>
+</ul></li>
+<li><p>For those interested in reading the source code, check <a
+target="_blank" rel="noopener" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/89f9faa63388756314e8a1d96cf86bf5e0663045/scripts/prompt_matrix.py#L45">here</a></p></li>
+</ul>
+<h3 id="usage">Usage</h3>
+<ul>
+<li>To properly invoke this plugin, you need to append the tags you want
+to experiment with <code>|</code> symbol, follow the format below:
+<ul>
+<li>```txt basic_prompt, | tag1 | tag2 | ... <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">- Put a `|` symbol before each tag you want to try solely, <span class="hljs-literal">and</span> separate other tags using `|`.<br>- I used `tag` here for simplicity, but you could also try prompt snippets.<br>- In this way, prompt matrix would try the below combinations<br>	- ```<br><span class="hljs-built_in">	  basic_prompt,</span> <br><span class="hljs-built_in">	  basic_prompt,</span> tag1<br><span class="hljs-built_in">	  basic_prompt,</span> tag2<br><span class="hljs-built_in">	  basic_prompt,</span> tag1, tag2<br></code></pre></td></tr></table></figure></li>
 </ul></li>
 </ul>
-<h2 id="pros">Pros</h2>
+<h4 id="example">Example</h4>
 <ul>
-<li>Quick to draw.
+<li>You could find the tags used is displayed in <strong>bold</strong>,
+while the tags not used are <del>underscored</del></li>
+<li>One common thing you want to experiment with is probably the style
+of the output.
 <ul>
-<li>Compared to human artists, AI could generate an image in less than
-10s.<br />
-</li>
+<li>Here is an example, I tried different medium of generating a girl's
+portrait with the following prompt
+<ul>
+<li><code>1girl, masterpiece,  | pencil sketch | oil painting | photo | watercolor</code></li>
+<li><figure>
+<img src="https://s2.loli.net/2023/05/21/aEJv9wmpLFh1DIP.jpg" srcset="/img/loading.gif" lazyload
+alt="diffusion-webui-prompt-matrix-result-1" />
+<figcaption
+aria-hidden="true">diffusion-webui-prompt-matrix-result-1</figcaption>
+</figure></li>
 </ul></li>
-<li>Adjustability.
-<ul>
-<li>It may be hard to change the pose, the cloth or other details about
-the figure, but for AI, changing a few tags could have this effect. One
-could use <code>impaint</code> to erase some part of the picture and
-re-generate. Modifying a few tags could also change the style of the
-painting significantly.<br />
-</li>
 </ul></li>
-<li>Image-Image imitate capability.
+<li>Another thing you may want to try is that whether certain tags are
+taking effects.
 <ul>
-<li>Take an image as input, generate a new image based on the given one
-and the prompt. This feature allows people to create personalized
-portrait for themselves.</li>
+<li>Here is another example, I tried different quality tags
+<ul>
+<li><code>1girl,  | masterpiece | best quality | extremely detailed</code></li>
+<li><figure>
+<img src="https://s2.loli.net/2023/05/21/HOgwZQCiSXlcyaV.png" srcset="/img/loading.gif" lazyload
+alt="diffusion-webui-prompt-matrix-result-2" />
+<figcaption
+aria-hidden="true">diffusion-webui-prompt-matrix-result-2</figcaption>
+</figure></li>
+</ul></li>
+</ul></li>
+<li>Or you want to try different lighting options
+<ul>
+<li><code>1girl, RAW photo, masterpiece, best quality, extremely detailed, |  spotlight | rim lighting | sunlight | natural lighting</code></li>
+<li><figure>
+<img src="https://s2.loli.net/2023/05/21/aOQvRE3DNUWizVd.jpg" srcset="/img/loading.gif" lazyload
+alt="diffusion-webui-prompt-matrix-result-3" />
+<figcaption
+aria-hidden="true">diffusion-webui-prompt-matrix-result-3</figcaption>
+</figure></li>
+</ul></li>
+<li>I would strongly recommend <a
+target="_blank" rel="noopener" href="https://promptomania.com/stable-diffusion-prompt-builder/">this
+website - promptmania</a> if you are struggling with finding suitable
+tags for a specific aspect of the generation (e.g. medium, lighting,
+camera setting, etc.). This website providers wonderful visual cue for
+different tags.
+<ul>
+<li><figure>
+<img src="https://s2.loli.net/2023/05/21/w7ZOUyGrznFD5ku.png" srcset="/img/loading.gif" lazyload
+alt="promptmania-example-screenshot" />
+<figcaption
+aria-hidden="true">promptmania-example-screenshot</figcaption>
+</figure></li>
 </ul></li>
 </ul>
-<h2 id="cons">Cons</h2>
+<h2 id="xyz-plot">XYZ plot</h2>
+<h3 id="overview-1">Overview</h3>
 <ul>
-<li>Prompt engineering needed.
+<li>Used for testing different <strong>parameter settings</strong></li>
+<li>Below is a screen shot of the available settings.
 <ul>
-<li>As the model name (text-to-image) suggests, one need to provide a
-description for the desired image. Though many products has encapsulated
-some prompt engineering work, it is still user's responsibility to
-understand the basic prompt structure and (know and )choose the tags
-they need for certain styles. Here are some guides for you to write
-efficient prompts:
+<li><figure>
+<img src="https://s2.loli.net/2023/05/21/GOFYRSxBbUipZqr.png" srcset="/img/loading.gif" lazyload
+alt="diffusion-webui-xyzplot-script" />
+<figcaption
+aria-hidden="true">diffusion-webui-xyzplot-script</figcaption>
+</figure></li>
+</ul></li>
+<li>For those interested in reading the source code, check <a
+target="_blank" rel="noopener" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/89f9faa63388756314e8a1d96cf86bf5e0663045/scripts/xyz_grid.py#L461">here</a></li>
+</ul>
+<h3 id="usage-1">Usage</h3>
+<ul>
+<li>The interaction logic is straightforward, select the parameter you
+would like to play with, fill in the values by hand or use the 📒 icon
+to automatically import all available options (for checkpoints, sampler,
+etc.)</li>
+<li>In <a
+href="https://delusion4013.github.io/2023/04/25/How-to-use-diffusion-web-ui/">my
+previous blog</a>, I used this script for doing experiments with testing
+different checkpoints' performance and parameter setting's impact.</li>
+<li>Example usage
+<ul>
+<li>Test different models performance on a given prompt
+<ul>
+<li><figure>
+<img src="https://s2.loli.net/2023/05/21/IUl1DaNP6CYwZcd.png" srcset="/img/loading.gif" lazyload
+alt="diffusion-webui-xyzplotscript-different-model" />
+<figcaption
+aria-hidden="true">diffusion-webui-xyzplotscript-different-model</figcaption>
+</figure></li>
+</ul></li>
+<li>Test different parameter settings' impact (like sampling steps, CFG
+scale)
+<ul>
+<li>X type = CFG scale, X values = 3,5,7,9</li>
+<li><figure>
+<img src="https://s2.loli.net/2023/05/21/XtLqSZU8Q4sxgIF.png" srcset="/img/loading.gif" lazyload
+alt="diffusion-webui-xyzplotscript-different-CFG-scale" />
+<figcaption
+aria-hidden="true">diffusion-webui-xyzplotscript-different-CFG-scale</figcaption>
+</figure></li>
+<li>X type = Steps, X values = 10,20,30,40</li>
+<li><figure>
+<img src="https://s2.loli.net/2023/05/21/TIX82OoBSMVD4jQ.png" srcset="/img/loading.gif" lazyload
+alt="diffusion-webui-xyzplotscript-different-sampling-steps" />
+<figcaption
+aria-hidden="true">diffusion-webui-xyzplotscript-different-sampling-steps</figcaption>
+</figure></li>
+</ul></li>
+<li>Test different parameter combinations.
+<ul>
+<li><blockquote>
+<p>By the way, it is often best practice to use recommended sampling
+method.</p>
+</blockquote></li>
+<li>X type = Checkpoint name, X values = filled</li>
+<li>Y type = sampler, Y values = filled</li>
+<li><figure>
+<img src="https://s2.loli.net/2023/05/21/wcrCY6ozgVeMDaE.jpg" srcset="/img/loading.gif" lazyload
+alt="diffusion-webui-xyzplotscript-different-model-sample-combination" />
+<figcaption
+aria-hidden="true">diffusion-webui-xyzplotscript-different-model-sample-combination</figcaption>
+</figure></li>
+</ul></li>
+</ul></li>
+</ul>
+<h1 id="auxiliary-tabs">Auxiliary tabs</h1>
+<ul>
+<li>Skip the training related part for a later post (like checkpoinst
+merger, training, etc.)</li>
+</ul>
+<h2 id="extras">Extras</h2>
+<ul>
+<li>This step is dedicated for upscaling images. It plays a similar role
+as <code>txt2img</code> tab's <code>hires fix</code>, or
+<code>img2img</code> tab's <code>SD upscale</code> script</li>
+<li><figure>
+<img src="https://s2.loli.net/2023/05/21/JzIdkB58y92CSFT.png" srcset="/img/loading.gif" lazyload
+alt="diffusion-webui-extra-tab-screenshot" />
+<figcaption
+aria-hidden="true">diffusion-webui-extra-tab-screenshot</figcaption>
+</figure></li>
+<li>Upload a image and choose a upscaler for the task.
+<ul>
+<li><code>RealESRGAN_x4plus_anime_6B</code> is good for animation
+characters</li>
+<li><code>realesr-general-wdn-x4v3</code> is good for realistic
+characters or scenery.</li>
+</ul></li>
+<li>When an upscaler is used for the first time, it may take some time
+to download.
+<ul>
+<li>If failed to download for some reason, check <a
+target="_blank" rel="noopener" href="https://upscale.wiki/wiki/Model_Database">this website</a> to
+download upscaler manually (and place them in
+<code>stable-diffusion-webui/models/ESRGAN/</code> - not sure about all
+other upscaler, but worked for the above two)</li>
+</ul></li>
+</ul>
+<h2 id="png-info">PNG info</h2>
+<ul>
+<li>A useful tab for extracting generation data stored in images.</li>
+<li><figure>
+<img src="https://s2.loli.net/2023/05/21/J8gaOxjTdS9PhNH.png" srcset="/img/loading.gif" lazyload
+alt="diffusion-webui-example-pnginfo-tab" />
+<figcaption
+aria-hidden="true">diffusion-webui-example-pnginfo-tab</figcaption>
+</figure></li>
+<li>Enable setting to store the generation data
+<ul>
+<li>In the Settings tab, check the following path</li>
+<li><blockquote>
+<p>saving images/grids &gt; Save text information about generation
+parameters as chunks to png files</p>
+</blockquote></li>
+<li>You would then be able to retrieve generation data.</li>
+</ul></li>
+</ul>
+<h1 id="extensions">Extensions</h1>
+<ul>
+<li>Used to install and manage extensions.</li>
+<li>Check the <a
+target="_blank" rel="noopener" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Extensions">official
+extension list</a></li>
+<li>Could also be downloaded locally and manually add to
+<code>path/to/your/webui/root/dir/extensions</code> folder</li>
+<li>Recommended extensions
+<ul>
+<li>Prompting
 <ul>
 <li><a
-target="_blank" rel="noopener" href="https://wandb.ai/morgan/stable-diffusion/reports/Stable-Diffusion-Settings-and-Storing-Your-Images--VmlldzoyNTExMDgy">Stable-diffusion
-demonstration blog</a><br />
-</li>
+target="_blank" rel="noopener" href="https://github.com/DominikDoom/a1111-sd-webui-tagcomplete">tagcomplete</a>
+<ul>
+<li>when writing prompt, give you tag recommendations</li>
+</ul></li>
 <li><a
-target="_blank" rel="noopener" href="https://strikingloo.github.io/stable-diffusion-vs-dalle-2#appendix-a-stable-diffusion-prompt-guide">How
-to write smart prompt?</a><br />
-</li>
+target="_blank" rel="noopener" href="https://github.com/toriato/stable-diffusion-webui-wd14-tagger">tagger</a>
+<ul>
+<li>Provided an image, use extra models to deduct the possible</li>
+</ul></li>
 <li><a
-target="_blank" rel="noopener" href="https://docs.google.com/document/d/17VPu3U2qXthOpt2zWczFvf-AH6z37hxUbvEe1rJTsEc/edit#">How
-to write diffusion prompt - Google docs</a><br />
-</li>
+target="_blank" rel="noopener" href="https://github.com/adieyal/sd-dynamic-prompts">dynamic-prompts</a>
+<ul>
+<li>Mentioned in previous section, for quickly create different
+prompts</li>
+</ul></li>
+</ul></li>
+<li>Better Control
+<ul>
+<li>⭐️<a
+target="_blank" rel="noopener" href="https://github.com/Mikubill/sd-webui-controlnet">Controlnet</a>
+<ul>
+<li>One of the most helpful and important extension for creating aligned
+images.</li>
+<li>Next blog post would be on this topic, discuss the detail usage of
+each one and share my workflow.</li>
+</ul></li>
 <li><a
-target="_blank" rel="noopener" href="https://huggingface.co/spaces/Gustavosta/MagicPrompt-Stable-Diffusion">Prompt
-Generator</a><br />
-</li>
+target="_blank" rel="noopener" href="https://github.com/hako-mikan/sd-webui-lora-block-weight">lora-block-weight</a>
+<ul>
+<li>Used to control lora's performance</li>
+</ul></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/fkunn1326/openpose-editor">openpose-editor</a>
+<ul>
+<li>Used as an auxiliary for character generation with fixed pose.</li>
+</ul></li>
+<li><a
+target="_blank" rel="noopener" href="https://github.com/thygate/stable-diffusion-webui-depthmap-script">depthmap</a>
+<ul>
+<li>used as an auxiliary for character generation with depth information
+(usually used for hand recreation)</li>
 </ul></li>
 </ul></li>
-<li>Serious copyright issues
+<li>UI enhancement
 <ul>
-<li>This topic is much debated, and most AI companies are vague about
-rights of the generated images (correct me if I got this wrong). Laws or
-industry rules are still unclear about to which extent of resemblance
-should we consider an image is plagiarized. Some may debate that it is
-plagiarism for using copyright protected images as the training
-input!<br />
-</li>
-</ul></li>
-<li>Unsure quality
+<li><a target="_blank" rel="noopener" href="https://github.com/alemelis/sd-webui-ar">Aspect ratio</a>
 <ul>
-<li>If you are using raw models, it is common to get poorly drawn hands,
-fused fingers or more than 2 feet figures. The impact of different
-sampling method, CFG scale (how strictly model adhere to prompt) and
-sampling steps is significant. These things all add up to unsure quality
-for unskilled user of diffusion models.<br />
-</li>
-<li>A possible negative prompts I collected on the internet:<br />
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text"># Negative prompts<br>  				  <br>(poorly drawn hands), (poorly drawn face), weird, (((fat))), ((cropped)), ((fused fingers)), ((too many fingers)), (malformed limbs), (((bad anatomy))), ((ugly)), out of frame, blurry, gross propotions, distorted face, distorted body, ((distorted fingers)), missing leg, more than 2 leg, more than 2 feet, more than 2 arms, text, ui, signature, icon, watermark, misplaced limbs, leg too big, leg too small, fused hands, fused arms, distorted backgroud, fused buildings, ((finger too short)), more than 1 right hand, more than 1 left hand, wrong direction of limbs, wrong direction of legs, wrong direction of feet, misplaced facial features, unbalanced facial features, ((body too long)), ((arm too short)), (poorly drawn joint), misplaced joint, wrong joint angle, disappearing legs, disappearing arms, disappearing limbs, ((fused limbs)), thumb too long, fingers too long, missing hands, missing arms, ((misplaced animal tail)),less than 2 ears, ((more than 2 ears)),(watermark)<br></code></pre></td></tr></table></figure></li>
-</ul></li>
-</ul>
-<h2 id="what-to-do-against-visual-generations">What to do against Visual
-Generations?</h2>
-<ul>
-<li>With the rapid development of text to image models, what's the
-unique advantages of humans that could hardly be replaced in the short
-time (as for now)? How to cope with such situation?<br />
-</li>
-<li><ol type="1">
-<li>Embrace the change, use as an assistant / inspiration exploration
-tool<br />
-</li>
-</ol>
-<ul>
-<li>For expert artists, it is expected that AI generated art could
-hardly replace them in the foreseeable future with their
-consistent-quality creations and zero copyright risks. It is the rookies
-in this field that AI could easily replace, outstanding through both
-speed and quality.<br />
-</li>
-<li>Moreover, the latest model is still based on probability theory,
-which means AI still have a long way to go to actually have a human-like
-sense of aesthetics. Like many novels and movies suggests, human's
-<strong>creativity</strong> by combining different things together is
-still outperforming artificial intelligence. Therefore, we could embrace
-the development of AI models, use them to flourish relevant industries
-(like game or movie making), to assist artists themselves to explore new
-ideas, or sharing quick prototypes with clients to achieve accordance
-about the requirements.<br />
-</li>
-</ul></li>
-<li><ol start="2" type="1">
-<li>Solve the Copyright issue!!!!<br />
-</li>
-</ol>
-<ul>
-<li>It is <strong>never</strong> excessive to discuss this issue and
-build consensus between artists and AI developers. What rights could AI
-generated content have, how should those contents be judged as
-plagiarism and whether models are allowed to train on these images
-should be discussed throughly.</li>
-</ul></li>
-</ul>
-<h1 id="chatgpt---search-engine"><a
-target="_blank" rel="noopener" href="https://chat.openai.com/">ChatGPT</a> - Search Engine</h1>
-<ul>
-<li>For the second half of the year, ChatGPT sweeps the attention of the
-public with its spectacular performance. Some even claims that ChatGPT
-could replace the search engine as a general AI assistant. (Now Bing has
-integrate with GPT-4 perhaps even better)</li>
-</ul>
-<h2 id="pros-1">Pros</h2>
-<ul>
-<li>Fantastic comprehension of instructions and obeying them.
-<ul>
-<li>As many may have tried, ChatGPT could understand instructions
-ranging from writing a poem to write a simple program. With prompt
-engineering (yeah, again), you could even change the ChatGPT into a <a
-target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=f4jlE8qmEMo&amp;ab_channel=AminBoulouma%F0%9F%A4%96">command
-line interface</a> or a <a
-target="_blank" rel="noopener" href="https://discord.com/channels/974519864045756446/1074379722521317407/1074379722521317407">cute
-chatbot</a> that only reply to you using emoticons.<br />
-</li>
-</ul></li>
-<li>Long context support
-<ul>
-<li>As a conversational AI, the ability to have long-range context
-support is essential. ChatGPT is the most successful product that
-implements context support among all large language models I know.<br />
-</li>
-</ul></li>
-<li>Ability to fuse content for increasing productivity(compared to
-search engines to some extent)
-<ul>
-<li>This ability kinds of automate the search engine's job. When we have
-a question, we type it in search engine, read through the first few
-articles and deduce the result ourselves. ChatGPT has the capability of
-simplifying the latter process, by performing passage summarization and
-comprehension task to generate an answer.<br />
-</li>
-<li>It also empowers copywriters who could combine their companies
-product with various marketing templates with a few lines of
-instructions.<br />
-</li>
-<li>With code writing integration, ChatGPT also empowers programmers to
-write code more efficiently with code templates, package suggestion and
-debug hints.</li>
-</ul></li>
-</ul>
-<h2 id="cons-1">Cons</h2>
-<ul>
-<li>Bad support for factual questions on specific domains
-<ul>
-<li>As a natural defect of probabilistic model, questions based on
-actual fact on specific domains may be wrong. For example, if you query
-about a specific domain in scientific research, ChatGPT may concat
-incorrect author with papers, or even made up one.<br />
-</li>
-</ul></li>
-<li>Lack of in-depth User comprehension
-<ul>
-<li>Though it is not OpenAI's responsibility to build this module, one
-could hardly deny that a well-designed chatbot could perform better than
-ChatGPT in understanding the customer and react accordingly, which
-suggest the need of further tuning for customer-oriented industry like
-companion chatbot.<br />
-</li>
-</ul></li>
-<li>Cost of Training / Finetuning
-<ul>
-<li>This may not be a problem for most down-stream companies using APIs
-to access the language model, however, this may result in monopoly in
-the large language model area. The cost of training would then be
-transferred to down-stream users of models.</li>
-</ul></li>
-</ul>
-<h2 id="what-to-do">What to do?</h2>
-<ul>
-<li>Against LLMs' weaknesses
-<ul>
-<li>explainability study of LLM
-<ul>
-<li>Poor explainability has been a problem since large language model
-became the new paradigm. If we could understand how attention mechanism
-understand certain input, it could a huge improvement to mastering the
-black box model.<br />
-</li>
-</ul></li>
-<li>Factual response research
-<ul>
-<li>As ChatGPT has some defect in factual response generation, it may be
-valuable to study how to combine knowledge with the generation model. A
-promising direction is to use knowledge graphs (<a
-href="https://delusion4013.github.io/2023/02/02/Knowledge-Graph-An-Introduction/">my
-introduction to KGs</a>), which explicitly defines knowledge with clear
-structure. Knowledge Graph based Question Answering (KGQA) seems
-prospective in generating controllable and correct answers.</li>
+<li>Add buttons for common aspect ratios.</li>
 </ul></li>
 </ul></li>
-<li>What could comapnies do to build competitive products?
-<ul>
-<li>Ability to understand the user
-<ol type="1">
-<li>This includes the recognition of the user's current mood</li>
-<li>Understanding of the person from past interaction data
-collection</li>
-<li>Reasoning about the user profile after big data analysis</li>
-</ol></li>
-<li>Content expertise and richness in verticals (psychological
-counseling, healing as an example)
-<ol type="1">
-<li>Multiple rounds of dialogues for different life scenarios</li>
-<li>Development of common counseling scenarios</li>
-<li>R&amp;D of generative models based on consulting corpus (to be
-launched)</li>
-</ol></li>
-<li>Customization support for specific business
-<ol type="1">
-<li>ChatGPT as a large model, the deployment cost and continued training
-cost are not small. From this perspective, we can sell customized small
-model services, segmentation, and compete with ChatGPT in the niche area
-of expertise.</li>
-<li>Based on the optimized knowledge base, use different knowledge bases
-to support different roles of chatbots and adapt to different
-scenarios.</li>
-</ol></li>
 </ul></li>
 </ul>
 
@@ -623,7 +619,7 @@ scenarios.</li>
     
       <span class="category-chain">
         
-  <a href="/categories/Informal-Essays/" class="category-chain-item">Informal Essays</a>
+  <a href="/categories/Tutorial/" class="category-chain-item">Tutorial</a>
   
   
 
@@ -642,10 +638,6 @@ scenarios.</li>
       
         <a href="/tags/Diffusion/">#Diffusion</a>
       
-        <a href="/tags/Generative-AI/">#Generative AI</a>
-      
-        <a href="/tags/ChatGPT/">#ChatGPT</a>
-      
     </div>
   
 </div>
@@ -656,8 +648,8 @@ scenarios.</li>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Thinking about Generative AI</div>
-      <div>https://delusion4013.github.io/2023/02/14/Thinking-about-Generative-AI/</div>
+      <div>SD - 3. How to use diffusion web ui? - Scripts, Extras, Extensions</div>
+      <div>https://delusion4013.github.io/2023/05/21/How-to-use-diffusion-web-ui-Scripts-Extras-Extensions/</div>
     </div>
     <div class="license-meta">
       
@@ -669,7 +661,7 @@ scenarios.</li>
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>February 14, 2023</div>
+          <div>May 21, 2023</div>
         </div>
       
       
@@ -701,18 +693,12 @@ scenarios.</li>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/02/28/How-to-set-up-your-diffusion-webui/" title="SD - 0. How to set up your diffusion webui?">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SD - 0. How to set up your diffusion webui?</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/02/10/An-introduction-to-KMP-algorithm/" title="An introduction to KMP algorithm">
-                        <span class="hidden-mobile">An introduction to KMP algorithm</span>
+                      <a href="/2023/04/25/How-to-use-diffusion-web-ui/" title="SD - 2.How to use diffusion web ui? - img2img">
+                        <span class="hidden-mobile">SD - 2.How to use diffusion web ui? - img2img</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -730,8 +716,8 @@ scenarios.</li>
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'https://delusion4013.github.io/2023/02/14/Thinking-about-Generative-AI/';
-          this.page.identifier = '/2023/02/14/Thinking-about-Generative-AI/';
+          this.page.url = 'https://delusion4013.github.io/2023/05/21/How-to-use-diffusion-web-ui-Scripts-Extras-Extensions/';
+          this.page.identifier = '/2023/05/21/How-to-use-diffusion-web-ui-Scripts-Extras-Extensions/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');

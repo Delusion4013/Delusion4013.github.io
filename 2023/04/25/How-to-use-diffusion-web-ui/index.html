@@ -236,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.6k words
+          6.9k words
         
       </span>
     
@@ -304,8 +304,12 @@ img2img tab. <span id="more"></span></p>
 <li>I will first go through some unique parameters for this tab, then
 provide my workflow on use cases like outpaint and inpaint.
 <ul>
-<li><img src="https://s2.loli.net/2023/04/25/sd47R62U1nAjgew.png" srcset="/img/loading.gif" lazyload
-title="fig:" alt="stable-diffusion-webui-img2img-tab" /></li>
+<li><figure>
+<img src="https://s2.loli.net/2023/04/25/sd47R62U1nAjgew.png" srcset="/img/loading.gif" lazyload
+alt="stable-diffusion-webui-img2img-tab" />
+<figcaption
+aria-hidden="true">stable-diffusion-webui-img2img-tab</figcaption>
+</figure></li>
 </ul></li>
 <li>In img2img tab, images could be used as additional input as the
 guide for generation. This enables a bunch of useful cases. For exmaple,
@@ -390,8 +394,11 @@ alt="image-20230418221414301" />
 structure control. With only image and text guidance, you will get
 pretty randomized output, like the one below.</p>
 <ul>
-<li><img src="https://s2.loli.net/2023/04/25/XvozE3hdyKBqjIM.png" srcset="/img/loading.gif" lazyload
-title="fig:" alt="image-20230418221837294" /></li>
+<li><figure>
+<img src="https://s2.loli.net/2023/04/25/XvozE3hdyKBqjIM.png" srcset="/img/loading.gif" lazyload
+alt="image-20230418221837294" />
+<figcaption aria-hidden="true">image-20230418221837294</figcaption>
+</figure></li>
 </ul>
 <h2 id="inpaint---fix-modify-selected-parts-of-the-image">Inpaint - Fix
 / Modify selected parts of the image</h2>
@@ -542,47 +549,62 @@ alt="stable-diffusion-outpaint-example-ori" />
 <figcaption
 aria-hidden="true">stable-diffusion-outpaint-example-ori</figcaption>
 </figure></li>
-<li><p>Now I want to expand the left and right side to add more details
-to become suitable for a wallpaper. I clicked the
+<li>Now I want to expand the left and right side to add more details to
+become suitable for a wallpaper. I clicked the
 <code>Send to img2img</code> button under the generation panle, and all
 the generation detail and the results are passed to the
-<code>img2img</code> tab.</p></li>
-<li><p>In the script channel, I selected <code>outpainting mk2</code>.
+<code>img2img</code> tab.</li>
+<li>In the script channel, I selected <code>outpainting mk2</code>.
 Following the script's instruction, I modified the
 <code>Sampling method</code> to <code>Euler a</code>, and
 <code>Sampling steps</code> to <code>60</code>, and
 <code>Denoising strength</code> to <code>0.8</code> and I got the
-following result.</p>
+following result.
 <ul>
-<li><img src="https://s2.loli.net/2023/04/25/bcOT6slQ3xXkCft.png" srcset="/img/loading.gif" lazyload
-title="fig:" alt="expand-4maskblur-1falloff-0.05colorvar" /></li>
+<li><figure>
+<img src="https://s2.loli.net/2023/04/25/bcOT6slQ3xXkCft.png" srcset="/img/loading.gif" lazyload
+alt="expand-4maskblur-1falloff-0.05colorvar" />
+<figcaption
+aria-hidden="true">expand-4maskblur-1falloff-0.05colorvar</figcaption>
+</figure></li>
 </ul></li>
-<li><p>Though it seems good at first glance, this picture has several
+<li>Though it seems good at first glance, this picture has several
 problems - the most significant one is the clear boundary between
 original image and the expanded ones, check the light's reflection cut
 off in water bottom-left or the clear split of skylines on top
-right.</p></li>
-<li><p>I therefore modified the <code>mask_blur</code> intended to
-create a soft boundary. By setting <code>mask_blur=10</code>, here is
-what I got</p>
+right.</li>
+<li>I therefore modified the <code>mask_blur</code> intended to create a
+soft boundary. By setting <code>mask_blur=10</code>, here is what I got
 <ul>
-<li><img src="https://s2.loli.net/2023/04/25/dNJi38lcewabmLk.png" srcset="/img/loading.gif" lazyload
-title="fig:" alt="expand-10maskblur-1falloff-0.05colorvar" /></li>
+<li><figure>
+<img src="https://s2.loli.net/2023/04/25/dNJi38lcewabmLk.png" srcset="/img/loading.gif" lazyload
+alt="expand-10maskblur-1falloff-0.05colorvar" />
+<figcaption
+aria-hidden="true">expand-10maskblur-1falloff-0.05colorvar</figcaption>
+</figure></li>
 </ul></li>
-<li><p>I also play around with other parameters settings and you could
-check the impact of different parameters.</p>
+<li>I also play around with other parameters settings and you could
+check the impact of different parameters.
 <ul>
 <li><code>maskblur=10, falloff=1, colorvar=0.5</code> (Increasing Color
 variation to the previous one)
 <ul>
-<li><img src="https://s2.loli.net/2023/04/25/J4B8WV2gcIUaQLp.png" srcset="/img/loading.gif" lazyload
-title="fig:" alt="expand-10maskblur-1falloff-0.5colorvar" /></li>
+<li><figure>
+<img src="https://s2.loli.net/2023/04/25/J4B8WV2gcIUaQLp.png" srcset="/img/loading.gif" lazyload
+alt="expand-10maskblur-1falloff-0.5colorvar" />
+<figcaption
+aria-hidden="true">expand-10maskblur-1falloff-0.5colorvar</figcaption>
+</figure></li>
 </ul></li>
 <li><code>maskblur=20, falloff=1, colorvar=0.5</code> (Increasing mask
 blur)
 <ul>
-<li><img src="https://s2.loli.net/2023/04/25/4DxoMIWp9dNgGVU.png" srcset="/img/loading.gif" lazyload
-title="fig:" alt="expand-20maskblur-1falloff-0.5colorvar" /></li>
+<li><figure>
+<img src="https://s2.loli.net/2023/04/25/4DxoMIWp9dNgGVU.png" srcset="/img/loading.gif" lazyload
+alt="expand-20maskblur-1falloff-0.5colorvar" />
+<figcaption
+aria-hidden="true">expand-20maskblur-1falloff-0.5colorvar</figcaption>
+</figure></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -596,9 +618,12 @@ target="_blank" rel="noopener" href="https://github.com/timothybrooks/instruct-p
 (below image source)</a> presented by UC Berkeley <a
 target="_blank" rel="noopener" href="https://github.com/timothybrooks">Tim Brooks</a> and his fellows.
 <ul>
-<li><img
+<li><figure>
+<img
 src="https://github.com/timothybrooks/instruct-pix2pix/raw/main/imgs/edit_app.jpg" srcset="/img/loading.gif" lazyload
-title="fig:" alt="instruct-image-example" /></li>
+alt="instruct-image-example" />
+<figcaption aria-hidden="true">instruct-image-example</figcaption>
+</figure></li>
 </ul></li>
 <li>Maybe it's the reason that I didn't get the correct format for
 instructions, I could hardly use it on my own images, it performs
@@ -707,6 +732,12 @@ deliberate_v11</a>
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2023/05/21/How-to-use-diffusion-web-ui-Scripts-Extras-Extensions/" title="SD - 3. How to use diffusion web ui? - Scripts, Extras, Extensions">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">SD - 3. How to use diffusion web ui? - Scripts, Extras, Extensions</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
