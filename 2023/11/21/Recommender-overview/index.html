@@ -16,39 +16,27 @@
   <meta name="author" content="Chenkai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="In this post, I will briefly walk through some of the auxiliary functions provided in stable diffusion web ui for earlier idea testing and experience enhancement.">
+    <meta name="description" content="In this article, I will give an overall introduction about recommenders, including how the recommendation problem arises, the abstract models and the key problems when building a new recommender.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SD - 3. How to use diffusion web ui? - Scripts, Extras, Extensions">
-<meta property="og:url" content="https://delusion4013.github.io/2023/05/21/How-to-use-diffusion-web-ui-Scripts-Extras-Extensions/index.html">
+<meta property="og:title" content="Recommender Series 1 - Overview">
+<meta property="og:url" content="https://delusion4013.github.io/2023/11/21/Recommender-overview/index.html">
 <meta property="og:site_name" content="Chenkai&#39;s Blog">
-<meta property="og:description" content="In this post, I will briefly walk through some of the auxiliary functions provided in stable diffusion web ui for earlier idea testing and experience enhancement.">
+<meta property="og:description" content="In this article, I will give an overall introduction about recommenders, including how the recommendation problem arises, the abstract models and the key problems when building a new recommender.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s2.loli.net/2023/05/21/O8dxkgEcYGznPsm.png">
-<meta property="og:image" content="https://s2.loli.net/2023/05/21/qusKaYMcPH8jeD1.png">
-<meta property="og:image" content="https://s2.loli.net/2023/05/21/aEJv9wmpLFh1DIP.jpg">
-<meta property="og:image" content="https://s2.loli.net/2023/05/21/HOgwZQCiSXlcyaV.png">
-<meta property="og:image" content="https://s2.loli.net/2023/05/21/aOQvRE3DNUWizVd.jpg">
-<meta property="og:image" content="https://s2.loli.net/2023/05/21/w7ZOUyGrznFD5ku.png">
-<meta property="og:image" content="https://s2.loli.net/2023/05/21/GOFYRSxBbUipZqr.png">
-<meta property="og:image" content="https://s2.loli.net/2023/05/21/IUl1DaNP6CYwZcd.png">
-<meta property="og:image" content="https://s2.loli.net/2023/05/21/XtLqSZU8Q4sxgIF.png">
-<meta property="og:image" content="https://s2.loli.net/2023/05/21/TIX82OoBSMVD4jQ.png">
-<meta property="og:image" content="https://s2.loli.net/2023/05/21/wcrCY6ozgVeMDaE.jpg">
-<meta property="og:image" content="https://s2.loli.net/2023/05/21/JzIdkB58y92CSFT.png">
-<meta property="og:image" content="https://s2.loli.net/2023/05/21/J8gaOxjTdS9PhNH.png">
-<meta property="article:published_time" content="2023-05-21T07:36:11.000Z">
-<meta property="article:modified_time" content="2023-05-21T07:51:54.429Z">
+<meta property="og:image" content="https://s2.loli.net/2024/01/22/AZ4MUWqxXQB8f6z.png">
+<meta property="article:published_time" content="2023-11-21T15:37:56.000Z">
+<meta property="article:modified_time" content="2024-01-21T20:35:57.918Z">
 <meta property="article:author" content="Chenkai">
-<meta property="article:tag" content="Artificial Intelligence">
-<meta property="article:tag" content="Diffusion">
+<meta property="article:tag" content="Computer Science">
+<meta property="article:tag" content="Data Science">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.loli.net/2023/05/21/O8dxkgEcYGznPsm.png">
+<meta name="twitter:image" content="https://s2.loli.net/2024/01/22/AZ4MUWqxXQB8f6z.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>SD - 3. How to use diffusion web ui? - Scripts, Extras, Extensions - Chenkai&#39;s Blog</title>
+  <title>Recommender Series 1 - Overview - Chenkai&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -213,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="SD - 3. How to use diffusion web ui? - Scripts, Extras, Extensions"></span>
+            <span id="subtitle" data-typed-text="Recommender Series 1 - Overview"></span>
           
         </div>
 
@@ -224,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-21 03:36" pubdate>
-          May 21, 2023 am
+        <time datetime="2023-11-21 10:37" pubdate>
+          November 21, 2023 am
         </time>
       </span>
     
@@ -236,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          5.1k words
+          5.4k words
         
       </span>
     
@@ -293,312 +281,174 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">SD - 3. How to use diffusion web ui? - Scripts, Extras, Extensions</h1>
+            <h1 style="display: none">Recommender Series 1 - Overview</h1>
             
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this post, I will briefly walk through some of the auxiliary
-functions provided in stable diffusion web ui for earlier idea testing
-and experience enhancement.</p>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this article, I will give an overall introduction about
+recommenders, including how the recommendation problem arises, the
+abstract models and the key problems when building a new
+recommender.</p>
 <span id="more"></span>
-<h1 id="script">Script</h1>
+<h2 id="background">Background</h2>
+<p>As we step into the information era, there are a increasing number of
+products, movies, music, short videos, etc. that is either virtual
+content itself or was provided online shopping option instead of onsite.
+This paradigm shift from scarcity to abundance took place as virtual
+content provider and online stores gained more advantages in the cost of
+inventory storage and distribution compared to traditional retailers
+(onsite shops).</p>
+<p>We have developed two ways to interact with these abundant virtual
+catalogues, which are:</p>
 <ul>
-<li><p>At the beginning of generation, it is often the case that you
-need to test different prompts and parameter settings. Besides manually
-trying all combinations, webui has built-in scripts that automates this
-process.</p></li>
-<li><p>This feature could be enabled by selecting the corresponding
-scripts. The script could be selected at the bottom-left corner of the
-webui.</p></li>
-<li><figure>
-<img src="https://s2.loli.net/2023/05/21/O8dxkgEcYGznPsm.png" srcset="/img/loading.gif" lazyload
-alt="diffusion webui script location" />
-<figcaption aria-hidden="true">diffusion webui script
-location</figcaption>
-</figure></li>
+<li>Search (When the user know what they want to find)</li>
+<li>Recommendation (when the user does not know what they want to
+find)</li>
 </ul>
-<h2 id="prompt-form-file-or-textbox">Prompt form file or textbox</h2>
+<p>Since there seems to be more profit by selling small volumes of
+hard-to-find items to many customers (<em>the long tail part</em>)
+instead of only selling large volumes of a reduced number of popular
+items (<em>the head part</em>), companies are refining their business
+strategy based on the <a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Long_tail">Long Tail</a> model (as
+described in the image below). That is to say, by customizing the
+content (in the long tail) presented to the user, increase the chance of
+product sell or consumption. This requirements necessitates better
+filters, that is to say, the <strong>Recommender</strong> or
+<strong>recommendation system</strong>.</p>
+<figure>
+<img src="https://s2.loli.net/2024/01/22/AZ4MUWqxXQB8f6z.png" srcset="/img/loading.gif" lazyload
+alt="Long Tail model.png" />
+<figcaption aria-hidden="true">Long Tail model.png</figcaption>
+</figure>
+<h2 id="types-of-recommenders">Types of recommenders</h2>
+<p>There are several general types of recommenders arose under different
+context:</p>
+<ol type="1">
+<li><p>Editorial and hand curated</p>
+<p>Some example of this type of recommendation includes "List of
+favorites", "List of essentials".</p>
+<p>This type of recommender has a significant drawback: there is no
+input from the user sides. The recommendation relies entirely on the
+selection of the website editor, and there is no usage of the user
+interaction data. So this approach is not used in modern application
+with a lot of user generated content and data.</p></li>
+<li><p>Simple aggregates</p>
+<p>Examples of these aggregates includes "Top 10 XXX", "Most popular",
+"Recent uploads", etc.</p>
+<p>This type of recommender simply perform some grouping actions on the
+consumption data, but it is still not customized to specific users.
+However, this approach is useful to deal with the Cold Start problem
+when a new user joined with no previous interaction data, so you could
+still see these sections in applications today.</p></li>
+<li><p>Tailored to individual users</p>
+<p>This is the type of recommender that most applications used today by
+taking individual user's interaction as input and output content
+tailored to their taste, which I will to discuss further in future
+posts.</p></li>
+</ol>
+<h3 id="general-models">General models</h3>
+<p>When defining later recommenders, we usually have a structure with
+the following data:</p>
 <ul>
-<li>Used for testing <strong>different prompts</strong> using files or
-handwritten prompts.</li>
-<li>It's pretty easy and straightforward to use so I would leave it for
-you to play with.</li>
-</ul>
-<h2 id="prompt-matrix">prompt matrix</h2>
-<h3 id="overview">Overview</h3>
+<li><span class="math inline">\(C\)</span> = set of Customers</li>
+<li><span class="math inline">\(S\)</span>  = set of Items</li>
+<li>Utility function <span class="math inline">\(u: C\times S
+\rightarrow R\)</span>
 <ul>
-<li><p>Used for testing <strong>different tags' (in prompt)</strong>
-influence on the generation result.</p></li>
-<li><blockquote>
-<p>This feature could be further enhanced by the extension <a
-target="_blank" rel="noopener" href="https://github.com/adieyal/sd-dynamic-prompts">dynamic-prompts</a></p>
-</blockquote></li>
-<li><p>Below is a screen shot of the available settings.</p>
+<li><span class="math inline">\(R\)</span> = set of ratings ( is a
+totally ordered set)
 <ul>
-<li><figure>
-<img src="https://s2.loli.net/2023/05/21/qusKaYMcPH8jeD1.png" srcset="/img/loading.gif" lazyload
-alt="diffusion-webui-prompt-matrix-script" />
-<figcaption
-aria-hidden="true">diffusion-webui-prompt-matrix-script</figcaption>
-</figure></li>
-</ul></li>
-<li><p>For those interested in reading the source code, check <a
-target="_blank" rel="noopener" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/89f9faa63388756314e8a1d96cf86bf5e0663045/scripts/prompt_matrix.py#L45">here</a></p></li>
-</ul>
-<h3 id="usage">Usage</h3>
-<ul>
-<li>To properly invoke this plugin, you need to append the tags you want
-to experiment with <code>|</code> symbol, follow the format below:
-<ul>
-<li>```txt basic_prompt, | tag1 | tag2 | ... <figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey">- Put a `|` symbol before each tag you want to try solely, <span class="hljs-literal">and</span> separate other tags using `|`.<br>- I used `tag` here for simplicity, but you could also try prompt snippets.<br>- In this way, prompt matrix would try the below combinations<br>	- ```<br><span class="hljs-built_in">	  basic_prompt,</span> <br><span class="hljs-built_in">	  basic_prompt,</span> tag1<br><span class="hljs-built_in">	  basic_prompt,</span> tag2<br><span class="hljs-built_in">	  basic_prompt,</span> tag1, tag2<br></code></pre></td></tr></table></figure></li>
-</ul></li>
-</ul>
-<h4 id="example">Example</h4>
-<ul>
-<li>You could find the tags used is displayed in <strong>bold</strong>,
-while the tags not used are <del>underscored</del></li>
-<li>One common thing you want to experiment with is probably the style
-of the output.
-<ul>
-<li>Here is an example, I tried different medium of generating a girl's
-portrait with the following prompt
-<ul>
-<li><code>1girl, masterpiece,  | pencil sketch | oil painting | photo | watercolor</code></li>
-<li><figure>
-<img src="https://s2.loli.net/2023/05/21/aEJv9wmpLFh1DIP.jpg" srcset="/img/loading.gif" lazyload
-alt="diffusion-webui-prompt-matrix-result-1" />
-<figcaption
-aria-hidden="true">diffusion-webui-prompt-matrix-result-1</figcaption>
-</figure></li>
-</ul></li>
-</ul></li>
-<li>Another thing you may want to try is that whether certain tags are
-taking effects.
-<ul>
-<li>Here is another example, I tried different quality tags
-<ul>
-<li><code>1girl,  | masterpiece | best quality | extremely detailed</code></li>
-<li><figure>
-<img src="https://s2.loli.net/2023/05/21/HOgwZQCiSXlcyaV.png" srcset="/img/loading.gif" lazyload
-alt="diffusion-webui-prompt-matrix-result-2" />
-<figcaption
-aria-hidden="true">diffusion-webui-prompt-matrix-result-2</figcaption>
-</figure></li>
+<li>E.g. 0-5 stars, real number in <code>[0,1]</code></li>
 </ul></li>
 </ul></li>
-<li>Or you want to try different lighting options
+<li>Utility matrix - <span class="math inline">\(U\)</span> = the matrix
+form of the above utility function.
 <ul>
-<li><code>1girl, RAW photo, masterpiece, best quality, extremely detailed, |  spotlight | rim lighting | sunlight | natural lighting</code></li>
-<li><figure>
-<img src="https://s2.loli.net/2023/05/21/aOQvRE3DNUWizVd.jpg" srcset="/img/loading.gif" lazyload
-alt="diffusion-webui-prompt-matrix-result-3" />
-<figcaption
-aria-hidden="true">diffusion-webui-prompt-matrix-result-3</figcaption>
-</figure></li>
-</ul></li>
-<li>I would strongly recommend <a
-target="_blank" rel="noopener" href="https://promptomania.com/stable-diffusion-prompt-builder/">this
-website - promptmania</a> if you are struggling with finding suitable
-tags for a specific aspect of the generation (e.g. medium, lighting,
-camera setting, etc.). This website providers wonderful visual cue for
-different tags.
-<ul>
-<li><figure>
-<img src="https://s2.loli.net/2023/05/21/w7ZOUyGrznFD5ku.png" srcset="/img/loading.gif" lazyload
-alt="promptmania-example-screenshot" />
-<figcaption
-aria-hidden="true">promptmania-example-screenshot</figcaption>
-</figure></li>
+<li>Usually we have items listed on columns, user listed on rows, where
+the entry <span class="math inline">\((i,j)\)</span> corresponds to the
+user <span class="math inline">\(i\)</span>'s rating on <span
+class="math inline">\(j\)</span>-th item.</li>
 </ul></li>
 </ul>
-<h2 id="xyz-plot">XYZ plot</h2>
-<h3 id="overview-1">Overview</h3>
+<h2 id="key-problems">Key problems</h2>
+<p>By defining the general models above, we could derive some of the key
+problems that we need to handle when building recommenders.</p>
+<h3 id="gathering-known-ratings-to-form-the-utility-matrix">1. Gathering
+"known" ratings to form the utility matrix</h3>
+<p>The problem is then - How to collect the data in the utility matrix?
+We need to take the cold start problem into consideration. That is to
+say, for new items with no ratings or for new users with no history, we
+need to derive different strategies.</p>
+<p>For example, some applications may let you choose the area you are
+interested in during the registration process. More and more new item
+are now tagged with genre / producer / director / actor all kinds of
+metadata to help it fit into the current database.</p>
+<p>To solve the collection problem mentioned above, the industry has two
+types of solutions:</p>
 <ul>
-<li>Used for testing different <strong>parameter settings</strong></li>
-<li>Below is a screen shot of the available settings.
-<ul>
-<li><figure>
-<img src="https://s2.loli.net/2023/05/21/GOFYRSxBbUipZqr.png" srcset="/img/loading.gif" lazyload
-alt="diffusion-webui-xyzplot-script" />
-<figcaption
-aria-hidden="true">diffusion-webui-xyzplot-script</figcaption>
-</figure></li>
-</ul></li>
-<li>For those interested in reading the source code, check <a
-target="_blank" rel="noopener" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/blob/89f9faa63388756314e8a1d96cf86bf5e0663045/scripts/xyz_grid.py#L461">here</a></li>
+<li><p>Explicit</p>
+<p>That's ask people to rate items after purchase or consumption. This
+is a very direct way to get ratings, however it has the drawback of it
+doesn't scale as not many users would like to provide ratings or
+detailed feedback.</p></li>
+<li><p>Implicit</p>
+<p>To handle the scaling aspect of the data, industry (based on their
+products) have designed various algorithms to interpret ratings from
+user interactions. For example, companies like TikTok will track the
+type of videos that you like to view more and perform corresponding
+recommendation. Nevertheless, it is still hard to learn low ratings (as
+users tend not to interact with items they dislike).</p></li>
 </ul>
-<h3 id="usage-1">Usage</h3>
+<h3 id="how-to-extrapolate-unknown-ratings-from-the-known-ones">2. How
+to extrapolate "unknown" ratings from the known ones?</h3>
+<p>This is the key part of "recommendation" where the system based on
+past user interaction data to infer user's most likely interested items
+and present it. It is also the main focus of different recommender
+architecture and algorithms. For example, there are recommendation
+methods like and will be discussed in later posts: - Content-based
+filtering - Collaborative filtering - Model-based filtering</p>
+<h3 id="how-to-evaluate-extrapolation-methods">3. How to evaluate
+extrapolation methods?</h3>
+<p>With the two above questions answered, we need to evaluate the
+performance of the recommender we built to guide us better iterated the
+model and algorithm. Some of the popular metrics includes:</p>
 <ul>
-<li>The interaction logic is straightforward, select the parameter you
-would like to play with, fill in the values by hand or use the 📒 icon
-to automatically import all available options (for checkpoints, sampler,
-etc.)</li>
-<li>In <a
-href="https://delusion4013.github.io/2023/04/25/How-to-use-diffusion-web-ui/">my
-previous blog</a>, I used this script for doing experiments with testing
-different checkpoints' performance and parameter setting's impact.</li>
-<li>Example usage
+<li><strong>Accuracy Metrics</strong>: Measures how closely the
+recommendations match user preferences.
 <ul>
-<li>Test different models performance on a given prompt
-<ul>
-<li><figure>
-<img src="https://s2.loli.net/2023/05/21/IUl1DaNP6CYwZcd.png" srcset="/img/loading.gif" lazyload
-alt="diffusion-webui-xyzplotscript-different-model" />
-<figcaption
-aria-hidden="true">diffusion-webui-xyzplotscript-different-model</figcaption>
-</figure></li>
+<li><strong>Mean Absolute Error (MAE)</strong>: Average absolute
+difference between predicted and actual ratings.</li>
+<li><strong>Root Mean Square Error (RMSE)</strong>: Square root of the
+average squared differences between predicted and actual ratings.</li>
+<li><strong>Precision and Recall</strong>: Precision measures the
+proportion of recommended items that are relevant, while recall assesses
+the proportion of relevant items that are recommended.</li>
 </ul></li>
-<li>Test different parameter settings' impact (like sampling steps, CFG
-scale)
+<li><strong>Diversity Metrics</strong>: Evaluates how varied the
+recommendations are.
 <ul>
-<li>X type = CFG scale, X values = 3,5,7,9</li>
-<li><figure>
-<img src="https://s2.loli.net/2023/05/21/XtLqSZU8Q4sxgIF.png" srcset="/img/loading.gif" lazyload
-alt="diffusion-webui-xyzplotscript-different-CFG-scale" />
-<figcaption
-aria-hidden="true">diffusion-webui-xyzplotscript-different-CFG-scale</figcaption>
-</figure></li>
-<li>X type = Steps, X values = 10,20,30,40</li>
-<li><figure>
-<img src="https://s2.loli.net/2023/05/21/TIX82OoBSMVD4jQ.png" srcset="/img/loading.gif" lazyload
-alt="diffusion-webui-xyzplotscript-different-sampling-steps" />
-<figcaption
-aria-hidden="true">diffusion-webui-xyzplotscript-different-sampling-steps</figcaption>
-</figure></li>
+<li><strong>Intra-List Diversity</strong>: Diversity within a list of
+recommendations.</li>
+<li><strong>Item Coverage</strong>: Range of different items recommended
+across all users.</li>
 </ul></li>
-<li>Test different parameter combinations.
+<li><strong>Scalability and Efficiency</strong>: Analyzes the system's
+performance as the dataset size increases.
 <ul>
-<li><blockquote>
-<p>By the way, it is often best practice to use recommended sampling
-method.</p>
-</blockquote></li>
-<li>X type = Checkpoint name, X values = filled</li>
-<li>Y type = sampler, Y values = filled</li>
-<li><figure>
-<img src="https://s2.loli.net/2023/05/21/wcrCY6ozgVeMDaE.jpg" srcset="/img/loading.gif" lazyload
-alt="diffusion-webui-xyzplotscript-different-model-sample-combination" />
-<figcaption
-aria-hidden="true">diffusion-webui-xyzplotscript-different-model-sample-combination</figcaption>
-</figure></li>
+<li><strong>Response Time</strong>: Time taken to generate
+recommendations.</li>
+<li><strong>Throughput</strong>: Number of recommendations generated per
+unit time.</li>
 </ul></li>
-</ul></li>
-</ul>
-<h1 id="auxiliary-tabs">Auxiliary tabs</h1>
+<li><strong>User Satisfaction</strong>: Subjective measure through user
+studies or feedback.
 <ul>
-<li>Skip the training related part for a later post (like checkpoinst
-merger, training, etc.)</li>
-</ul>
-<h2 id="extras">Extras</h2>
-<ul>
-<li>This step is dedicated for upscaling images. It plays a similar role
-as <code>txt2img</code> tab's <code>hires fix</code>, or
-<code>img2img</code> tab's <code>SD upscale</code> script</li>
-<li><figure>
-<img src="https://s2.loli.net/2023/05/21/JzIdkB58y92CSFT.png" srcset="/img/loading.gif" lazyload
-alt="diffusion-webui-extra-tab-screenshot" />
-<figcaption
-aria-hidden="true">diffusion-webui-extra-tab-screenshot</figcaption>
-</figure></li>
-<li>Upload a image and choose a upscaler for the task.
-<ul>
-<li><code>RealESRGAN_x4plus_anime_6B</code> is good for animation
-characters</li>
-<li><code>realesr-general-wdn-x4v3</code> is good for realistic
-characters or scenery.</li>
-</ul></li>
-<li>When an upscaler is used for the first time, it may take some time
-to download.
-<ul>
-<li>If failed to download for some reason, check <a
-target="_blank" rel="noopener" href="https://upscale.wiki/wiki/Model_Database">this website</a> to
-download upscaler manually (and place them in
-<code>stable-diffusion-webui/models/ESRGAN/</code> - not sure about all
-other upscaler, but worked for the above two)</li>
-</ul></li>
-</ul>
-<h2 id="png-info">PNG info</h2>
-<ul>
-<li>A useful tab for extracting generation data stored in images.</li>
-<li><figure>
-<img src="https://s2.loli.net/2023/05/21/J8gaOxjTdS9PhNH.png" srcset="/img/loading.gif" lazyload
-alt="diffusion-webui-example-pnginfo-tab" />
-<figcaption
-aria-hidden="true">diffusion-webui-example-pnginfo-tab</figcaption>
-</figure></li>
-<li>Enable setting to store the generation data
-<ul>
-<li>In the Settings tab, check the following path</li>
-<li><blockquote>
-<p>saving images/grids &gt; Save text information about generation
-parameters as chunks to png files</p>
-</blockquote></li>
-<li>You would then be able to retrieve generation data.</li>
-</ul></li>
-</ul>
-<h1 id="extensions">Extensions</h1>
-<ul>
-<li>Used to install and manage extensions.</li>
-<li>Check the <a
-target="_blank" rel="noopener" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Extensions">official
-extension list</a></li>
-<li>Could also be downloaded locally and manually add to
-<code>path/to/your/webui/root/dir/extensions</code> folder</li>
-<li>Recommended extensions
-<ul>
-<li>Prompting
-<ul>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/DominikDoom/a1111-sd-webui-tagcomplete">tagcomplete</a>
-<ul>
-<li>when writing prompt, give you tag recommendations</li>
-</ul></li>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/toriato/stable-diffusion-webui-wd14-tagger">tagger</a>
-<ul>
-<li>Provided an image, use extra models to deduct the possible</li>
-</ul></li>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/adieyal/sd-dynamic-prompts">dynamic-prompts</a>
-<ul>
-<li>Mentioned in previous section, for quickly create different
-prompts</li>
-</ul></li>
-</ul></li>
-<li>Better Control
-<ul>
-<li>⭐️<a
-target="_blank" rel="noopener" href="https://github.com/Mikubill/sd-webui-controlnet">Controlnet</a>
-<ul>
-<li>One of the most helpful and important extension for creating aligned
-images.</li>
-<li>Next blog post would be on this topic, discuss the detail usage of
-each one and share my workflow.</li>
-</ul></li>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/hako-mikan/sd-webui-lora-block-weight">lora-block-weight</a>
-<ul>
-<li>Used to control lora's performance</li>
-</ul></li>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/fkunn1326/openpose-editor">openpose-editor</a>
-<ul>
-<li>Used as an auxiliary for character generation with fixed pose.</li>
-</ul></li>
-<li><a
-target="_blank" rel="noopener" href="https://github.com/thygate/stable-diffusion-webui-depthmap-script">depthmap</a>
-<ul>
-<li>used as an auxiliary for character generation with depth information
-(usually used for hand recreation)</li>
-</ul></li>
-</ul></li>
-<li>UI enhancement
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/alemelis/sd-webui-ar">Aspect ratio</a>
-<ul>
-<li>Add buttons for common aspect ratios.</li>
-</ul></li>
-</ul></li>
+<li><strong>User Surveys</strong>: Collecting direct feedback from users
+about their satisfaction with the recommendations.</li>
+<li><strong>Usage Metrics</strong>: Monitoring user interaction with the
+system, like click-through rates.</li>
 </ul></li>
 </ul>
 
@@ -619,7 +469,7 @@ target="_blank" rel="noopener" href="https://github.com/thygate/stable-diffusion
     
       <span class="category-chain">
         
-  <a href="/categories/Tutorial/" class="category-chain-item">Tutorial</a>
+  <a href="/categories/Notes/" class="category-chain-item">Notes</a>
   
   
 
@@ -634,9 +484,9 @@ target="_blank" rel="noopener" href="https://github.com/thygate/stable-diffusion
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Artificial-Intelligence/">#Artificial Intelligence</a>
+        <a href="/tags/Computer-Science/">#Computer Science</a>
       
-        <a href="/tags/Diffusion/">#Diffusion</a>
+        <a href="/tags/Data-Science/">#Data Science</a>
       
     </div>
   
@@ -648,8 +498,8 @@ target="_blank" rel="noopener" href="https://github.com/thygate/stable-diffusion
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>SD - 3. How to use diffusion web ui? - Scripts, Extras, Extensions</div>
-      <div>https://delusion4013.github.io/2023/05/21/How-to-use-diffusion-web-ui-Scripts-Extras-Extensions/</div>
+      <div>Recommender Series 1 - Overview</div>
+      <div>https://delusion4013.github.io/2023/11/21/Recommender-overview/</div>
     </div>
     <div class="license-meta">
       
@@ -661,7 +511,7 @@ target="_blank" rel="noopener" href="https://github.com/thygate/stable-diffusion
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>May 21, 2023</div>
+          <div>November 21, 2023</div>
         </div>
       
       
@@ -693,18 +543,12 @@ target="_blank" rel="noopener" href="https://github.com/thygate/stable-diffusion
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/21/Recommender-overview/" title="Recommender Series 1 - Overview">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Recommender Series 1 - Overview</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/04/25/How-to-use-diffusion-web-ui/" title="SD - 2.How to use diffusion web ui? - img2img">
-                        <span class="hidden-mobile">SD - 2.How to use diffusion web ui? - img2img</span>
+                      <a href="/2023/05/21/How-to-use-diffusion-web-ui-Scripts-Extras-Extensions/" title="SD - 3. How to use diffusion web ui? - Scripts, Extras, Extensions">
+                        <span class="hidden-mobile">SD - 3. How to use diffusion web ui? - Scripts, Extras, Extensions</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -722,8 +566,8 @@ target="_blank" rel="noopener" href="https://github.com/thygate/stable-diffusion
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'https://delusion4013.github.io/2023/05/21/How-to-use-diffusion-web-ui-Scripts-Extras-Extensions/';
-          this.page.identifier = '/2023/05/21/How-to-use-diffusion-web-ui-Scripts-Extras-Extensions/';
+          this.page.url = 'https://delusion4013.github.io/2023/11/21/Recommender-overview/';
+          this.page.identifier = '/2023/11/21/Recommender-overview/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
