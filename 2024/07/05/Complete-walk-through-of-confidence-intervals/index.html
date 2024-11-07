@@ -16,27 +16,30 @@
   <meta name="author" content="Chenkai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="In this article, I will present a step-to-step guide to help you set up stable-diffusion-webui uploaded by automatic1111.">
+    <meta name="description" content="In this article, I will provide a complete walk through of a popular concept in data science interviews - the confidence interval, from its intuition, definition to actual computation.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SD - 0. How to set up your diffusion webui?">
-<meta property="og:url" content="https://delusion4013.github.io/2023/02/27/How-to-set-up-your-diffusion-webui/index.html">
+<meta property="og:title" content="Complete walk through of confidence intervals">
+<meta property="og:url" content="https://delusion4013.github.io/2024/07/05/Complete-walk-through-of-confidence-intervals/index.html">
 <meta property="og:site_name" content="Chenkai&#39;s Blog">
-<meta property="og:description" content="In this article, I will present a step-to-step guide to help you set up stable-diffusion-webui uploaded by automatic1111.">
+<meta property="og:description" content="In this article, I will provide a complete walk through of a popular concept in data science interviews - the confidence interval, from its intuition, definition to actual computation.">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s2.loli.net/2023/02/28/r7U9BTv42g8QKqh.png">
-<meta property="article:published_time" content="2023-02-28T00:48:55.000Z">
-<meta property="article:modified_time" content="2023-04-12T03:53:44.816Z">
+<meta property="og:image" content="https://s2.loli.net/2024/11/07/C5GsbwtQSm1BeIZ.png">
+<meta property="og:image" content="https://s2.loli.net/2024/11/07/zaHpC5BjbXZAn9w.jpg">
+<meta property="og:image" content="https://s2.loli.net/2024/11/07/76GceM1ydjLnHYs.png">
+<meta property="og:image" content="https://s2.loli.net/2024/11/07/qIflXO7GtA8o9Nn.png">
+<meta property="og:image" content="https://s2.loli.net/2024/11/07/u3enPaLU5OlfWI8.png">
+<meta property="article:published_time" content="2024-07-06T00:42:34.000Z">
+<meta property="article:modified_time" content="2024-11-07T01:44:40.884Z">
 <meta property="article:author" content="Chenkai">
-<meta property="article:tag" content="Artificial Intelligence">
-<meta property="article:tag" content="Diffusion">
+<meta property="article:tag" content="Data Science">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.loli.net/2023/02/28/r7U9BTv42g8QKqh.png">
+<meta name="twitter:image" content="https://s2.loli.net/2024/11/07/C5GsbwtQSm1BeIZ.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>SD - 0. How to set up your diffusion webui? - Chenkai&#39;s Blog</title>
+  <title>Complete walk through of confidence intervals - Chenkai&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +204,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="SD - 0. How to set up your diffusion webui?"></span>
+            <span id="subtitle" data-typed-text="Complete walk through of confidence intervals"></span>
           
         </div>
 
@@ -212,8 +215,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-02-27 19:48" pubdate>
-          February 27, 2023 pm
+        <time datetime="2024-07-05 20:42" pubdate>
+          July 5, 2024 pm
         </time>
       </span>
     
@@ -224,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k words
+          9.5k words
         
       </span>
     
@@ -235,7 +238,7 @@
         
         
         
-          3 mins
+          10 mins
         
       </span>
     
@@ -281,129 +284,280 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">SD - 0. How to set up your diffusion webui?</h1>
+            <h1 style="display: none">Complete walk through of confidence intervals</h1>
             
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this article, I will present a step-to-step guide to help you set
-up stable-diffusion-webui uploaded by automatic1111.</p>
-<span id="more"></span>
-<h2 id="pre-requisite">Pre-requisite</h2>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this article, I will provide a complete walk through of a popular
+concept in data science interviews - the confidence interval, from its
+intuition, definition to actual computation. <span id="more"></span></p>
+<h2 id="intuition">Intuition</h2>
+<p>When encountering a new concept, my natural impulse would be to ask
+the question: how does this concept help in solving real world problem?
+This concept is introduced to answer the question below: &gt; How to use
+sample mean to deduce population mean and quantify our certainty? &gt;
+&gt; Or rather, how can we use sample means with some degree of
+certainty?</p>
+<h3 id="what-is-a-confidence-interval">What is a confidence
+interval?</h3>
+<p>Let's set up a fake scenario to see how this means in practical
+context. Suppose you want to investigate the population's average height
+<span class="math inline">\(\mu\)</span> on a island (10,000 people in
+total). You already obtained a sample with 100 people's height recorded,
+how to give a quantify the certainty of a population mean deduction?
+That is to say, we want to obtain a bound for the population mean: <span
+class="math display">\[
+\text{lower limit} &lt; \mu &lt; \text{upper limit}
+\]</span></p>
+<p>This interval is the <strong>confidence interval</strong> I want to
+introduce in this article. To make things simple, let's assume that
+heights on this island follow a <strong>normal distribution</strong>
+with a mean <span class="math inline">\(\mu\)</span>, which is unknown,
+and a population variance, <span
+class="math inline">\(\sigma^2\)</span>, which for now will assume is
+known (<span class="math inline">\(X \sim \mathcal{N}(\mu,
+\sigma^2)\)</span>). This may seem weird to know <span
+class="math inline">\(\sigma\)</span> without knowing <span
+class="math inline">\(\mu\)</span>, but it simplifies the problems for
+now and we will see how to deal with unknown variance later.</p>
+<p>To generate such a confidence interval, a random sample needs to be
+taken from the population. To further simplify the setting, we start
+with a sample of size one. Since the sample has only one person in
+it, their height will also be the sample mean, which will be called
+<span class="math inline">\(\bar x\)</span>. Let's create a random
+variable, <span class="math inline">\(\bar X\)</span>, to describe the
+probability of selecting different sample means. It's actually going to
+be identical to the population (<span class="math inline">\(X\)</span>),
+a normal distribution centered of <span
+class="math inline">\(\mu\)</span> with a variance <span
+class="math inline">\(\sigma^2\)</span>. (<span
+class="math inline">\(\bar X \sim \mathcal{N}(\mu, \sigma^2)\)</span>).
+This doesn't mean you suddenly know the true value of <span
+class="math inline">\(\mu\)</span>, but you do know <span
+class="math inline">\(X\)</span> and <span class="math inline">\(\bar
+X\)</span> have the same mean.</p>
+<p><img src="https://s2.loli.net/2024/11/07/C5GsbwtQSm1BeIZ.png" srcset="/img/loading.gif" lazyload /></p>
+<p>With this setting, as we can't know for sure whether <span
+class="math inline">\(\bar X\)</span> is smaller or larger than the
+<span class="math inline">\(\mu\)</span>, we do know <em>"How far are
+most sample means from <span class="math inline">\(\mu\)</span>?"</em>
+based on the distribution property. To do this, you need two related
+concepts. The first one is <strong>margin of error</strong>, which is a
+distance on either side of mu, and a <strong>confidence
+level</strong>, which is the probability that your sample mean is within
+that margin of error. To set these two values, you actually normally
+start with a third one called the <strong>significance level</strong>,
+which is denoted with a Greek letter <span
+class="math inline">\(\alpha\)</span>. In practice, <span
+class="math inline">\(\alpha\)</span> is usually set to be <span
+class="math inline">\(0.05\)</span>, and the confidence level <span
+class="math inline">\(1-\alpha\)</span> yield 0.95, also denoted as
+<span class="math inline">\(95\%\)</span>. This is the probability that
+a randomly generated sample mean falls within the margin of error. Since
+the normal distribution is symmetric around its mean, you can say that
+2.5% (<span class="math inline">\(\alpha\)</span>) of the time your
+sample mean will lie outside the margin of error because it's too big
+and 2.5% of the time because it's too small.</p>
+<p><img src="https://s2.loli.net/2024/11/07/zaHpC5BjbXZAn9w.jpg" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="what-does-the-confidence-level-stands-for">What does the
+confidence level stands for?</h3>
+<p>Given <span class="math inline">\(n=1\)</span>, Known <span
+class="math inline">\(\sigma\)</span> and defined margin of error <span
+class="math inline">\(95\%\)</span>, when we sample multiple times,
+there will be approximately <strong>95%</strong> of the chance that our
+confidence interval contains the population mean <span
+class="math inline">\(\mu\)</span>. Here is a graph illustration of what
+confidence level stands for. Where we sample multiple times and the
+green interval suggest the population mean <span
+class="math inline">\(\mu\)</span> <strong>is</strong> in the interval
+while red interval suggest it does not. In other words, with a
+confidence level, we could say that the confidence interval contains the
+true population parameter approximately 95% of the time.</p>
+<p><img src="https://s2.loli.net/2024/11/07/76GceM1ydjLnHYs.png" srcset="/img/loading.gif" lazyload /></p>
+<h3 id="what-is-the-effect-of-changing-sample-size">What is the effect
+of changing sample size?</h3>
+<p>We made an simplification to use an sample of size 1 in the previous
+chapters, you may be wondering how things will change if we change the
+size of that?</p>
+<p>First, we need to know, <span
+class="math inline">\(\mu_{\bar{x}}\)</span>, or the expected value of
+the sample mean, always equals <span class="math inline">\(\mu\)</span>,
+the population mean. This is true no matter how many observations are in
+your sample. Now consider the <strong>standard deviation</strong> of the
+sample mean, <span class="math inline">\(\sigma_{\bar{x}}\)</span>. We
+know that it will be equal to the population standard deviation divided
+by the square root of the number of samples, n, which is (<span
+class="math inline">\(\sigma / \sqrt{n}\)</span>). In this case, it does
+vary with sample size.</p>
+<p>Then whats the effect of changing sample size? You may find as the
+<span class="math inline">\(n\)</span> increase, the fraction <span
+class="math inline">\(\frac{\sigma}{\sqrt{n}}\)</span> becomes smaller.
+For a normal distribution, shrinking the standard deviation means the
+values are more likely to appear near <span
+class="math inline">\(\mu\)</span>, the central part of the graph.</p>
+<p><img src="https://s2.loli.net/2024/11/07/qIflXO7GtA8o9Nn.png" srcset="/img/loading.gif" lazyload /></p>
+<p>More generally, as n, the sample size increases, the confidence
+interval shrinks. In other words, as we collect more data, you can make
+more precise estimates of <span class="math inline">\(\mu\)</span>
+without dropping your confidence level.</p>
+<h2 id="definitions-and-calculation-steps">Definitions and Calculation
+Steps</h2>
+<h3 id="margin-of-error">Margin of error</h3>
+<p>Before dive to the calculation formula, we still need to figure out
+how to calculate the <strong>margin of error</strong>. Since we are
+trying to land 95% of our guesses, we are actually seeking an interval
+that includes the 95% of the area on the distribution graph. Given a
+distribution like <span class="math inline">\(X\sim \mathcal{N}(\mu,
+\sigma^2)\)</span>:</p>
+<p><img src="https://s2.loli.net/2024/11/07/u3enPaLU5OlfWI8.png" srcset="/img/loading.gif" lazyload /></p>
+<p>We could conclude from the above image that to include 95% of the
+area, we are actually trying to get the interval <span
+class="math inline">\((\mu-2\sigma, \mu+2\sigma)\)</span>. If you know
+the standard deviation of a normal distribution, you can establish the
+range around <span class="math inline">\(\mu\)</span> in which any
+percentage of the distribution lies. These points that are a specified
+number of standard deviation away from the mean (the parameter before
+<span class="math inline">\(\sigma\)</span> in the upper graph) have a
+special name, z-scores or z-statistics.</p>
+<p>The name z-score is taken from the standard normal
+distribution, which is often called the z-distribution. You can easily
+convert normal distributions to the standard normal by subtracting the
+mean and dividing by the standard deviation. Notice that, when using the
+z-distribution, the z-scores are simply the value of the point. <span
+class="math display">\[\frac{X-\mu}{\sigma} = Z \sim \mathcal{N}
+(0,1)\]</span> If you want exactly 95% of the distribution, then the
+z-scores to two decimal places are <span
+class="math inline">\(-1.96\)</span> and <span
+class="math inline">\(+1.96\)</span>. These two values are called
+<strong>critical values</strong>, denoted as <span
+class="math inline">\(z_{0.025}\)</span> and <span
+class="math inline">\(z_{0.975}\)</span>. They are cut-off points inside
+of which an exact percentage of a probability distribution is
+contained. To find these values, you'd either look them up in
+a pre-computed lookup table or use a software library.</p>
+<p>Returning back to the non-standardized normal distribution, we can
+still use these critical values, but since the distribution isn't
+normalized, we need to multiply them by the standard deviation. Note we
+also need to take the effect of sample size into account, so the
+calculation for margin of error should be:</p>
+<p><span class="math display">\[
+\text{margin of error} = z_{1-\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}
+\]</span> ### With Unknown Standard Deviation</p>
+<p>You may have noticed that the above calculation are based on known
+standard deviation <span class="math inline">\(\sigma\)</span>, what
+happens when we don't have access to this measurement? Let's quickly
+review the process we went through when the standard deviation is known:
+We are calculating the margin of error by multiplying z-scores with
+standard deviation, where <span class="math inline">\(\large
+\frac{\bar{x}-\mu}{\frac{\sigma}{\sqrt{n}}}\)</span> follows a normal
+distribution. Now with a unknown <span
+class="math inline">\(\sigma\)</span>, we can use the sample's deviation
+<span class="math inline">\(s\)</span> to replace <span
+class="math inline">\(\sigma\)</span>, however, random variable <span
+class="math inline">\(\large
+\frac{\bar{x}-\mu}{\frac{s}{\sqrt{n}}}\)</span> no longer follows a
+normal distribution, it's now a <strong>student's t
+distribution</strong>. Instead of continue using the z-value as critical
+value, we now use t-value which is sampled from the student's t
+distribution.</p>
+<p><span class="math display">\[
+\text{margin of error} = t_{1-\alpha/2} \cdot \frac{s}{\sqrt{n}}
+\]</span></p>
+<h3 id="confidence-intervals-for-proportion">Confidence intervals for
+proportion</h3>
+<p>The above intervals are all calculated for population mean, what
+about for proportions?</p>
+<p>Similarly, we are applying the confidence interval as:</p>
+<p><span class="math display">\[\begin{align}
+\text{Confidence Interval} &amp;= \text{Sample Proportion}\  \pm \
+\text{Margin of Error}\\
+&amp;=\hat{p}\  \pm\ z_{1-\alpha/2} \cdot \sqrt{\frac{\hat {p}
+(1-\hat{p})}{n}}
+\end{align}
+\]</span></p>
+<h3 id="summary">Summary</h3>
+<p>In summary, the confidence intervals are calculated using the formula
+and steps below: <span class="math display">\[
+\begin{align}
+\text{Confidence Interval} &amp;= \text{Sample Mean}\  \pm \
+\text{Margin of Error}\\
+&amp;= \bar{x}\ \pm z_{1-\alpha/2}\cdot {\frac{\sigma}{\sqrt{n}}}\quad
+\text{(known std)}\\
+&amp;=\bar{x}\ \pm t_{1-\alpha/2} \cdot \frac{s}{\sqrt{n}}\quad
+\text{(unknown std)}\\
+&amp;=\hat{p}\  \pm\ z_{1-\alpha/2} \cdot \sqrt{\frac{\hat {p}
+(1-\hat{p})}{n}}
+\end{align}
+\]</span></p>
+<ol type="1">
+<li>Find the sample mean</li>
+<li>Define a desired confidence level (<span
+class="math inline">\(1-\alpha\)</span>)</li>
+<li>Get the critical value (<span
+class="math inline">\(z_{1-\alpha/2}\)</span>)</li>
+<li>Find the standard error <span
+class="math inline">\(\left(\frac{\sigma}{\sqrt{n}}\right)\)</span></li>
+<li>Find the margin of error by multiplying critical value and standard
+error</li>
+<li>Add/Subtract the margin of error to the sample mean (applying the
+above formula)</li>
+</ol>
+<h2 id="applications">Applications</h2>
+<p>Now let's look at some concrete examples on how to apply the concepts
+in practice.</p>
+<h3 id="calculating-confidence-intervals">Calculating confidence
+intervals</h3>
+<p>Suppose you have a 6,000 population that you want to study the
+population mean of height. You took a random sample among this
+population with a size of 49 people and get the following statistics:
+<span class="math inline">\(\bar{x} = 170cm, \sigma = 25cm\)</span>.
+Suppose you want a confidence level of 95%, where you know the <span
+class="math inline">\(z_{1-{\alpha/2}} = 1.96\)</span>.</p>
+<p>To calculate the confidence interval, you apply the formula:</p>
+<p><span class="math display">\[\begin{align}
+\text{Confidence Interval} &amp;= \text{Sample Mean}\  \pm \
+\text{Margin of Error}\\
+&amp;= \bar{x}\ \pm z_{1-\alpha/2}\cdot {\frac{\sigma}{\sqrt{n}}}\quad
+\text{(known std)}\\
+&amp;= 170\ \pm 1.96 \cdot \frac{25}{\sqrt{49}}\\
+&amp;=170\ \pm \ 7\\
+&amp;= (163cm,177cm)
+\end{align}
+\]</span> That is to say, population mean will lies in this interval 95%
+of the time.</p>
+<h3 id="calculating-sample-size">Calculating Sample size</h3>
+<p>Sometimes we may need to shrink the interval we are having. That is
+equivalent to say we are trying to reduce the margin of errors by
+collecting more samples.</p>
+<p>Let's continue with the set-up in the previous section. Now we want a
+margin of error of <span class="math inline">\(3cm\)</span>. What is the
+smallest sample size to obtain the desired margin of error?</p>
+<p><span class="math display">\[\begin{align}
+\text{margin of error} = z_{1-\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}\\
+3 = z_{1-\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}\\
+3 \ge z_{1-\alpha/2} \cdot \frac{\sigma}{\sqrt{n}} \\
+3 \ge 1.96 \times \frac{25}{\sqrt{n}}\\
+n \ge (\frac{1.96\times 25}{3})^2 \approx 267
+\end{align}
+\]</span> That is to say, we need to collect a sample of size 267 people
+to obtain such a margin of error.</p>
+<h2 id="common-interview-questions">Common interview questions</h2>
 <ul>
-<li>Large AI models perform better on GPUs, check your GPU's version by
-running <code>nvidia-smi</code> command. This would allow you to check
-your CUDA version (kind of GPU driver), which will be used in later
-package selection.<br />
-</li>
-<li>Check you have installed <strong>Python</strong> and
-<strong>git</strong>.
-<ul>
-<li>By command <code>python --version</code> &amp;&amp;
-<code>git --version</code> you could check whether they are
-installed.<br />
-</li>
-<li>If you haven't installed Python, you could check the <a
-target="_blank" rel="noopener" href="https://www.python.org/downloads/windows/">official website</a> to
-download the package(^^3.9+ version with installer
-recommended!^^).<br />
-</li>
-<li>If you haven't installed Git, check the <a
-target="_blank" rel="noopener" href="https://git-scm.com/downloads">Official website</a> to download
-the package.</li>
-</ul></li>
+<li>Meta: How would you explain a confidence interval to a non-technical
+audience? (《Ace the Data Science Interview》 6.2)</li>
+<li>Google: How would you derive a confidence interval for the
+proabability of flipping heads from a series of coin tosses? (《Ace the
+Data Science Interview》 6.11)</li>
 </ul>
-<h2 id="choose-your-model">Choose your model</h2>
+<h2 id="reference">Reference</h2>
 <ul>
-<li><p>Models often require some time to be downloaded, so it's prudent
-to start downloading the models and then continuing to setup your
-environment.</p></li>
-<li><p>Here is some resources for diffusion models</p>
-<ul>
-<li><p><a
-target="_blank" rel="noopener" href="https://huggingface.co/stabilityai/stable-diffusion-2-1">The
-official version of stable diffusion 2 on HuggingFace</a></p></li>
-<li><p><a target="_blank" rel="noopener" href="https://civitai.com/">A website with fine-tuned
-checkpoints</a></p>
-<blockquote>
-<p>Fine-tune is a technique for further fitting the base AI models to
-the given style or performing better on a specific task.</p>
-</blockquote></li>
-</ul></li>
-</ul>
-<h2 id="set-up-your-environment">Set up your environment</h2>
-<p>One popular repository for diffusion is the <a
-target="_blank" rel="noopener" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">stable-diffusion-webui
-by AUTOMATIC1111</a></p>
-<ul>
-<li>Run the command below under the directory where you want the
-application to be placed.</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/AUTOMATIC1111/stable-diffusion-webui.git</span><br></code></pre></td></tr></table></figure>
-<h3 id="automatic-download">Automatic Download</h3>
-<ul>
-<li>Following the instructions in the <code>README</code>, you could
-either run <code>webui-user.bat</code> (Windows Users) or
-<code>webui.sh</code> (linux user by <code>bash webui.sh</code>) to
-automatically download the required packages</li>
-</ul>
-<h3 id="manual-download">Manual Download</h3>
-<ul>
-<li>Create a virtual environment for the required packages using conda.
-<ul>
-<li>create a new conda environment with command<br />
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">// You could change the word after -n <br>// to customize the environment name<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">conda create -n diffusion</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">conda activate diffusion</span><br></code></pre></td></tr></table></figure></li>
-</ul></li>
-<li>Download the corresponding <code>pytorch</code> package (the CUDA
-version) using the command from <a
-target="_blank" rel="noopener" href="https://pytorch.org/get-started/previous-versions/">official
-website</a>
-<ul>
-<li>For example, if your CUDA version is 11.4, run the below
-command<br />
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch</span><br></code></pre></td></tr></table></figure></li>
-</ul></li>
-<li>Run <code>python launch.py</code> and let the script install the
-other packages for you. Or you could run
-<code>pip install -r requirements.txt</code>.
-<ul>
-<li>If failed to launch, you could
-<ul>
-<li><ol type="1">
-<li>Manually download the repository
-<code>git clone https://github.com/Stability-AI/stablediffusion.git</code><br />
-</li>
-<li>Install the required package according to <a
-target="_blank" rel="noopener" href="https://github.com/Stability-AI/stablediffusion#requirements">Requirements</a>
-- skip the pytorch installation</li>
-<li>run <code>pip install -e .</code> in the directory</li>
-</ol></li>
-</ul></li>
-</ul></li>
-</ul>
-<h2 id="place-your-models">Place your models</h2>
-<ul>
-<li>After you could run <code>python launch.py</code> with no error, put
-the downloaded model under
-<code>stable-diffusion-webui/models/Stable-diffusion/</code> directory,
-then you should be able to adjust the model on the top left
-corner.<br />
-<img src="https://s2.loli.net/2023/02/28/r7U9BTv42g8QKqh.png" srcset="/img/loading.gif" lazyload
-alt="diffusion-webui-example" /></li>
-</ul>
-<h2 id="you-are-ready-to-go">You are ready to go!</h2>
-<ul>
-<li>Make sure your conda environment is correctly activated, then copy
-and paste the command
-<code>python path/to/your/webui/folder/launch.py</code></li>
-<li>For prompt reference, you could dive into different communities and
-use this wonderful <a target="_blank" rel="noopener" href="https://lexica.art/">search engine</a>.</li>
-<li>In a later article, I will present more detailed introductions to
-the different components of diffusion models (like inference steps,
-sampling methods and so on). You could also reference to the wonderful
-tutorials on <a
-target="_blank" rel="noopener" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki">Stable
-diffusion webui wiki</a> for advanced features.</li>
+<li>Most of the images are taken from <a
+target="_blank" rel="noopener" href="https://www.coursera.org/learn/machine-learning-probability-and-statistics/home">Coursera
+course - Probability &amp; Statistics for Machine Learning &amp; Data
+Science</a></li>
+<li>《Ace the Data Science Interview》 by Kevin Huo &amp; Nick
+Singh</li>
 </ul>
 
                 
@@ -423,7 +577,7 @@ diffusion webui wiki</a> for advanced features.</li>
     
       <span class="category-chain">
         
-  <a href="/categories/Tutorial/" class="category-chain-item">Tutorial</a>
+  <a href="/categories/Notes/" class="category-chain-item">Notes</a>
   
   
 
@@ -438,9 +592,7 @@ diffusion webui wiki</a> for advanced features.</li>
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Artificial-Intelligence/">#Artificial Intelligence</a>
-      
-        <a href="/tags/Diffusion/">#Diffusion</a>
+        <a href="/tags/Data-Science/">#Data Science</a>
       
     </div>
   
@@ -452,8 +604,8 @@ diffusion webui wiki</a> for advanced features.</li>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>SD - 0. How to set up your diffusion webui?</div>
-      <div>https://delusion4013.github.io/2023/02/27/How-to-set-up-your-diffusion-webui/</div>
+      <div>Complete walk through of confidence intervals</div>
+      <div>https://delusion4013.github.io/2024/07/05/Complete-walk-through-of-confidence-intervals/</div>
     </div>
     <div class="license-meta">
       
@@ -465,7 +617,7 @@ diffusion webui wiki</a> for advanced features.</li>
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>February 27, 2023</div>
+          <div>July 5, 2024</div>
         </div>
       
       
@@ -497,18 +649,12 @@ diffusion webui wiki</a> for advanced features.</li>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/03/07/How-to-use-diffusion-web-ui-txt2img/" title="SD - 1. How to use diffusion web ui? - txt2img">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SD - 1. How to use diffusion web ui? - txt2img</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/02/13/Thinking-about-Generative-AI/" title="Thinking about Generative AI">
-                        <span class="hidden-mobile">Thinking about Generative AI</span>
+                      <a href="/2023/11/21/Recommender-overview/" title="Recommender Series 1 - Overview">
+                        <span class="hidden-mobile">Recommender Series 1 - Overview</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -526,8 +672,8 @@ diffusion webui wiki</a> for advanced features.</li>
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'https://delusion4013.github.io/2023/02/27/How-to-set-up-your-diffusion-webui/';
-          this.page.identifier = '/2023/02/27/How-to-set-up-your-diffusion-webui/';
+          this.page.url = 'https://delusion4013.github.io/2024/07/05/Complete-walk-through-of-confidence-intervals/';
+          this.page.identifier = '/2024/07/05/Complete-walk-through-of-confidence-intervals/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');

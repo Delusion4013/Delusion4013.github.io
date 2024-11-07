@@ -16,23 +16,27 @@
   <meta name="author" content="Chenkai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Aims  Record feelings and findings during CS study. Share my project experience with reproduceble steps. Publish notes about courses and libraies.  Why this blog is named connecting dots? In childhoo">
+    <meta name="description" content="In this article, I will present a step-to-step guide to help you set up stable-diffusion-webui uploaded by automatic1111.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Intention of this blog">
-<meta property="og:url" content="https://delusion4013.github.io/2021/08/17/Intention-of-this-blog/index.html">
+<meta property="og:title" content="SD - 0. How to set up your diffusion webui?">
+<meta property="og:url" content="https://delusion4013.github.io/2023/02/28/How-to-set-up-your-diffusion-webui/index.html">
 <meta property="og:site_name" content="Chenkai&#39;s Blog">
-<meta property="og:description" content="Aims  Record feelings and findings during CS study. Share my project experience with reproduceble steps. Publish notes about courses and libraies.  Why this blog is named connecting dots? In childhoo">
+<meta property="og:description" content="In this article, I will present a step-to-step guide to help you set up stable-diffusion-webui uploaded by automatic1111.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-08-17T16:56:18.000Z">
-<meta property="article:modified_time" content="2022-11-11T14:18:40.633Z">
+<meta property="og:image" content="https://s2.loli.net/2023/02/28/r7U9BTv42g8QKqh.png">
+<meta property="article:published_time" content="2023-02-28T13:48:55.000Z">
+<meta property="article:modified_time" content="2023-04-12T03:53:44.816Z">
 <meta property="article:author" content="Chenkai">
+<meta property="article:tag" content="Artificial Intelligence">
+<meta property="article:tag" content="Diffusion">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2023/02/28/r7U9BTv42g8QKqh.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>Intention of this blog - Chenkai&#39;s Blog</title>
+  <title>SD - 0. How to set up your diffusion webui? - Chenkai&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -197,7 +201,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Intention of this blog"></span>
+            <span id="subtitle" data-typed-text="SD - 0. How to set up your diffusion webui?"></span>
           
         </div>
 
@@ -208,8 +212,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2021-08-17 12:56" pubdate>
-          August 17, 2021 pm
+        <time datetime="2023-02-28 08:48" pubdate>
+          February 28, 2023 am
         </time>
       </span>
     
@@ -220,7 +224,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k words
+          2.8k words
         
       </span>
     
@@ -231,7 +235,7 @@
         
         
         
-          2 mins
+          3 mins
         
       </span>
     
@@ -277,40 +281,130 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Intention of this blog</h1>
+            <h1 style="display: none">SD - 0. How to set up your diffusion webui?</h1>
             
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><span id="more"></span>
-<h2 id="aims">Aims</h2>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this article, I will present a step-to-step guide to help you set
+up stable-diffusion-webui uploaded by automatic1111.</p>
+<span id="more"></span>
+<h2 id="pre-requisite">Pre-requisite</h2>
 <ul>
-<li>Record feelings and findings during CS study.</li>
-<li>Share my project experience with reproduceble steps.</li>
-<li>Publish notes about courses and libraies.</li>
+<li>Large AI models perform better on GPUs, check your GPU's version by
+running <code>nvidia-smi</code> command. This would allow you to check
+your CUDA version (kind of GPU driver), which will be used in later
+package selection.<br />
+</li>
+<li>Check you have installed <strong>Python</strong> and
+<strong>git</strong>.
+<ul>
+<li>By command <code>python --version</code> &amp;&amp;
+<code>git --version</code> you could check whether they are
+installed.<br />
+</li>
+<li>If you haven't installed Python, you could check the <a
+target="_blank" rel="noopener" href="https://www.python.org/downloads/windows/">official website</a> to
+download the package(^^3.9+ version with installer
+recommended!^^).<br />
+</li>
+<li>If you haven't installed Git, check the <a
+target="_blank" rel="noopener" href="https://git-scm.com/downloads">Official website</a> to download
+the package.</li>
+</ul></li>
 </ul>
-<h2 id="why-this-blog-is-named-connecting-dots">Why this blog is named
-connecting dots?</h2>
-<p>In childhood, I was fond of the game <a
-target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Connect_the_dots">Connect the
-dots</a>. It seems magic to me that drawing lines between numbered dots
-gradually reveals the actual shape hidden behind. Sometimes it's tough
-to predict what you will arrive at simply by looking at the outline of
-the unconnected dots and therefore finishing the game always brings me
-surprise and excitement.</p>
-<p>As I grew older, I thought about the ultimate philosophical
-questions: Who am I? Where am I heading? Reading lots of biographies did
-not offer me a satisfactory answer, as I found that most of the time,
-people aren't quite sure where they will be taken to by their
-actions.</p>
-<p>It struck me one day that life is just like the game I enjoyed in my
-childhood. Finishing school, completing projects, and entering a
-relationship are all actions that create a 'dot' on the canvas of our
-life. It is not until some point in life when we look back, that we see
-a clear picture of our past by connecting the 'dots' we created.</p>
-<p>Therefore, I named my blog after my favourite childhood game to
-record the dots I made in my life and remind me to constantly review
-where these dots may take me.</p>
+<h2 id="choose-your-model">Choose your model</h2>
+<ul>
+<li><p>Models often require some time to be downloaded, so it's prudent
+to start downloading the models and then continuing to setup your
+environment.</p></li>
+<li><p>Here is some resources for diffusion models</p>
+<ul>
+<li><p><a
+target="_blank" rel="noopener" href="https://huggingface.co/stabilityai/stable-diffusion-2-1">The
+official version of stable diffusion 2 on HuggingFace</a></p></li>
+<li><p><a target="_blank" rel="noopener" href="https://civitai.com/">A website with fine-tuned
+checkpoints</a></p>
+<blockquote>
+<p>Fine-tune is a technique for further fitting the base AI models to
+the given style or performing better on a specific task.</p>
+</blockquote></li>
+</ul></li>
+</ul>
+<h2 id="set-up-your-environment">Set up your environment</h2>
+<p>One popular repository for diffusion is the <a
+target="_blank" rel="noopener" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">stable-diffusion-webui
+by AUTOMATIC1111</a></p>
+<ul>
+<li>Run the command below under the directory where you want the
+application to be placed.</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">git <span class="hljs-built_in">clone</span> https://github.com/AUTOMATIC1111/stable-diffusion-webui.git</span><br></code></pre></td></tr></table></figure>
+<h3 id="automatic-download">Automatic Download</h3>
+<ul>
+<li>Following the instructions in the <code>README</code>, you could
+either run <code>webui-user.bat</code> (Windows Users) or
+<code>webui.sh</code> (linux user by <code>bash webui.sh</code>) to
+automatically download the required packages</li>
+</ul>
+<h3 id="manual-download">Manual Download</h3>
+<ul>
+<li>Create a virtual environment for the required packages using conda.
+<ul>
+<li>create a new conda environment with command<br />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">// You could change the word after -n <br>// to customize the environment name<br><span class="hljs-meta prompt_">$ </span><span class="language-bash">conda create -n diffusion</span><br><span class="hljs-meta prompt_">$ </span><span class="language-bash">conda activate diffusion</span><br></code></pre></td></tr></table></figure></li>
+</ul></li>
+<li>Download the corresponding <code>pytorch</code> package (the CUDA
+version) using the command from <a
+target="_blank" rel="noopener" href="https://pytorch.org/get-started/previous-versions/">official
+website</a>
+<ul>
+<li>For example, if your CUDA version is 11.4, run the below
+command<br />
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_">$ </span><span class="language-bash">conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch</span><br></code></pre></td></tr></table></figure></li>
+</ul></li>
+<li>Run <code>python launch.py</code> and let the script install the
+other packages for you. Or you could run
+<code>pip install -r requirements.txt</code>.
+<ul>
+<li>If failed to launch, you could
+<ul>
+<li><ol type="1">
+<li>Manually download the repository
+<code>git clone https://github.com/Stability-AI/stablediffusion.git</code><br />
+</li>
+<li>Install the required package according to <a
+target="_blank" rel="noopener" href="https://github.com/Stability-AI/stablediffusion#requirements">Requirements</a>
+- skip the pytorch installation</li>
+<li>run <code>pip install -e .</code> in the directory</li>
+</ol></li>
+</ul></li>
+</ul></li>
+</ul>
+<h2 id="place-your-models">Place your models</h2>
+<ul>
+<li>After you could run <code>python launch.py</code> with no error, put
+the downloaded model under
+<code>stable-diffusion-webui/models/Stable-diffusion/</code> directory,
+then you should be able to adjust the model on the top left
+corner.<br />
+<img src="https://s2.loli.net/2023/02/28/r7U9BTv42g8QKqh.png" srcset="/img/loading.gif" lazyload
+alt="diffusion-webui-example" /></li>
+</ul>
+<h2 id="you-are-ready-to-go">You are ready to go!</h2>
+<ul>
+<li>Make sure your conda environment is correctly activated, then copy
+and paste the command
+<code>python path/to/your/webui/folder/launch.py</code></li>
+<li>For prompt reference, you could dive into different communities and
+use this wonderful <a target="_blank" rel="noopener" href="https://lexica.art/">search engine</a>.</li>
+<li>In a later article, I will present more detailed introductions to
+the different components of diffusion models (like inference steps,
+sampling methods and so on). You could also reference to the wonderful
+tutorials on <a
+target="_blank" rel="noopener" href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki">Stable
+diffusion webui wiki</a> for advanced features.</li>
+</ul>
 
                 
               </div>
@@ -319,6 +413,36 @@ where these dots may take me.</p>
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Tutorial/" class="category-chain-item">Tutorial</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Artificial-Intelligence/">#Artificial Intelligence</a>
+      
+        <a href="/tags/Diffusion/">#Diffusion</a>
+      
+    </div>
   
 </div>
 
@@ -328,8 +452,8 @@ where these dots may take me.</p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Intention of this blog</div>
-      <div>https://delusion4013.github.io/2021/08/17/Intention-of-this-blog/</div>
+      <div>SD - 0. How to set up your diffusion webui?</div>
+      <div>https://delusion4013.github.io/2023/02/28/How-to-set-up-your-diffusion-webui/</div>
     </div>
     <div class="license-meta">
       
@@ -341,7 +465,7 @@ where these dots may take me.</p>
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>August 17, 2021</div>
+          <div>February 28, 2023</div>
         </div>
       
       
@@ -373,9 +497,9 @@ where these dots may take me.</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/09/11/Binary%20search%20algorithm%20Summary/" title="Binary search algorithm">
+                      <a href="/2023/03/07/How-to-use-diffusion-web-ui-txt2img/" title="SD - 1. How to use diffusion web ui? - txt2img">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Binary search algorithm</span>
+                        <span class="hidden-mobile">SD - 1. How to use diffusion web ui? - txt2img</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -383,8 +507,8 @@ where these dots may take me.</p>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/08/17/hello-world/" title="Basic Blog Operations">
-                        <span class="hidden-mobile">Basic Blog Operations</span>
+                      <a href="/2023/02/14/Thinking-about-Generative-AI/" title="Thinking about Generative AI">
+                        <span class="hidden-mobile">Thinking about Generative AI</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -402,8 +526,8 @@ where these dots may take me.</p>
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'https://delusion4013.github.io/2021/08/17/Intention-of-this-blog/';
-          this.page.identifier = '/2021/08/17/Intention-of-this-blog/';
+          this.page.url = 'https://delusion4013.github.io/2023/02/28/How-to-set-up-your-diffusion-webui/';
+          this.page.identifier = '/2023/02/28/How-to-set-up-your-diffusion-webui/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');

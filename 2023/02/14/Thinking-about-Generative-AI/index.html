@@ -16,25 +16,31 @@
   <meta name="author" content="Chenkai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="In this piece of note, I will give an overview of NLP&#39;s development history, focusing on how recent neural approaches revolutionise the NLP field.">
+    <meta name="description" content="In this post, I would give a brief introduction of recent popular generative AIs, and then dicsuss some of its pros and cons.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="A brief history of NLP">
-<meta property="og:url" content="https://delusion4013.github.io/2022/11/07/A-brief-history-of-NLP/index.html">
+<meta property="og:title" content="Thinking about Generative AI">
+<meta property="og:url" content="https://delusion4013.github.io/2023/02/14/Thinking-about-Generative-AI/index.html">
 <meta property="og:site_name" content="Chenkai&#39;s Blog">
-<meta property="og:description" content="In this piece of note, I will give an overview of NLP&#39;s development history, focusing on how recent neural approaches revolutionise the NLP field.">
+<meta property="og:description" content="In this post, I would give a brief introduction of recent popular generative AIs, and then dicsuss some of its pros and cons.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-11-08T03:15:40.000Z">
-<meta property="article:modified_time" content="2023-03-22T06:42:40.840Z">
+<meta property="og:image" content="https://s2.loli.net/2023/02/14/B4xU753OVfkSZ9a.jpg">
+<meta property="og:image" content="https://s2.loli.net/2023/02/14/15VkeiltKU3PM7Y.jpg">
+<meta property="og:image" content="https://s2.loli.net/2023/02/14/kX57Hc3C9ZdiTIY.jpg">
+<meta property="article:published_time" content="2023-02-14T16:50:54.000Z">
+<meta property="article:modified_time" content="2023-03-22T06:49:35.493Z">
 <meta property="article:author" content="Chenkai">
 <meta property="article:tag" content="Artificial Intelligence">
-<meta property="article:tag" content="NLP">
+<meta property="article:tag" content="Diffusion">
+<meta property="article:tag" content="Generative AI">
+<meta property="article:tag" content="ChatGPT">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2023/02/14/B4xU753OVfkSZ9a.jpg">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>A brief history of NLP - Chenkai&#39;s Blog</title>
+  <title>Thinking about Generative AI - Chenkai&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -199,7 +205,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="A brief history of NLP"></span>
+            <span id="subtitle" data-typed-text="Thinking about Generative AI"></span>
           
         </div>
 
@@ -210,8 +216,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-07 22:15" pubdate>
-          November 7, 2022 pm
+        <time datetime="2023-02-14 11:50" pubdate>
+          February 14, 2023 am
         </time>
       </span>
     
@@ -222,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.8k words
+          8.7k words
         
       </span>
     
@@ -233,7 +239,7 @@
         
         
         
-          5 mins
+          9 mins
         
       </span>
     
@@ -279,153 +285,326 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">A brief history of NLP</h1>
+            <h1 style="display: none">Thinking about Generative AI</h1>
             
             
               <div class="markdown-body">
                 
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this piece of note, I will give an overview of NLP's development
-history, focusing on how recent neural approaches revolutionise the NLP
-field.</p>
-<span id="more"></span>
-<p>Natural language processing could be roughly devided into 3 stages
-based on the domainance methods used.
-<sup id="fnref:1"><a href="#fn:1" rel="footnote">1</a></sup></p>
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>In this post, I would give a brief introduction of recent popular
+generative AIs, and then dicsuss some of its pros and cons.
+<span id="more"></span></p>
+<h1 id="introduction-of-recent-popular-models">Introduction of recent
+popular models</h1>
+<p>In the past year, Generative AI (or AIGC) captured massive attention
+from all over the world. From Stable-Diffusion to various versions of
+Text-to-image models in the first half, and ChatGPT to Bing-GPT in the
+second half, there seems a new level of intelligence has been
+achieved.</p>
+<p>Out of the spotlight, AlphaCode and CodeX has been used to boost
+programmer's productivity. AlphaTensor successfully discovered a new
+matrix multiply algorithm. After several years of development in deep
+learning field, Artificial Intelligence has made a remarkable step
+forward in multiple areas.</p>
+<p>For more generative AI, please refer to <a
+target="_blank" rel="noopener" href="http://arxiv.org/abs/2301.04655">Gozalo-Brizuela and
+Garrido-Merchan's Work</a>, in which they give an comprehensive overview
+of different generative AIs and a brief introduction of various models.
+The categorization based on input and output of models split the recent
+research into 9 categories as follows:<br />
+- text-to-image<br />
+- text-to-3D model<br />
+- image-to-text (image summary)<br />
+- text-to-video<br />
+- text-to-audio (also called TTS)<br />
+- text-to-text (summary, comprehension, translation, etc..)<br />
+- text-to-code<br />
+- text-science<br />
+- Others</p>
+<p>I am not going to give a detailed introduction to the technology
+behind each model, but discusses the pros and cons of some of the
+representative models and what to do with this irreversible trend.</p>
+<h1 id="diffusion-models---artists">Diffusion models - Artists</h1>
 <ul>
-<li>Symbolic NLP</li>
-<li>Statitical NLP</li>
-<li>Neural NLP</li>
+<li>Some example images diffusion model generated - obtained from <a
+target="_blank" rel="noopener" href="https://lexica.art/">Lexica.art</a>, a wonderful image search
+engine for generated images</li>
 </ul>
-<h3 id="symbolic-nlp-1950s---early-1990s">Symbolic NLP (1950s - early
-1990s)</h3>
-<p>Research related to natural language processing originated roughly in
-the 1950s. In the following 40 years, limited by the size of the
-<strong>corpus</strong> and the <strong>computing power</strong>, early
-natural language processing mainly used <strong>rule-based
-methods</strong> to deal with generic natural language phenomena through
-symbolic logic knowledge summarized by experts. Such rule systems are
-difficult to be applied to solve real-world problems due to the
-complexity of natural language.</p>
-<h3 id="statistical-nlp-1990s---2010s">Statistical NLP (1990s -
-2010s)</h3>
-<p>The rapid <strong>advances in computational power and storage
-capacity</strong>, as well as the increasing maturity of statistical
-learning approaches, have led to the large-scale application of
-corpus-based statistical learning methods in the field of natural
-language processing.</p>
-<p>The advantages of this method includes fast training speed, little
-requirement for labelled data and has good performance over simple
-problems.</p>
-<p>Meanwhile, there are obvious limitations to this method. Statistical
-approach requires transformation of the raw natural language input into
-a vector form that can be processed by the machine based on empirical
-rules. This expertise-dependent, manual process of transformation is
-known as feature engineering (feature extraction), which is
-time-consuming and not compatible for different tasks.</p>
-<h3 id="neural-nlp-present">Neural NLP (present)</h3>
-<p>To cope with the disadvantages of feature engineering, representation
-learning and deep neural network-style machine leanring methods became
-widely applied in NLP field, proposing an end-to-end solution.
-Representation learning allows the machine to automatiacally recognise
-patterns from input which can be used for tasks like classifcation.</p>
-<p>In 2013, Tomas Mikolov proposed <strong>word2vec</strong>
-method<sup id="fnref:2"><a href="#fn:2" rel="footnote">2</a></sup>,
-using a shallow neural network with large scale corpus, which uses
-contextual connection of each word to embed the semantics of the tokens
-into a dense vector. This output of such method is called <strong>Word
-Embedding</strong>.</p>
-<p>This kinds of encoding methods avoid the usage of elaborate feature
-engineering, and it also breaks down the barriers between different
-tasks, as representation learning transformes input into a similar and
-easily tranferrable vector space.</p>
-<blockquote>
-<p>This trend of Representation Learning has spread to knowledge graphs
-(using Graph Embedding techniques) and recommender systems (using
-user/item Embedding techniques).</p>
-</blockquote>
-<p>Shortly after, the drawback of word2vec was discovered - the same
-word has different meanings in different contexts, but the word vector
-given by this encoding is unique and static. Accordingly, the model
-<strong>ELMo</strong> that introduces contextual Word Embedding was
-born.</p>
-<p>In 2017, the Transformer model was
-released<sup id="fnref:3"><a href="#fn:3" rel="footnote">3</a></sup>.
-Compared to ELMo-like models, the biggest breakthrough of Transformer is
-that it does not use LSTM, but instead uses an <strong>attention
-mechanism</strong>. This mechanism is a function that maps a query and a
-set of key-value pairs to an output. The values output by the attention
-mechanism are weighted sums, where the weight of each value is
-calculated by the function of the query and the corresponding key of the
-value.</p>
-<blockquote>
-<p>Some NLP researchers believe that the attention mechanism used by
-transformer is a better alternative to LSTM. They believe that the
-attention mechanism handles long-range dependencies better than LSTM and
-has a very promising application. transformer uses an encoder-decoder
-structure in its architecture. The encoder and decoder are highly
-similar in structure, but not in function. The encoder consists of N
-identical encoder layers. A decoder consists of N identical decoder
-layers. Both encoder and decoder layers use the attention mechanism as a
-core component.</p>
-</blockquote>
-<p>The great success of Transformer in the field of machine translation
-has attracted the interest of many NLP scientists. As deep learning
-algorithms evolves, their disadvantages begin to emerge - algorithm
-requires massive labelled data. As the subjective natrue of congnitive
-task of NLP, and the large number of tasks and domains it deals with, it
-is time-consuming and labor-intensive for acquiring high quality
-annotated corpora. The large scale pre-trained langauge model precisely
-compensate for this shortage, helping NLP to achieve a series of
-breakthroughs. On this regard, two famous models were born:
-Bidirectional Encoder Representations from Transformers
-(BERT)<sup id="fnref:4"><a href="#fn:4" rel="footnote">4</a></sup> and
-Generative Pre-Traing of language model
-(GPT)<sup id="fnref:5"><a href="#fn:5" rel="footnote">5</a></sup>.</p>
-<p>GPT consists entirely of the decoder layer of the transformer, while
-BERT consists entirely of the encoder layer of the transformer. The goal
-of GPT is to generate human-like text, the goal of BERT, on the other
-hand, is to provide better language representations that help achieve
-better results for a wide range of downstream tasks. The BERT model
-reaches an advanced level on a variety of NLP tasks and have greatly
-improved STOA on many tasks. Now BERT has derived a large family of
-models, among which the famous ones are XL-Net, RoBERTa,
-ALBERT<sup id="fnref:6"><a href="#fn:6" rel="footnote">6</a></sup>,
-ELECTRA, ERNIE, BERT-wwm, DistillBERT, etc.</p>
-<div id="footnotes">
-<hr>
-<div id="footnotelist">
-<ol>
-<li id="fn:1">
-<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Natural_language_processing#History">Natural
-language processing#History -
-Wikipedia</a><a href="#fnref:1" rev="footnote"> ↩︎</a>
+<div class="row">
+<style>
+.column {
+float: left;
+width: 33.33%;
+padding: 5px;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+<div class="column">
+<p><img src="https://s2.loli.net/2023/02/14/B4xU753OVfkSZ9a.jpg" srcset="/img/loading.gif" lazyload alt="Example-diffusion-figure" display="inline" /></p>
+</div>
+<div class="column">
+<p><img src="https://s2.loli.net/2023/02/14/15VkeiltKU3PM7Y.jpg" srcset="/img/loading.gif" lazyload alt="example-3d-art" display="inline" /></p>
+</div>
+<div class="column">
+<p><img src="https://s2.loli.net/2023/02/14/kX57Hc3C9ZdiTIY.jpg" srcset="/img/loading.gif" lazyload alt="example-realistic" display="inline" /></p>
+</div>
+</div>
+<ul>
+<li>In case you haven't try these awesome models, below are some
+resources of ready-to-use models
+<ul>
+<li>MidJourney <a target="_blank" rel="noopener" href="https://discord.com/invite/midjourney">Discord
+Channel</a><br />
 </li>
-<li id="fn:2">
-<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Word2vec">Word2vec -
-Wikipedia</a><a href="#fnref:2" rev="footnote"> ↩︎</a>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/spaces/camenduru/webui">HuggingFace
+model</a></li>
+</ul></li>
+</ul>
+<h2 id="pros">Pros</h2>
+<ul>
+<li>Quick to draw.
+<ul>
+<li>Compared to human artists, AI could generate an image in less than
+10s.<br />
 </li>
-<li id="fn:3">
-<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1706.03762">「1706.03762」 Attention Is
-All You Need (arxiv.org)</a><a href="#fnref:3" rev="footnote"> ↩︎</a>
+</ul></li>
+<li>Adjustability.
+<ul>
+<li>It may be hard to change the pose, the cloth or other details about
+the figure, but for AI, changing a few tags could have this effect. One
+could use <code>impaint</code> to erase some part of the picture and
+re-generate. Modifying a few tags could also change the style of the
+painting significantly.<br />
 </li>
-<li id="fn:4">
-<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1810.04805">「1810.04805」 BERT:
-Pre-training of Deep Bidirectional Transformers for Language
-Understanding (arxiv.org)</a><a href="#fnref:4" rev="footnote"> ↩︎</a>
+</ul></li>
+<li>Image-Image imitate capability.
+<ul>
+<li>Take an image as input, generate a new image based on the given one
+and the prompt. This feature allows people to create personalized
+portrait for themselves.</li>
+</ul></li>
+</ul>
+<h2 id="cons">Cons</h2>
+<ul>
+<li>Prompt engineering needed.
+<ul>
+<li>As the model name (text-to-image) suggests, one need to provide a
+description for the desired image. Though many products has encapsulated
+some prompt engineering work, it is still user's responsibility to
+understand the basic prompt structure and (know and )choose the tags
+they need for certain styles. Here are some guides for you to write
+efficient prompts:
+<ul>
+<li><a
+target="_blank" rel="noopener" href="https://wandb.ai/morgan/stable-diffusion/reports/Stable-Diffusion-Settings-and-Storing-Your-Images--VmlldzoyNTExMDgy">Stable-diffusion
+demonstration blog</a><br />
 </li>
-<li id="fn:5">
-<a target="_blank" rel="noopener" href="https://s3-us-west-2.amazonaws.com/openai-assets/research-covers/language-unsupervised/language_understanding_paper.pdf">Improving
-Language Understanding by Generative
-Pre-Training</a><a href="#fnref:5" rev="footnote"> ↩︎</a>
+<li><a
+target="_blank" rel="noopener" href="https://strikingloo.github.io/stable-diffusion-vs-dalle-2#appendix-a-stable-diffusion-prompt-guide">How
+to write smart prompt?</a><br />
 </li>
-<li id="fn:6">
-<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1909.11942">「1909.11942」 ALBERT: A Lite
-BERT for Self-supervised Learning of Language Representations
-(arxiv.org)</a><a href="#fnref:6" rev="footnote"> ↩︎</a>
+<li><a
+target="_blank" rel="noopener" href="https://docs.google.com/document/d/17VPu3U2qXthOpt2zWczFvf-AH6z37hxUbvEe1rJTsEc/edit#">How
+to write diffusion prompt - Google docs</a><br />
+</li>
+<li><a
+target="_blank" rel="noopener" href="https://huggingface.co/spaces/Gustavosta/MagicPrompt-Stable-Diffusion">Prompt
+Generator</a><br />
+</li>
+</ul></li>
+</ul></li>
+<li>Serious copyright issues
+<ul>
+<li>This topic is much debated, and most AI companies are vague about
+rights of the generated images (correct me if I got this wrong). Laws or
+industry rules are still unclear about to which extent of resemblance
+should we consider an image is plagiarized. Some may debate that it is
+plagiarism for using copyright protected images as the training
+input!<br />
+</li>
+</ul></li>
+<li>Unsure quality
+<ul>
+<li>If you are using raw models, it is common to get poorly drawn hands,
+fused fingers or more than 2 feet figures. The impact of different
+sampling method, CFG scale (how strictly model adhere to prompt) and
+sampling steps is significant. These things all add up to unsure quality
+for unskilled user of diffusion models.<br />
+</li>
+<li>A possible negative prompts I collected on the internet:<br />
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text"># Negative prompts<br>  				  <br>(poorly drawn hands), (poorly drawn face), weird, (((fat))), ((cropped)), ((fused fingers)), ((too many fingers)), (malformed limbs), (((bad anatomy))), ((ugly)), out of frame, blurry, gross propotions, distorted face, distorted body, ((distorted fingers)), missing leg, more than 2 leg, more than 2 feet, more than 2 arms, text, ui, signature, icon, watermark, misplaced limbs, leg too big, leg too small, fused hands, fused arms, distorted backgroud, fused buildings, ((finger too short)), more than 1 right hand, more than 1 left hand, wrong direction of limbs, wrong direction of legs, wrong direction of feet, misplaced facial features, unbalanced facial features, ((body too long)), ((arm too short)), (poorly drawn joint), misplaced joint, wrong joint angle, disappearing legs, disappearing arms, disappearing limbs, ((fused limbs)), thumb too long, fingers too long, missing hands, missing arms, ((misplaced animal tail)),less than 2 ears, ((more than 2 ears)),(watermark)<br></code></pre></td></tr></table></figure></li>
+</ul></li>
+</ul>
+<h2 id="what-to-do-against-visual-generations">What to do against Visual
+Generations?</h2>
+<ul>
+<li>With the rapid development of text to image models, what's the
+unique advantages of humans that could hardly be replaced in the short
+time (as for now)? How to cope with such situation?<br />
+</li>
+<li><ol type="1">
+<li>Embrace the change, use as an assistant / inspiration exploration
+tool<br />
 </li>
 </ol>
-</div>
-</div>
+<ul>
+<li>For expert artists, it is expected that AI generated art could
+hardly replace them in the foreseeable future with their
+consistent-quality creations and zero copyright risks. It is the rookies
+in this field that AI could easily replace, outstanding through both
+speed and quality.<br />
+</li>
+<li>Moreover, the latest model is still based on probability theory,
+which means AI still have a long way to go to actually have a human-like
+sense of aesthetics. Like many novels and movies suggests, human's
+<strong>creativity</strong> by combining different things together is
+still outperforming artificial intelligence. Therefore, we could embrace
+the development of AI models, use them to flourish relevant industries
+(like game or movie making), to assist artists themselves to explore new
+ideas, or sharing quick prototypes with clients to achieve accordance
+about the requirements.<br />
+</li>
+</ul></li>
+<li><ol start="2" type="1">
+<li>Solve the Copyright issue!!!!<br />
+</li>
+</ol>
+<ul>
+<li>It is <strong>never</strong> excessive to discuss this issue and
+build consensus between artists and AI developers. What rights could AI
+generated content have, how should those contents be judged as
+plagiarism and whether models are allowed to train on these images
+should be discussed throughly.</li>
+</ul></li>
+</ul>
+<h1 id="chatgpt---search-engine"><a
+target="_blank" rel="noopener" href="https://chat.openai.com/">ChatGPT</a> - Search Engine</h1>
+<ul>
+<li>For the second half of the year, ChatGPT sweeps the attention of the
+public with its spectacular performance. Some even claims that ChatGPT
+could replace the search engine as a general AI assistant. (Now Bing has
+integrate with GPT-4 perhaps even better)</li>
+</ul>
+<h2 id="pros-1">Pros</h2>
+<ul>
+<li>Fantastic comprehension of instructions and obeying them.
+<ul>
+<li>As many may have tried, ChatGPT could understand instructions
+ranging from writing a poem to write a simple program. With prompt
+engineering (yeah, again), you could even change the ChatGPT into a <a
+target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=f4jlE8qmEMo&amp;ab_channel=AminBoulouma%F0%9F%A4%96">command
+line interface</a> or a <a
+target="_blank" rel="noopener" href="https://discord.com/channels/974519864045756446/1074379722521317407/1074379722521317407">cute
+chatbot</a> that only reply to you using emoticons.<br />
+</li>
+</ul></li>
+<li>Long context support
+<ul>
+<li>As a conversational AI, the ability to have long-range context
+support is essential. ChatGPT is the most successful product that
+implements context support among all large language models I know.<br />
+</li>
+</ul></li>
+<li>Ability to fuse content for increasing productivity(compared to
+search engines to some extent)
+<ul>
+<li>This ability kinds of automate the search engine's job. When we have
+a question, we type it in search engine, read through the first few
+articles and deduce the result ourselves. ChatGPT has the capability of
+simplifying the latter process, by performing passage summarization and
+comprehension task to generate an answer.<br />
+</li>
+<li>It also empowers copywriters who could combine their companies
+product with various marketing templates with a few lines of
+instructions.<br />
+</li>
+<li>With code writing integration, ChatGPT also empowers programmers to
+write code more efficiently with code templates, package suggestion and
+debug hints.</li>
+</ul></li>
+</ul>
+<h2 id="cons-1">Cons</h2>
+<ul>
+<li>Bad support for factual questions on specific domains
+<ul>
+<li>As a natural defect of probabilistic model, questions based on
+actual fact on specific domains may be wrong. For example, if you query
+about a specific domain in scientific research, ChatGPT may concat
+incorrect author with papers, or even made up one.<br />
+</li>
+</ul></li>
+<li>Lack of in-depth User comprehension
+<ul>
+<li>Though it is not OpenAI's responsibility to build this module, one
+could hardly deny that a well-designed chatbot could perform better than
+ChatGPT in understanding the customer and react accordingly, which
+suggest the need of further tuning for customer-oriented industry like
+companion chatbot.<br />
+</li>
+</ul></li>
+<li>Cost of Training / Finetuning
+<ul>
+<li>This may not be a problem for most down-stream companies using APIs
+to access the language model, however, this may result in monopoly in
+the large language model area. The cost of training would then be
+transferred to down-stream users of models.</li>
+</ul></li>
+</ul>
+<h2 id="what-to-do">What to do?</h2>
+<ul>
+<li>Against LLMs' weaknesses
+<ul>
+<li>explainability study of LLM
+<ul>
+<li>Poor explainability has been a problem since large language model
+became the new paradigm. If we could understand how attention mechanism
+understand certain input, it could a huge improvement to mastering the
+black box model.<br />
+</li>
+</ul></li>
+<li>Factual response research
+<ul>
+<li>As ChatGPT has some defect in factual response generation, it may be
+valuable to study how to combine knowledge with the generation model. A
+promising direction is to use knowledge graphs (<a
+href="https://delusion4013.github.io/2023/02/02/Knowledge-Graph-An-Introduction/">my
+introduction to KGs</a>), which explicitly defines knowledge with clear
+structure. Knowledge Graph based Question Answering (KGQA) seems
+prospective in generating controllable and correct answers.</li>
+</ul></li>
+</ul></li>
+<li>What could comapnies do to build competitive products?
+<ul>
+<li>Ability to understand the user
+<ol type="1">
+<li>This includes the recognition of the user's current mood</li>
+<li>Understanding of the person from past interaction data
+collection</li>
+<li>Reasoning about the user profile after big data analysis</li>
+</ol></li>
+<li>Content expertise and richness in verticals (psychological
+counseling, healing as an example)
+<ol type="1">
+<li>Multiple rounds of dialogues for different life scenarios</li>
+<li>Development of common counseling scenarios</li>
+<li>R&amp;D of generative models based on consulting corpus (to be
+launched)</li>
+</ol></li>
+<li>Customization support for specific business
+<ol type="1">
+<li>ChatGPT as a large model, the deployment cost and continued training
+cost are not small. From this perspective, we can sell customized small
+model services, segmentation, and compete with ChatGPT in the niche area
+of expertise.</li>
+<li>Based on the optimized knowledge base, use different knowledge bases
+to support different roles of chatbots and adapt to different
+scenarios.</li>
+</ol></li>
+</ul></li>
+</ul>
 
                 
               </div>
@@ -444,7 +623,7 @@ BERT for Self-supervised Learning of Language Representations
     
       <span class="category-chain">
         
-  <a href="/categories/Notes/" class="category-chain-item">Notes</a>
+  <a href="/categories/Informal-Essays/" class="category-chain-item">Informal Essays</a>
   
   
 
@@ -461,7 +640,11 @@ BERT for Self-supervised Learning of Language Representations
       
         <a href="/tags/Artificial-Intelligence/">#Artificial Intelligence</a>
       
-        <a href="/tags/NLP/">#NLP</a>
+        <a href="/tags/Diffusion/">#Diffusion</a>
+      
+        <a href="/tags/Generative-AI/">#Generative AI</a>
+      
+        <a href="/tags/ChatGPT/">#ChatGPT</a>
       
     </div>
   
@@ -473,8 +656,8 @@ BERT for Self-supervised Learning of Language Representations
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>A brief history of NLP</div>
-      <div>https://delusion4013.github.io/2022/11/07/A-brief-history-of-NLP/</div>
+      <div>Thinking about Generative AI</div>
+      <div>https://delusion4013.github.io/2023/02/14/Thinking-about-Generative-AI/</div>
     </div>
     <div class="license-meta">
       
@@ -486,7 +669,7 @@ BERT for Self-supervised Learning of Language Representations
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>November 7, 2022</div>
+          <div>February 14, 2023</div>
         </div>
       
       
@@ -518,9 +701,9 @@ BERT for Self-supervised Learning of Language Representations
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/09/Literature-Note-Transformer/" title="Literature Note - Transformer">
+                      <a href="/2023/02/28/How-to-set-up-your-diffusion-webui/" title="SD - 0. How to set up your diffusion webui?">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Literature Note - Transformer</span>
+                        <span class="hidden-mobile">SD - 0. How to set up your diffusion webui?</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -528,8 +711,8 @@ BERT for Self-supervised Learning of Language Representations
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/09/15/Literature%20Note%20-%20BERT/" title="Literature Note - BERT">
-                        <span class="hidden-mobile">Literature Note - BERT</span>
+                      <a href="/2023/02/10/An-introduction-to-KMP-algorithm/" title="An introduction to KMP algorithm">
+                        <span class="hidden-mobile">An introduction to KMP algorithm</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -547,8 +730,8 @@ BERT for Self-supervised Learning of Language Representations
     
       <script type="text/javascript">
         var disqus_config = function() {
-          this.page.url = 'https://delusion4013.github.io/2022/11/07/A-brief-history-of-NLP/';
-          this.page.identifier = '/2022/11/07/A-brief-history-of-NLP/';
+          this.page.url = 'https://delusion4013.github.io/2023/02/14/Thinking-about-Generative-AI/';
+          this.page.identifier = '/2023/02/14/Thinking-about-Generative-AI/';
         };
         Fluid.utils.loadComments('#disqus_thread', function() {
           var d = document, s = d.createElement('script');
