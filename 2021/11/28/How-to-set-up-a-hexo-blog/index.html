@@ -25,7 +25,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://i.loli.net/2021/11/28/mQEldKOZv9wsjqc.jpg">
 <meta property="article:published_time" content="2021-11-29T00:45:00.000Z">
-<meta property="article:modified_time" content="2023-03-22T06:50:23.096Z">
+<meta property="article:modified_time" content="2025-06-24T12:41:58.044Z">
 <meta property="article:author" content="Chenkai">
 <meta property="article:tag" content="blog">
 <meta property="article:tag" content="translation">
@@ -328,7 +328,7 @@ different versions of your project.</p>
 <p>To configure the git globally, you could run the command after
 installation. In the command, <code>--global</code> would set the
 following parameters for all git repositories on your computer.
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ git config --global user.name &quot;Your Namee&quot;<br>$ git config --global user.email &quot;email@example.com&quot;<br></code></pre></td></tr></table></figure></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ git config --global user.name &quot;Your Name&quot;<br>$ git config --global user.email &quot;email@example.com&quot;<br></code></pre></td></tr></table></figure></p>
 <h2 id="hexo">0.4 hexo</h2>
 <p>With the package management tool installed, fetch the
 <code>hexo</code> package using command:</p>
@@ -381,10 +381,10 @@ wrote.</p>
 <code>YourFullUserName.github.io</code> and it has to be set to
 public.</p></li>
 <li><p>Install a plugin for deployment.</p>
-<p><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">$ npm install <span class="hljs-comment">--save hexo-deployer-git</span><br></code></pre></td></tr></table></figure></p></li>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ npm install --save hexo-deployer-git<br></code></pre></td></tr></table></figure></p></li>
 <li><p>Find the <code>_config.yml</code> file in your blog folder, at
 the end of this file, modify the following content:</p>
-<p><figure class="highlight nestedtext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs nestedtext"><span class="hljs-comment"># Deployment</span><br><span class="hljs-comment">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="hljs-attribute">deploy</span><span class="hljs-punctuation">:</span><br>  <span class="hljs-attribute">type</span><span class="hljs-punctuation">:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attribute">repo</span><span class="hljs-punctuation">:</span> <span class="hljs-string">Your Github repo&#x27;s link</span><br>  <span class="hljs-attribute">branch</span><span class="hljs-punctuation">:</span> <span class="hljs-string">master</span><br></code></pre></td></tr></table></figure></p>
+<p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-comment"># Deployment</span><br><span class="hljs-comment">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">Your</span> <span class="hljs-string">Github</span> <span class="hljs-string">repo&#x27;s</span> <span class="hljs-string">link</span><br>  <span class="hljs-attr">branch:</span> <span class="hljs-string">master</span><br></code></pre></td></tr></table></figure></p>
 <p>Your repo link should end with <code>.github.io.git</code> which you
 could obtain here.</p>
 <figure>
@@ -394,13 +394,11 @@ alt="Where to find your link" />
 </figure></li>
 <li><p>After saving your config file, run command below to deploy your
 blog.</p>
-<p><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crystal"><span class="hljs-variable">$ </span>hexo d<br></code></pre></td></tr></table></figure></p>
+<p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs linux">$ hexo d<br></code></pre></td></tr></table></figure></p>
 <p>You may need to type your user name and password.</p></li>
 <li><p>See you blog online!</p>
 <p>Visit <code>yourUserName.github.io</code></p></li>
 </ol>
-<h2 id="gitee">Gitee</h2>
-<p>#TODO</p>
 <h1 id="references">References</h1>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty">Codesheep's
