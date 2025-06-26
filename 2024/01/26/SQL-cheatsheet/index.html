@@ -1,0 +1,1093 @@
+
+
+<!DOCTYPE html>
+<html lang="en,zh-CN,default" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/my-favicon-32x32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Chenkai">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="SQL (Structured Query Language) is the backbone of relational databases. This guide breaks SQL into its five command types—DQL, DML, DDL, DCL, TCL.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SQL cheatsheet">
+<meta property="og:url" content="https://delusion4013.github.io/2024/01/26/SQL-cheatsheet/index.html">
+<meta property="og:site_name" content="Chenkai&#39;s Blog">
+<meta property="og:description" content="SQL (Structured Query Language) is the backbone of relational databases. This guide breaks SQL into its five command types—DQL, DML, DDL, DCL, TCL.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2025/06/27/IYwNy7DTzVO68Fa.png">
+<meta property="article:published_time" content="2024-01-26T19:13:51.000Z">
+<meta property="article:modified_time" content="2025-06-26T19:28:35.702Z">
+<meta property="article:author" content="Chenkai">
+<meta property="article:tag" content="Data Science">
+<meta property="article:tag" content="SQL">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://s2.loli.net/2025/06/27/IYwNy7DTzVO68Fa.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>SQL cheatsheet - Chenkai&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"delusion4013.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Connecting Dots</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg/post-default.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="SQL cheatsheet"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-01-26 14:13" pubdate>
+          January 26, 2024 pm
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8k words
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          8 mins
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> views
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">SQL cheatsheet</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>SQL (Structured Query Language) is the backbone of relational
+databases. This guide breaks SQL into its five command types—DQL, DML,
+DDL, DCL, TCL.</p>
+<span id="more"></span>
+<h2 id="what-is-sql">What is SQL？</h2>
+<p><strong>Structured Query Language</strong> (SQL) is a standard
+computer language created for <strong>accessing and manipulating
+relational databases</strong> like MySQL, Oracle, SQL Server,
+PostgreSQL, etc.</p>
+<p>SQL could perform the below commands on <strong>relational
+databases</strong>:</p>
+<ul>
+<li>Retrieve and filter data</li>
+<li>Insert, update, and delete records</li>
+<li>Create and modify database structures</li>
+<li>Manage permissions and transactions</li>
+</ul>
+<h3 id="commands">Commands</h3>
+<table>
+
+<thead>
+<tr>
+<th>Category</th>
+<th>Name</th>
+<th>Purpose</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DDL</td>
+<td>Data Definition Language</td>
+<td>Create or modify database structures</td>
+<td><code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>,
+<code>TRUNCATE</code></td>
+</tr>
+<tr>
+<td>DQL</td>
+<td>Data Query Language</td>
+<td>Query data</td>
+<td><code>SELECT</code></td>
+</tr>
+<tr>
+<td>DML</td>
+<td>Data Manipulation Language</td>
+<td>Manage data</td>
+<td><code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></td>
+</tr>
+<tr>
+<td>DCL</td>
+<td>Data Control Language</td>
+<td>Manage access and permissions</td>
+<td><code>GRANT</code>, <code>REVOKE</code></td>
+</tr>
+<tr>
+<td>TCL</td>
+<td>Transaction Control</td>
+<td>Manage transactions</td>
+<td><code>COMMIT</code>, <code>ROLLBACK</code>,
+<code>SAVEPOINT</code></td>
+</tr>
+</tbody>
+</table>
+<p>Note: DCL and TCL is not covered in this post.</p>
+<h3 id="syntax">Syntax</h3>
+<ul>
+<li>SQL is <strong>case-insensitive</strong>: <code>SELECT</code> and
+<code>select</code> are identical.</li>
+<li>Some database systems require a semicolon (<code>;</code>) at the
+end of each SQL statement.
+<ul>
+<li>A semicolon is the standard way to separate SQL statements in
+database systems, enabling multiple statements to be executed in a
+single request to the server.</li>
+</ul></li>
+<li>SQL uses <strong>single quotes (<code>' '</code>) to enclose text
+values</strong>.</li>
+<li>Comments:
+<ul>
+<li>Single-line: <code>--</code></li>
+<li>Multi-line: <code>/* */</code></li>
+</ul></li>
+</ul>
+<h2 id="data-query-language---dql">Data Query Language - DQL</h2>
+<h3 id="select">SELECT</h3>
+<p>To retrieve data you use the command <code>SELECT</code>. At its
+core, you <strong>select</strong> the columns you want to
+see <strong>from</strong> the table they're contained in.</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">cities<br><br>| city_id | City     | Country       |<br>| ------- | -------- | ------------- |<br>| 1       | Tokyo    | Japan         |<br>| 2       | Atlanta  | United States |<br>| 3       | Auckland | New Zealand   |<br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> city<br><span class="hljs-keyword">FROM</span> cities;<br><br><span class="hljs-comment">-- Output:</span><br><span class="hljs-comment">-- Tokyo</span><br><span class="hljs-comment">-- Atlanta</span><br><span class="hljs-comment">-- Auckland</span><br></code></pre></td></tr></table></figure>
+<h4 id="use-sub-clause-to-narrow-down-the-rows">Use sub-clause to narrow
+down the rows</h4>
+<h5 id="where">WHERE</h5>
+<p><code>WHERE</code> are used for filtering result table.</p>
+<p>Basic Syntax:
+<code>SELECT column1, column2,... FROM table_name WHERE condition;</code></p>
+<p>To write a condition, we can use the below operator to form an
+expression.</p>
+<table>
+
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+<th>e.g.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>equal</td>
+<td>column=value</td>
+</tr>
+<tr>
+<td>&lt;&gt;</td>
+<td>not equal. In some version could be !=</td>
+<td>column&lt;&gt;value</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>larger than</td>
+<td>column &gt; value</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>smaller than</td>
+<td>column &lt; value</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>larger or equal to</td>
+<td>column &gt;= value</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>smaller or equal to</td>
+<td>column &lt;= value</td>
+</tr>
+<tr>
+<td>BETWEEN... AND</td>
+<td>filter values within the range</td>
+<td>column between a and b</td>
+</tr>
+<tr>
+<td>LIKE</td>
+<td>search for a pattern (most common for strings)</td>
+<td>column <strong>LIKE</strong> '%k' (ending with k)</td>
+</tr>
+<tr>
+<td>IN</td>
+<td>multiple possible values for a column</td>
+<td>column <strong>IN</strong> (value1, value2, ...)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="order-by">ORDER BY</h5>
+<p><code>ORDER BY</code> are used to sort the result table. The table is
+sorted in <strong>ascending order by default</strong>. When sorting by
+multiple columns, the <strong>order of columns affects the
+result</strong>. The sorting is performed on <code>column1</code> first,
+and then <code>column2</code> is sorted <strong>based on the order
+preserved by</strong> <code>column1</code>.</p>
+<p>Basic Syntax: <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> column1, column2, ...<br><span class="hljs-keyword">FROM</span> table_name<br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> column1, column2, ... <span class="hljs-keyword">ASC</span><span class="hljs-operator">|</span><span class="hljs-keyword">DESC</span>;<br></code></pre></td></tr></table></figure></p>
+<h5 id="group-by">GROUP BY</h5>
+<p><code>GROUP BY</code> are used together with aggregation function: -
+<code>AVG()</code> - return the average - <code>COUNT()</code> - return
+the number of occurrence - <code>FIRST()</code> - return the first
+record - <code>LAST()</code> - return the last record -
+<code>MAX()</code> - return the maximum value - <code>MIN()</code> -
+return the minimum value - <code>SUM()</code> - return the sum</p>
+<p>Basic Syntax: <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> column_name, aggregate_function(column_name)  <br><span class="hljs-keyword">FROM</span> table_name  <br><span class="hljs-keyword">WHERE</span> column_name operator <span class="hljs-keyword">value</span>  <br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> column_name;<br></code></pre></td></tr></table></figure></p>
+<h5 id="having">HAVING</h5>
+<p><code>HAVING</code> 's usage is just like <code>WHERE</code>, the
+main difference is <code>WHERE</code> filters rows in the table, while
+<code>HAVING</code> filters groups.</p>
+<p>Therefore, we can have a below query, we want to list suppliers who
+supply two or more products, each priced at 10 or more.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> supplier_id<br><span class="hljs-keyword">FROM</span> products<br><span class="hljs-keyword">WHERE</span> price <span class="hljs-operator">&gt;=</span> <span class="hljs-number">10</span><br><span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> supplier_id<br><span class="hljs-keyword">HAVING</span> <span class="hljs-built_in">COUNT</span>(<span class="hljs-operator">*</span>) <span class="hljs-operator">&gt;=</span> <span class="hljs-number">2</span>;<br></code></pre></td></tr></table></figure>
+<h3 id="join">JOIN</h3>
+<p>To retrieve data from <strong>multiple tables</strong>, we use
+command <code>JOIN</code> to combine records from different tables and
+use <code>ON</code> to indicate columns for the seam.</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs text">rainfall<br><br>| rainfall_id | city_id | Year | Amount |<br>| ----------- | ------- | ---- | ------ |<br>| 1           | 1       | 2018 | 1445   |<br>| 2           | 1       | 2019 | 1874   |<br>| 3           | 1       | 2020 | 1690   |<br>| 4           | 2       | 2018 | 1779   |<br>| 5           | 2       | 2019 | 1111   |<br>| 6           | 2       | 2020 | 1683   |<br>| 7           | 3       | 2018 | 1386   |<br>| 8           | 3       | 2019 | 942    |<br>| 9           | 3       | 2020 | 1176   |<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> cities.city<br>    rainfall.amount<br><span class="hljs-keyword">FROM</span> cities<br>    <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> rainfall <span class="hljs-keyword">ON</span> cities.city_id <span class="hljs-operator">=</span> rainfall.city_id<br><span class="hljs-keyword">WHERE</span> rainfall.year <span class="hljs-operator">=</span> <span class="hljs-number">2019</span><br><br><span class="hljs-comment">-- Output</span><br><br><span class="hljs-comment">-- city     | amount</span><br><span class="hljs-comment">-- -------- | ------</span><br><span class="hljs-comment">-- Tokyo    | 1874</span><br><span class="hljs-comment">-- Atlanta  | 1111</span><br><span class="hljs-comment">-- Auckland |  942</span><br></code></pre></td></tr></table></figure>
+<figure>
+<img src="https://s2.loli.net/2025/06/27/IYwNy7DTzVO68Fa.png" srcset="/img/loading.gif" lazyload
+alt="SQL-joins-example" />
+<figcaption aria-hidden="true">SQL-joins-example</figcaption>
+</figure>
+<table>
+
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>INNER JOIN</strong></td>
+<td>Returns records that match in both tables (intersection).</td>
+</tr>
+<tr>
+<td><strong>LEFT JOIN</strong></td>
+<td>Returns all records from the left table, with matched records from
+the right table (preserves left table).</td>
+</tr>
+<tr>
+<td><strong>RIGHT JOIN</strong></td>
+<td>Returns all records from the right table, with matched records from
+the left table (preserves right table).</td>
+</tr>
+<tr>
+<td><strong>FULL OUTER JOIN</strong></td>
+<td>Returns all records from both tables, including unmatched ones
+(union).</td>
+</tr>
+<tr>
+<td><strong>CROSS JOIN</strong></td>
+<td>Returns the Cartesian product: each row from the left table paired
+with each from the right.</td>
+</tr>
+<tr>
+<td><strong>SELF JOIN</strong></td>
+<td>Joins a table with itself.</td>
+</tr>
+<tr>
+<td><strong>NATURAL JOIN</strong></td>
+<td>Automatically joins tables using columns with the same name in
+both.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-definition-language---ddl">Data Definition Language -
+DDL</h2>
+<h3 id="create">CREATE</h3>
+<p>The SQL <code>CREATE</code> statement is used to <strong>define new
+database objects</strong>. The most common forms are:</p>
+<ol type="1">
+<li><strong>Create a Table</strong> <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> table_name (<br>    column1 datatype [constraints],<br>    column2 datatype [constraints],<br>    ...<br>);<br></code></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>Defines a new table with specified columns, types, and optional
+constraints (e.g. <code>PRIMARY KEY</code>, <code>NOT NULL</code>).</li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Create a Database</strong> <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> DATABASE database_name;<br></code></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>Initializes a new database.</li>
+</ul>
+<ol start="3" type="1">
+<li><strong>Create an Index</strong> <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">CREATE</span> INDEX index_name<br><span class="hljs-keyword">ON</span> table_name (column1, column2, ...);<br></code></pre></td></tr></table></figure></li>
+</ol>
+<ul>
+<li>Improves query performance by indexing specific columns.</li>
+</ul>
+<h4 id="constraints">Constraints</h4>
+<p>Constraints ensure data integrity and include rules like uniqueness,
+foreign keys, and more.</p>
+<ol type="1">
+<li><p><strong>Primary Key</strong> <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name<br><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> pk_name <span class="hljs-keyword">PRIMARY</span> KEY (column1, column2);<br></code></pre></td></tr></table></figure></p></li>
+<li><p><strong>Foreign Key</strong> <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> child_table<br><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> fk_name <span class="hljs-keyword">FOREIGN</span> KEY (<span class="hljs-keyword">column</span>)<br><span class="hljs-keyword">REFERENCES</span> parent_table(parent_column)<br><span class="hljs-keyword">ON</span> <span class="hljs-keyword">DELETE</span> CASCADE;<br></code></pre></td></tr></table></figure></p></li>
+<li><p><strong>Unique</strong> <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name<br><span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> unique_name <span class="hljs-keyword">UNIQUE</span> (<span class="hljs-keyword">column</span>);<br></code></pre></td></tr></table></figure></p></li>
+</ol>
+<h3 id="alter">ALTER</h3>
+<p>The <code>SQL ALTER</code> statement is used to modify an existing
+database object, typically a <strong>table</strong>. It allows changes
+to the table’s structure without deleting or recreating it.</p>
+<p>Common Uses of <code>ALTER TABLE</code></p>
+<ul>
+<li><strong>Add a column</strong>: <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name <span class="hljs-keyword">ADD</span> column_name datatype;<br></code></pre></td></tr></table></figure></li>
+<li><strong>Drop a column</strong>: <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name <span class="hljs-keyword">DROP</span> <span class="hljs-keyword">COLUMN</span> column_name;<br></code></pre></td></tr></table></figure></li>
+<li><strong>Rename a column</strong> (syntax varies by DBMS):
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name RENAME <span class="hljs-keyword">COLUMN</span> old_name <span class="hljs-keyword">TO</span> new_name;<br></code></pre></td></tr></table></figure></li>
+<li><strong>Change column datatype</strong>: <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name MODIFY column_name new_datatype;  <span class="hljs-comment">-- MySQL</span><br><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name <span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">COLUMN</span> column_name TYPE new_datatype;  <span class="hljs-comment">-- PostgreSQL</span><br></code></pre></td></tr></table></figure></li>
+<li><strong>Rename table</strong>: <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> old_name RENAME <span class="hljs-keyword">TO</span> new_name;<br></code></pre></td></tr></table></figure></li>
+<li><strong>Add/remove constraints</strong>: <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name <span class="hljs-keyword">ADD</span> <span class="hljs-keyword">CONSTRAINT</span> ...;<br><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> table_name <span class="hljs-keyword">DROP</span> <span class="hljs-keyword">CONSTRAINT</span> constraint_name;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="drop">DROP</h3>
+<p>The <code>DROP</code> statement in SQL is used to <strong>permanently
+delete</strong> a database object such as a <strong>table</strong>,
+<strong>database</strong>, <strong>view</strong>, or
+<strong>index</strong>. Once dropped, the object and all its data are
+lost and <strong>cannot be recovered</strong> (unless backed up).</p>
+<p>Common Syntax: <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> table_name;<br><span class="hljs-keyword">DROP</span> DATABASE database_name;<br><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">VIEW</span> view_name;<br><span class="hljs-keyword">DROP</span> INDEX index_name <span class="hljs-keyword">ON</span> table_name;<br></code></pre></td></tr></table></figure></p>
+<ul>
+<li>Use with caution—<code>DROP</code> removes both schema and
+data.</li>
+<li>Some RDBMS (like PostgreSQL) support <code>IF EXISTS</code> to avoid
+errors if the object doesn't exist: <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> IF <span class="hljs-keyword">EXISTS</span> table_name;<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="truncate">TRUNCATE</h3>
+<p><strong><code>TRUNCATE</code></strong> in SQL is a <strong>data
+definition language (DDL)</strong> command used to quickly remove
+<strong>all rows</strong> from a table <strong>without logging
+individual row deletions</strong>.</p>
+<p>Key points: - <strong>Faster</strong> than <code>DELETE</code>
+(especially for large tables). - <strong>Cannot be rolled back</strong>
+in most RDBMS once committed. - <strong>Resets auto-increment</strong>
+counters in some databases (e.g., MySQL). - <strong>Cannot use WHERE
+clause</strong>—it always affects the <strong>entire table</strong>.</p>
+<p>Syntax:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">TRUNCATE</span> <span class="hljs-keyword">TABLE</span> table_name;<br></code></pre></td></tr></table></figure>
+<h2 id="data-manipulation-language---dml">Data Manipulation Language -
+DML</h2>
+<h3 id="insert">INSERT</h3>
+<p><strong>SQL <code>INSERT</code></strong> is used to add new rows to a
+table.</p>
+<p>Basic Syntax: <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> table_name (column1, column2, ...)<br><span class="hljs-keyword">VALUES</span> (value1, value2, ...);<br></code></pre></td></tr></table></figure></p>
+<p>Variants: 1. <strong>Insert all columns (in order):</strong>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> employees<br><span class="hljs-keyword">VALUES</span> (<span class="hljs-number">1</span>, <span class="hljs-string">&#x27;Alice&#x27;</span>, <span class="hljs-string">&#x27;Engineering&#x27;</span>);<br></code></pre></td></tr></table></figure> 2. <strong>Insert specific columns:</strong>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> employees (name, department)<br><span class="hljs-keyword">VALUES</span> (<span class="hljs-string">&#x27;Bob&#x27;</span>, <span class="hljs-string">&#x27;HR&#x27;</span>);<br></code></pre></td></tr></table></figure> 3. <strong>Insert multiple rows:</strong> <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> employees (name, department)<br><span class="hljs-keyword">VALUES</span> (<span class="hljs-string">&#x27;Carol&#x27;</span>, <span class="hljs-string">&#x27;Finance&#x27;</span>), (<span class="hljs-string">&#x27;Dave&#x27;</span>, <span class="hljs-string">&#x27;IT&#x27;</span>);<br></code></pre></td></tr></table></figure>
+4. <strong>Insert using a SELECT query (from another table):</strong>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> archive_employees (id, name)<br><span class="hljs-keyword">SELECT</span> id, name <span class="hljs-keyword">FROM</span> employees <span class="hljs-keyword">WHERE</span> department <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;HR&#x27;</span>;<br></code></pre></td></tr></table></figure></p>
+<h3 id="update">UPDATE</h3>
+<p>The <code>SQL UPDATE</code> statement <strong>modifies existing
+records</strong> in a table.</p>
+<p>Basic Syntax: <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">UPDATE</span> table_name<br><span class="hljs-keyword">SET</span> column1 <span class="hljs-operator">=</span> value1, column2 <span class="hljs-operator">=</span> value2, ...<br><span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">condition</span>;<br></code></pre></td></tr></table></figure></p>
+<p><strong>Key Points:</strong> - Without a <code>WHERE</code> clause,
+<strong>all rows</strong> will be updated. - You can update one or
+multiple columns. - Can use expressions or subqueries for the new
+values.</p>
+<p><strong>Example:</strong> <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">UPDATE</span> employees<br><span class="hljs-keyword">SET</span> salary <span class="hljs-operator">=</span> salary <span class="hljs-operator">*</span> <span class="hljs-number">1.1</span><br><span class="hljs-keyword">WHERE</span> department <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Sales&#x27;</span>;<br></code></pre></td></tr></table></figure> This increases salaries by
+10% for all Sales employees.</p>
+<h3 id="delete">DELETE</h3>
+<p><code>DELETE</code> in SQL is used to <strong>remove rows</strong>
+from a table.</p>
+<p>Basic Syntax: <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> table_name <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">condition</span>;<br></code></pre></td></tr></table></figure></p>
+<p><strong>Key Points</strong>: - <strong>Removes specific rows</strong>
+matching the <code>WHERE</code> clause. - If <code>WHERE</code> is
+omitted, <strong>all rows</strong> in the table are deleted. - To avoid
+deleting everything by mistake, <strong>always use a <code>WHERE</code>
+clause</strong> unless intentional.</p>
+<p>Example: <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> Employees <span class="hljs-keyword">WHERE</span> Department <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;Sales&#x27;</span>;<br></code></pre></td></tr></table></figure> This deletes all employees in the Sales
+department.</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Notes/" class="category-chain-item">Notes</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Data-Science/">#Data Science</a>
+      
+        <a href="/tags/SQL/">#SQL</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>SQL cheatsheet</div>
+      <div>https://delusion4013.github.io/2024/01/26/SQL-cheatsheet/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>Author</div>
+          <div>Chenkai</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>Posted on</div>
+          <div>January 26, 2024</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>Licensed under</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/07/05/Complete-walk-through-of-confidence-intervals/" title="Complete walk through of confidence intervals">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Complete walk through of confidence intervals</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/21/Recommender-overview/" title="Recommender Series 1 - Overview">
+                        <span class="hidden-mobile">Recommender Series 1 - Overview</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    
+      <script type="text/javascript">
+        var disqus_config = function() {
+          this.page.url = 'https://delusion4013.github.io/2024/01/26/SQL-cheatsheet/';
+          this.page.identifier = '/2024/01/26/SQL-cheatsheet/';
+        };
+        Fluid.utils.loadComments('#disqus_thread', function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//' + 'my-hexo-blog-7' + '.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', new Date());
+          (d.head || d.body).appendChild(s);
+        });
+      </script>
+    
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        Views: 
+        <span id="busuanzi_value_site_pv"></span>
+        
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        Visitors: 
+        <span id="busuanzi_value_site_uv"></span>
+        
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
+  </noscript>
+</body>
+</html>
