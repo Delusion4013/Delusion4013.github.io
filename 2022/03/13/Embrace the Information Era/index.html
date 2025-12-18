@@ -1,296 +1,418 @@
-
-
 <!DOCTYPE html>
-<html lang="en,zh-CN,default" data-default-color-scheme=auto>
-
-
-
+<html lang="en,zh-CN,default" data-theme="auto">
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/my-favicon-32x32.png">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
   
-  <meta name="theme-color" content="#2f4154">
+
+  <title>Embrace the Information Era | Chenkai&#39;s Blog</title>
+
+  <!-- Meta Description -->
+  
+    <meta name="description" content="Though it may sound strange, I wanted to record some of my
+realizations regarding how to deal with the massive incoming information
+and how to gain &amp;a">
+  
+
+  <!-- Keywords -->
+  
+    <meta name="keywords" content="Methodology, PIM">
+  
+
+  <!-- Author -->
   <meta name="author" content="Chenkai">
-  <meta name="keywords" content="">
+
+  <!-- Canonical URL -->
   
-    <meta name="description" content="Though it may sound strange, I wanted to record some of my realizations regarding how to deal with the massive incoming information and how to gain &amp; use information effectively.">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Embrace the Information Era">
-<meta property="og:url" content="https://delusion4013.github.io/2022/03/13/Embrace%20the%20Information%20Era/index.html">
-<meta property="og:site_name" content="Chenkai&#39;s Blog">
-<meta property="og:description" content="Though it may sound strange, I wanted to record some of my realizations regarding how to deal with the massive incoming information and how to gain &amp; use information effectively.">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s2.loli.net/2022/03/16/SxZatqpoQGDlzmE.png">
-<meta property="og:image" content="https://s2.loli.net/2022/03/16/wG9clIuJDi1SdLj.png">
-<meta property="og:image" content="https://s2.loli.net/2022/03/16/dkmxwOJf98LBrA6.png">
-<meta property="og:image" content="https://s2.loli.net/2022/03/16/4zAqsKpiBSGJEme.png">
-<meta property="og:image" content="https://s2.loli.net/2022/03/16/YeXLzC4xRskhfPD.png">
-<meta property="article:published_time" content="2022-03-14T02:12:35.000Z">
-<meta property="article:modified_time" content="2023-02-22T02:24:45.252Z">
-<meta property="article:author" content="Chenkai">
-<meta property="article:tag" content="Methodology">
-<meta property="article:tag" content="PIM">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://s2.loli.net/2022/03/16/SxZatqpoQGDlzmE.png">
-  
-  
-    <meta name="referrer" content="no-referrer-when-downgrade">
-  
-  
-  <title>Embrace the Information Era - Chenkai&#39;s Blog</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+    <link rel="canonical" href="https://delusion4013.github.io/2022/03/13/Embrace%20the%20Information%20Era/">
   
 
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"delusion4013.github.io","root":"/","version":"1.9.3","typing":{"enable":true,"typeSpeed":70,"cursorChar":"|","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
+  <!-- Favicon -->
+  
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   
 
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
 
+  <!-- Open Graph -->
   
-<meta name="generator" content="Hexo 5.4.2"></head>
-
-
-<body>
-  
-
-  <header>
     
 
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>Connecting Dots</strong>
-    </a>
+<meta property="og:type" content="article">
+<meta property="og:title" content="Embrace the Information Era">
+<meta property="og:url" content="https://delusion4013.github.io/2022/03/13/Embrace%20the%20Information%20Era/">
 
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
+  <meta property="og:description" content="Though it may sound strange, I wanted to record some of my
+realizations regarding how to deal with the massive incoming information
+and how to gain &amp;amp; use information effectively.">
 
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
+
+<meta property="og:site_name" content="Chenkai&#39;s Blog">
+<meta property="og:locale" content="en,zh-CN,default">
+
+
+  <meta property="article:published_time" content="2022-03-13T14:12:35.000Z">
+  
+    <meta property="article:modified_time" content="2023-02-22T02:24:45.250Z">
+  
+  <meta property="article:author" content="Chenkai">
+
+  
+    
+      <meta property="article:tag" content="Methodology">
+    
+      <meta property="article:tag" content="PIM">
+    
+  
+
+  
+    
+      <meta property="article:section" content="Informal Essays">
+    
+  
+
+
+  
+
+  <!-- Twitter Card -->
+  
+    
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Embrace the Information Era">
+
+  <meta name="twitter:description" content="Though it may sound strange, I wanted to record some of my
+realizations regarding how to deal with the massive incoming information
+and how to gain &amp;amp; use information effectively.">
+
+
+
+
+  
+
+  <!-- Schema.org -->
+  
+    
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Embrace the Information Era",
+  "url": "https://delusion4013.github.io/2022/03/13/Embrace%20the%20Information%20Era/",
+  
+  "description": "Though it may sound strange, I wanted to record some of my
+realizations regarding how to deal with the massive incoming information
+and how to gain &amp;amp; use information effectively.",
+  
+  
+  "datePublished": "2022-03-13T14:12:35.000Z",
+  "dateModified": "2023-02-22T02:24:45.250Z",
+  "author": {
+    "@type": "Person",
+    "name": "Chenkai"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Chenkai&#39;s Blog",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/img/my-favicon-32x32.png"
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://delusion4013.github.io/2022/03/13/Embrace%20the%20Information%20Era/"
+  }
+  
+}
+</script>
+
+  
+
+  <!-- RSS Feed -->
+  
+    <link rel="alternate" type="application/rss+xml" title="Chenkai&#39;s Blog" href="/atom.xml">
+  
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/main.b54d904b.css">
+
+  <!-- Syntax Highlighting -->
+  <link rel="stylesheet" href="/css/highlight.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/custom.css">
+
+  <!-- Prevent FOUC - Inline theme toggle script -->
+  <script>
+    (function() {
+      const storageKey = 'papermod-theme';
+      const defaultTheme = 'auto';
+
+      function getSystemTheme() {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+
+      function getSavedTheme() {
+        try {
+          return localStorage.getItem(storageKey);
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function setTheme(theme) {
+        if (theme === 'auto') {
+          theme = getSystemTheme();
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+
+      // Apply theme immediately
+      const savedTheme = getSavedTheme();
+      const initialTheme = savedTheme || defaultTheme;
+      setTheme(initialTheme);
+    })();
+  </script>
+
+  <!-- Preload fonts (optional - add your font files here) -->
+  <!-- <link rel="preload" href="/fonts/your-font.woff2" as="font" type="font/woff2" crossorigin> -->
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a href="/" accesskey="h" title="Chenkai&#39;s Blog (Alt + H)">
+        
+          <img src="/img/my-favicon-32x32.png" alt="Chenkai&#39;s Blog" class="logo-image">
+        
+        <span class="logo-text">Chenkai&#39;s Blog</span>
+      </a>
+    </div>
+
+    
+      <ul class="menu" id="menu">
         
           
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/">
-                <i class="iconfont icon-home-fill"></i>
-                Home
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/">
-                <i class="iconfont icon-archive-fill"></i>
-                Archives
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/">
-                <i class="iconfont icon-category-fill"></i>
-                Categories
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/">
-                <i class="iconfont icon-tags-fill"></i>
-                Tags
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/">
-                <i class="iconfont icon-user-fill"></i>
-                About
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+          <li>
+            <a href="/"  title="Home">
+              <span>Home</span>
             </a>
           </li>
+        
           
+          <li>
+            <a href="/archives"  title="Archives">
+              <span>Archives</span>
+            </a>
+          </li>
         
+          
+          <li>
+            <a href="/tags"  title="Tags">
+              <span>Tags</span>
+            </a>
+          </li>
         
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          
+          <li>
+            <a href="/categories"  title="Categories">
+              <span>Categories</span>
+            </a>
+          </li>
+        
+          
+          <li>
+            <a href="/about"  title="About">
+              <span>About</span>
+            </a>
           </li>
         
       </ul>
+    
+
+    <div class="nav-actions">
+      
+        <button class="search-button" id="search-button" title="Search (Alt + /)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+      
+
+      
+        <button class="theme-toggle" id="themeToggle" title="Toggle theme (Alt + T)">
+          <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+      
+
+      <button class="menu-toggle" id="menuToggle" title="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
     </div>
-  </div>
+  </nav>
+</header>
+
+
+  <main class="main">
+    
+
+
+  <article class="post-single">
+    
+      <nav class="breadcrumbs" aria-label="breadcrumb">
+  <ol>
+    <li>
+      <a href="/">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+          <polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        Home
+      </a>
+    </li>
+
+    
+      
+        <li>
+          <span class="separator">/</span>
+          <a href="/categories/Informal-Essays/">Informal Essays</a>
+        </li>
+      
+    
+
+    <li>
+      <span class="separator">/</span>
+      <span class="current">Embrace the Information Era</span>
+    </li>
+  </ol>
 </nav>
+
+    
+
+    
+
+    <header class="post-header">
+      <h1 class="post-title">Embrace the Information Era</h1>
+      <div class="post-meta">
+  
+    <span class="post-meta-item">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+      </svg>
+      <time datetime="2022-03-13T14:12:35.000Z">
+        2022-03-13
+      </time>
+    </span>
+  
 
   
 
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/bg/post-default.jpg') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="Embrace the Information Era"></span>
-          
-        </div>
+  
+    
+    <span class="post-meta-item">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <polyline points="12 6 12 12 16 14"></polyline>
+      </svg>
+      <span>31 min read</span>
+    </span>
+  
 
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-03-13 21:12" pubdate>
-          March 13, 2022 pm
-        </time>
-      </span>
-    
-  </div>
+  
 
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          7.2k words
-        
-      </span>
-    
+  
+    <span class="post-meta-item">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>Chenkai</span>
+    </span>
+  
 
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          8 mins
-        
-      </span>
-    
-
-    
-    
+  
+    <span class="post-meta-item post-categories">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+      </svg>
       
-        <span id="busuanzi_container_page_pv" style="display: none">
-          <i class="iconfont icon-eye" aria-hidden="true"></i>
-          <span id="busuanzi_value_page_pv"></span> views
-        </span>
-        
+        <a href="/categories/Informal-Essays/" class="category-link">Informal Essays</a>
       
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
+    </span>
+  
 </div>
 
-</div>
+    </header>
 
-  </header>
-
-  <main>
     
       
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
 
+  <aside class="toc-container"
+         role="navigation"
+         aria-label="Table of Contents">
+    <div class="toc-header">
+      <button class="toc-toggle"
+              aria-label="Toggle table of contents"
+              aria-expanded="false"
+              aria-controls="toc-content">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="8" y1="6" x2="21" y2="6"></line>
+          <line x1="8" y1="12" x2="21" y2="12"></line>
+          <line x1="8" y1="18" x2="21" y2="18"></line>
+          <line x1="3" y1="6" x2="3.01" y2="6"></line>
+          <line x1="3" y1="12" x2="3.01" y2="12"></line>
+          <line x1="3" y1="18" x2="3.01" y2="18"></line>
+        </svg>
+        <span>Table of Contents</span>
+      </button>
     </div>
+    <nav class="toc-content" id="toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#understanding-of-information-era"><span class="toc-text">Understanding of Information
+era</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#what-is-information"><span class="toc-text">What is information?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#characteristic-of-information"><span class="toc-text">Characteristic of
+information</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#challenge-in-this-era"><span class="toc-text">Challenge in this era</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#methodology-in-this-era"><span class="toc-text">Methodology in this era</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#capture-info-search-engine-techniques"><span class="toc-text">Capture info: Search
+Engine Techniques</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#organizing-info-categorization-and-using-tools"><span class="toc-text">Organizing info:
+Categorization and Using tools</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#categorization"><span class="toc-text">Categorization</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#literature-management-tools"><span class="toc-text">Literature management tools</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#extracting-info-knowledge-management"><span class="toc-text">Extracting info: Knowledge
+management</span></a></li></ol></li></ol>
+    </nav>
+  </aside>
 
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Embrace the Information Era</h1>
-            
-            
-              <div class="markdown-body">
-                
-                <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Though it may sound strange, I wanted to record some of my
+
+    
+
+    <div class="post-content">
+      <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><p>Though it may sound strange, I wanted to record some of my
 realizations regarding how to deal with the massive incoming information
 and how to gain &amp; use information effectively. <span id="more"></span></p>
 <p>When I talk about Information Era, I am <strong>NOT</strong>
@@ -398,13 +520,13 @@ significantly increase the relevance of the information you find.</p>
 <p>Wrap up your phrase with <code>“”</code> to search the entire phrase
 rather than search word by word.</p>
 <figure>
-<img src="https://s2.loli.net/2022/03/16/SxZatqpoQGDlzmE.png" srcset="/img/loading.gif" lazyload
+<img src="https://s2.loli.net/2022/03/16/SxZatqpoQGDlzmE.png"
 alt="search-engine-keyprases-eg1.png" />
 <figcaption
 aria-hidden="true">search-engine-keyprases-eg1.png</figcaption>
 </figure>
 <figure>
-<img src="https://s2.loli.net/2022/03/16/wG9clIuJDi1SdLj.png" srcset="/img/loading.gif" lazyload
+<img src="https://s2.loli.net/2022/03/16/wG9clIuJDi1SdLj.png"
 alt="search-engine-keypharse-eg2" />
 <figcaption aria-hidden="true">search-engine-keypharse-eg2</figcaption>
 </figure></li>
@@ -412,12 +534,12 @@ alt="search-engine-keypharse-eg2" />
 <p>Use a <code>-</code> before the keyword you would like to
 exclude.</p>
 <figure>
-<img src="https://s2.loli.net/2022/03/16/dkmxwOJf98LBrA6.png" srcset="/img/loading.gif" lazyload
+<img src="https://s2.loli.net/2022/03/16/dkmxwOJf98LBrA6.png"
 alt="search-engine-exclude-eg1" />
 <figcaption aria-hidden="true">search-engine-exclude-eg1</figcaption>
 </figure>
 <figure>
-<img src="https://s2.loli.net/2022/03/16/4zAqsKpiBSGJEme.png" srcset="/img/loading.gif" lazyload
+<img src="https://s2.loli.net/2022/03/16/4zAqsKpiBSGJEme.png"
 alt="image-20220315224450069" />
 <figcaption aria-hidden="true">image-20220315224450069</figcaption>
 </figure></li>
@@ -439,7 +561,7 @@ type</strong>, use the keyword <code>filetype:</code>. E.g.
 <li><p>Suppose you want to find <strong>related websites</strong> (have
 similar content), use the keyword <code>related:</code>. E.g.</p>
 <figure>
-<img src="https://s2.loli.net/2022/03/16/YeXLzC4xRskhfPD.png" srcset="/img/loading.gif" lazyload
+<img src="https://s2.loli.net/2022/03/16/YeXLzC4xRskhfPD.png"
 alt="image-20220315220125781" />
 <figcaption aria-hidden="true">image-20220315220125781</figcaption>
 </figure></li>
@@ -497,471 +619,383 @@ strategies. A field called PKM (Personal Knowledge management) focuses
 on solve this issue. I would discuss my understanding of PKM and my
 methodology (the ZettleKasten) in a later article.</p>
 
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Informal-Essays/" class="category-chain-item">Informal Essays</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
     </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
+
+    <footer class="post-footer">
       
-        <a href="/tags/Methodology/">#Methodology</a>
-      
-        <a href="/tags/PIM/">#PIM</a>
-      
-    </div>
-  
+        <div class="post-tags">
+  <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+    <line x1="7" y1="7" x2="7.01" y2="7"></line>
+  </svg>
+  <span class="tags-label">Tags:</span>
+  <ul class="tags-list">
+    
+      <li>
+        <a href="/tags/Methodology/" class="tag-link">#Methodology</a>
+      </li>
+    
+      <li>
+        <a href="/tags/PIM/" class="tag-link">#PIM</a>
+      </li>
+    
+  </ul>
 </div>
 
+      
 
-              
+      
   
 
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>Embrace the Information Era</div>
-      <div>https://delusion4013.github.io/2022/03/13/Embrace the Information Era/</div>
+  <div class="share-buttons">
+    <span class="share-label">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="18" cy="5" r="3"></circle>
+        <circle cx="6" cy="12" r="3"></circle>
+        <circle cx="18" cy="19" r="3"></circle>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+      </svg>
+      Share
+    </span>
+
+    <div class="share-buttons-list">
+      
+        
+          <a href="https://twitter.com/intent/tweet?text=Embrace%20the%20Information%20Era&url=https%3A%2F%2Fdelusion4013.github.io%2F2022%2F03%2F13%2FEmbrace%2520the%2520Information%2520Era%2F"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="share-button share-twitter"
+             title="Share on Twitter"
+             aria-label="Share on Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+        
+      
+        
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdelusion4013.github.io%2F2022%2F03%2F13%2FEmbrace%2520the%2520Information%2520Era%2F"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="share-button share-facebook"
+             title="Share on Facebook"
+             aria-label="Share on Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+        
+      
+        
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fdelusion4013.github.io%2F2022%2F03%2F13%2FEmbrace%2520the%2520Information%2520Era%2F"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="share-button share-linkedin"
+             title="Share on LinkedIn"
+             aria-label="Share on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+        
+      
+        
+          <a href="https://reddit.com/submit?url=https%3A%2F%2Fdelusion4013.github.io%2F2022%2F03%2F13%2FEmbrace%2520the%2520Information%2520Era%2F&title=Embrace%20the%20Information%20Era"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="share-button share-reddit"
+             title="Share on Reddit"
+             aria-label="Share on Reddit">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+            </svg>
+          </a>
+        
+      
+        
+          <a href="https://api.whatsapp.com/send?text=Embrace%20the%20Information%20Era%20https%3A%2F%2Fdelusion4013.github.io%2F2022%2F03%2F13%2FEmbrace%2520the%2520Information%2520Era%2F"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="share-button share-whatsapp"
+             title="Share on WhatsApp"
+             aria-label="Share on WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+          </a>
+        
+      
+        
+          <a href="https://telegram.me/share/url?url=https%3A%2F%2Fdelusion4013.github.io%2F2022%2F03%2F13%2FEmbrace%2520the%2520Information%2520Era%2F&text=Embrace%20the%20Information%20Era"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="share-button share-telegram"
+             title="Share on Telegram"
+             aria-label="Share on Telegram">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            </svg>
+          </a>
+        
+      
+
+      <!-- Copy Link Button -->
+      <button class="share-button share-copy" id="copy-link-button" title="Copy link" aria-label="Copy link">
+        <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+          <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+        </svg>
+        <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </button>
     </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>Author</div>
-          <div>Chenkai</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>Posted on</div>
-          <div>March 13, 2022</div>
-        </div>
-      
-      
-      
-        <div class="license-meta-item">
-          <div>Licensed under</div>
-          <div>
-            
-              
-              
-                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - Attribution">
-                    <i class="iconfont icon-by"></i>
-                  </span>
-                </a>
-              
-            
-          </div>
-        </div>
-      
-    </div>
-    <div class="license-icon iconfont"></div>
   </div>
 
 
 
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2022/09/15/Literature%20Note%20-%20BERT/" title="Literature Note - BERT">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Literature Note - BERT</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2022/02/17/Introduction-to-Crypotography/" title="Introduction to Cryptography">
-                        <span class="hidden-mobile">Introduction to Cryptography</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
+      
+        <nav class="post-nav">
+  
+    <a href="/2022/09/15/Literature%20Note%20-%20BERT/" class="post-nav-item post-nav-prev" rel="prev">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      <div class="post-nav-content">
+        <span class="post-nav-label">Previous</span>
+        <span class="post-nav-title">Literature Note - BERT</span>
+      </div>
+    </a>
+  
 
-            
-  <article id="comments" lazyload>
-    
-  <div class="disqus" style="width:100%">
-    <div id="disqus_thread"></div>
-    
-      <script type="text/javascript">
-        var disqus_config = function() {
-          this.page.url = 'https://delusion4013.github.io/2022/03/13/Embrace%20the%20Information%20Era/';
-          this.page.identifier = '/2022/03/13/Embrace%20the%20Information%20Era/';
-        };
-        Fluid.utils.loadComments('#disqus_thread', function() {
-          var d = document, s = d.createElement('script');
-          s.src = '//' + 'my-hexo-blog-7' + '.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', new Date());
-          (d.head || d.body).appendChild(s);
-        });
-      </script>
-    
-    <noscript>Please enable JavaScript to view the comments</noscript>
-  </div>
+  
+    <a href="/2022/02/17/Introduction-to-Crypotography/" class="post-nav-item post-nav-next" rel="next">
+      <div class="post-nav-content">
+        <span class="post-nav-label">Next</span>
+        <span class="post-nav-title">Introduction to Cryptography</span>
+      </div>
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="5" y1="12" x2="19" y2="12"></line>
+        <polyline points="12 5 19 12 12 19"></polyline>
+      </svg>
+    </a>
+  
+</nav>
 
+      
 
+      
+        <script>
+// Code copy functionality is initialized in main.js
+// This partial is just a marker that code copy buttons should be enabled
+</script>
+
+      
+    </footer>
   </article>
 
-
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;Table of Contents</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
   
 
 
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">Keyword</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
   </main>
 
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  <footer class="footer">
+  <div class="footer-container">
+    
+      <div class="social-icons">
+        
+          <a href="https://github.com/Delusion4013" target="_blank" rel="noopener noreferrer" title="github">
+            
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+            
+          </a>
+        
+          <a href="/atom.xml" target="_blank" rel="noopener noreferrer" title="rss">
+            
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
+                <path d="M4 11a9 9 0 0 1 9 9"></path>
+                <path d="M4 4a16 16 0 0 1 16 16"></path>
+                <circle cx="5" cy="19" r="1"></circle>
+              </svg>
+            
+          </a>
+        
+      </div>
+    
+
+    <div class="footer-info">
+      
+
+      <div class="copyright">
+        &copy; 2020 - 2025 Chenkai
+      </div>
+
+      
+        <div class="powered-by">
+          
+            Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>
+          
+          
+            <span class="separator">|</span>
+          
+          
+            Theme <a href="https://github.com/yourusername/hexo-theme-papermod" target="_blank" rel="noopener">PaperMod</a>
+          
+        </div>
+      
     </div>
+  </div>
+</footer>
+
+
   
-  
-    <div class="statistics">
-  
+    <button class="scroll-top" id="scrollTop" title="Back to top (Alt + G)">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24">
+    <path d="m18 15-6-6-6 6"/>
+  </svg>
+</button>
+
   
 
   
     
-      <span id="busuanzi_container_site_pv" style="display: none">
-        Views: 
-        <span id="busuanzi_value_site_pv"></span>
-        
-      </span>
-    
-    
-      <span id="busuanzi_container_site_uv" style="display: none">
-        Visitors: 
-        <span id="busuanzi_value_site_uv"></span>
-        
-      </span>
-    
-    
-  
-</div>
+  <div class="search-overlay" id="search-overlay">
+    <div class="search-container">
+      <div class="search-header">
+        <div class="search-input-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="Search..."
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <button class="search-close" id="search-close" aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <div class="search-hint">
+          <kbd>⌘</kbd><kbd>K</kbd> or <kbd>Ctrl</kbd><kbd>K</kbd> to open, <kbd>Esc</kbd> to close
+        </div>
+      </div>
+
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+
 
   
-  
-  
-</div>
-
-  </footer>
 
   <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
+  <script src="/js/main.02905c6e.js"></script>
+  <script src="/js/theme-toggle.4f90f5d1.js"></script>
 
   
-    <script  src="/js/img-lazyload.js" ></script>
+    <script src="/js/search.31192334.js"></script>
   
 
-
-
+  
+    <script src="/js/toc-scroll.788c21d9.js"></script>
+  
 
   
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  
-      <script>
-        if (!window.MathJax) {
-          window.MathJax = {
-            tex    : {
-              inlineMath: { '[+]': [['$', '$']] }
-            },
-            loader : {
-              load: ['ui/lazy']
-            },
-            options: {
-              renderActions: {
-                insertedScript: [200, () => {
-                  document.querySelectorAll('mjx-container').forEach(node => {
-                    let target = node.parentNode;
-                    if (target.nodeName.toLowerCase() === 'li') {
-                      target.parentNode.classList.add('has-jax');
-                    }
-                  });
-                }, '', false]
-              }
-            }
-          };
-        } else {
-          MathJax.startup.document.state(0);
-          MathJax.texReset();
-          MathJax.typeset();
-          MathJax.typesetPromise();
-        }
-
-        Fluid.events.registerRefreshCallback(function() {
-          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
-            MathJax.startup.document.state(0);
-            MathJax.texReset();
-            MathJax.typeset();
-            MathJax.typesetPromise();
-          }
-        });
-      </script>
     
+  <script>
+    // Keyboard shortcuts (AccessKeys)
+    const shortcuts = {
+      'h': () => window.location.href = '/',
+      't': () => {
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) themeToggle.click();
+      },
+      'c': () => {
+        const tocContainer = document.querySelector('.toc-container');
+        if (tocContainer) {
+          tocContainer.classList.toggle('toc-open');
 
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+          // Update ARIA state
+          const tocToggle = tocContainer.querySelector('.toc-toggle');
+          if (tocToggle) {
+            const isOpen = tocContainer.classList.contains('toc-open');
+            tocToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          }
+        }
+      },
+      'g': () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+      '/': () => {
+        const searchButton = document.getElementById('searchButton');
+        if (searchButton) searchButton.click();
+      },
+    };
 
-  <script  src="/js/local-search.js" ></script>
-
-  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
+    document.addEventListener('keydown', (e) => {
+      if (e.altKey && shortcuts[e.key]) {
+        e.preventDefault();
+        shortcuts[e.key]();
+      }
+    });
+  </script>
 
 
   
 
-  <noscript>
-    <div class="noscript-warning">Blog works best with JavaScript enabled</div>
-  </noscript>
+  
+
+
+
+
+  <!-- Math Rendering -->
+  
+  
+
+  
+    <script>
+      if (!window.MathJax) {
+        window.MathJax = {
+          tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            displayMath: [['$$', '$$'], ['\\[', '\\]']],
+            tags: 'ams',
+            processEscapes: true,
+            processEnvironments: true
+          },
+          chtml: {
+            scale: 1.0,
+            minScale: 0.5,
+            matchFontHeight: true
+          },
+          options: {
+            skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            ignoreHtmlClass: 'tex2jax_ignore',
+            processHtmlClass: 'tex2jax_process'
+          },
+          startup: {
+            pageReady: function() {
+              return MathJax.startup.defaultPageReady().then(function() {
+                console.log('MathJax rendering complete');
+              });
+            }
+          }
+        };
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+  
+
+
 </body>
 </html>

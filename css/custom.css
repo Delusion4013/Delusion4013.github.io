@@ -1,0 +1,22 @@
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css">/* Custom CSS to fix post navigation buttons overflow */
+.post-nav {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.post-nav-item {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.post-nav-content {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.post-nav-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
