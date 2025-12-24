@@ -48,7 +48,7 @@
 
 
 <meta property="og:site_name" content="Chenkai&#39;s Blog">
-<meta property="og:locale" content="en,zh-CN,default">
+<meta property="og:locale" content="en">
 
 
 
@@ -72,24 +72,7 @@
   
     
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "headline": "About me",
-  "url": "https://delusion4013.github.io/about/index.html",
-  
-  "description": "Welcome to explore more on CS and other fields together with me. Stay hungry, stay foolish",
-  
-  
-  "name": "Chenkai&#39;s Blog",
-  "publisher": {
-    "@type": "Organization",
-    "name": "Chenkai&#39;s Blog"
-  }
-  
-}
-</script>
+
 
   
 
@@ -99,7 +82,7 @@
   
 
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/main.b54d904b.css">
+  <link rel="stylesheet" href="/css/main.9a7d283b.css">
 
   <!-- Syntax Highlighting -->
   <link rel="stylesheet" href="/css/highlight.css">
@@ -263,6 +246,8 @@
     </li>
   </ol>
 </nav>
+
+    
 
     
 
@@ -484,6 +469,8 @@ Chinese textbook</a></li>
 
   
 
+  
+
 
   </main>
 
@@ -589,7 +576,19 @@ Chinese textbook</a></li>
   <script src="/js/theme-toggle.4f90f5d1.js"></script>
 
   
+    <script src="/js/lazy-load.3cd2f9b0.js" defer></script>
+  
+
+  
+
+  
     <script src="/js/search.31192334.js"></script>
+  
+
+  
+
+  
+    <script src="/js/scroll-top.d4531bf8.js" defer></script>
   
 
   
@@ -678,6 +677,81 @@ Chinese textbook</a></li>
       }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+  
+
+
+
+  <!-- Mermaid Diagrams -->
+  
+  
+
+  
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js';
+
+      // Get current theme
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const mermaidTheme = 'default';
+
+      // Initialize Mermaid
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: isDark && mermaidTheme === 'default' ? 'dark' : mermaidTheme,
+        securityLevel: 'loose',
+        fontFamily: 'var(--font-sans)',
+        themeCSS: `
+          .node rect,
+          .node circle,
+          .node ellipse,
+          .node polygon {
+            fill: var(--bg-secondary);
+            stroke: var(--border);
+            stroke-width: 2px;
+          }
+          .node text {
+            fill: var(--text-primary);
+          }
+          .edgePath .path {
+            stroke: var(--border);
+            stroke-width: 2px;
+          }
+          .edgeLabel {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+          }
+        `
+      });
+
+      // Re-render when theme changes
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+            const newIsDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const newTheme = newIsDark && mermaidTheme === 'default' ? 'dark' : mermaidTheme;
+
+            mermaid.initialize({
+              theme: newTheme
+            });
+
+            // Re-render all mermaid diagrams
+            document.querySelectorAll('.mermaid').forEach((el, index) => {
+              const id = `mermaid-${Date.now()}-${index}`;
+              const graphDefinition = el.textContent;
+              mermaid.render(id, graphDefinition).then(({ svg }) => {
+                el.innerHTML = svg;
+              });
+            });
+          }
+        });
+      });
+
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-theme']
+      });
+
+      console.log('Mermaid initialized');
+    </script>
   
 
 

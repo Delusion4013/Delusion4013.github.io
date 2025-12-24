@@ -1,0 +1,2 @@
+!function(){"use strict";var e=document.getElementById("scrollTop");if(e){var i,n=!1;e.addEventListener("click",function(e){e.preventDefault(),window.scrollTo({top:0,behavior:"smooth"})}),window.addEventListener("scroll",function(){i&&window.cancelAnimationFrame(i),i=window.requestAnimationFrame(t)},{passive:!0}),t()}function t(){var i=window.pageYOffset>400;i&&!n?(e.classList.add("visible"),n=!0):!i&&n&&(e.classList.remove("visible"),n=!1)}}();
+//# sourceMappingURL=scroll-top.d4531bf8.js.map
